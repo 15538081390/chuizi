@@ -78,10 +78,10 @@ WSGI_APPLICATION = 'django_chuizi.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': "Day03",
-        "HOST":"10.0.108.91",
+        'NAME': "lichao",
+        "HOST":"192.168.31.175",
         "USER":"root",
-        "PASSWORD":"123456",
+        "PASSWORD":"8790909a",
         "POST":"3306"
     }
 }

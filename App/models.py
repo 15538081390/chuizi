@@ -1,46 +1,163 @@
 from django.db import models
 
-# Create your models here.
-#首页顶端模块表
-class IndexTab(models.Manager):
-    tid = models.AutoField(primary_key=True)                #首页顶端模块
-    tname = models.CharField(max_length=128,unique=True)    #首页顶端模块名
-    class Meta:
-        db_table = "index_tab"
+# This is an auto-generated Django model module.
+# You'll have to do the following manually to clean this up:
+#   * Rearrange models' order
+#   * Make sure each model has one field with primary_key=True
+#   * Make sure each ForeignKey has `on_delete` set to the desired behavior.
+#   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
+# Feel free to rename the models, but don't rename db_table values or field names.
+from __future__ import unicode_literals
 
-#首页选项表
-class IndexHome(models.Manager):
-    hid = models.AutoField(primary_key=True)               #首页选项ID
-    gname = models.CharField(max_length=128,unique=True)   #首页选项名字
-    class Meta:
-        db_table = "indexhome"                              #表名
+from django.db import models
 
-#首页分类表
-class IndexCopy(models.Manager):
-    cid = models.AutoField(primary_key=True)                #首页选项下的分类
-    hid = models.IntegerField()                             #首页选项ID，表链接关键字
-    cname = models.CharField(max_length=128,unique=True)    #分类名字
-    class Meta:
-        db_table = "indexcopy"                              #表名
 
-#首页产品细分表
-class IndexProduct(models.Manager):
-    pid = models.AutoField(primary_key=True)                #首页产品细分表
-    pname = models.CharField(max_length=128,unique=True)    #首尔产品细分名字
-    cid = models.IntegerField(default=0)                    #首页分类表ID，表连接关键字
-    class Meta:
-        db_table ="indexproduct"                            #表名
+class Breath(models.Model):
+    idbreath = models.AutoField(primary_key=True)
+    name = models.CharField(unique=True, max_length=45)
+    money = models.FloatField()
+    picture = models.CharField(max_length=45, blank=True, null=True)
+    infpicture = models.CharField(max_length=45, blank=True, null=True)
+    infserver = models.CharField(max_length=45, blank=True, null=True)
+    inf = models.CharField(max_length=45, blank=True, null=True)
+    black = models.IntegerField()
+    white = models.IntegerField()
+    fuhe = models.IntegerField()
+    jiaquan = models.IntegerField()
+    biaozhun = models.IntegerField()
 
-#产品表
-class ProductCategorie(models.Manager):
-    pcid = models.AutoField(primary_key=True)               #产品id
-    pcname = models.CharField(max_length=256,unique=True)   #产品名字
-    pid = models.IntegerField()                             #首页产品细分类ID
-    money = models.IntegerField()                           #价格
-    inf = models.CharField(max_length=256)                  #产品文字说明说明
-    image = models.CharField(max_length=256)                #产品信息图片
-    # infimage=
     class Meta:
-        db_table ="productcategorie"                        #产品表名
+        managed = False
+        db_table = 'breath'
+
+
+class Clothes(models.Model):
+    idclothes = models.AutoField(primary_key=True)
+    money = models.FloatField()
+    name = models.CharField(max_length=45)
+    picture = models.CharField(max_length=45, blank=True, null=True)
+    infpicture = models.CharField(max_length=45, blank=True, null=True)
+    inf = models.CharField(max_length=45, blank=True, null=True)
+    infserver = models.CharField(max_length=45, blank=True, null=True)
+    black = models.IntegerField()
+    white = models.IntegerField()
+    fifteen_6 = models.IntegerField()
+    twenty = models.IntegerField()
+    notopen = models.IntegerField()
+    s = models.IntegerField()
+    l = models.IntegerField()
+    m = models.IntegerField()
+    xl = models.IntegerField()
+    man = models.IntegerField()
+    kid = models.IntegerField()
+    women = models.IntegerField()
+    three_7 = models.IntegerField()
+    three_8 = models.IntegerField()
+    three_9 = models.IntegerField()
+    four_0 = models.IntegerField()
+    four_1 = models.IntegerField()
+    four_2 = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'clothes'
+
+
+class IndexTab(models.Model):
+    tid = models.AutoField(primary_key=True)
+    tname = models.CharField(unique=True, max_length=45)
+
+    class Meta:
+        managed = False
+        db_table = 'index_tab'
+
+
+class Indexcopy(models.Model):
+    cid = models.AutoField(primary_key=True)
+    hid = models.IntegerField()
+    cname = models.CharField(max_length=45)
+    indexcopycol = models.CharField(unique=True, max_length=45, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'indexcopy'
+
+
+class Indexhome(models.Model):
+    hid = models.AutoField(primary_key=True)
+    gname = models.CharField(unique=True, max_length=45)
+
+    class Meta:
+        managed = False
+        db_table = 'indexhome'
+
+
+class Indexproduct(models.Model):
+    pid = models.AutoField(primary_key=True)
+    pname = models.CharField(unique=True, max_length=45)
+    cid = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'indexproduct'
+
+
+class Parts(models.Model):
+    partsid = models.AutoField(primary_key=True)
+    partsname = models.CharField(unique=True, max_length=45)
+    money = models.FloatField()
+    one = models.IntegerField()
+    two = models.IntegerField()
+    three = models.IntegerField()
+    white = models.IntegerField()
+    black = models.IntegerField()
+    diantongban = models.IntegerField(blank=True, null=True)
+    picture = models.CharField(max_length=45, blank=True, null=True)
+    infpicture = models.CharField(max_length=45, blank=True, null=True)
+    inf = models.CharField(max_length=45, blank=True, null=True)
+    infserver = models.CharField(max_length=45, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'parts'
+
+
+class Phone(models.Model):
+    idphone = models.AutoField(primary_key=True)
+    phonename = models.CharField(max_length=45)
+    picture = models.CharField(max_length=45, blank=True, null=True)
+    infpicture = models.CharField(max_length=45, blank=True, null=True)
+    inf = models.CharField(max_length=45)
+    money = models.FloatField()
+    white = models.IntegerField()
+    black = models.IntegerField()
+    six_64 = models.IntegerField()
+    six_128 = models.IntegerField()
+    eight_128 = models.IntegerField()
+    eight_512 = models.IntegerField()
+    gailan = models.CharField(max_length=45, blank=True, null=True)
+    sheji = models.CharField(max_length=45, blank=True, null=True)
+    gongneng = models.CharField(max_length=45, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'phone'
+
+
+class Productcategorie(models.Model):
+    pcid = models.AutoField(primary_key=True)
+    pcname = models.CharField(unique=True, max_length=45)
+    pid = models.IntegerField()
+    hid = models.IntegerField()
+    money = models.FloatField()
+    inf = models.CharField(max_length=45)
+    red = models.IntegerField()
+    white = models.IntegerField()
+    black = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'productcategorie'
+
 
 
