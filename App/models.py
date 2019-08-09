@@ -1,17 +1,17 @@
 from django.db import models
 
-# This is an auto-generated Django model module.
-# You'll have to do the following manually to clean this up:
-#   * Rearrange models' order
-#   * Make sure each model has one field with primary_key=True
-#   * Make sure each ForeignKey has `on_delete` set to the desired behavior.
-#   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
-# Feel free to rename the models, but don't rename db_table values or field names.
-from __future__ import unicode_literals
+# # This is an auto-generated Django model module.
+# # You'll have to do the following manually to clean this up:
+# #   * Rearrange models' order
+# #   * Make sure each model has one field with primary_key=True
+# #   * Make sure each ForeignKey has `on_delete` set to the desired behavior.
+# #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
+# # Feel free to rename the models, but don't rename db_table values or field names.
+# from __future__ import unicode_literals
+#
+# from django.db import models
 
-from django.db import models
-
-
+#畅呼吸商品类
 class Breath(models.Model):
     idbreath = models.AutoField(primary_key=True)
     name = models.CharField(unique=True, max_length=45)
@@ -30,7 +30,7 @@ class Breath(models.Model):
         managed = False
         db_table = 'breath'
 
-
+#衣服商品类
 class Clothes(models.Model):
     idclothes = models.AutoField(primary_key=True)
     money = models.FloatField()
@@ -62,7 +62,7 @@ class Clothes(models.Model):
         managed = False
         db_table = 'clothes'
 
-
+#首页顶行
 class IndexTab(models.Model):
     tid = models.AutoField(primary_key=True)
     tname = models.CharField(unique=True, max_length=45)
@@ -71,7 +71,7 @@ class IndexTab(models.Model):
         managed = False
         db_table = 'index_tab'
 
-
+#选项表分类
 class Indexcopy(models.Model):
     cid = models.AutoField(primary_key=True)
     hid = models.IntegerField()
@@ -82,7 +82,7 @@ class Indexcopy(models.Model):
         managed = False
         db_table = 'indexcopy'
 
-
+#选项表分类
 class Indexhome(models.Model):
     hid = models.AutoField(primary_key=True)
     gname = models.CharField(unique=True, max_length=45)
@@ -91,7 +91,7 @@ class Indexhome(models.Model):
         managed = False
         db_table = 'indexhome'
 
-
+#产品细分
 class Indexproduct(models.Model):
     pid = models.AutoField(primary_key=True)
     pname = models.CharField(unique=True, max_length=45)
@@ -101,7 +101,7 @@ class Indexproduct(models.Model):
         managed = False
         db_table = 'indexproduct'
 
-
+#小件产品类
 class Parts(models.Model):
     partsid = models.AutoField(primary_key=True)
     partsname = models.CharField(unique=True, max_length=45)
@@ -121,7 +121,7 @@ class Parts(models.Model):
         managed = False
         db_table = 'parts'
 
-
+#手机产品类
 class Phone(models.Model):
     idphone = models.AutoField(primary_key=True)
     phonename = models.CharField(max_length=45)
@@ -143,7 +143,7 @@ class Phone(models.Model):
         managed = False
         db_table = 'phone'
 
-
+#产品表
 class Productcategorie(models.Model):
     pcid = models.AutoField(primary_key=True)
     pcname = models.CharField(unique=True, max_length=45)
