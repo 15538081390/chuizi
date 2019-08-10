@@ -38,6 +38,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'App',
+    'operate.apps.OperateConfig',
+]
+
+
+PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+    'django.contrib.auth.hashers.Argon2PasswordHasher',
+    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+    'django.contrib.auth.hashers.BCryptPasswordHasher',
 ]
 
 MIDDLEWARE = [
@@ -79,7 +89,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': "lichao",
-        "HOST":"192.168.31.175",
+        "HOST":"10.0.108.134",
         "USER":"root",
         "PASSWORD":"8790909a",
         "POST":"3306"
