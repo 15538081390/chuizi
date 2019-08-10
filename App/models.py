@@ -159,7 +159,7 @@ class Phone(models.Model):
 class Productcategorie(models.Model):
     pcid = models.AutoField(primary_key=True)
     pcname = models.CharField(unique=True, max_length=45)
-    pid = models.IntegerField()
+    cid = models.IntegerField()
     hid = models.IntegerField()
     money = models.FloatField()
     inf = models.CharField(max_length=45)

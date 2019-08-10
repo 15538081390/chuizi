@@ -4110,7 +4110,7 @@
                             <div _ngcontent-c6="" class="nav-sub-wrapper">
                                 <div _ngcontent-c6="" class="container">
                                     <ul _ngcontent-c6="" class="nav-list"> <!---->
-                                        <li _ngcontent-c6=""> <!----><a _ngcontent-c6="" href="https://t.tt/">首页</a>
+                                        <li _ngcontent-c6=""> <!----><a _ngcontent-c6="" href="{% url 'app:index' %}">首页</a>
                                             <!----> </li>
                                         {% for h1 in home %}
                                             <li _ngcontent-c6=""> <!----><a _ngcontent-c6=""
@@ -4120,8 +4120,11 @@
                                         {% endfor %}
 
                                             <!----> </li>
-                                        <li _ngcontent-c6=""> <!----> <!----><a _ngcontent-c6="">服务</a></li>
+                                        <li _ngcontent-c6=""> <!----> <!----><a _ngcontent-c6="" href="">服务政策</a></li>
+                                    <li _ngcontent-c6=""> <!----> <!----><a _ngcontent-c6="" href="">发起售后</a></li>
                                     </ul> <!---->
+
+
                                     <search-bar _ngcontent-c6="" class="nav-search" _nghost-c8="">
                                         <div _ngcontent-c8="" class="search-bar">
                                             <form _ngcontent-c8=""
@@ -4274,14 +4277,15 @@
                                     <li _ngcontent-c10=""><a _ngcontent-c10=""> 价格高到低 </a></li>
                                 </ul>
 
+
                                 <ul _ngcontent-c10="" class="line clearfix"> <!---->
                                     {% for c1 in copy %}
-                                        {% ifequal c1.hid to_id %}
+{% ifequal c1.hid to_id %}
                                         <li _ngcontent-c10=""><a _ngcontent-c10=""> {{c1.cname}} </a></li>
-                                        {% endifequal %}
-                                    {% endfor %}
 
+{% endifequal %}{% endfor %}
                                 </ul>
+
 
 
                             </div>
