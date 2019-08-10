@@ -16,6 +16,7 @@ def index(request):
     # return HttpResponse("111111")
 
 # 商品展示
+
 def second(request,cid):
     home = Indexhome.objects.all()
     tab = IndexTab.objects.all()
@@ -28,8 +29,6 @@ def second(request,cid):
                                                           "to_id":int(cid),
                                                           "copy":copy,
                                                           "indepro":indepro,})
-
-
 
 #服务条款
 def server(request):
