@@ -82,7 +82,7 @@ class Indexcopy(models.Model):
     cid = models.AutoField(primary_key=True)
     hid = models.IntegerField()
     cname = models.CharField(max_length=45)
-    indexcopycol = models.CharField(unique=True, max_length=45, blank=True, null=True)
+
 
     class Meta:
         managed = False
@@ -163,7 +163,7 @@ class Productcategorie(models.Model):
     hid = models.IntegerField()
     money = models.FloatField()
     inf = models.CharField(max_length=45)
-    red = models.IntegerField()
+    picture=models.CharField(max_length=255)
     white = models.IntegerField()
     black = models.IntegerField()
 
@@ -172,5 +172,10 @@ class Productcategorie(models.Model):
         managed = False
         db_table = 'productcategorie'
 
+class Aaa(models.Model):
+    name=models.IntegerField()
 
 
+    class Meta:
+        managed=False
+        db_table='aa'
