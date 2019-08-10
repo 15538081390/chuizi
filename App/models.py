@@ -25,6 +25,9 @@ class Breath(models.Model):
     fuhe = models.IntegerField()
     jiaquan = models.IntegerField()
     biaozhun = models.IntegerField()
+    xiaoliang = models.IntegerField()
+    tochan = models.IntegerField()
+    kucun = models.IntegerField()
 
     class Meta:
         managed = False
@@ -57,6 +60,9 @@ class Clothes(models.Model):
     four_0 = models.IntegerField()
     four_1 = models.IntegerField()
     four_2 = models.IntegerField()
+    xiaoliang = models.IntegerField()
+    tochan = models.IntegerField()
+    kucun = models.IntegerField()
 
     class Meta:
         managed = False
@@ -116,6 +122,9 @@ class Parts(models.Model):
     infpicture = models.CharField(max_length=45, blank=True, null=True)
     inf = models.CharField(max_length=45, blank=True, null=True)
     infserver = models.CharField(max_length=45, blank=True, null=True)
+    xiaoliang = models.IntegerField()
+    tochan = models.IntegerField()
+    kucun = models.IntegerField()
 
     class Meta:
         managed = False
@@ -138,6 +147,9 @@ class Phone(models.Model):
     gailan = models.CharField(max_length=45, blank=True, null=True)
     sheji = models.CharField(max_length=45, blank=True, null=True)
     gongneng = models.CharField(max_length=45, blank=True, null=True)
+    xiaoliang = models.IntegerField()
+    tochan = models.IntegerField()
+    kucun = models.IntegerField()
 
     class Meta:
         managed = False
@@ -154,6 +166,7 @@ class Productcategorie(models.Model):
     red = models.IntegerField()
     white = models.IntegerField()
     black = models.IntegerField()
+
 
     class Meta:
         managed = False
