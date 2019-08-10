@@ -19,13 +19,18 @@ def index(request):
 def second(request,cid):
     home = Indexhome.objects.all()
     tab = IndexTab.objects.all()
+    copy=Indexcopy.objects.all()
+    indepro=Indexproduct.objects.all()
     products=Productcategorie.objects.all()
+
 
 
     return render(request,"App/bash/second.html",context={"home":home,
                                                         "tab":tab,
                                                         "products":products,
-                                                          "to_id":int(cid)})
+                                                          "to_id":int(cid),
+                                                          "copy":copy,
+                                                          "indepro":indepro,})
 
 
 

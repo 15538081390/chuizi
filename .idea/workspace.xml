@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84eda3aa-c6e9-471a-93e9-c8a57b49157a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/django_chuizi.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/django_chuizi.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django_chuizi/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/django_chuizi/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django_chuizi/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/django_chuizi/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/App/bash/second.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/App/bash/second.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,19 +23,6 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>js</find>
-      <find>.js</find>
-      <find>.css</find>
-      <find>.jpg</find>
-      <find>//static.smartisanos.cn/index/assets/images/</find>
-      <find>-c5</find>
-      <find>format</find>
-      <find>js-banner</find>
-      <find>帆布鞋</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -47,7 +32,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../论坛" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -59,16 +44,17 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates" />
+      <recent name="D:\PycharmProjects\Django_porject\django_chuizi\static" />
+      <recent name="D:\PycharmProjects\Django_porject\django_chuizi" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/templates/" />
       <recent name="D:\PycharmProjects\Django_porject\django_chuizi\static\image" />
       <recent name="D:\PycharmProjects\Django_porject\django_chuizi\static" />
       <recent name="D:\PycharmProjects\Django_porject\django_chuizi\static\js" />
       <recent name="D:\PycharmProjects\Django_porject\django_chuizi\static\css" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\PycharmProjects\Django_porject\django_chuizi\static" />
-      <recent name="D:\PycharmProjects\Django_porject\django_chuizi" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -141,6 +127,7 @@
       <workItem from="1565358662817" duration="20000" />
       <workItem from="1565358684789" duration="2283000" />
       <workItem from="1565401003895" duration="4733000" />
+      <workItem from="1565418591350" duration="2004000" />
     </task>
     <servers />
   </component>
@@ -159,5 +146,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/operate/models.py</url>
+          <line>20</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

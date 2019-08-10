@@ -4273,6 +4273,17 @@
                                     <li _ngcontent-c10=""><a _ngcontent-c10=""> 价格低到高 </a></li>
                                     <li _ngcontent-c10=""><a _ngcontent-c10=""> 价格高到低 </a></li>
                                 </ul>
+
+                                <ul _ngcontent-c10="" class="line clearfix"> <!---->
+                                    {% for c1 in copy %}
+                                        {% ifequal c1.hid to_id %}
+                                        <li _ngcontent-c10=""><a _ngcontent-c10=""> {{c1.cname}} </a></li>
+                                        {% endifequal %}
+                                    {% endfor %}
+
+                                </ul>
+
+
                             </div>
                         </category-sortbar>
                         <section _ngcontent-c7="" class="items-wrapper clearfix">
