@@ -4,6 +4,6 @@ from operate import views
 
 urlpatterns =[
 
-    url(r"^login/$", views.login, name="")
+    url(r"^login/$", views.login, name="login")
 
 ]
