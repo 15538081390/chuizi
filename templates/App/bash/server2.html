@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="renderer" content="webkit">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    <title>售后服务-锤子商城</title>
+    <title>售后政策-锤子商城</title>
     <link href="https://static.smartisanos.cn/common/img/favicon.ico" rel="shortcut icon">
     <link href="https://static.smartisanos.cn/common/img/favicon_114.png" rel="apple-touch-icon">
     <link href="https://static.smartisanos.cn/common/img/favicon_76.png" sizes="76x76" rel="apple-touch-icon">
@@ -5011,22 +5011,12 @@
                         <ul _ngcontent-c0="" class="nav-list"> <!---->
                             <li _ngcontent-c0=""><a _ngcontent-c0="" href="https://www.smartisan.com/" target="">
                                 在线商城 </a></li>
-                            <li _ngcontent-c0=""><a _ngcontent-c0="" href="https://www.smartisan.com/jianguopro2s/"
-                                                    target=""> 坚果 Pro 2S </a></li>
-                            <li _ngcontent-c0=""><a _ngcontent-c0="" href="https://www.smartisan.com/r1/" target=""> 坚果
-                                R1 </a></li>
-                            <li _ngcontent-c0=""><a _ngcontent-c0="" href="https://www.smartisan.com/tnt/" target=""> 坚果
-                                TNT 工作站 </a></li>
-                            <li _ngcontent-c0=""><a _ngcontent-c0="" href="https://www.smartisan.com/os/" target="">
-                                Smartisan OS </a></li>
-                            <li _ngcontent-c0=""><a _ngcontent-c0="" href="https://yun.smartisan.com/" target="_blank">
-                                欢喜云 </a></li>
-                            <li _ngcontent-c0=""><a _ngcontent-c0="" href="https://www.smartisan.com/apps/" target="">
-                                应用 </a></li>
-                            <li _ngcontent-c0=""><a _ngcontent-c0="" href="https://bbs.smartisan.com/forum.php"
-                                                    target=""> 论坛 </a></li>
-                            <li _ngcontent-c0=""><a _ngcontent-c0="" href="https://www.smartisan.com/support/#/awards"
-                                                    target=""> 荣誉与奖项 </a></li>
+                            {% for t1 in tab %}
+
+                                <li _ngcontent-c1=""><a _ngcontent-c1="" title="{{ t1.tname }}"
+                                                        href="http://bbs.smartisan.com/forum.php"
+                                                        target=""> {{ t1.tname }} </a></li>
+                            {% endfor %}
                         </ul>
                     </div>
                 </div> <!---->
@@ -5055,140 +5045,203 @@
     <div class="main">
         <div>
             <router-outlet></router-outlet>
-            <support-service _nghost-c7="">
-                <div _ngcontent-c7="" class="section service">
-                    <div _ngcontent-c7="" class="container">
-                        <collapse-nav _ngcontent-c7="" _nghost-c6=""><!----> <!---->
+            <support-service-policy _nghost-c5="">
+                <div _ngcontent-c5="" class="section service service-policy">
+                    <div _ngcontent-c5="" class="container">
+                        <collapse-nav _ngcontent-c5="" _nghost-c6=""><!----> <!---->
                             <div _ngcontent-c6="" class="aside sticky-nav"><h1 _ngcontent-c6="">服务与支持</h1>
                                 <ul _ngcontent-c6=""> <!---->
-                                    <li _ngcontent-c6=""> <!----><a _ngcontent-c6="" class="active" href="{% url "app:server" %}"
-                                                                    target="">售后服务</a> <!----> </li>
-                                    <li _ngcontent-c6=""> <!----><a _ngcontent-c6="" href="{% url "app:server2" %}" target="">售后政策</a>
+                                    <li _ngcontent-c6=""> <!----><a _ngcontent-c6="" href="{% url "app:server" %}" target="">售后服务</a>
                                         <!----> </li>
+                                    <li _ngcontent-c6=""> <!----><a _ngcontent-c6="" class="active"
+                                                                    href="{% url "app:server2" %}" target="">售后政策</a> <!---->
+                                    </li>
                                     <li _ngcontent-c6=""> <!----><a _ngcontent-c6=""
                                                                     href="{% url "app:server3" %}"
                                                                     target="">保修服务</a> <!----> </li>
                                 </ul>
                             </div>
-                        </collapse-nav>
-                        <div _ngcontent-c7="" class="content process-content"><h1 _ngcontent-c7="">售后服务</h1>
-                            <section _ngcontent-c7=""><h2 _ngcontent-c7="">服务流程</h2>
-                                <div _ngcontent-c7="" class="process list clearfix">
-                                    <ul _ngcontent-c7="">
-                                        <li _ngcontent-c7="">
-                                            <div _ngcontent-c7="" class="process-number">
-                                                <aside _ngcontent-c7="">1</aside>
-                                                <label _ngcontent-c7="">发起售后</label></div>
-                                            <div _ngcontent-c7="" class="process-text"><h3 _ngcontent-c7=""
-                                                                                           class="mobile-text">①
-                                                发起售后</h3>
-                                                <p _ngcontent-c7="">您可以在锤子商城<!----><a _ngcontent-c7=""
-                                                                                      href="https://www.smartisan.com/user/">个人中心</a>
-                                                    <!---->发起售后服务要求<i _ngcontent-c7="">。</i></p></div>
-                                        </li>
-                                        <li _ngcontent-c7="">
-                                            <div _ngcontent-c7="" class="process-number">
-                                                <aside _ngcontent-c7="">2</aside>
-                                                <label _ngcontent-c7="">客服确认</label></div>
-                                            <div _ngcontent-c7="" class="process-text"><h3 _ngcontent-c7=""
-                                                                                           class="mobile-text">②
-                                                客服确认</h3>
-                                                <p _ngcontent-c7="">客服会在 2 个工作日内与您电话或短信联系并确认您的售后服务要求<i _ngcontent-c7="">。</i>
-                                                </p></div>
-                                        </li>
-                                        <li _ngcontent-c7="">
-                                            <div _ngcontent-c7="" class="process-number">
-                                                <aside _ngcontent-c7="">3</aside>
-                                                <label _ngcontent-c7="">退换修</label></div>
-                                            <div _ngcontent-c7="" class="process-text"><h3 _ngcontent-c7=""
-                                                                                           class="mobile-text">③
-                                                退换货</h3>
-                                                <p _ngcontent-c7="">您可于 7 天内到距离最近的<a _ngcontent-c7=""
-                                                                                     href="https://www.smartisan.com/support/#/servicelist">维修门店</a>办理售后服务，或直接将商品邮寄到售后服务中心<i
-                                                        _ngcontent-c7="">。</i></p></div>
-                                        </li>
-                                    </ul>
+                        </collapse-nav> <!----><!----> <!---->
+                        <div _ngcontent-c5="" class="content"><h1 _ngcontent-c5="">官方商城售后政策</h1>
+                            <section _ngcontent-c5="" class="content-list"><h2>手机产品（移动电话主机、电池、附件类）</h2>
+                                <p>保修期从您收到产品（以下简称“收货”）之日开始计算*，锤子商城的产品将分别按照以下不同的保修期提供保修服务：</p>
+                                <p>① 移动电话主机的保修期为自收货之日起 12 个月；<br>② 电池的保修期为自收货之日起 12 个月；<br>③ 附件类产品保修期为自收货之日起 12 个月。</p>
+                                <p>*以官方收货时间为准，转售等行为不重新计算时间</p>
+                                <p>详情参见：<a href="https://www.smartisan.com/support/#/service-policy-mobile"
+                                           target="_blank"></a><a
+                                        href="https://www.smartisan.com/support/#/service-policy" target="_blank"></a><a
+                                        href="https://www.smartisan.com/support/www.baidu.com" target="_blank"></a><a
+                                        href="https://www.smartisan.com/support/#/service-policy-mobile"
+                                        target="_blank"></a><a href="https://www.smartisan.com/support/#/service-policy"
+                                                               target="_blank"></a><a
+                                        href="https://www.smartisan.com/support/#/service-policy-mobile"
+                                        target="_blank">手机产品售后服务政策</a></p>
+                                <h2>手机附件（后壳、保护套、贴膜、充电设备、数据线、转接头）</h2>
+                                <p>① 后壳、保护套、贴膜自签收之日起，如配件齐全未拆封且无人为损坏，可享有七天无理由退货。自签收之日起，七天质量问题退货，十五天内质量问题换货服务；</p>
+                                <p>②
+                                    充电设备（无线充电座、充电器）、多按键保护套、数据线、转接头自签收之日起，如配件齐全未拆封且无人为损坏，可享有七天无理由退货。自签收之日起，七天质量问题退货，十五天内质量问题换货和一年保修服务。</p>
+                                <p>注：“三包”有效期内的商品发生故障，须提供有效凭证方可享受售后服务。<br></p>
+                                <h2>耳机、坚果自拍杆</h2>
+                                <p>自签收之日起，如配件齐全未拆封且无人为损坏，可享有七天无理由退货。自签收之日起七天质量问题退货，十五天内质量问题换货和一年保修服务。</p>
+                                <p>注：“三包”有效期内的商品发生故障，须提供有效凭证方可享受售后服务。<br></p>
+                                <h2>移动电源、车载支架、车载充电器<br></h2>
+                                <p>自签收之日起，如配件齐全未拆封且无人为损坏，可享有七天无理由退货。自签收之日起七天质量问题退货，十五天内质量问题换货和一年保修服务。</p>
+                                <p>注：“三包”有效期内的商品发生故障，须提供有效凭证方可享受售后服务。<br></p>
+                                <h2>坚果 TNT 工作站（显示器）售后政策</h2>
+                                <p>退换货服务条例：</p>
+                                <p>① 自商品售出之日或用户签收之日起七天内，发生非人为损坏的性能故障，消费者可以选择退货、换货或维修；<br>②
+                                    自商品售出之日或用户签收之日起15天内，发生非人为损坏的性能故障，消费者可以选择换货或维修；<br>③
+                                    七天无理由退货仅适用于通过互联网渠道销售的商品，用户应当自收到商品次日起七日内向销售者发出退货通知并出示有效购买凭证，已经开具实物发票的应同时退回发票；<br>④
+                                    七天无理由退回的商品应当完好并保持原有品质和功能，商品本身、配件、商标标识齐全。有外观或功能性人为损坏、包装箱破损、随机零配件缺失或产品有难以恢复原状的外观类使用痕迹均不在七天无理由退货范围内；<br>⑤
+                                    七天无理由退货所产生的物流费由消费者承担。</p>
+                                <p><br>保修服务条例：</p>
+                                <p>自商品售出之日或用户签收之日起，整机保修 1 年。<br></p>
+                                <p><br>非保修条例：</p>
+                                <p>① 已经超过三包有效期限；无保修卡或保修卡与发票信息不符、发票缺失或涂改；<br>② 未按产品使用说明书要求使用、维护、保养造成损坏；<br>③
+                                    未经本公司授权私自拆机或修理；使用非原厂配件导致产品出现故障；<br>④ 由于使用失误如坠落、挤压、碰撞或意外进液、浸水等造成的损坏；<br>⑤
+                                    由于水灾、火灾、雷击等不可抗力造成的损坏。</p>
+                                <p><br>如果出现上述情况，用户需要支付相应的服务费用。详情参见：<a
+                                        href="https://www.smartisan.com/support/#/service-policy-tnt" target="_blank">非保修售后服务收费标准</a>
+                                </p>
+                                <h2>数码办公（鼠标、键盘）</h2>
+                                <p>鼠标、键盘自签收之日起，如配件齐全未拆封且无人为损坏，可享有七天无理由退货。自签收之日起，七天质量问题退货，十五天内质量问题换货和一年保修服务。</p>
+                                <p>注：“三包”有效期内的商品发生故障，须提供有效凭证方可享受售后服务。<br></p>
+                                <h2>服装衍生品产品退换货规则</h2>
+                                <p>① 自签收之日起，如包装齐全未拆封且无人为损坏，可享有七天无理由退货。自签收之日起，七天质量问题退货，十五天内质量问题换货；<br>②
+                                    客户应确保退换货时，商品包装、吊牌 、标识需完整，商品未经穿着 、无脏污 、无人为破损（如自行修改尺寸 、洗涤
+                                    、刺绣等），且需将发货单、商品配件及所需退换货商品一并寄回，否则将无法办理退换货服务。鞋类商品包装损坏（包括包裹填充物、品牌包装箱或外包装袋、鞋
+                                    盒外直接缠胶带），以及鞋面、鞋底已磨损，已有穿着痕迹的情况，均不予以办理退换货；<br>③ 在国家规定的商品三包范围内，退换货按国家相关政策、法规执行。<br></p>
+                                <h2>图书、明信片、笔记本、日历</h2>
+                                <p>自签收之日起，如包装塑封完好未拆毁且无人为损坏，可享有七天无理由退货、十五天内质量问题（如缺页、印刷错误等）换货服务。</p></section>
+                        </div> <!----> <!---->
+                        <div _ngcontent-c5="" class="content special"><h1 _ngcontent-c5="">合作厂商商品售后政策</h1>
+                            <section _ngcontent-c5="" class="content-list"><h2>耳机 &amp; 音箱</h2>
+                                <table class="audio">
+                                    <thead>
+                                    <tr>
+                                        <th class="brand">品牌</th>
+                                        <th class="policy">售后政策</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td class="name">JBL 耳机</td>
+                                        <td><h2>① 自收货之日起，如未拆封、配件齐全且无人为损坏，七天无理由退货；</h2>
+                                            <p>② 自收货之日起，十五天内质量问题换货，一年内质保；</p>
+                                            <p>③ 在质保期内且签收超过 15 日，请直接联系相关品牌商，以便更快捷获得售后服务；</p>
+                                            <p>④ 品牌官方网站: <a href="http://www.jbl.com/" target="_blank">http://www.jbl.com</a>&nbsp;，品牌售后电话：400-630-6678
+                                                、021-64870752、021-64870753；</p>
+                                            <p>⑤ 因质量问题维修或者退换货服务，需提供发票、保修卡并务必保证包装、配件完整。</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="name">FIIL 耳机</td>
+                                        <td><p>① 自收货之日起，如未拆封、配件齐全且无人为损坏，七天无理由退货；</p>
+                                            <p>② 自收货之日起，十五天内质量问题换货，一年内质保；</p>
+                                            <p>③ 在质保期内且签收超过 15 日，请直接联系相关品牌商，以便更快捷获得售后服务；</p>
+                                            <p>④ 品牌官方网站：<a href="http://fiil.com/" target="_blank">http://fiil.com</a>，
+                                                品牌售后电话：400-850-7997；</p>
+                                            <p>⑤ 因质量问题维修或者退换货服务，需提供发票、保修卡并务必保证包装配件完整。</p></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <div class="special">
+                                    <section><h2>其他周边</h2>
+                                        <table class="others">
+                                            <thead>
+                                            <tr>
+                                                <th class="brand">品牌</th>
+                                                <th class="policy">售后政策</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td class="name">LEVEL8</td>
+                                                <td><p>① 自签收之日起，如配件齐全未拆封、吊牌未剪、防尘袋无破损且无人为损坏，可享有七天无理由退货。</p>
+                                                    <p>② 自收货之日起，十五天内质量问题换货，两年内质保；</p>
+                                                    <p>③ 在质保期内且签收超过 15 日，请直接联系相关品牌商，以便更快捷获得售后服务；</p>
+                                                    <p>④ 品牌官方网站：<a href="http://www.level8.com.cn/" target="_blank">http://www.level8.com.cn</a>，品牌售后电话：400-008-8309（星期一至星期五
+                                                        8:30-18:00）；</p>
+                                                    <p>⑤ 因质量问题维修或者退换货服务，需提供发票、保修卡并务必保证包装、配件完整。</p></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="name">The White Brush 电动牙刷</td>
+                                                <td><p>① 自签收之日起，如配件齐全且无人为损坏，七天无理由退货；</p>
+                                                    <p>② 自收货之日起，十五天内质量问题换货，一年内质保；</p>
+                                                    <p>③ 在质保期内且签收超过 15 日，请直接联系相关品牌商，以便更快捷获得售后服务；</p>
+                                                    <p>④ 品牌官方网站：<a href="http://www.kuyuplus.com/" target="_blank">http://www.kuyuplus.com</a>，品牌售后电话：0574-86106106；
+                                                    </p>
+                                                    <p>⑤ 因质量问题维修或者退换货服务，需提供发票、保修卡并务必保证包装、配件完整。</p></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="name">极米</td>
+                                                <td><p>① 自收货之日起，如配件齐全且无人为损坏，七天无理由退货（退货商品需保留商品的全部配件和赠品）；</p>
+                                                    <p>② 自收货之日起，十五天内质量问题换货，一年内质保；</p>
+                                                    <p>③ 在质保期内且签收超过 15 日，请直接联系相关品牌商，以便更快捷获得售后服务；</p>
+                                                    <p>④ 品牌官方网站：<a href="http://www.xgimi.com/" target="_blank">http://www.xgimi.com</a>，品牌售后电话：400-002-8960，QQ
+                                                        服务号码：4000028960；</p>
+                                                    <p>⑤ 因质量问题维修或者退换货服务，需提供发票、保修卡并务必保证包装、配件完整。</p></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="name">Smartisan 记事本</td>
+                                                <td><p>① 自收货之日起，如包装塑封完好未拆毁且无人为损坏，七天无理由退货；</p>
+                                                    <p>② 自收货之日起，十五天内质量问题换货。</p></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="name">茶素材汀壶电水壶</td>
+                                                <td><p>① 自签收之日起，如商品未拆封、配件齐全且无人为损坏，七天无理由退货；</p>
+                                                    <p>② 自收货之日起，十五天内质量问题换货，一年内质保；</p>
+                                                    <p>③ 在质保期内且签收超过 15 日，请直接联系相关品牌商，以便更快捷获得售后服务；</p>
+                                                    <p>④ 品牌官方网站：<a href="http://www.teawith.com/" target="_blank">http://www.teawith.com</a>，品牌售后电话：010-66571768；
+                                                    </p>
+                                                    <p>⑤ 因质量问题维修或者退换货服务，需提供发票、保修卡并务必保证包装、配件完整。</p></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="name">优点智能门锁</td>
+                                                <td><p>① 自签收之日起，如商品未拆封、未安装、配件齐全且无人为损坏，七天无理由退货；</p>
+                                                    <p>② 自收货之日起，十五天内质量问题换货，三年内质保；</p>
+                                                    <p>③ 在质保期内且签收超过 7 日（换货及维修），请直接联系相关品牌商，以便更快捷获得售后服务；</p>
+                                                    <p>④ 品牌官方网站：<a href="http://www.youdianhome.com/" target="_blank">http://www.youdianhome.com</a>，品牌售后电话：400-002-9889；
+                                                    </p>
+                                                    <p>⑤ 因质量问题维修或者退换货服务，需提供发票、保修卡等有效凭证。</p></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="name">哲品</td>
+                                                <td><p>① 自签收之日起，如商品未拆封、未使用、配件齐全且无人为损坏，七天无理由退货；</p>
+                                                    <p>② 自收货之日起，十五天内质量问题换货；</p>
+                                                    <p>③ 在质保期内且签收超过 7 日（换货及维修），请直接联系相关品牌商，以便更快捷获得售后服务；</p>
+                                                    <p>④ 品牌官方网站：<a href="http://cn.zenslifestyle.com/" target="_blank">http://cn.zenslifestyle.com</a>，品牌售后电话：400-665-2799；
+                                                    </p>
+                                                    <p>⑤ 因质量问题维修或者退换货服务，需提供发票、保修卡等有效凭证。</p></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="name">IQUNIX</td>
+                                                <td><p>① 自签收之日起，如商品未拆封、配件齐全且无人为损坏，七天无理由退货；</p>
+                                                    <p>② 自收货之日起，十五天内质量问题换货，一年内质保；</p>
+                                                    <p>③ 在质保期内且签收超过 15 日，请直接联系相关品牌商，以便更快捷获得售后服务；</p>
+                                                    <p>④ 品牌官方网站：<a href="https://www.iqunix.com/" target="_blank">https://www.iqunix.com</a>，品牌售后电话：400-178-8905（星期一至星期五
+                                                        9:00 - 18:30）；</p>
+                                                    <p>⑤ 因质量问题维修或者退换货服务，需提供发票、保修卡并务必保证包装、配件完整。</p></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="name">畅呼吸产品</td>
+                                                <td><p>
+                                                    保修期从您收到产品（以下简称“收货”）之日开始计算，畅呼吸产品（加湿器及蒸发芯、智能空气净化器及滤芯、口罩、汽车空调滤清器）将分别按照以下不同的保修期提供保修服务：</p>
+                                                    <p>① 加湿器的整机保修期为自收货之日起 1 年（蒸发芯除外）；</p>
+                                                    <p>② 空气净化器整机的保修期为自收货之日起 1 年（ 滤芯除外），主要部件（ 马达 、电源板、电路板）保修期 3 年；</p>
+                                                    <p>③ 滤芯、口罩、汽车空调滤清器的保修期为自收货之日起 15 天；</p>
+                                                    <p><span>* 以官方收货时间为准，转售等行为不重新计算时间</span><br></p>
+                                                    <p>详情参见：<a
+                                                            href="https://www.changhuxi.com/support/other-service?title=%E6%9C%8D%E5%8A%A1%E6%94%BF%E7%AD%96"
+                                                            target="_blank">畅呼吸产品售后服务政策</a></p></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </section>
                                 </div>
                             </section>
-                            <section _ngcontent-c7=""><h2 _ngcontent-c7="">重要提示</h2>
-                                <div _ngcontent-c7="" class="list special">
-                                    <ol _ngcontent-c7="">
-                                        <li _ngcontent-c7=""> 1、根据 2017 年 1 月 6 日国家工商行政管理总局令第 90
-                                            号公布的《网络购买商品七日无理由退货暂行办法》，手机激活后将不适用七日无理由退货规定；
-                                        </li>
-                                        <li _ngcontent-c7=""> 2、7 天无理由退货前请确认没有外观类使用痕迹、无人为损坏后，将全部包装配件一起寄回，退回运费将由用户承担；
-                                        </li>
-                                        <li _ngcontent-c7=""> 3、寄出手机前请您提前备份所有数据信息、取消开机密码、退出欢喜云并取出 SIM 卡；</li>
-                                        <li _ngcontent-c7="">
-
-                                            4、三包期内性能故障（非人为原因）导致的商品退换货和维修服务，将由锤子商城承担快递费用。请您先行垫付快递费用，快递单上请注明实际运费。快递纸质发
-                                            票请随商品一起寄回，电子发票请发邮件至 FP@smartisan.com
-                                            用于邮资报销（抬头：锤子商城，纳税人识别号：91110108MA01AYL849）。我们将依据您的快递发票实报实销，手机产品最高限额为 20
-                                            元/单。
-                                        </li>
-                                    </ol>
-                                </div>
-                            </section>
-                        </div>
-                    </div>
+                        </div>  <!----> </div>
                 </div>
-                <customer-service _ngcontent-c7="" _nghost-c8="">
-                    <mine-dialog _ngcontent-c8="" class="index-dialog" id="footer-id" _nghost-c9="">
-                        <section _ngcontent-c9="" class="m-dialog" tabindex="-1"> <!---->
-                            <aside _ngcontent-c9="" class="m-dialog-backdrop"></aside>
-                            <div _ngcontent-c9="" class="m-dialog-modal">
-                                <section _ngcontent-c9="" class="m-dialog-content m-dialog-shadow set-min-width"><!---->
-                                    <div _ngcontent-c9="" class="m-dialog-header">
-                                        <h4 _ngcontent-c9="" class="m-dialog-headline">
-                                            <div _ngcontent-c8="" class="mine-dialog-headline index-dialog-headline"><h4
-                                                    _ngcontent-c8="">提示</h4></div>
-                                        </h4>
-                                    </div>
-                                    <div _ngcontent-c9="" class="m-dialog-body"> <!----><!---->
-                                        <div _ngcontent-c8="" class="mine-dialog-body confirm-msg"> 您好，官网在线人工服务时间为 <span
-                                                _ngcontent-c8="" class="service-time">9:00 - 18:00</span>，请您在工作时间与我们联系，感谢您的支持与理解。
-                                        </div><!----> <!----> <!----> </div> <!---->
-                                    <div _ngcontent-c9="" class="m-dialog-footer">
-                                        <div _ngcontent-c8="" class="mine-dialog-footer">
-                                            <div _ngcontent-c8="" class="dialog-btn-wrap clearfix">
-                                                <div _ngcontent-c8="" class="blue-main-btn normal-main-btn dialog-done">
-                                                    <a _ngcontent-c8="">确定</a></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </section>
-                            </div>
-                        </section>
-                    </mine-dialog>
-                    <mine-dialog _ngcontent-c8="" class="index-dialog" id="footer-id" _nghost-c9="">
-                        <section _ngcontent-c9="" class="m-dialog" tabindex="-1"> <!---->
-                            <aside _ngcontent-c9="" class="m-dialog-backdrop"></aside>
-                            <div _ngcontent-c9="" class="m-dialog-modal">
-                                <section _ngcontent-c9="" class="m-dialog-content m-dialog-shadow set-min-width"><!---->
-                                    <div _ngcontent-c9="" class="m-dialog-header">
-                                        <h4 _ngcontent-c9="" class="m-dialog-headline">
-                                            <div _ngcontent-c8="" class="mine-dialog-headline index-dialog-headline"><h4
-                                                    _ngcontent-c8="">提示</h4></div>
-                                        </h4>
-                                    </div>
-                                    <div _ngcontent-c9="" class="m-dialog-body"> <!---->
-                                        <div _ngcontent-c8="" class="mine-dialog-body confirm-msg"> 2 月 4 日至 2 月 10
-                                            日您可通过 400-626-5666 与我们取得联系，感谢您的理解。
-                                        </div><!----> <!----> <!----> </div> <!---->
-                                    <div _ngcontent-c9="" class="m-dialog-footer">
-                                        <div _ngcontent-c8="" class="mine-dialog-footer">
-                                            <div _ngcontent-c8="" class="dialog-btn-wrap clearfix">
-                                                <div _ngcontent-c8="" class="blue-main-btn normal-main-btn dialog-done">
-                                                    <a _ngcontent-c8="">确定</a></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </section>
-                            </div>
-                        </section>
-                    </mine-dialog>
-                </customer-service>
-            </support-service>
+            </support-service-policy>
         </div>
     </div>
     <back-top _nghost-c1="">
