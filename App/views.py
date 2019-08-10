@@ -14,16 +14,12 @@ def index(request):
 
 
     # return HttpResponse("111111")
-
-
 def second(request,cid):
     home = Indexhome.objects.all()
     tab = IndexTab.objects.all()
     copy=Indexcopy.objects.all()
     indepro=Indexproduct.objects.all()
     products=Productcategorie.objects.all()
-
-
 
     return render(request,"App/bash/second.html",context={"home":home,
                                                         "tab":tab,
