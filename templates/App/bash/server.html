@@ -5003,30 +5003,21 @@
     <header _nghost-c0=""> <!---->
         <div _ngcontent-c0="" class="header cn theme-black-default">
             <div _ngcontent-c0="" class="nav-global"> <!----> <h1 _ngcontent-c0="" class="nav-logo"><a _ngcontent-c0=""
-                                                                                                       href="https://www.smartisan.com/"
+                                                                                                       href="{% url "app:index" %}"
                                                                                                        title="锤子商城">Smartisan</a>
             </h1>
                 <div _ngcontent-c0="" class="header-container">
                     <div _ngcontent-c0="" class="nav-right">
-                        <ul _ngcontent-c0="" class="nav-list"> <!---->
-                            <li _ngcontent-c0=""><a _ngcontent-c0="" href="https://www.smartisan.com/" target="">
-                                在线商城 </a></li>
-                            <li _ngcontent-c0=""><a _ngcontent-c0="" href="https://www.smartisan.com/jianguopro2s/"
-                                                    target=""> 坚果 Pro 2S </a></li>
-                            <li _ngcontent-c0=""><a _ngcontent-c0="" href="https://www.smartisan.com/r1/" target=""> 坚果
-                                R1 </a></li>
-                            <li _ngcontent-c0=""><a _ngcontent-c0="" href="https://www.smartisan.com/tnt/" target=""> 坚果
-                                TNT 工作站 </a></li>
-                            <li _ngcontent-c0=""><a _ngcontent-c0="" href="https://www.smartisan.com/os/" target="">
-                                Smartisan OS </a></li>
-                            <li _ngcontent-c0=""><a _ngcontent-c0="" href="https://yun.smartisan.com/" target="_blank">
-                                欢喜云 </a></li>
-                            <li _ngcontent-c0=""><a _ngcontent-c0="" href="https://www.smartisan.com/apps/" target="">
-                                应用 </a></li>
-                            <li _ngcontent-c0=""><a _ngcontent-c0="" href="https://bbs.smartisan.com/forum.php"
-                                                    target=""> 论坛 </a></li>
-                            <li _ngcontent-c0=""><a _ngcontent-c0="" href="https://www.smartisan.com/support/#/awards"
-                                                    target=""> 荣誉与奖项 </a></li>
+                         <ul _ngcontent-c0="" class="nav-list"> <!---->
+                            <li _ngcontent-c0=""><a _ngcontent-c1="" class="active" title="在线商城"
+                                                    href="{% url "app:index" %}" target=""> 在线商城 </a></li>
+
+                            {% for t1 in tab %}
+
+                                <li _ngcontent-c0=""><a _ngcontent-c1="" title="{{ t1.tname }}"
+                                                        href="{{ t1.href }}"
+                                                        target=""> {{ t1.tname }} </a></li>
+                            {% endfor %}
                         </ul>
                     </div>
                 </div> <!---->

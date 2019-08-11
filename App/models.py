@@ -72,6 +72,7 @@ class Clothes(models.Model):
 class IndexTab(models.Model):
     tid = models.AutoField(primary_key=True)
     tname = models.CharField(unique=True, max_length=45)
+    href = models.CharField(unique=True,max_length=255)
 
     class Meta:
         managed = False

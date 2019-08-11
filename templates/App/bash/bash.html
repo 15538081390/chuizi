@@ -4891,18 +4891,18 @@
         <sm-header _ngcontent-c0="" _nghost-c1="">
             <div _ngcontent-c1="" class="header theme-black-default cn">
                 <div _ngcontent-c1="" class="nav-global"><h1 _ngcontent-c1="" class="nav-logo"><a _ngcontent-c1=""
-                                                                                                  href="https://www.smartisan.com/"
+                                                                                                  href="{% url "app:index" %}"
                                                                                                   title="锤子商城">Smartisan</a>
                 </h1>
                     <div _ngcontent-c1="" class="container">
                         <ul _ngcontent-c1="" class="nav-list"> <!---->
                             <li _ngcontent-c1=""><a _ngcontent-c1="" class="active" title="在线商城"
-                                                    href="https://www.smartisan.com/" target=""> 在线商城 </a></li>
+                                                    href="{% url "app:index" %}" target=""> 在线商城 </a></li>
 
                             {% for t1 in tab %}
 
                                 <li _ngcontent-c1=""><a _ngcontent-c1="" title="{{ t1.tname }}"
-                                                        href="http://bbs.smartisan.com/forum.php"
+                                                        href="{{ t1.href }}"
                                                         target=""> {{ t1.tname }} </a></li>
                             {% endfor %}
                         </ul>
@@ -5463,58 +5463,60 @@
                                 </section>
                             </div>
                         </div>
+
+
                         <section _ngcontent-c5=""> <!----><!----> <!---->
+
+
+                        {% for h2 in home %}
+
                             <div _ngcontent-c5="" class="home-box">
                                 <header _ngcontent-c5="" class="storey-title"><h5 _ngcontent-c5="" class="title">
-                                    服饰箱包</h5>
+                                    {{h2.gname}}</h5>
                                     <!----> </header>
+
                                 <div _ngcontent-c5="" class="category-normal-wrapper">
                                     <section _ngcontent-c5="" class="items-wrapper clearfix">
                                         <ul _ngcontent-c5="" class="items clearfix">
-                                            <li _ngcontent-c5="" class="item-four item-recom">
-                                                <advertise _ngcontent-c5="" _nghost-c8="">
-                                                    <div _ngcontent-c8="" class="advertise"> <!---->
-                                                        <div _ngcontent-c8="" class="advertise-item"><img
-                                                                _ngcontent-c8=""
-                                                                src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                            <a _ngcontent-c8="" target="_blank"
-                                                               href="https://www.smartisan.com/item/100058801"></a>
-                                                        </div>
-                                                    </div>
-                                                </advertise>
-                                            </li> <!---->
+                                        {% for p2 in products%}
+                                    {% ifequal p2.hid h2.hid %}
+
                                             <li _ngcontent-c5="" class="item-four"> <!----> <!---->
                                                 <sku-item-normal _ngcontent-c5="" _nghost-c9="">
                                                     <div _ngcontent-c9="" class="product-box-item">
                                                         <div _ngcontent-c9="">
                                                             <div _ngcontent-c9="" class="item-img"><img _ngcontent-c9=""
-                                                                                                        src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                                                        style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
+                                                                                                        src="{{ p2.picture }}"
+                                                                                                        style="opacity: 1; transition: opacity 0.3s ease-in-out 0s;">
                                                             </div>
-                                                            <h4 _ngcontent-c9="">地平线 8 号商务旅行箱</h4> <!----> <h6
+                                                            <h4 _ngcontent-c9="">{{p2.pcname}}</h4> <!----> <h6
                                                                 _ngcontent-c9="">
-                                                            为了野心和远方</h6>  <!----> </div>
+                                                            {{p2.inf}}</h6>  <!----> </div>
                                                         <div _ngcontent-c9="" class="params-colors">
                                                             <ul _ngcontent-c9="" class="colors-list"> <!---->
+                                                                {% ifequal p2.white 1 %}
                                                                 <li _ngcontent-c9="" class="active"> <!---->
                                                                     <div _ngcontent-c9="" class="outer"><img
                                                                             _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
+                                                                            src="{% static "image/origin(1).png" %}"
+                                                                            style="opacity: 1; transition: opacity 0.3s ease-in-out 0s;">
                                                                     </div>
                                                                 </li>
+                                                                    {% endifequal %}
+                                                            {% ifequal p2.black 1 %}
                                                                 <li _ngcontent-c9=""> <!---->
                                                                     <div _ngcontent-c9="" class="outer"><img
                                                                             _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
+                                                                            src="{% static "image/origin.png" %}"
+                                                                            style="opacity: 1; transition: opacity 0.3s ease-in-out 0s;">
                                                                     </div>
+
                                                                 </li>
+                                                                {% endifequal %}
                                                             </ul>
                                                         </div> <!----> <!---->
                                                         <div _ngcontent-c9="" class="item-price clearfix"><span
-                                                                _ngcontent-c9=""><i>¥</i> <span>999.00</span></span>
+                                                                _ngcontent-c9=""><i>¥</i> <span>{{p2.money}}</span></span>
                                                         </div>
                                                         <!---->  <!----> <!---->
                                                         <div _ngcontent-c9="" class="item-tips"><span _ngcontent-c9=""
@@ -5524,862 +5526,22 @@
                                                         <!----> </div>
                                                 </sku-item-normal>
                                             </li>
-                                            <li _ngcontent-c5="" class="item-four"> <!----> <!---->
-                                                <sku-item-normal _ngcontent-c5="" _nghost-c9="">
-                                                    <div _ngcontent-c9="" class="product-box-item">
-                                                        <div _ngcontent-c9="">
-                                                            <div _ngcontent-c9="" class="item-img"><img _ngcontent-c9=""
-                                                                                                        src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                                                        style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                            </div>
-                                                            <h4 _ngcontent-c9="">地平线 8 号旅行箱</h4> <!----> <h6
-                                                                _ngcontent-c9="">
-                                                            简约设计、德国拜耳 PC 箱体 </h6>  <!----> </div>
-                                                        <div _ngcontent-c9="" class="params-colors">
-                                                            <ul _ngcontent-c9="" class="colors-list"> <!---->
-                                                                <li _ngcontent-c9="" class="active"> <!---->
-                                                                    <div _ngcontent-c9="" class="outer"><img
-                                                                            _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                                    </div>
-                                                                </li>
-                                                                <li _ngcontent-c9=""> <!---->
-                                                                    <div _ngcontent-c9="" class="outer"><img
-                                                                            _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                                    </div>
-                                                                </li>
-                                                                <li _ngcontent-c9=""> <!---->
-                                                                    <div _ngcontent-c9="" class="outer"><img
-                                                                            _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div> <!----> <!---->
-                                                        <div _ngcontent-c9="" class="item-price clearfix"><span
-                                                                _ngcontent-c9=""><i>¥</i> <span>299.00</span></span>
-                                                        </div>
-                                                        <!---->  <!----> <!---->
-                                                        <div _ngcontent-c9="" class="item-tips"><span _ngcontent-c9=""
-                                                                                                      class="info">添加商品</span>
-                                                            <span _ngcontent-c9="" class="warning">已达限购数量</span></div>
-                                                        <!---->
-                                                        <!----> </div>
-                                                </sku-item-normal>
-                                            </li>
-                                            <li _ngcontent-c5="" class="item-four"> <!----> <!---->
-                                                <sku-item-normal _ngcontent-c5="" _nghost-c9="">
-                                                    <div _ngcontent-c9="" class="product-box-item">
-                                                        <div _ngcontent-c9="">
-                                                            <div _ngcontent-c9="" class="item-img"><img _ngcontent-c9=""
-                                                                                                        src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                                                        style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                            </div>
-                                                            <h4 _ngcontent-c9="">Smartisan T恤 丑小鸭</h4> <!----> <h6
-                                                                _ngcontent-c9=""></h6>  <!----> </div>
-                                                        <div _ngcontent-c9="" class="params-colors">
-                                                            <ul _ngcontent-c9="" class="colors-list"> <!---->
-                                                                <li _ngcontent-c9=""> <!---->
-                                                                    <div _ngcontent-c9="" class="outer"><img
-                                                                            _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                                    </div>
-                                                                </li>
-                                                                <li _ngcontent-c9="" class="active"> <!---->
-                                                                    <div _ngcontent-c9="" class="outer"><img
-                                                                            _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                                    </div>
-                                                                </li>
-                                                                <li _ngcontent-c9=""> <!---->
-                                                                    <div _ngcontent-c9="" class="outer"><img
-                                                                            _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                                    </div>
-                                                                </li>
-                                                                <li _ngcontent-c9=""> <!---->
-                                                                    <div _ngcontent-c9="" class="outer"><img
-                                                                            _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                                    </div>
-                                                                </li>
-                                                                <li _ngcontent-c9=""> <!---->
-                                                                    <div _ngcontent-c9="" class="outer"><img
-                                                                            _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                                    </div>
-                                                                </li>
-                                                                <li _ngcontent-c9=""> <!---->
-                                                                    <div _ngcontent-c9="" class="outer"><img
-                                                                            _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div> <!----> <!---->
-                                                        <div _ngcontent-c9="" class="item-price clearfix"><span
-                                                                _ngcontent-c9=""><i>¥</i> <span>149.00</span></span>
-                                                        </div>
-                                                        <!---->  <!----> <!---->
-                                                        <div _ngcontent-c9="" class="item-tips"><span _ngcontent-c9=""
-                                                                                                      class="info">添加商品</span>
-                                                            <span _ngcontent-c9="" class="warning">已达限购数量</span></div>
-                                                        <!---->
-                                                        <!----> </div>
-                                                </sku-item-normal>
-                                            </li>
-                                            <li _ngcontent-c5="" class="item-four"> <!----> <!---->
-                                                <sku-item-normal _ngcontent-c5="" _nghost-c9="">
-                                                    <div _ngcontent-c9="" class="product-box-item">
-                                                        <div _ngcontent-c9="">
-                                                            <div _ngcontent-c9="" class="item-img"><img _ngcontent-c9=""
-                                                                                                        src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                                                        style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                            </div>
-                                                            <h4 _ngcontent-c9="">Smartisan Polo衫 经典款</h4> <!----> <h6
-                                                                _ngcontent-c9="">一件表里如一的舒适 POLO 衫</h6>  <!----> </div>
-                                                        <div _ngcontent-c9="" class="params-colors">
-                                                            <ul _ngcontent-c9="" class="colors-list"> <!---->
-                                                                <li _ngcontent-c9="" class="active"> <!---->
-                                                                    <div _ngcontent-c9="" class="outer"><img
-                                                                            _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                                    </div>
-                                                                </li>
-                                                                <li _ngcontent-c9=""> <!---->
-                                                                    <div _ngcontent-c9="" class="outer"><img
-                                                                            _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div> <!----> <!---->
-                                                        <div _ngcontent-c9="" class="item-price clearfix"><span
-                                                                _ngcontent-c9=""><i>¥</i> <span>249.00</span></span>
-                                                        </div>
-                                                        <!---->  <!----> <!---->
-                                                        <div _ngcontent-c9="" class="item-tips"><span _ngcontent-c9=""
-                                                                                                      class="info">添加商品</span>
-                                                            <span _ngcontent-c9="" class="warning">已达限购数量</span></div>
-                                                        <!---->
-                                                        <!----> </div>
-                                                </sku-item-normal>
-                                            </li>
-                                            <li _ngcontent-c5="" class="item-four"> <!----> <!---->
-                                                <sku-item-normal _ngcontent-c5="" _nghost-c9="">
-                                                    <div _ngcontent-c9="" class="product-box-item">
-                                                        <div _ngcontent-c9="">
-                                                            <div _ngcontent-c9="" class="item-img"><img _ngcontent-c9=""
-                                                                                                        src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                                                        style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                            </div>
-                                                            <h4 _ngcontent-c9="">Smartisan T恤 红白机</h4> <!----> <h6
-                                                                _ngcontent-c9=""></h6>  <!----> </div>
-                                                        <div _ngcontent-c9="" class="params-colors">
-                                                            <ul _ngcontent-c9="" class="colors-list"> <!---->
-                                                                <li _ngcontent-c9="" class="active"> <!---->
-                                                                    <div _ngcontent-c9="" class="outer"><img
-                                                                            _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                                    </div>
-                                                                </li>
-                                                                <li _ngcontent-c9=""> <!---->
-                                                                    <div _ngcontent-c9="" class="outer"><img
-                                                                            _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div> <!----> <!---->
-                                                        <div _ngcontent-c9="" class="item-price clearfix"><span
-                                                                _ngcontent-c9=""><i>¥</i> <span>149.00</span></span>
-                                                        </div>
-                                                        <!---->  <!----> <!---->
-                                                        <div _ngcontent-c9="" class="item-tips"><span _ngcontent-c9=""
-                                                                                                      class="info">添加商品</span>
-                                                            <span _ngcontent-c9="" class="warning">已达限购数量</span></div>
-                                                        <!---->
-                                                        <!----> </div>
-                                                </sku-item-normal>
-                                            </li>
-                                            <li _ngcontent-c5="" class="item-four"> <!----> <!---->
-                                                <sku-item-normal _ngcontent-c5="" _nghost-c9="">
-                                                    <div _ngcontent-c9="" class="product-box-item">
-                                                        <div _ngcontent-c9="">
-                                                            <div _ngcontent-c9="" class="item-img"><img _ngcontent-c9=""
-                                                                                                        src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                                                        style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                            </div>
-                                                            <h4 _ngcontent-c9="">Smartisan T恤 迪特拉姆斯</h4> <!----> <h6
-                                                                _ngcontent-c9=""></h6>  <!----> </div>
-                                                        <div _ngcontent-c9="" class="params-colors">
-                                                            <ul _ngcontent-c9="" class="colors-list"> <!---->
-                                                                <li _ngcontent-c9=""> <!---->
-                                                                    <div _ngcontent-c9="" class="outer"><img
-                                                                            _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                                    </div>
-                                                                </li>
-                                                                <li _ngcontent-c9="" class="active"> <!---->
-                                                                    <div _ngcontent-c9="" class="outer"><img
-                                                                            _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                                    </div>
-                                                                </li>
-                                                                <li _ngcontent-c9=""> <!---->
-                                                                    <div _ngcontent-c9="" class="outer"><img
-                                                                            _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div> <!----> <!---->
-                                                        <div _ngcontent-c9="" class="item-price clearfix"><span
-                                                                _ngcontent-c9=""><i>¥</i> <span>149.00</span></span>
-                                                        </div>
-                                                        <!---->  <!----> <!---->
-                                                        <div _ngcontent-c9="" class="item-tips"><span _ngcontent-c9=""
-                                                                                                      class="info">添加商品</span>
-                                                            <span _ngcontent-c9="" class="warning">已达限购数量</span></div>
-                                                        <!---->
-                                                        <!----> </div>
-                                                </sku-item-normal>
-                                            </li>
+
+{% endifequal %}
+
+
+                                    {% endfor %}
                                         </ul>
                                     </section>
                                 </div>
                             </div> <!----> <!----> <!---->
-                            <div _ngcontent-c5="" class="home-box">
-                                <header _ngcontent-c5="" class="storey-title"><h5 _ngcontent-c5="" class="title">
-                                    畅呼吸系列产品</h5>
-                                    <!----> </header>
-                                <div _ngcontent-c5="" class="category-normal-wrapper">
-                                    <section _ngcontent-c5="" class="items-wrapper clearfix">
-                                        <ul _ngcontent-c5="" class="items clearfix">
-                                            <li _ngcontent-c5="" class="item-four item-recom">
-                                                <advertise _ngcontent-c5="" _nghost-c8="">
-                                                    <div _ngcontent-c8="" class="advertise"> <!---->
-                                                        <div _ngcontent-c8="" class="advertise-item"><img
-                                                                _ngcontent-c8=""
-                                                                src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                            <a _ngcontent-c8="" target="_blank"
-                                                               href="https://www.smartisan.com/item/100033802"></a>
-                                                        </div>
-                                                    </div>
-                                                </advertise>
-                                            </li> <!---->
-                                            <li _ngcontent-c5="" class="item-four"> <!----> <!---->
-                                                <sku-item-normal _ngcontent-c5="" _nghost-c9="">
-                                                    <div _ngcontent-c9="" class="product-box-item">
-                                                        <div _ngcontent-c9="">
-                                                            <div _ngcontent-c9="" class="item-img"><img _ngcontent-c9=""
-                                                                                                        src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                                                        style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                            </div>
-                                                            <h4 _ngcontent-c9="">畅呼吸智能空气净化器 · 超级除甲醛版</h4> <!----> <h6
-                                                                _ngcontent-c9="">超强除甲醛能力，超低噪音，智能操控</h6>  <!----> </div>
-                                                        <div _ngcontent-c9="" class="params-colors">
-                                                            <ul _ngcontent-c9="" class="colors-list"> <!---->
-                                                                <li _ngcontent-c9="" class="active"> <!---->
-                                                                    <div _ngcontent-c9="" class="outer"><img
-                                                                            _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div> <!----> <!---->
-                                                        <div _ngcontent-c9="" class="item-price clearfix"><span
-                                                                _ngcontent-c9=""><i>¥</i> <span>2,999.00</span></span>
-                                                        </div>
-                                                        <!---->  <!----> <!---->
-                                                        <div _ngcontent-c9="" class="item-tips"><span _ngcontent-c9=""
-                                                                                                      class="info">添加商品</span>
-                                                            <span _ngcontent-c9="" class="warning">已达限购数量</span></div>
-                                                        <!---->
-                                                        <!----> </div>
-                                                </sku-item-normal>
-                                            </li>
-                                            <li _ngcontent-c5="" class="item-four"> <!----> <!---->
-                                                <sku-item-normal _ngcontent-c5="" _nghost-c9="">
-                                                    <div _ngcontent-c9="" class="product-box-item">
-                                                        <div _ngcontent-c9="">
-                                                            <div _ngcontent-c9="" class="item-img"><img _ngcontent-c9=""
-                                                                                                        src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                                                        style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                            </div>
-                                                            <h4 _ngcontent-c9="">畅呼吸除霾除甲醛高效复合滤芯</h4> <!----> <h6
-                                                                _ngcontent-c9="">精选双层防护材质、过滤更精细、去味更有效</h6>  <!---->
-                                                        </div>
-                                                        <div _ngcontent-c9="" class="params-colors">
-                                                            <ul _ngcontent-c9="" class="colors-list"> <!---->
-                                                                <li _ngcontent-c9="" class="active"> <!---->
-                                                                    <div _ngcontent-c9="" class="outer"><img
-                                                                            _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div> <!----> <!---->
-                                                        <div _ngcontent-c9="" class="item-price clearfix"><span
-                                                                _ngcontent-c9=""><i>¥</i> <span>699.00</span></span>
-                                                        </div>
-                                                        <!---->  <!----> <!---->
-                                                        <div _ngcontent-c9="" class="item-tips"><span _ngcontent-c9=""
-                                                                                                      class="info">添加商品</span>
-                                                            <span _ngcontent-c9="" class="warning">已达限购数量</span></div>
-                                                        <!---->
-                                                        <!----> </div>
-                                                </sku-item-normal>
-                                            </li>
-                                        </ul>
-                                    </section>
-                                </div>
-                            </div> <!----> <!----> <!---->
-                            <div _ngcontent-c5="" class="home-box">
-                                <header _ngcontent-c5="" class="storey-title"><h5 _ngcontent-c5="" class="title">
-                                    官方精选配件</h5>
-                                    <!---->
-                                    <div _ngcontent-c5="" class="floor-page spu-info"> <!----><!----> <!----> <!----><a
-                                            _ngcontent-c5="" class="active"> 官方精选配件 </a> <!----> <!----><a
-                                            _ngcontent-c5=""
-                                            class="floor-page-link"
-                                            target="_blank"
-                                            href="https://www.smartisan.com/category/60">
-                                        更多推荐<i _ngcontent-c5="" class="smartisan-icon gt"></i> </a> <!---->  </div>
-                                </header>
-                                <div _ngcontent-c5="" class="category-normal-wrapper">
-                                    <section _ngcontent-c5="" class="items-wrapper clearfix">
-                                        <ul _ngcontent-c5="" class="items clearfix">
-                                            <li _ngcontent-c5="" class="item-four item-recom">
-                                                <advertise _ngcontent-c5="" _nghost-c8="">
-                                                    <div _ngcontent-c8="" class="advertise"> <!---->
-                                                        <div _ngcontent-c8="" class="advertise-item"><img
-                                                                _ngcontent-c8=""
-                                                                src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                            <a _ngcontent-c8="" target="_blank"
-                                                               href="https://www.smartisan.com/item/100052801"></a>
-                                                        </div>
-                                                    </div>
-                                                </advertise>
-                                            </li> <!---->
-                                            <li _ngcontent-c5="" class="item-four"> <!----> <!---->
-                                                <sku-item-normal _ngcontent-c5="" _nghost-c9="">
-                                                    <div _ngcontent-c9="" class="product-box-item">
-                                                        <div _ngcontent-c9="">
-                                                            <div _ngcontent-c9="" class="item-img"><img _ngcontent-c9=""
-                                                                                                        src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                                                        style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                            </div>
-                                                            <h4 _ngcontent-c9="">Smartisan 原装快充充电器 18W</h4> <!----> <h6
-                                                                _ngcontent-c9="">18W 安全快充</h6>  <!----> </div>
-                                                        <div _ngcontent-c9="" class="params-colors">
-                                                            <ul _ngcontent-c9="" class="colors-list"> <!---->
-                                                                <li _ngcontent-c9="" class="active"> <!---->
-                                                                    <div _ngcontent-c9="" class="outer"><img
-                                                                            _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div> <!----> <!---->
-                                                        <div _ngcontent-c9="" class="item-price clearfix"><span
-                                                                _ngcontent-c9=""><i>¥</i> <span>49.00</span></span>
-                                                        </div><!---->
+
+{% endfor %}
+
+
+
                                                         <!----> <!---->
-                                                        <div _ngcontent-c9="" class="item-tips"><span _ngcontent-c9=""
-                                                                                                      class="info">添加商品</span>
-                                                            <span _ngcontent-c9="" class="warning">已达限购数量</span></div>
-                                                        <!---->
-                                                        <!----> </div>
-                                                </sku-item-normal>
-                                            </li>
-                                            <li _ngcontent-c5="" class="item-four"> <!----> <!---->
-                                                <sku-item-normal _ngcontent-c5="" _nghost-c9="">
-                                                    <div _ngcontent-c9="" class="product-box-item">
-                                                        <div _ngcontent-c9="">
-                                                            <div _ngcontent-c9="" class="item-img"><img _ngcontent-c9=""
-                                                                                                        src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                                                        style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                            </div>
-                                                            <h4 _ngcontent-c9="">Smartisan 双口 &amp; 快充车载充电器</h4> <!---->
-                                                            <h6
-                                                                    _ngcontent-c9="">铝合金机身、双口 &amp; 快充、智能调节</h6><!---->
-                                                        </div>
-                                                        <div _ngcontent-c9="" class="params-colors">
-                                                            <ul _ngcontent-c9="" class="colors-list"> <!---->
-                                                                <li _ngcontent-c9="" class="active"> <!---->
-                                                                    <div _ngcontent-c9="" class="outer"><img
-                                                                            _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div> <!----> <!---->
-                                                        <div _ngcontent-c9="" class="item-price clearfix"><span
-                                                                _ngcontent-c9=""><i>¥</i> <span>79.00</span></span>
-                                                        </div><!---->
-                                                        <!----> <!---->
-                                                        <div _ngcontent-c9="" class="item-tips"><span _ngcontent-c9=""
-                                                                                                      class="info">添加商品</span>
-                                                            <span _ngcontent-c9="" class="warning">已达限购数量</span></div>
-                                                        <!---->
-                                                        <!----> </div>
-                                                </sku-item-normal>
-                                            </li>
-                                            <li _ngcontent-c5="" class="item-four"> <!----> <!---->
-                                                <sku-item-normal _ngcontent-c5="" _nghost-c9="">
-                                                    <div _ngcontent-c9="" class="product-box-item">
-                                                        <div _ngcontent-c9="">
-                                                            <div _ngcontent-c9="" class="item-img"><img _ngcontent-c9=""
-                                                                                                        src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                                                        style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                            </div>
-                                                            <h4 _ngcontent-c9="">Smartisan 半入耳式耳机</h4> <!----> <h6
-                                                                _ngcontent-c9="">经典配色、专业调音、高品质麦克风</h6>  <!----> </div>
-                                                        <div _ngcontent-c9="" class="params-colors">
-                                                            <ul _ngcontent-c9="" class="colors-list"> <!---->
-                                                                <li _ngcontent-c9=""> <!---->
-                                                                    <div _ngcontent-c9="" class="outer"><img
-                                                                            _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                                    </div>
-                                                                </li>
-                                                                <li _ngcontent-c9=""> <!---->
-                                                                    <div _ngcontent-c9="" class="outer"><img
-                                                                            _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                                    </div>
-                                                                </li>
-                                                                <li _ngcontent-c9="" class="active"> <!---->
-                                                                    <div _ngcontent-c9="" class="outer"><img
-                                                                            _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div> <!----> <!---->
-                                                        <div _ngcontent-c9="" class="item-price clearfix"><span
-                                                                _ngcontent-c9=""><i>¥</i> <span>59.00</span></span>
-                                                        </div><!---->
-                                                        <!----> <!---->
-                                                        <div _ngcontent-c9="" class="item-tips"><span _ngcontent-c9=""
-                                                                                                      class="info">添加商品</span>
-                                                            <span _ngcontent-c9="" class="warning">已达限购数量</span></div>
-                                                        <!---->
-                                                        <!----> </div>
-                                                </sku-item-normal>
-                                            </li>
-                                            <li _ngcontent-c5="" class="item-four"> <!----> <!---->
-                                                <sku-item-normal _ngcontent-c5="" _nghost-c9="">
-                                                    <div _ngcontent-c9="" class="product-box-item">
-                                                        <div _ngcontent-c9="">
-                                                            <div _ngcontent-c9="" class="item-img"><img _ngcontent-c9=""
-                                                                                                        src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                                                        style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                            </div>
-                                                            <h4 _ngcontent-c9="">坚果彩虹数据线</h4> <!----> <h6
-                                                                _ngcontent-c9="">
-                                                            七彩配色随机发货，为生活增添一份小小惊喜</h6>  <!----> </div>
-                                                        <div _ngcontent-c9="" class="params-colors">
-                                                            <ul _ngcontent-c9="" class="colors-list"> <!----> </ul>
-                                                        </div> <!----> <!---->
-                                                        <div _ngcontent-c9="" class="item-price clearfix"><span
-                                                                _ngcontent-c9=""><i>¥</i> <span>19.00</span></span>
-                                                        </div><!---->
-                                                        <!----> <!---->
-                                                        <div _ngcontent-c9="" class="item-tips"><span _ngcontent-c9=""
-                                                                                                      class="info">添加商品</span>
-                                                            <span _ngcontent-c9="" class="warning">已达限购数量</span></div>
-                                                        <!---->
-                                                        <!----> </div>
-                                                </sku-item-normal>
-                                            </li>
-                                            <li _ngcontent-c5="" class="item-four"> <!----> <!---->
-                                                <sku-item-normal _ngcontent-c5="" _nghost-c9="">
-                                                    <div _ngcontent-c9="" class="product-box-item">
-                                                        <div _ngcontent-c9="">
-                                                            <div _ngcontent-c9="" class="item-img"><img _ngcontent-c9=""
-                                                                                                        src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                                                        style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                            </div>
-                                                            <h4 _ngcontent-c9="">坚果“电池形电池”移动电源</h4> <!----> <h6
-                                                                _ngcontent-c9="">别具一格的“全能型”移动电源</h6>  <!----> </div>
-                                                        <div _ngcontent-c9="" class="params-colors">
-                                                            <ul _ngcontent-c9="" class="colors-list"> <!---->
-                                                                <li _ngcontent-c9=""> <!---->
-                                                                    <div _ngcontent-c9="" class="outer"><img
-                                                                            _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                                    </div>
-                                                                </li>
-                                                                <li _ngcontent-c9=""> <!---->
-                                                                    <div _ngcontent-c9="" class="outer"><img
-                                                                            _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                                    </div>
-                                                                </li>
-                                                                <li _ngcontent-c9="" class="active"> <!---->
-                                                                    <div _ngcontent-c9="" class="outer"><img
-                                                                            _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                                    </div>
-                                                                </li>
-                                                                <li _ngcontent-c9=""> <!---->
-                                                                    <div _ngcontent-c9="" class="outer"><img
-                                                                            _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div> <!----> <!---->
-                                                        <div _ngcontent-c9="" class="item-price clearfix"><span
-                                                                _ngcontent-c9=""><i>¥</i> <span>69.00</span></span>
-                                                        </div><!---->
-                                                        <!----> <!---->
-                                                        <div _ngcontent-c9="" class="item-tips"><span _ngcontent-c9=""
-                                                                                                      class="info">添加商品</span>
-                                                            <span _ngcontent-c9="" class="warning">已达限购数量</span></div>
-                                                        <!---->
-                                                        <!----> </div>
-                                                </sku-item-normal>
-                                            </li>
-                                            <li _ngcontent-c5="" class="item-four"> <!----> <!---->
-                                                <sku-item-normal _ngcontent-c5="" _nghost-c9="">
-                                                    <div _ngcontent-c9="" class="product-box-item">
-                                                        <div _ngcontent-c9="">
-                                                            <div _ngcontent-c9="" class="item-img"><img _ngcontent-c9=""
-                                                                                                        src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                                                        style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                            </div>
-                                                            <h4 _ngcontent-c9="">Smartisan 快充移动电源 10000mAh</h4> <!---->
-                                                            <h6
-                                                                    _ngcontent-c9="">10000mAh 双向快充、轻盈便携、高标准安全保护</h6>
-                                                            <!----> </div>
-                                                        <div _ngcontent-c9="" class="params-colors">
-                                                            <ul _ngcontent-c9="" class="colors-list"> <!---->
-                                                                <li _ngcontent-c9="" class="active"> <!---->
-                                                                    <div _ngcontent-c9="" class="outer"><img
-                                                                            _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                                    </div>
-                                                                </li>
-                                                                <li _ngcontent-c9=""> <!---->
-                                                                    <div _ngcontent-c9="" class="outer"><img
-                                                                            _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div> <!----> <!---->
-                                                        <div _ngcontent-c9="" class="item-price clearfix"><span
-                                                                _ngcontent-c9=""><i>¥</i> <span>129.00</span></span>
-                                                        </div>
-                                                        <!---->  <!----> <!---->
-                                                        <div _ngcontent-c9="" class="item-tips"><span _ngcontent-c9=""
-                                                                                                      class="info">添加商品</span>
-                                                            <span _ngcontent-c9="" class="warning">已达限购数量</span></div>
-                                                        <!---->
-                                                        <!----> </div>
-                                                </sku-item-normal>
-                                            </li>
-                                        </ul>
-                                    </section>
-                                </div>
-                            </div> <!----> <!----> <!---->
-                            <div _ngcontent-c5="" class="home-box">
-                                <header _ngcontent-c5="" class="storey-title"><h5 _ngcontent-c5="" class="title">
-                                    坚果手机及配件</h5>
-                                    <!----> </header>
-                                <div _ngcontent-c5="" class="category-normal-wrapper">
-                                    <section _ngcontent-c5="" class="items-wrapper clearfix">
-                                        <ul _ngcontent-c5="" class="items clearfix">
-                                            <li _ngcontent-c5="" class="item-four item-recom">
-                                                <advertise _ngcontent-c5="" _nghost-c8="">
-                                                    <div _ngcontent-c8="" class="advertise"> <!---->
-                                                        <div _ngcontent-c8="" class="advertise-item"><img
-                                                                _ngcontent-c8=""
-                                                                src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                            <a _ngcontent-c8="" target="_blank"
-                                                               href="https://www.smartisan.com/item/100046411"></a>
-                                                        </div>
-                                                    </div>
-                                                </advertise>
-                                            </li> <!---->
-                                            <li _ngcontent-c5="" class="item-four"> <!----> <!---->
-                                                <sku-item-normal _ngcontent-c5="" _nghost-c9="">
-                                                    <div _ngcontent-c9="" class="product-box-item">
-                                                        <div _ngcontent-c9="">
-                                                            <div _ngcontent-c9="" class="item-img"><img _ngcontent-c9=""
-                                                                                                        src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                                                        style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                            </div>
-                                                            <h4 _ngcontent-c9="">坚果 Pro 2S</h4> <!----> <h6
-                                                                _ngcontent-c9="">
-                                                            双系统，无限屏</h6>  <!----> </div>
-                                                        <div _ngcontent-c9="" class="params-colors">
-                                                            <ul _ngcontent-c9="" class="colors-list"> <!---->
-                                                                <li _ngcontent-c9="" class="active"> <!---->
-                                                                    <div _ngcontent-c9="" class="outer"><img
-                                                                            _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                                    </div>
-                                                                </li>
-                                                                <li _ngcontent-c9=""> <!---->
-                                                                    <div _ngcontent-c9="" class="outer"><img
-                                                                            _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                                    </div>
-                                                                </li>
-                                                                <li _ngcontent-c9=""> <!---->
-                                                                    <div _ngcontent-c9="" class="outer"><img
-                                                                            _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                                    </div>
-                                                                </li>
-                                                                <li _ngcontent-c9=""> <!---->
-                                                                    <div _ngcontent-c9="" class="outer"><img
-                                                                            _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div> <!----> <!---->
-                                                        <div _ngcontent-c9="" class="item-price clearfix"><span
-                                                                _ngcontent-c9=""><i>¥</i> <span>1,998.00</span></span>
-                                                        </div>
-                                                        <!---->  <!----> <!---->
-                                                        <div _ngcontent-c9="" class="item-tips"><span _ngcontent-c9=""
-                                                                                                      class="info">添加商品</span>
-                                                            <span _ngcontent-c9="" class="warning">已达限购数量</span></div>
-                                                        <!---->
-                                                        <!----> </div>
-                                                </sku-item-normal>
-                                            </li>
-                                            <li _ngcontent-c5="" class="item-four"> <!----> <!---->
-                                                <sku-item-normal _ngcontent-c5="" _nghost-c9="">
-                                                    <div _ngcontent-c9="" class="product-box-item">
-                                                        <div _ngcontent-c9="">
-                                                            <div _ngcontent-c9="" class="item-img"><img _ngcontent-c9=""
-                                                                                                        src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                                                        style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                            </div>
-                                                            <h4 _ngcontent-c9="">坚果 R1</h4> <!----> <h6
-                                                                _ngcontent-c9="">
-                                                            次世代旗舰手机，内藏来自未来的“电脑”</h6>  <!----> </div>
-                                                        <div _ngcontent-c9="" class="params-colors">
-                                                            <ul _ngcontent-c9="" class="colors-list"> <!---->
-                                                                <li _ngcontent-c9=""> <!---->
-                                                                    <div _ngcontent-c9="" class="outer"><img
-                                                                            _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                                    </div>
-                                                                </li>
-                                                                <li _ngcontent-c9=""> <!---->
-                                                                    <div _ngcontent-c9="" class="outer"><img
-                                                                            _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                                    </div>
-                                                                </li>
-                                                                <li _ngcontent-c9="" class="active"> <!---->
-                                                                    <div _ngcontent-c9="" class="outer"><img
-                                                                            _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div> <!----> <!---->
-                                                        <div _ngcontent-c9="" class="item-price clearfix"><span
-                                                                _ngcontent-c9=""><i>¥</i> <span>3,799.00</span></span>
-                                                        </div>
-                                                        <!---->  <!----> <!---->
-                                                        <div _ngcontent-c9="" class="item-tips"><span _ngcontent-c9=""
-                                                                                                      class="info">添加商品</span>
-                                                            <span _ngcontent-c9="" class="warning">已达限购数量</span></div>
-                                                        <!---->
-                                                        <!----> </div>
-                                                </sku-item-normal>
-                                            </li>
-                                            <li _ngcontent-c5="" class="item-four"> <!----> <!---->
-                                                <sku-item-normal _ngcontent-c5="" _nghost-c9="">
-                                                    <div _ngcontent-c9="" class="product-box-item">
-                                                        <div _ngcontent-c9="">
-                                                            <div _ngcontent-c9="" class="item-img"><img _ngcontent-c9=""
-                                                                                                        src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                                                        style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                            </div>
-                                                            <h4 _ngcontent-c9="">坚果彩虹数据线</h4> <!----> <h6
-                                                                _ngcontent-c9="">
-                                                            七彩配色随机发货，为生活增添一份小小惊喜</h6>  <!----> </div>
-                                                        <div _ngcontent-c9="" class="params-colors">
-                                                            <ul _ngcontent-c9="" class="colors-list"> <!----> </ul>
-                                                        </div> <!----> <!---->
-                                                        <div _ngcontent-c9="" class="item-price clearfix"><span
-                                                                _ngcontent-c9=""><i>¥</i> <span>39.00</span></span>
-                                                        </div><!---->
-                                                        <!----> <!---->
-                                                        <div _ngcontent-c9="" class="item-tips"><span _ngcontent-c9=""
-                                                                                                      class="info">添加商品</span>
-                                                            <span _ngcontent-c9="" class="warning">已达限购数量</span></div>
-                                                        <!---->
-                                                        <!----> </div>
-                                                </sku-item-normal>
-                                            </li>
-                                            <li _ngcontent-c5="" class="item-four"> <!----> <!---->
-                                                <sku-item-normal _ngcontent-c5="" _nghost-c9="">
-                                                    <div _ngcontent-c9="" class="product-box-item">
-                                                        <div _ngcontent-c9="">
-                                                            <div _ngcontent-c9="" class="item-img"><img _ngcontent-c9=""
-                                                                                                        src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                                                        style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                            </div>
-                                                            <h4 _ngcontent-c9="">坚果 Type-C To Type-C 数据线</h4> <!---->
-                                                            <h6
-                                                                    _ngcontent-c9="">TPE 环保材质，PTC 过温保护</h6>  <!---->
-                                                        </div>
-                                                        <div _ngcontent-c9="" class="params-colors">
-                                                            <ul _ngcontent-c9="" class="colors-list"> <!---->
-                                                                <li _ngcontent-c9="" class="active"> <!---->
-                                                                    <div _ngcontent-c9="" class="outer"><img
-                                                                            _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div> <!----> <!---->
-                                                        <div _ngcontent-c9="" class="item-price clearfix"><span
-                                                                _ngcontent-c9=""><i>¥</i> <span>39.00</span></span>
-                                                        </div><!---->
-                                                        <!----> <!---->
-                                                        <div _ngcontent-c9="" class="item-tips"><span _ngcontent-c9=""
-                                                                                                      class="info">添加商品</span>
-                                                            <span _ngcontent-c9="" class="warning">已达限购数量</span></div>
-                                                        <!---->
-                                                        <!----> </div>
-                                                </sku-item-normal>
-                                            </li>
-                                            <li _ngcontent-c5="" class="item-four"> <!----> <!---->
-                                                <sku-item-normal _ngcontent-c5="" _nghost-c9="">
-                                                    <div _ngcontent-c9="" class="product-box-item">
-                                                        <div _ngcontent-c9="">
-                                                            <div _ngcontent-c9="" class="item-img"><img _ngcontent-c9=""
-                                                                                                        src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                                                        style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                            </div>
-                                                            <h4 _ngcontent-c9="">Smartisan 耳机转接头</h4> <!----> <h6
-                                                                _ngcontent-c9="">即插即用、全面兼容</h6>  <!----> </div>
-                                                        <div _ngcontent-c9="" class="params-colors">
-                                                            <ul _ngcontent-c9="" class="colors-list"> <!---->
-                                                                <li _ngcontent-c9="" class="active"> <!---->
-                                                                    <div _ngcontent-c9="" class="outer"><img
-                                                                            _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div> <!----> <!---->
-                                                        <div _ngcontent-c9="" class="item-price clearfix"><span
-                                                                _ngcontent-c9=""><i>¥</i> <span>19.00</span></span>
-                                                        </div><!---->
-                                                        <!----> <!---->
-                                                        <div _ngcontent-c9="" class="item-tips"><span _ngcontent-c9=""
-                                                                                                      class="info">添加商品</span>
-                                                            <span _ngcontent-c9="" class="warning">已达限购数量</span></div>
-                                                        <!---->
-                                                        <!----> </div>
-                                                </sku-item-normal>
-                                            </li>
-                                            <li _ngcontent-c5="" class="item-four"> <!----> <!---->
-                                                <sku-item-normal _ngcontent-c5="" _nghost-c9="">
-                                                    <div _ngcontent-c9="" class="product-box-item">
-                                                        <div _ngcontent-c9="">
-                                                            <div _ngcontent-c9="" class="item-img"><img _ngcontent-c9=""
-                                                                                                        src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                                                        style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                            </div>
-                                                            <h4 _ngcontent-c9="">Smartisan 半入耳式耳机</h4> <!----> <h6
-                                                                _ngcontent-c9="">经典配色、专业调音、高品质麦克风</h6>  <!----> </div>
-                                                        <div _ngcontent-c9="" class="params-colors">
-                                                            <ul _ngcontent-c9="" class="colors-list"> <!---->
-                                                                <li _ngcontent-c9="" class="active"> <!---->
-                                                                    <div _ngcontent-c9="" class="outer"><img
-                                                                            _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                                    </div>
-                                                                </li>
-                                                                <li _ngcontent-c9=""> <!---->
-                                                                    <div _ngcontent-c9="" class="outer"><img
-                                                                            _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                                    </div>
-                                                                </li>
-                                                                <li _ngcontent-c9=""> <!---->
-                                                                    <div _ngcontent-c9="" class="outer"><img
-                                                                            _ngcontent-c9=""
-                                                                            src="../../../static/bash_files/placeholder.0c62faeac814faf172134746ff5bde9a.jpg"
-                                                                            style="opacity: 0; transition: opacity 0.3s ease-in-out 0s;">
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div> <!----> <!---->
-                                                        <div _ngcontent-c9="" class="item-price clearfix"><span
-                                                                _ngcontent-c9=""><i>¥</i> <span>59.00</span></span>
-                                                        </div><!---->
-                                                        <!----> <!---->
-                                                        <div _ngcontent-c9="" class="item-tips"><span _ngcontent-c9=""
-                                                                                                      class="info">添加商品</span>
-                                                            <span _ngcontent-c9="" class="warning">已达限购数量</span></div>
-                                                        <!---->
-                                                        <!----> </div>
-                                                </sku-item-normal>
-                                            </li>
-                                        </ul>
-                                    </section>
-                                </div>
-                            </div> <!---->  </section>
+
                         <div _ngcontent-c5="" class="home-box" style="margin-bottom:25px">
                             <header _ngcontent-c5="" class="storey-title"><h5 _ngcontent-c5="" class="title">论坛精选</h5>
                                 <div _ngcontent-c5="" class="floor-page"><a _ngcontent-c5="" class="floor-page-link"

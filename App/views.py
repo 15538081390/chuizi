@@ -9,8 +9,11 @@ from App.models import *
 def index(request):
     home=Indexhome.objects.all()
     tab=IndexTab.objects.all()
+    products=Productcategorie.objects.all()
     return render(request,"App/bash/bash.html",context={"home":home,
-                                                        "tab":tab,})
+                                                        "tab":tab,
+                                                        "products":products,
+                                                        })
 
 
     # return HttpResponse("111111")
@@ -46,6 +49,35 @@ def server3(request):
     home=Indexhome.objects.all()
     return render(request,"App/bash/server3.html",context={"tab":tab,
                                                            "home":home,
+                                                          })
+
+
+def application(request):
+    tab=IndexTab.objects.all()
+    return render(request,"App/topbash/app.html",context={"tab":tab,
+                                                          })
+
+def osx(request):
+    tab=IndexTab.objects.all()
+    return  render(request,"App/topbash/osx.html",context={"tab":tab,
+                                                           })
+
+def pron2s(request):
+    tab=IndexTab.objects.all()
+    return render(request,"App/topbash/pron2s.html",context={"tab":tab,
+                                                        })
+def r1(request):
+    tab=IndexTab.objects.all()
+    return render(request,"App/topbash/r1.html",context={"tab":tab,
+                                                         })
+
+def dingduan(request):
+    tab=IndexTab.objects.all()
+    return render(request,"App/topbash/dingduan.html",context={"tab":tab,
+                                                          })
+def tnt(request):
+    tab=IndexTab.objects.all()
+    return render(request,"App/topbash/tnt.html",context={"tab":tab,
                                                           })
 
 
