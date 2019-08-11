@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <!-- saved from url=(0088)https://account.smartisan.com/#/v2/login?return_url=https:%2F%2Fwww.smartisan.com%2Fuser -->
 <html lang="zh" ng-app="accountApp" class="ng-scope">
@@ -30,10 +31,10 @@
     <link href="https://static.smartisanos.cn/common/img/favicon_76.png" sizes="76x76" rel="apple-touch-icon">
     <link href="https://static.smartisanos.cn/common/img/favicon_120.png" sizes="120x120" rel="apple-touch-icon">
     <link href="https://static.smartisanos.cn/common/img/favicon_152.png" sizes="152x152" rel="apple-touch-icon">
-    <link rel="stylesheet" href="./用户登录 - Smartisan_files/main_1666763a09.css">
-    <script async="" src="./用户登录 - Smartisan_files/gtm.js"></script>
-    <script src="./用户登录 - Smartisan_files/jweixin-1.3.2.js"></script>
-    <script src="./用户登录 - Smartisan_files/update-browser.js"></script>
+    <link rel="stylesheet" href="{% static 'css/login_register/main_1666763a09.css' %}">
+    <script async="" src="{% static 'js/login_register/gtm.js' %}"></script>
+    <script src="{% static 'js/login_register/jweixin-1.3.2.js' %}"></script>
+    <script src="{% static 'js/login_register/update-browser.js' %}"></script>
 </head>
 <body class="v2 login-v2" ng-class="pageClass" style="">
 <div class="wrapper ng-scope" ng-controller="MainCtrl"
@@ -128,9 +129,9 @@
         </div>
     </div>
 </div>
-<script src="./用户登录 - Smartisan_files/dep_32beeb2256.js"></script>
-<script src="./用户登录 - Smartisan_files/app_5f9f0a9cbe.js"></script>
-<script src="./用户登录 - Smartisan_files/template_d14b18bf4b.js"></script>
+<script src="{% static 'js/login_register/dep_32beeb2256.js' %}"></script>
+<script src="{% static 'js/login_register/app_5f9f0a9cbe.js' %}">document.domain="127.0.0.1";</script>
+<script src="{% static 'js/login_register/template_d14b18bf4b.js' %}"></script>
 <noscript>
     <iframe src="//www.googletagmanager.com/ns.html?id=GTM-TBDW8K" height=0 width=0
             style=display:none;visibility:hidden></iframe>
