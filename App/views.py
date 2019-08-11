@@ -3,16 +3,33 @@ from urllib import request
 from django.http import HttpResponse
 from django.shortcuts import render
 from App.models import *
+import random
 
 # Create your views here.
 #首页
 def index(request):
+    products = Productcategorie.objects.all()
     home=Indexhome.objects.all()
     tab=IndexTab.objects.all()
-    products=Productcategorie.objects.all()
+    a=[]
+    c=[]
+    for h in home:
+        for p in products:
+            if p.hid==h.hid:
+                a.append(p)
+        if len(a)>8:
+            a=random.sample(a,8)
+            for a1 in a:
+                c.append(a1)
+            a=[]
+        else:
+            for a1 in a:
+                c.append(a1)
+            a=[]
+    print(c)
     return render(request,"App/bash/bash.html",context={"home":home,
                                                         "tab":tab,
-                                                        "products":products,
+                                                        "products":c,
                                                         })
 
 
