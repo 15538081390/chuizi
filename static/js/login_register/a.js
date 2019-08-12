@@ -1,4 +1,4 @@
-define('', function (require, exports, module) {
+define('md.auth.validate.v2', function (require, exports, module) {
     var jquery = $ = require('jquery'), mUrl = require('url'), md5 = require('md5'),
         passwordValidator = require('password.validator'), Auth = {
             nonceId: null,

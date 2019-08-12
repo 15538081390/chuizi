@@ -5,6 +5,7 @@ from django.db import models
 
 # 用户表
 class User(models.Model):
+    uid = models.IntegerField(primary_key=True, auto_created=True)
     username = models.CharField(unique=True, max_length=50)
     password = models.CharField(max_length=50)
     phone = models.IntegerField(unique=True)

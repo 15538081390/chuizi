@@ -129,6 +129,11 @@ USE_L10N = True
 
 USE_TZ = True
 
+# 设置session过期时间
+MAXAGE = 1 * 24 * 3600
+SALTVALUE = '9a15ae9f'
+
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
