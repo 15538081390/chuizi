@@ -97,7 +97,3 @@ def tnt(request):
     return render(request,"App/topbash/tnt.html",context={"tab":tab,
                                                           })
 
-
-
-
-

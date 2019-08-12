@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'App',
-    'operate.apps.OperateConfig',
+    'operate',
 ]
 
 
@@ -89,6 +89,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': "lichao",
+        # "HOST":"192.168.31.175",
         "HOST":"10.0.108.134",
         "USER":"root",
         "PASSWORD":"8790909a",
@@ -127,7 +128,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
