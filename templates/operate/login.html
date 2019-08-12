@@ -1,153 +1,635 @@
 {% load static %}
 <!DOCTYPE html>
-<!-- saved from url=(0088)https://account.smartisan.com/#/v2/login?return_url=https:%2F%2Fwww.smartisan.com%2Fuser -->
-<html lang="zh" ng-app="accountApp" class="ng-scope">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <style type="text/css">@charset "UTF-8";
-    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide {
-        display: none !important;
-    }
-
-    ng\:form {
-        display: block;
-    }
-
-    .ng-animate-block-transitions {
-        transition: 0s all !important;
-        -webkit-transition: 0s all !important;
-    }
-
-    .ng-hide-add-active, .ng-hide-remove {
-        display: block !important;
-    }</style>
-    <meta name="keywords" content="锤子商城, 智能手机, 用户体验">
-    <meta name="description">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title ng-bind="$root.title + &#39; - Smartisan&#39;" class="ng-binding">用户登录 - Smartisan</title>
-    <link href="https://static.smartisanos.cn/common/img/favicon.ico" rel="shortcut icon">
-    <link href="https://static.smartisanos.cn/common/img/favicon_114.png" rel="apple-touch-icon">
-    <link href="https://static.smartisanos.cn/common/img/favicon_76.png" sizes="76x76" rel="apple-touch-icon">
-    <link href="https://static.smartisanos.cn/common/img/favicon_120.png" sizes="120x120" rel="apple-touch-icon">
-    <link href="https://static.smartisanos.cn/common/img/favicon_152.png" sizes="152x152" rel="apple-touch-icon">
-    <link rel="stylesheet" href="{% static 'css/login_register/main_1666763a09.css' %}">
-    <script async="" src="{% static 'js/login_register/gtm.js' %}"></script>
-    <script src="{% static 'js/login_register/jweixin-1.3.2.js' %}"></script>
-    <script src="{% static 'js/login_register/update-browser.js' %}"></script>
-</head>
-<body class="v2 login-v2" ng-class="pageClass" style="">
-<div class="wrapper ng-scope" ng-controller="MainCtrl"
-     ng-class="{ &#39;cloud&#39;: isEmbedCloud, &#39;bbs&#39;: isEmbedBbs, &#39;bbs-tmp&#39;: isEmbedBbsTmp, &#39;settings&#39;: isSettings, &#39;guest&#39;: isGuestLogin, &#39;avatar&#39;: isModifyAvatar, &#39;notes&#39;: isEmbedNotes, &#39;contacts&#39;: isEmbedContacts, &#39;radar&#39;: isEmbedRadar, &#39;four-1&#39;: is1111}">
-    <div class="dialog dialog-shadow" style="display: block; margin-top: -324px;">
-        <div class="title" ng-class="loginLogoClass">
-            <div ng-show="is1111" class="return-btn ng-hide" ng-click="backToLast()"></div>
-            <h4 ng-bind="dialogTitle" class="ng-binding">使用 Smartisan ID 登录官网</h4><a class="close"></a></div>
-        <!-- ngView:  -->
-        <div class="content ng-scope ng-animate" ng-view="" ng-animate-children="" style="height: auto;">
-            <form class="login-form form-v2 ng-scope ng-pristine ng-invalid ng-invalid-required" name="form"
-                  novalidate="" autocomplete="off">
-                <ul class="common-form"><!-- ngIf: showCcc -->
-                    <li class="username border-1p">
-                        <div class="input" i-animation="errAnimation.username" style="opacity: 0.618;"><span
-                                class="icon"><i>手机号/邮箱</i></span> <!-- ngIf: showCcc --><label for="username"
-                                                                                               class="placeholder ng-binding"
-                                                                                               ng-class="{&#39;indent&#39;: showCcc}">手机号/邮箱</label>
-                            <input type="text" name="username" aria-labelledby="u-required u-format-error u-not-exist"
-                                   autocomplete="username" ng-model="user.username" required="" i-input="" i-focus=""
-                                   i-username="" i-auto-focus="" i-response="" ng-class="{&#39;indent&#39;: showCcc}"
-                                   class="ng-pristine ng-invalid ng-invalid-required ng-valid-name-valid"> <span
-                                    id="u-required" aria-live="assertive" class="warning ng-binding"
-                                    i-warning="form.username.$submitted &amp;&amp; form.username.$error.required">请输入手机号/邮箱</span>
-                            <span id="u-format-error" aria-live="assertive" class="warning ng-binding"
-                                  i-warning="form.username.$blurred &amp;&amp; form.username.$error.username">手机号/邮箱格式错误</span>
-                            <span id="u-not-exist" aria-live="assertive" class="warning ng-binding"
-                                  i-warning="form.username.$blurred &amp;&amp; form.username.$error.nameValid">手机号/邮箱不存在</span>
-                        </div>
-                    </li>
-                    <li class="password">
-                        <div class="input" i-animation="errAnimation.password" style="opacity: 0.618;"><span
-                                class="icon"><i>密码</i></span><label for="password" class="placeholder">密码</label> <input
-                                type="password" name="password" aria-labelledby="p-required p-error"
-                                autocomplete="current-password" ng-model="user.password" required="" ng-trim="false"
-                                i-input="" i-focus="" i-enter="login()" i-response="" select-on="focus.password"
-                                class="ng-pristine ng-invalid ng-invalid-required ng-valid-password-valid"> <span
-                                class="m-eye"></span> <span id="p-required" aria-live="assertive" class="warning"
-                                                            i-warning="form.password.$submitted &amp;&amp; form.password.$error.required">请输入密码</span>
-                            <span id="p-error" aria-live="assertive" class="warning"
-                                  i-warning="form.password.$submitted &amp;&amp; form.password.$error.passwordValid">密码错误</span>
-                        </div>
-                    </li><!-- ngIf: captchaNeeded -->
-                    <li class="remember" ng-class="{&#39;notes&#39;: isEmbedNotes}"><!-- ngIf: !isMiniprogram -->
-                        <div class="auto ng-binding ng-scope" ng-click="remembered = !remembered"
-                             ng-if="!isMiniprogram"><span role="checkbox" aria-checked="true" class="checkbox checked"
-                                                          ng-class="{&#39;checked&#39; : remembered}"><a></a></span>
-                            自动登录
-                        </div><!-- end ngIf: !isMiniprogram --><a class="forgotpassword ng-binding"
-                                                                  ng-click="forgotPassword()">忘记密码？</a> <a
-                                class="registercloud ng-binding" ng-click="toRegister()">注册 Smartisan ID</a></li>
-                </ul>
-                <div class="btn-wrapper">
-                    <div class="btn btn-primary disabled" ng-class="{&#39;disabled&#39;:form.$invalid}"
-                         ng-click="login()"><a role="button">登录</a></div>
-                </div>
-                <div class="info-wrapper clearfix">
-                    <ul>
-                        <li><!-- ngIf: !isMiniprogram -->
-                            <ul class="login-three ng-scope" ng-if="!isMiniprogram">
-                                <li class="text">其他账号登录：</li>
-                                <li role="button" class="wechat" ng-click="wechatLogin()"></li>
-                                <li role="button" class="weibo" ng-click="weiboLogin()"></li>
-                                <li role="button" class="qq" ng-click="qqLogin()"></li>
-                                <li role="button" class="alipay" ng-click="alipayLogin()"></li>
-                            </ul><!-- end ngIf: !isMiniprogram --></li>
-                        <li><a role="button" ng-click="switchModel()" class="ng-binding">国际手机号登录 <span
-                                class="smartisan-icon gt"></span></a></li>
-                    </ul>
-                </div>
-                <div class="info-wrapper ng-hide" ng-show="is1111"><span>提示：为了确保账户的安全性，维护您的福袋兑换权益，请输入您的用户名和密码，点击【登录】即可兑换福袋。</span>
-                </div>
-            </form><!-- ngIf: showCcc --></div>
-    </div>
-    <div class="loading" style="display: none;"></div>
-    <div class="copyright">
-        <div class="clearfix"><h2>Copyright&nbsp;©&nbsp;2019&nbsp;smartisan.com&nbsp;版权所有</h2>
-            <ul class="privacy">
-                <li><a href="http://www.smartisan.com/support/#/agreement">法律声明</a></li>
-                <li><a href="http://www.smartisan.com/support/#/privacy">隐私条款</a></li>
-            </ul>
-        </div>
-        <h4><a href="http://www.miibeian.gov.cn/" target="_blank"><span>京 ICP 备 18020659 号 - 2</span></a></h4></div>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <title>用户登录——smartisan</title>
+    <link rel="shortcut icon" href="https://pic.midea.cn/pc/img/common/favicon.ico">
+    <link combofile="common/global.html" rel="stylesheet" href="{% static 'css/login_register/a_002.css' %}">
+    <link combofile="mall/login_v2.html" rel="stylesheet" href="{% static 'css/login_register/a.css' %}">
+<style type="text/css">:root #MsnDialog.ad, :root #MyMoveAd, :root #QQ_Full, :root #ad-SNSSplashAd, :root #ad6cn, :root #adBody07, :root #adLeftFloat, :root #adRightFloat, :root #ad_box1, :root #ad_box2, :root #ad_full, :root #ad_headerbanner, :root #ads_c_tpc, :root #ads_top_video, :root #adtop1, :root #adx_cggp, :root #crazy_ad_float, :root #crazy_ad_layer, :root #cs_left_couplet, :root #cs_right_couplet, :root #doyoo_mon_mask, :root #doyoo_monitor, :root #duilian_left, :root #duilian_right, :root #eis_pad1, :root #eis_pad2, :root #floatAd, :root #floatad-winpop, :root #fwin_popad_7ree, :root #fwin_popad_7ree + #fwin_dialog, :root #gg300, :root #googleAdIndexTop, :root #haoetv1, :root #js-ad-map, :root #js_ads_banner_top, :root #js_ads_banner_top_slide, :root #kfpopupDiv, :root #leftCouple, :root #leftCouplet, :root #leftFloat + #rightFloat, :root #left_couple, :root #left_down_float_ad, :root #left_float + #right_float, :root #left_top_ad, :root #left_up_float_ad, :root #lovexin1, :root #lovexin11, :root #lovexin12, :root #lovexin13, :root #lovexin14 { display: none!important; z-index:-1!important; height:0px!important;}
+:root #lovexin2, :root #mbjx_ad, :root #miaov_float_layer, :root #micast_ads, :root #movieInfoRight, :root #my-adsFPR, :root #navcontainer + .moneyarea, :root #netease_mail_footer, :root #olfullad, :root #overture_ads_bottom_td, :root #overture_ads_top_td, :root #popup.t, :root #ptcmsad1, :root #qj960a, :root #qj960b, :root #results.content-main > .eLeft, :root #rightCouple, :root #rightCouple + #leftFloat, :root #rightCouplet, :root #rightCouplet + #leftFloat, :root #right_couple, :root #right_couple + #left_float, :root #right_down_float_ad, :root #right_up_float_ad, :root #shareman_ad, :root #sitefocus.focus, :root #snActive-wrap, :root #table1[width="468"][height="50"], :root #table1[width="794"][height="60"], :root #table1[width="812"][height="50"], :root #tanx-con-1, :root #tanx-fold-main, :root #textggs, :root #top_ads0, :root #toperAd2, :root #toptb + div[align="center"], :root #tr_ad1, :root #tr_ad10, :root #tr_ad11, :root #tr_ad2, :root #tr_ad3, :root #tr_ad4, :root #tr_ad5, :root #tr_ad6, :root #tr_ad7, :root #tr_ad8, :root #tr_ad9, :root #tripadvisor-ad, :root #xinnxi, :root #xinxi { display: none!important; z-index:-1!important; height:0px!important;}
+:root #zds_ad, :root ._cggp, :root ._ggs, :root ._popIn_recommend_article_ad, :root ._popIn_recommend_article_ad_reserved, :root .a_cn, :root .a_fl, :root .a_pb, :root .a_pr, :root .a_sxc, :root .a_xsfl, :root .ad-above-footer, :root .ad-below-adjacent-post, :root .ad-below-header-menu, :root .ad-below-post-title, :root .ad-below-related-post, :root .ad-couplet-common, :root .ad-left-down, :root .ad-left-top, :root .ad-right-down, :root .ad-right-top, :root .ad-site, :root .ad250left, :root .ad250right, :root .ad300left, :root .ad336left, :root .ad990x130, :root .ad990x90, :root .ad_couplebanner, :root .ad_fixed, :root .ad_footerbanner, :root .ad_headerbanner, :root .ad_hf, :root .ad_home_current, :root .ad_midd, :root .ad_right_1, :root .ad_right_2, :root .ad_thread, :root .ads > a > img[src*=".sinaimg."], :root .adsense160, :root .adsense200, :root .adsoho, :root .assort-ad, :root .banner-ad-section, :root .bdyp-sygg-ul, :root .below_ads, :root .bm.a_c, :root .bn728-93, :root .bottom-adv, :root .bottomSponsor { display: none!important; z-index:-1!important; height:0px!important;}
+:root .bus_adsbox, :root .cari-ads, :root .chat-ad, :root .chat-right-ad, :root .chat-sysbroadcast-ad, :root .chat-top-ad, :root .comiis_adbox, :root .con_ad, :root .content-video > .ads, :root .content-video > .ads-player, :root .content_ad_300, :root .couplet_9cb0d, :root .customSlideshow-ad-below, :root .d_slidebanner, :root .f-sign-cont[data-dysign-adid], :root .gg1000, :root .gg430, :root .gg_300, :root .gg_950, :root .gg_960, :root .gg_full, :root .ggad, :root .ggdistich, :root .gggtop, :root .ggpost-below, :root .ggtop, :root .google_adsense2, :root .gpt_ads_box, :root .hao123-unionad-pic, :root .heg > .div-list, :root .his-sign-cont[data-dysign-adid], :root .iHead960x90, :root .index_alert_gg, :root .indexad2, :root .indexad3, :root .indexad4, :root .it618_firstad_flex, :root .kf_qycn_com_cckf_welcomebox, :root .leftadv, :root .lol-ad, :root .lol_ad, :root .lyzm-prevent, :root .menutab_ad, :root .ml_ad1, :root .ml_ad3, :root .ml_ad5, :root .mlad, :root .movie-advert-link, :root .pagead_3, :root .player-bottom-gg { display: none!important; z-index:-1!important; height:0px!important;}
+:root .readerAd, :root .room-ad-bottom, :root .room-ad-top, :root .room-ad-video-down, :root .scupioadslot, :root .sxAdBox, :root .theme_custom_slidebox-ad-below, :root .tipadds, :root .tmall_ad_container, :root .top-read-ad, :root .topSponsor, :root .toy52_outer, :root .toy52apparel_ALL, :root .twavt-ads, :root .wf_ad_block, :root .widget_ad_sidebar, :root .widget_adbox, :root .wp.a_f, :root .wp.a_h, :root .wumii-bottom-popup, :root .wumii-widget-ad, :root .wzad, :root .yd_ad, :root .yd_ad1, :root .yd_ad2, :root .yd_ad3, :root .yd_ad5, :root .yd_ad6, :root .zone_wap_banner2, :root A[href*=".com/?Agent="], :root a[href*=".123ch.cn"], :root a[href*=".222bz.com/"], :root a[href*=".9xiazaiqi.com"], :root a[href*=".com/?Extend="], :root a[href*=".com/?p="][target="_blank"] > img[src$=".gif"], :root a[href*=".com/Register.aspx?aid="], :root a[href*=".com/Register/?a="], :root a[href*=".com/Register?a="], :root a[href*=".com?aff="], :root a[href*=".com?intr="], :root a[href*=".downok.com"], :root a[href*=".qpzqxz.com/"], :root a[href*=".qtj5.com/"], :root a[href*=".tudown.com/"], :root a[href*=".wjLkj.com/"], :root a[href*=".yyk2.com/"], :root a[href*="/?INTR="], :root a[href*="/?Intr="], :root a[href*="/?intr="], :root a[href^="http://ad.moemoe."] { display: none!important; z-index:-1!important; height:0px!important;}
+:root a[href^="http://go.gotourl.xyz/"], :root a[href^="http://www.upupoo.com/?"], :root a[href^="https://hi.potvpn.com/?from="], :root body[onload*="u()"] > #x, :root div#ad_id, :root div[id^="ad_thread"], :root img[src$="/2016-0114-700X70.gif"] ~ a[onmouseover="this.style.background='#DEF5CD';"]:nth-child(-n+226), :root img[src$="/2016-0114-700X70.gif"] ~ span[class^="f"] > span > a[onmouseover="this.style.background='#DEF5CD';"]:first-child:last-child, :root img[src$="/47650fdad90b35b07d9339b792713f7e.gif"] ~ a[onmouseover="this.style.background='#DEF5CD';"]:nth-child(-n+226), :root img[src$="/47650fdad90b35b07d9339b792713f7e.gif"] ~ span[class^="f"] > span > a[onmouseover="this.style.background='#DEF5CD';"]:first-child:last-child, :root img[src$="/a1b45005bda18472821222856c6d4f99.gif"] ~ a[onmouseover="this.style.background='#DEF5CD';"]:nth-child(-n+226), :root img[src$="/a1b45005bda18472821222856c6d4f99.gif"] ~ span[class^="f"] > span > a[onmouseover="this.style.background='#DEF5CD';"]:first-child:last-child, :root script + #rbbox, :root script + .sptable[cellpadding="5"], :root script + .sptable_do_not_remove[cellpadding="5"], :root table[style="border:#e8e8e8 1px solid;"] + div[style="margin-top:5px"] > table[style="width:100%;"][cellspacing="0"][cellpadding="1"][bordercolor="#999999"][border="1"], :root [style="display:none"] + iframe[scrolling="no"][src*="//"][src*="?"][src*="="][src*="&"][width][height][frameborder="0"], :root div:not([id]):not([class]):not([style]) > div:not([id]):not([class]):not([style]) > iframe[scrolling="no"][src*="//"][src*="?"][src*="="][src*="&"][width][height][frameborder="0"], :root div[style^="width: 100%;"][style$="display: block;"] iframe[scrolling="no"][src*="//"][src*="?"][src*="="][src*="&"][width][height][frameborder="0"], :root div[style^="width: 100%;"][style$="margin: 0px;"] iframe[scrolling="no"][src*="//"][src*="?"][src*="="][src*="&"][width][height][frameborder="0"], :root div[style^="width: 100%;"][style$="opacity: 100;"] iframe[scrolling="no"][src*="//"][src*="?"][src*="="][src*="&"][width][height][frameborder="0"], :root div[style^="width: 100%;"][style$="overflow: hidden;"] iframe[scrolling="no"][src*="//"][src*="?"][src*="="][src*="&"][width][height][frameborder="0"], :root div[style^="width: 100%;"][style$="visibility: visible;"] iframe[scrolling="no"][src*="//"][src*="?"][src*="="][src*="&"][width][height][frameborder="0"], :root div[style^="width: 100%;"][style$="z-index: inherit;"] iframe[scrolling="no"][src*="//"][src*="?"][src*="="][src*="&"][width][height][frameborder="0"], :root #cpro_container, :root a[href*="/mobads.php?"], :root div[id][style="width: 100%;"] > div > div > iframe[scrolling="no"][src^="http"][src*="?"][src*="="][src*="&"][width][height][frameborder="0"], :root div[id][style="width: 100%;"] > div > iframe[scrolling="no"][src^="http"][src*="?"][src*="="][src*="&"][width][height][frameborder="0"], :root div[id][style="width: 100%;"] > iframe[scrolling="no"][src^="http"][src*="?"][src*="="][src*="&"][width][height][frameborder="0"], :root div[style="width: 100%;"]:not([id]):not([class]) > iframe[scrolling="no"][src*="//"][src*="?"][src*="="][src*="&"][width][height][frameborder="0"], :root div[style^="width: 100%;"]:not([id]):not([class]) > iframe[scrolling="no"][src^="http"][src*="?"][src*="="][src*="&"][width][height][frameborder="0"], :root .footer > #box[style="width:100%;height:100%;position:fixed;top:0"], :root a[href^="http://yunbofangbt."], :root #j-new-ad, :root .a_sxfl, :root .a_sxmu, :root .a_sxp, :root .a_sxpb, :root .heg > .partner-list, :root a[href^="/dasp.php?a="], :root [class^="ADTOPLB"] { display: none!important; z-index:-1!important; height:0px!important;}
+</style><style type="text/css">:root .adsbygoogle, :root .ggbox, :root .banner-site, :root .a_p, :root .a_fr, :root a[href*="/cpro/"], :root a[href*="/cpro."], :root a[href*="/?aff="], :root a[href*=".umeng.com"], :root a > img[width="980"][src*=".sinaimg."], :root a > img[width="960"][src*=".sinaimg."], :root a > img[src*=".sinaimg."][src$=".gif"][style*="width:960"], :root .wp.a_t, :root .widget_ui_ads, :root .baiduad, :root .a_pt, :root .a_mu, :root #kfivtwin, :root #haoetv, :root #gg1 { display: none!important; z-index:-1!important; height:0px!important;}
+</style><script charset="utf-8" async="" src="{% static 'js/login_register/a.js' %}"></script><script src="%E7%BE%8E%E7%9A%84%EF%BC%8C%E4%B8%AD%E5%9B%BD%E5%AE%B6%E7%94%B5%E8%A1%8C%E4%B8%9A%E9%A2%86%E5%AF%BC%E8%80%85_files/h.txt" charset="utf-8"></script><script charset="utf-8" async="" src="{% static 'js/login_register/jquery.js' %}"></script></head>
+<body class="login_page">
+<div class="header">
+    <div class="logo"><a href="https://www.midea.cn/"></a></div>
 </div>
-<div class="m-dialog">
-    <div class="m-dialog-backdrop"></div>
-    <div class="m-dialog-modal">
-        <div class="m-dialog-content">
-            <div class="m-dialog-header"><span class="close" data-dismiss="true">×</span><h4
-                    class="m-dialog-headline"></h4></div>
-            <div class="m-dialog-body"></div>
-        </div>
+<div class="login_container" id="bgcolor" style="background: rgb(255, 255, 255) none repeat scroll 0% 0%;">
+    <div class="login_main_wrap clear">
+        <!---背景颜色以及图片---->
+        <a data-midea_mos_id="25,159" id="activity_img" href="https://www.midea.cn/promote/pc/build/index/awTfmdaS0xWQ9MTg1OA?mtag=10082.1.54" target="_blank"> <img data-midea_mos_id="25,159" src="{% static 'image/login_register/64a0e5fec30f.png' %}" alt="美的会员日PRO专场"> </a> <script> document.getElementById("bgcolor").style.background="#fff"; var a = document.getElementById("activity_img"); var b = "https://www.midea.cn/promote/pc/build/index/awTfmdaS0xWQ9MTg1OA?mtag=10082.1.54"; if(!b || b=="#") {a.style.cursor="default";} else {a.href=b;a.setAttribute("target","_blank")}; </script>
+        <div class="login_wrap js_login_wrap">
+
+                <div class="login">
+                    <div class="login_way">
+                        <div class="login_way_tit">使用合作号登录</div>
+                        <ul class="login_way_list clear">
+                            <li class="login_way_item login_way_qq"><a href="javascript:" title="QQ登录"><i class="ico" data-app-name="web_qq">QQ登录</i></a></li>
+                            <li class="login_way_item login_way_wx"><a href="javascript:" title="微信登录"><i class="ico" data-app-name="web_wx">微信登录</i></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="login_type login_type1">
+
+                        <div class="login_form ap_form">
+                            <form action="/login/login_with_passwd" method="post">
+                                <div class="login_form_tit">账号密码登录</div>
+                                <div class="login_form_row">
+                                    <div class="login_form_label" style="display: none;">手机号</div>
+                                    <div class="login_form_cnt">
+                                        <input type="text" class="js_telephone" name="mobile" maxlength="13" placeholder="手机号">
+                                    </div>
+                                    <div class="login_from_error_tips js_telephone_tips">
+                                        <span>请输入正确的手机号</span>
+                                    </div>
+                                </div>
+                                <div class="login_form_row">
+                                    <div class="login_form_label" style="display: none;">密码</div>
+                                    <div class="login_form_cnt">
+                                        <input type="password" class="js_password" maxlength="20" placeholder="密码" onselectstart="return false" onpaste="return false">
+                                        <input class="js_password_txt" type="hidden" name="passwd">
+                                        <input class="js_rurl_txt" type="hidden" name="rurl">
+                                    </div>
+                                    <div class="login_from_error_tips js_password_tips">
+                                        <span>请输入用户密码</span>
+                                    </div>
+                                </div>
+                                <div class="login_form_row hide js_image_code_row">
+                                    <div class="login_form_label" style="display: none;">请输入右侧图形验证码</div>
+                                    <div class="login_form_cnt">
+                                        <input type="text" class="js_img_code" name="verifycode" maxlength="4" placeholder="请输入右侧图形验证码">
+                                        <div class="login_form_cnt_extra js_reCode">
+                                            <div class="login_form_cnt_extra code"><img class="js_img_code_place" src="%E7%BE%8E%E7%9A%84%EF%BC%8C%E4%B8%AD%E5%9B%BD%E5%AE%B6%E7%94%B5%E8%A1%8C%E4%B8%9A%E9%A2%86%E5%AF%BC%E8%80%85_files/code_img.png"></div>
+                                            <a class="login_form_cnt_extra refresh_btn" href="javascript:"></a>
+                                        </div>
+                                        <!--<input class="js_rurl_txt" type="hidden" name="rurl"/>-->
+                                    </div>
+                                    <div class="login_from_error_tips js_verifycode_tips">
+                                        <span>验证码错误</span>
+                                    </div>
+                                </div>
+                                <div class="login_form_row">
+                                    <div class="login_form_cnt">
+                                        <a class="login_btn" href="javascript:">登 录</a>
+                                    </div>
+                                </div>
+                                <div class="login_links clear">
+                                    <a href="javascript:" class="msg_login">短信验证登录</a> <span class="line"> | </span>
+                                    <a href="javascript:" class="reg">注册</a>  <a href="https://www.midea.cn/login/find_password" class="forget_pwd">找回密码</a>
+                                </div>
+                            </form>
+                        </div>
+
+
+                        <div class="login_form mobile_form">
+                            <form action="/login/create_member_by_mobile" method="post">
+                                <div class="login_form_tit">短信验证码登录</div>
+                                <div class="login_form_row ">
+                                    <div class="login_form_label" style="display: none;">手机号</div>
+                                    <div class="login_form_cnt">
+                                        <input type="text" class="js_telephone" name="mobile" maxlength="13" placeholder="手机号">
+                                        <a class="login_form_cnt_extra login_get_code" href="javascript:">获取验证码</a>    <!--change-->
+                                    </div>
+                                    <div class="login_from_error_tips js_telephone_tips">
+                                        <span>请输入正确的手机号</span>
+                                    </div>
+                                </div>
+                                <div class="login_form_row hide js_image_code_row">
+                                    <div class="login_form_label" style="display: none;">请输入右侧图形验证码</div>
+                                    <div class="login_form_cnt">
+                                        <input type="text" class="js_img_code" name="verifycode" maxlength="4" placeholder="请输入右侧图形验证码">
+                                        <div class="login_form_cnt_extra js_reCode">
+                                            <div class="login_form_cnt_extra code"><img class="js_img_code_place" src="%E7%BE%8E%E7%9A%84%EF%BC%8C%E4%B8%AD%E5%9B%BD%E5%AE%B6%E7%94%B5%E8%A1%8C%E4%B8%9A%E9%A2%86%E5%AF%BC%E8%80%85_files/code_img.png"></div>
+                                            <a class="login_form_cnt_extra refresh_btn" href="javascript:"></a>
+                                        </div>
+                                        <input class="js_rurl_txt" type="hidden" name="rurl">
+                                    </div>
+                                </div>
+                                <div class="login_form_row">
+                                    <div class="login_form_label" style="display: none;">短信验证码</div>
+                                    <div class="login_form_cnt">
+                                        <input type="text" class="js_verifycode" name="verifycode" maxlength="6" placeholder="短信验证码" id="testKeyUp"><!--test-->
+                                        <!--<a class="login_form_cnt_extra login_get_code" href="javascript:">获取验证码</a>-->
+                                        <input class="js_rurl_txt" type="hidden" name="rurl">
+                                    </div>
+                                    <div class="login_from_error_tips js_verifycode_tips">
+                                        <span>短信验证码错误</span>
+                                    </div>
+                                </div>
+                                <div class="login_form_row">
+                                    <div class="login_form_cnt">
+                                        <a class="login_btn" href="javascript:">登 录</a>
+                                    </div>
+                                </div>
+                                <div class="login_links clear">
+                                    <a href="javascript:" class="has_account">账号密码登录</a> <span class="line"> | </span>
+                                    <a href="javascript:" class="reg">注册</a>  <a href="https://www.midea.cn/login/find_password" class="forget_pwd">找回密码</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="register hide">
+                    <div class="login_form reg_form">
+                        <form action="/login/regist_with_passwd" method="post">
+                            <div class="login_form_tit">使用手机号注册</div>
+                            <div class="login_form_row">
+                                <div class="login_form_label" style="display: none;">手机号</div>
+                                <div class="login_form_cnt">
+                                    <input type="text" class="js_telephone" name="mobile" maxlength="13" placeholder="手机号">
+                                    <a class="login_form_cnt_extra login_get_code" href="javascript:">获取验证码</a>
+                                </div>
+                                <div class="login_from_error_tips js_telephone_tips">
+                                    <span>请输入写正确的手机号</span>
+                                </div>
+                            </div>
+                            <div class="login_form_row  hide js_image_code_row">
+                                <div class="login_form_label" style="display: none;">请输入右侧图形验证码</div>
+                                <div class="login_form_cnt">
+                                    <input type="text" class="js_img_code" name="verifycode" maxlength="4" placeholder="请输入右侧图形验证码">
+                                    <div class="login_form_cnt_extra js_reCode">
+                                        <div class="login_form_cnt_extra code"><img class="js_img_code_place" src="%E7%BE%8E%E7%9A%84%EF%BC%8C%E4%B8%AD%E5%9B%BD%E5%AE%B6%E7%94%B5%E8%A1%8C%E4%B8%9A%E9%A2%86%E5%AF%BC%E8%80%85_files/code_img.png"></div>
+                                        <a class="login_form_cnt_extra refresh_btn" href="javascript:"></a>
+                                    </div>
+                                    <input class="js_rurl_txt" type="hidden" name="rurl">
+                                </div>
+                            </div>
+                            <div class="login_form_row">
+                                <div class="login_form_label" style="display: none;">短信验证码</div>
+                                <div class="login_form_cnt">
+                                    <input type="text" class="js_verifycode" name="verifycode" maxlength="6" placeholder="短信验证码">
+                                    <!--<a class="login_form_cnt_extra login_get_code" href="javascript:">获取验证码</a>-->
+                                </div>
+                                <div class="login_from_error_tips js_verifycode_tips">
+                                    <span>短信验证码错误</span>
+                                </div>
+                            </div>
+                            <div class="login_form_row">
+                                <div class="login_form_label" style="display: none;">密码</div>
+                                <div class="login_form_cnt">
+                                    <input type="password" class="js_password" maxlength="20" placeholder="密码" onselectstart="return false" onpaste="return false">
+                                    <input class="js_password_txt" type="hidden" name="passwd">
+                                </div>
+                                <div class="login_from_error_tips js_password_tips">
+                                    <span>密码格式不正确</span>
+                                </div>
+                            </div>
+                            <div class="login_form_row">
+                                <div class="login_form_label" style="display: none;">确认密码</div>
+                                <div class="login_form_cnt">
+                                    <input type="password" class="js_password_confirm" maxlength="20" onselectstart="return false" onpaste="return false" placeholder="确认密码">
+                                    <input class="js_rurl_txt" type="hidden" name="rurl">
+                                </div>
+                                <div class="login_from_error_tips js_password_confirm_tips">
+                                    <span>两次密码不一致</span>
+                                </div>
+                            </div>
+                            <div class="login_form_row">
+                                <div class="login_from_tips">
+                                    <span>密码长度必须在8位以上，含大小写字母、数字、符号至少三种</span>
+                                </div>
+                            </div>
+                            <div class="login_form_row">
+                                <div class="login_from_tips">
+                                    <input class="protocol_checkbox" type="checkbox" name="register_protocol" id="register_protocol">
+                                    <label for="register_protocol">
+                                        <span class="check_box js_protocol_checkbox"><i></i></span>
+                                                                                    <span>同意<a class="protocol_link" target="_blank" href="https://www.midea.cn/act/help_center_new/transaction_terms?id=232&amp;parentId=1">《美的官方商城用户注册协议》</a></span>
+                                                                            </label>
+                                </div>
+                                <div class="login_from_error_tips js_protocol_tips">
+                                    <span>未同意用户注册协议</span>
+                                </div>
+                            </div>
+
+                            <div class="login_form_row">
+                                <a class="login_btn" href="javascript:">注册</a>
+                            </div>
+                            <div class="login_links clear">
+<!--                                <a href="javascript:" class="has_account">已有账号直接登录</a>-->  <a href="javascript:" class="other_login">已有账号？请登录</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
     </div>
 </div>
-<script src="{% static 'js/login_register/dep_32beeb2256.js' %}"></script>
-<script src="{% static 'js/login_register/app_5f9f0a9cbe.js' %}">document.domain="127.0.0.1";</script>
-<script src="{% static 'js/login_register/template_d14b18bf4b.js' %}"></script>
-<noscript>
-    <iframe src="//www.googletagmanager.com/ns.html?id=GTM-TBDW8K" height=0 width=0
-            style=display:none;visibility:hidden></iframe>
-</noscript>
-<script>(function (w, d, s, l, i) {
-    w[l] = w[l] || [];
-    w[l].push({
-        'gtm.start':
-            new Date().getTime(), event: 'gtm.js'
-    });
-    var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
-    j.async = true;
-    j.src =
-        '//www.googletagmanager.com/gtm.js?id=' + i + dl;
-    f.parentNode.insertBefore(j, f);
-})(window, document, 'script', 'dataLayer', 'GTM-TBDW8K');</script>
-</body>
-</html>
+
+<script type="text/javascript">
+(function(global){
+var g=[[]],d='//g.mdcdn.cn',m={},blankjs="",grays={},mdebug = location.href.indexOf("mdebug=1")!=-1;
+m.alias = {};
+var a={},p={},c=[];
+g["2"]=["\/js\/version\/201607\/jquery.201607280256.js"];
+g["1"]=["\/js\/version\/201809\/md.auth.validate.v2.201809191722.js","\/js\/version\/201808\/md.my.web_login_v2.201808130937.js","\/js\/version\/201403\/md5.201403071107.js","\/js\/version\/201809\/password.validator.201809191726.js","\/js\/version\/201804\/url.201804280318.js"];
+c = [['jquery',2,0],['md.auth.validate.v2',1,0],['md.my.web_login_v2',1,1],['md5',1,2],['password.validator',1,3],['url',1,4]];
+if(typeof(JSON)!="undefined" && window.localStorage){
+	for(var key in localStorage){
+		if(/^_m_/.test(key)){
+			var store = JSON.parse(localStorage.getItem(key));
+        	var i = key.substr(3);
+        	if((new Date()).getTime()>store.cacheTime){
+	    		continue;
+	    	}
+	    	var _m=getModuleMap(i);
+	    	if(!_m || _m.group==0){continue;}
+	    	var curPath=g[_m.group][_m.groupid];
+	    	if((d+curPath)==store.path){
+				g[0].push(curPath);
+				g[_m.group][_m.groupid]=blankjs;
+				c[_m.index]=[_m.id,0,g[0].length-1];
+			}
+		}
+	}
+	}
+function getModuleMap(id){
+	for(var i=0;i<c.length;i++){
+		if(c[i][0]==id){
+			return {"id":id,"index":i,"group":c[i][1],"groupid":c[i][2]};
+		}
+	}
+	return "";
+}
+function getCombUrl(list){
+	var a=[];
+	for(var i=0;i<list.length;i++){
+		if(list[i]){
+			a.push(list[i]);
+		}
+	}
+	return a.length>1?(d+"/??"+a.join(",")):(d+a[0]);
+}
+
+for(var i=0;i<c.length;i++){
+	var surl=d+g[c[i][1]][c[i][2]];
+	var furl=getCombUrl(g[c[i][1]]);//合并包地址
+		a[c[i][0]]=surl;
+		p[c[i][0]]=(c[i][1]==0)?surl:furl;
+}
+
+m.alias=mdebug?a:p;
+m.moduleURI=a;
+
+
+global._moduleConfig = m;
+
+function gray(m){
+	}
+
+})(this);
+
+</script>
+<script type="text/javascript">if(typeof JSON!=="object"){JSON={};}
+(function(){function f(n){return n<10?"0"+n:n;}
+if(typeof Date.prototype.toJSON!=="function"){Date.prototype.toJSON=function(key){return isFinite(this.valueOf())?this.getUTCFullYear()+"-"+f(this.getUTCMonth()+1)+"-"+f(this.getUTCDate())+"T"+f(this.getUTCHours())+":"+f(this.getUTCMinutes())+":"+f(this.getUTCSeconds())+"Z":null;};String.prototype.toJSON=Number.prototype.toJSON=Boolean.prototype.toJSON=function(key){return this.valueOf();};}
+var cx=/[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,escapable=/[\\\"\x00-\x1f\x7f-\x9f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,gap,indent,meta={"\b":"\\b","\t":"\\t","\n":"\\n","\f":"\\f","\r":"\\r",'"':'\\"',"\\":"\\\\"},rep;function quote(string){escapable.lastIndex=0;return escapable.test(string)?'"'+string.replace(escapable,function(a){var c=meta[a];return typeof c==="string"?c:"\\u"+("0000"+a.charCodeAt(0).toString(16)).slice(-4);})+'"':'"'+string+'"';}
+function str(key,holder){var i,k,v,length,mind=gap,partial,value=holder[key];if(value&&typeof value==="object"&&typeof value.toJSON==="function"){value=value.toJSON(key);}
+if(typeof rep==="function"){value=rep.call(holder,key,value);}
+switch(typeof value){case"string":return quote(value);case"number":return isFinite(value)?String(value):"null";case"boolean":case"null":return String(value);case"object":if(!value){return"null";}
+gap+=indent;partial=[];if(Object.prototype.toString.apply(value)==="[object Array]"){length=value.length;for(i=0;i<length;i+=1){partial[i]=str(i,value)||"null";}
+v=partial.length===0?"[]":gap?"[\n"+gap+partial.join(",\n"+gap)+"\n"+mind+"]":"["+partial.join(",")+"]";gap=mind;return v;}
+if(rep&&typeof rep==="object"){length=rep.length;for(i=0;i<length;i+=1){if(typeof rep[i]==="string"){k=rep[i];v=str(k,value);if(v){partial.push(quote(k)+(gap?": ":":")+v);}}}}else{for(k in value){if(Object.prototype.hasOwnProperty.call(value,k)){v=str(k,value);if(v){partial.push(quote(k)+(gap?": ":":")+v);}}}}
+v=partial.length===0?"{}":gap?"{\n"+gap+partial.join(",\n"+gap)+"\n"+mind+"}":"{"+partial.join(",")+"}";gap=mind;return v;}}
+if(typeof JSON.stringify!=="function"){JSON.stringify=function(value,replacer,space){var i;gap="";indent="";if(typeof space==="number"){for(i=0;i<space;i+=1){indent+=" ";}}else{if(typeof space==="string"){indent=space;}}
+rep=replacer;if(replacer&&typeof replacer!=="function"&&(typeof replacer!=="object"||typeof replacer.length!=="number")){throw new Error("JSON.stringify");}
+return str("",{"":value});};}
+if(typeof JSON.parse!=="function"){JSON.parse=function(text,reviver){var j;function walk(holder,key){var k,v,value=holder[key];if(value&&typeof value==="object"){for(k in value){if(Object.prototype.hasOwnProperty.call(value,k)){v=walk(value,k);if(v!==undefined){value[k]=v;}else{delete value[k];}}}}
+return reviver.call(holder,key,value);}
+text=String(text);cx.lastIndex=0;if(cx.test(text)){text=text.replace(cx,function(a){return"\\u"+("0000"+a.charCodeAt(0).toString(16)).slice(-4);});}
+if(/^[\],:{}\s]*$/.test(text.replace(/\\(?:["\\\/bfnrt]|u[0-9a-fA-F]{4})/g,"@").replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g,"]").replace(/(?:^|:|,)(?:\s*\[)+/g,""))){j=eval("("+text+")");return typeof reviver==="function"?walk({"":j},""):j;}
+throw new SyntaxError("JSON.parse");};}}());var modulejs,require,define;(function(global){var mod,cfg,_modulejs,_define,_require;var version="1.0.2";var isCache=true;var cacheTime=60*60*24*30*1000;cfg={debug:location.href.indexOf("mdebug=1")!=-1?true:false,alias:{},cssAlias:{},moduleURI:{},vars:{},uris:{},modules:{},callback:[],actModules:{},cacheLoad:{},cacheDel:{},deps:{},events:{},timing:{}};_modulejs.config=config;config(global["_moduleConfig"]?global._moduleConfig:cfg);global["_moduleConfig"]=cfg;require=_require;define=_define;modulejs=_modulejs;on("module_ready",function(id,fromeCache){cfg.callback=cleanArray(cfg.callback);var init=cfg.callback,l=init.length;for(var i=0;i<l;i++){if(init[i]&&checkDeps(init[i].dependencies)){var cb=init[i].factory;var deps=init[i].dependencies;var mods=[];var allDeps=[];var m;for(var j=0;j<deps.length;j++){var m=_require(deps[j]);allDeps.push(m.dependencies);mods.push(m);}
+debug("callback_is_run=start",cb.toString(),cfg.callback);init[i]=null;cb.apply(null,mods);cfg.debug&&emit("callback_is_run",cb.toString().replace(/[\r\n]/g,""));if(window.moduleReady&&moduleReady.length>0){moduleReady.shift()();}}}});on("module_require",function(id){cfg.actModules[id]=cfg.actModules[id]?(cfg.actModules[id]+1):1;});on("module_cacheDel",function(id){cfg.cacheDel[id]=1;});on("cache_load",function(m){});on("module_loss_alias",function(id){console.error("module_loss_alias:"+id);});var cacheNow=new Date();_loadCache();cfg.timing['loadcache']=new Date()-cacheNow;function _loadCache(){if(!_useCache()){return false;}
+localStorage.removeItem("_modules");for(var key in localStorage){if(/^_m_/.test(key)){var store=JSON.parse(localStorage.getItem(key));var i=key.substr(3);var now=(new Date()).getTime();var oneDay=24*3600*1000;if(cfg.alias[i]){if(_getModuleURI(i)!=store.path||store.deps.join(",").indexOf("{")>-1){emit("module_cacheDel",i);localStorage.removeItem(key);continue;}}else{if(now>store.cacheTime){emit("module_cacheDel",i);localStorage.removeItem(key);continue;}}
+if(store.cacheTime-now<oneDay){store.cacheTime=(new Date()).getTime()+cacheTime;try{localStorage.removeItem(key);localStorage.setItem(key,JSON.stringify(store));}catch(e){}}
+cfg.cacheLoad[store.id]=store;emit("cache_load",store);}}}
+function _getModuleURI(id){return cfg.moduleURI[id]?cfg.moduleURI[id]:cfg.alias[id];}
+function _useCache(id,deps,factory){if(typeof(JSON)=="undefined"){return false;}
+if(!isCache){return false;}
+if(!(JSON&&window.localStorage)){return false;}
+if(cfg.debug){return false;}
+var agent=navigator.userAgent.toLowerCase();if(agent.indexOf("msie")>0){var m=agent.match(/msie\s([\d\.]+);/i);if(m&&m.length>=2&&parseInt(m[1])<=6){return false;}}
+if(id&&id.indexOf("_")==0){return false;}
+if(factory&&factory.toString().indexOf("_cacheThisModule_")<0){return false;}
+return true;}
+function _cacheModule(id,deps,factory){var key="_m_"+id;var _t=localStorage.getItem(key);var ms=_t?JSON.parse(_t):{};ms={"id":id,"deps":deps,"factory":factory.toString(),"path":_getModuleURI(id),"cacheTime":(new Date()).getTime()+cacheTime};try{localStorage.removeItem(key);localStorage.setItem(key,JSON.stringify(ms));emit("module_cached",id);}catch(e){}}
+function _define(id,deps,factory){if(arguments.length===2){factory=deps;deps=null;}
+deps=isType("Array",deps)?deps:(deps?[deps]:[]);if(isType("Function",factory)){var _deps=parseDependencies(factory.toString());}
+_useCache(id,deps,factory)&&_cacheModule(id,deps,factory);deps=mergeArray(deps,_deps);var mod=new Module(id);mod.dependencies=deps||[];mod.factory=factory;if(id=="_init"){cfg.callback.push(mod);}else{cfg.modules[id]=mod;}
+emit("module_ready",id);}
+function _require(id){id=parseVars(id);var module=cfg.modules[id];emit("module_require",id);if(!module){emit("module_error",id);return null}
+if(module.exports){return module.exports;}
+var now=new Date();var factory=module.factory;var exports=isType("Function",factory)?factory(require,module.exports={},module):factory;module.exports=exports===undefined?module.exports:exports;cfg.timing[id]=new Date()-now;return module.exports;}
+_require.async=_modulejs;_require.css=function(path){path=cfg.cssAlias&&cfg.cssAlias[path]?cfg.cssAlias[path]:path;if(!path){return;}
+var l;if(!window["_loadCss"]||window["_loadCss"].indexOf(path)<0){l=document.createElement('link');l.setAttribute('type','text/css');l.setAttribute('rel','stylesheet');l.setAttribute('href',path);l.setAttribute("id","loadCss"+Math.random());document.getElementsByTagName("head")[0].appendChild(l);window["_loadCss"]?(window["_loadCss"]+="|"+path):(window["_loadCss"]="|"+path);}
+l&&(typeof callback=="function")&&(l.onload=callback);return true;}
+function _modulejs(deps,factory){_define("_init",deps,factory);}
+function checkDeps(deps){var list={},flag=true;for(var i=0;i<deps.length;i++)list[deps[i]]=1;getDesps(deps,list);for(var i in list){if(!cfg.modules[i]){loadModule(i);flag=false;}}
+return flag;function getDesps(deps,list){for(var i=0;i<deps.length;i++){if(!list[deps[i]]){list[deps[i]]=1;}
+if(cfg.modules[deps[i]]&&list[deps[i]]!=2){list[deps[i]]=2;getDesps(cfg.modules[deps[i]].dependencies,list);}}}}
+function parseVars(id){var VARS_RE=/{([^{]+)}/g
+var vars=cfg.vars
+if(vars&&id.indexOf("{")>-1){id=id.replace(VARS_RE,function(m,key){return isType("String",vars[key])?vars[key]:key})}
+return id}
+function mergeObject(a,b){for(var i in b){if(!b.hasOwnProperty(i)){continue;}
+if(!a[i]){a[i]=b[i];}else if(Object.prototype.toString.call(b[i])=="[object Object]"){mergeObject(a[i],b[i]);}else{a[i]=b[i];}}
+return a;}
+function config(obj){return cfg=mergeObject(cfg,obj);}
+function Module(id){this.id=id;this.dependencies=[];this.exports=null;this.uri="";}
+function loadModule(id){var m;if(m=cfg.cacheLoad[id]){return _define(m.id,m.deps,eval("a = "+m.factory));}
+if(cfg.modules[id]){emit("module_ready",id);return;}
+var url=cfg.alias[id]?cfg.alias[id]:"";if(!url){emit("module_loss_alias",id);return;}
+if(cfg.uris[url]){return;}
+cfg.uris[url]=1;var head=document.getElementsByTagName("head")[0]||document.documentElement;var baseElement=head.getElementsByTagName("base")[0];var node=document.createElement("script");node.charset="utf-8";node.async=true;node.src=url;var handler=function(){var callee=arguments.callee
+cfg.timing[callee.uri]=new Date()-callee.time;};handler.time=new Date();handler.uri=url;node.onload=handler;baseElement?head.insertBefore(node,baseElement):head.appendChild(node);cfg.debug&&emit("file_loading",url);}
+function on(name,cb){var cbs=cfg.events[name];if(!cbs){cbs=cfg.events[name]=[];}
+cbs.push(cb);}
+function emit(name,evt){debug(name,evt);if(!cfg.events[name]||cfg.events[name].length==0){return;}
+for(var i=0,l=cfg.events[name].length;i<l;i++){cfg.events[name][i](evt);}
+if(name==='error'){delete cfg.events[name];}}
+function cleanArray(a){var n=[];for(var i=0;i<a.length;i++){a[i]&&n.push(a[i]);}
+return n;}
+function mergeArray(a,b){for(var i=0;i<b.length;i++){((","+a+",").indexOf(","+b[i]+",")<0)&&a.push(b[i]);}
+return a;}
+function isType(type,obj){return Object.prototype.toString.call(obj)==="[object "+type+"]"}
+function parseDependencies(code){var commentRegExp=/(\/\*([\s\S]*?)\*\/|([^:]|^)\/\/(.*)$)/mg;var cjsRequireRegExp=/[^.]\s*require\s*\(\s*["']([^'"\s]+)["']\s*\)/g;var ret=[];code.replace(commentRegExp,"").replace(cjsRequireRegExp,function(match,dep){dep&&ret.push(parseVars(dep));})
+return ret;}
+function debug(){if(!cfg.debug){return true;}
+var a=[],l=arguments.length;for(var i=0;i<l;i++){a.push(arguments[i]);}
+try{console.log.apply(console,a);}catch(e){}}}(this));</script>
+<script type="text/javascript">
+var _speedMarkModule = new Date();
+modulejs('md.my.web_login_v2', function(m){
+   m.init();
+});</script>
+
+<script>
+    (function () {
+        var onloadTime = Date.parse(new Date()); //进入页面时间
+        var _footConfig = {
+            pagePV: false
+        };
+        if (window.footConfig) {
+            for (var key in _footConfig) {
+                if (footConfig[key]) {
+                    _footConfig[key] = footConfig[key];
+                }
+            }
+        }
+
+        function JsonToStr(o) {
+            if (o == undefined) {
+                return "";
+            }
+            if (window.JSON && window.JSON.stringify) {
+                return window.JSON.stringify(o);
+            } else {
+                var r = [];
+                if (typeof o == "string") return "\"" + o.replace(/([\"\\])/g, "\\$1").replace(/(\n)/g, "\\n").replace(/(\r)/g, "\\r").replace(/(\t)/g, "\\t") + "\"";
+                if (typeof o == "object") {
+                    if (!o.sort) {
+                        for (var i in o)
+                            r.push("\"" + i + "\":" + JsonToStr(o[i]));
+                        if (!!document.all && !/^\n?function\s*toString\(\)\s*\{\n?\s*\[native code\]\n?\s*\}\n?\s*$/.test(o.toString)) {
+                            r.push("toString:" + o.toString.toString());
+                        }
+                        r = "{" + r.join() + "}"
+                    } else {
+                        for (var i = 0; i < o.length; i++)
+                            r.push(JsonToStr(o[i]))
+                        r = "[" + r.join() + "]";
+                    }
+                    return r;
+                }
+                return o.toString().replace(/\"\:/g, '":""');
+            }
+        }
+
+        function getCookie(name) {
+            var reg = new RegExp("(^| )" + name + "(?:=([^;]*))?(;|$)"),
+                val = document.cookie.match(reg);
+            return val ? (val[2] ? unescape(val[2]) : "") : null;
+        }
+
+        function setCookie(name, value, expires, path, domain, secure) {
+            var exp = new Date(),
+                expires = arguments[2] || null,
+                path = arguments[3] || "/",
+                domain = arguments[4] || null,
+                secure = arguments[5] || false;
+            expires ? exp.setMinutes(exp.getMinutes() + parseInt(expires)) : "";
+            document.cookie = name + '=' + encodeURIComponent(value) + (expires ? ';expires=' + exp.toGMTString() : '') + (path ? ';path=' + path : '') + (domain ? ';domain=' + domain : '') + (secure ? ';secure' : '');
+        }
+
+        function getUrlParam(name, url) {
+            //参数：变量名，url为空则表从当前页面的url中取
+            var u = arguments[1] || window.location.search,
+                reg = new RegExp("(^|&)" + name + "=([^#&]*)(&|#|$)"),
+                r = u.substr(u.indexOf("\?") + 1).match(reg);
+            return r != null ? r[2] : "";
+        }
+
+        function $loadUrl(o) {
+            o.element = o.element || 'script';
+            var el = document.createElement(o.element);
+            el.charset = o.charset || 'utf-8';
+            o.onBeforeSend && o.onBeforeSend(el);//发请求之前调用的函数
+            el.onload = el.onreadystatechange = function () {
+                if (/loaded|complete/i.test(this.readyState) || navigator.userAgent.toLowerCase().indexOf("msie") == -1) {
+                    o.onload && o.onload();//
+                    clear();
+                }
+            };
+            el.onerror = function () {
+                clear();
+            };
+            el.src = o.url;
+            document.getElementsByTagName('head')[0].appendChild(el);
+
+            function clear() {
+                if (!el) {
+                    return;
+                }
+                el.onload = el.onreadystatechange = el.onerror = null;
+                el.parentNode && (el.parentNode.removeChild(el));
+                el = null;
+            }
+        }
+
+        function updateEnv(data) {
+            for (var envKey in data) {
+                if (envKey == 'channel') {
+                    // APP环境的固定场景值，不需要再改变
+                    if (env[envKey] == 4 || env[envKey] == 5) {
+                        continue;
+                    }
+                }
+
+                if (data[envKey]) {
+                    env[envKey] = data[envKey];
+                }
+            }
+
+            setCookie('env', JsonToStr(env), 525600, '', domain);
+        }
+
+        function reportRd(opt) {
+            var pageMess = window.pageMess || {};
+            var oParams = {
+                    curl: location.href,
+                    rurl: document.referrer,
+                    serviceid: 10,
+                    mtag: '',
+                    skuid: pageMess['skuid'] || getUrlParam('skuid') || '',
+                    distributorid: pageMess['distributorid'] || getUrlParam('distributorid') || getUrlParam('disid') || '',
+                    dealid: pageMess['dealid'] || getUrlParam('dealid') || '',
+                    sellerid: pageMess['sellerid'] || getUrlParam('sellerid') || '',
+                    supplierid: pageMess['supplierid'] || '',
+                    itemid: pageMess['itemid'] || getUrlParam('itemid') || '',
+                    staytime: ''
+                },
+                arrParams = [];
+
+            if (location.href.indexOf('.midea.com/detail/index') > -1 && !oParams.skuid) {
+                oParams.skuid = getUrlParam('id');
+            }
+
+            for (var key in oParams) {
+                var v = opt[key];
+                if (v) {
+                    oParams[key] = v;
+                }
+
+                arrParams.push(key + '=' + encodeURIComponent(oParams[key]));
+            }
+
+            var domain = location.host === 'www.midea.com' ? 'mall.midea.com' : location.host;
+
+            $loadUrl({
+                url: '//'+domain+'/common/log/rd?callback=rdcb&' + arrParams.join('&')
+            });
+        }
+
+        function addEvent(obj, type, handle) {
+            var wrapper;
+
+            function createDelegate(handle, context) {
+                return function () {
+                    return handle.apply(context, arguments);
+                };
+            }
+
+            if (window.addEventListener) {
+                wrapper = createDelegate(handle, obj);
+                obj.addEventListener(type, wrapper, false);
+            }
+            else if (window.attachEvent) {
+                wrapper = createDelegate(handle, obj);
+                obj.attachEvent("on" + type, wrapper);
+            }
+            else {
+                obj["on" + type] = handle;
+            }
+        }
+
+        // 初始化env对象
+        var env = getCookie('env');
+        try {
+            if (!env) {
+                env = {};
+            } else {
+                if (window.JSON && window.JSON.parse) {
+                    env = window.JSON.parse(env);
+                } else {
+                    env = (new Function("return " + env))();
+                }
+            }
+        } catch (e) {
+            env = {};
+        }
+
+        // 收集场景信息
+        var ua = navigator.userAgent.toLowerCase(),
+            channel = 3,   //  channel 1 微信，2 移动web，3 PC，4 美的商城APP，5 美家APP
+            regsrc = getUrlParam('regsrc') || '';
+
+        // mtag统计
+        var mtag = getUrlParam('mtag') || '',
+            allTags = getCookie('mtag') || '',
+            regMtag = /^[1-4]\d{4}\.\d+\.\d+$/,
+            arrTag = allTags.split(';'),
+            tmpTag,
+            newMtags = [],
+            isReplace = false,
+            mtagChannel,
+            domain = location.host.replace(/\w+(\.)/, '$1');
+        if (mtag && (regMtag.test(mtag))) {
+            mtagChannel = mtag.split('.')[0].split('')[0];
+            for (var i = 0; i < arrTag.length; i++) {
+                tmpTag = arrTag[i];
+                if (regMtag.test(tmpTag)) {
+                    if (tmpTag.split('.')[0].split('')[0] == mtagChannel) {
+                        newMtags.push(mtag);
+                        isReplace = true;
+                    } else {
+                        newMtags.push(tmpTag);
+                    }
+                }
+            }
+
+            if (newMtags.length === 0 || isReplace === false) {
+                newMtags.push(mtag);
+            }
+            reportRd({mtag: mtag});
+            setCookie('mtag', newMtags.join(';'), 10080, '', domain);
+        } else {
+            reportRd({mtag: ''});
+        }
+
+        updateEnv({
+            channel: channel,
+            regsrc: regsrc
+        });
+
+        // 统计代码
+        var oScript = document.createElement('SCRIPT');
+        oScript.src = 'https://hm.baidu.com/h.js?94d2fcdc25bf11213329895f51da83d0';
+        oScript.charset = 'utf-8';
+        document.getElementsByTagName('head')[0].appendChild(oScript);
+
+        addEvent(document.body, 'click', function (e) {
+            var evt = e || window.event,
+                src = evt.srcElement || evt.target,
+                mtag;
+
+            while (src && !mtag && src !== document.body) {
+                mtag = src.getAttribute ? src.getAttribute('data-mtag') : '';
+                src = src.parentNode;
+            }
+
+            if (mtag) {
+                reportRd({mtag: mtag});
+            }
+        });
+
+        window.onbeforeunload = function() {
+            var unloadTime = Date.parse(new Date());
+            var stayTime = (unloadTime - onloadTime)/1000;
+            if(stayTime < 60 * 30){
+                reportRd({staytime: stayTime})
+            }
+        }
+
+    })
+    ();
+</script>
+
+<div class="copyright">
+    Copyright © 1968-2019 广东美的网络科技有限公司 粤ICP备17058257号</div>
+<div></div><div></div></body><div id="translate-button" style="background-color: white; box-shadow: rgb(221, 221, 221) 0px 0px 2px 2px; display: none;"><img src="data:image/png;base64,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"></div></html>
