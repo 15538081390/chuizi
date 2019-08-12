@@ -7,3 +7,4 @@ def login(request):
         password = request.POST.get('password')
 
     return render(request, 'operate/login.html')
+
