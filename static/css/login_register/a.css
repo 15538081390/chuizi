@@ -10,7 +10,7 @@
 .header .logo {
     width: 120px;
     height: 44px;
-    background: url(//img.mdcdn.cn/pc/img/mall/index_sprite.png?t=20150821) no-repeat 0 -242px
+    /*background: url(//img.mdcdn.cn/pc/img/mall/index_sprite.png?t=20150821) no-repeat 0 -242px*/
 }
 
 .header .logo a {
@@ -34,6 +34,19 @@
     text-align: center
 }
 
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0
+}
+
+.copyright h4 {
+    clear: both;
+    padding: 10px 0 0
+}
 .login_container {
     background: #fff
 }
