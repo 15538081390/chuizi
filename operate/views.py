@@ -22,12 +22,6 @@ from django_chuizi.settings import MAXAGE
 from operate.models import User
 
 
-def login(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-    return render(request, 'operate/login.html')
-
 #购物车
 def smartisan(request): # san = 商品id
     tab = IndexTab.objects.all()                    #板块
@@ -67,6 +61,14 @@ def money(request,san):                             #san = 商品id
         order.save()
         return redirect(reverse('app:index'))
     return render(request,"operate/smartisan.html",locals())
+
+
+def login(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+    return render(request, 'operate/login.html')
+
 
 def register(request):
     if request.method == 'POST':

@@ -141,3 +141,11 @@ SALTVALUE = '9a15ae9f'
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR,"static")]
+
+
+SMSCONFIG = {
+    'ACCESS_KEY_ID':'LTAINoBUzgaGpAKp',
+    'ACCESS_KEY_SECRET':'EVVgEjeT2YqR0l5MB5QplbNAHEBpvO',
+    'SignName':'djangoenv',
+    'TemplateCode':'SMS_172205983',
+}
