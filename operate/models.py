@@ -33,9 +33,9 @@ class Getaddr(models.Model):
 #购物清单表
 class Orderform(models.Model):
     oid = models.AutoField(primary_key=True)         #订单id
-    ordernumber = models.IntegerField(unique=True)   #订单号
+    ordernumber = models.CharField(max_length=250,unique=True)   #订单号
     uid = models.IntegerField()                      #用户id
-    pcid = models.IntegerField()                     #商品id
+    pid = models.IntegerField()                     #商品id
     invoice = models.IntegerField(default=0)         #发票信息#0=个人1=单位
     emil = models.CharField(max_length=128,null=True) #判空默认发送账户邮箱
     number = models.IntegerField()                   #订单数量
@@ -43,8 +43,16 @@ class Orderform(models.Model):
 
     class Meta:
         db_table = "orderform"
+#购物车
+class Shopping(models.Model):
+    sid = models.AutoField(primary_key=True)         #购物车id
+    uid = models.IntegerField()                      #用户id
+    pid = models.IntegerField()                     #商品id
+    number = models.IntegerField()                   #数量
+    time = models.DateField()                        #加入购物车时间
 
-
+    class Meta:
+        db_table = "shopping"
 
 
 
