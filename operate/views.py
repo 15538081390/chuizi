@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from datetime import datetime
 from random import randint
 
@@ -10,10 +11,22 @@ from App.models import Productcategorie
 from operate.models import Orderform, User, Getaddr
 
 from App import views
+=======
+import hashlib
+
+from django.shortcuts import render, redirect
+>>>>>>> 47ad4b02b7e15f61b162511cb268491e97d621c2
 
 # Create your views here.
+from django.urls import reverse
+
+from django_chuizi.settings import MAXAGE
+from operate.models import User
+
+
 def login(request):
     if request.method == 'POST':
+<<<<<<< HEAD
         username = request.POST.get('username')
         password = request.POST.get('password')
     return render(request, 'operate/login.html')
@@ -68,3 +81,29 @@ class Summongey:
         activity = 20
         sum = sum - activity
         return sum
+=======
+        phone = request.POST.get('mobile')
+        password = request.POST.get('passwd')
+        password_hash = hashlib.sha1(password.encode('utf8')).hexdigest()
+        if User.objects.filter(phone = phone, password = password_hash):
+            usr = User.objects.filter(phone = phone, password = password_hash)
+            username = usr.username
+            response = redirect(reverse('app:index'))
+            response.session['username'] = username
+            request.session.set_expiry(MAXAGE)
+            return response
+    return render(request, 'operate/login.html')
+
+
+def register(request):
+    if request.method == 'POST':
+        phone = request.POST.get('mobile')
+        password = request.POST.get('passwd')
+        password_hash = hashlib.sha1(password.encode('utf8')).hexdigest()
+        user = User(username = phone, phone = phone, password=password_hash)
+        user.save()
+        response = redirect(reverse('app:index'))
+        response.session['username'] = phone
+        request.session.set_expiry(MAXAGE)
+        return response
+>>>>>>> 47ad4b02b7e15f61b162511cb268491e97d621c2

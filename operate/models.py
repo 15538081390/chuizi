@@ -5,6 +5,7 @@ from django.db import models
 
 # 用户表
 class User(models.Model):
+<<<<<<< HEAD
     uid = models.AutoField(primary_key=True)                         #用户ID
     username = models.CharField(unique=True, max_length=50)          #用户名
     password = models.CharField(max_length=128)                      #密码
@@ -13,6 +14,15 @@ class User(models.Model):
     portrait = models.CharField(max_length=256,null=True)                      #头像
     safeqnum = models.IntegerField(blank=True, null=True)             # 安全问题的序号
     answer = models.CharField(max_length=100, blank=True, null=True)  # 安全问题的答案
+=======
+    uid = models.IntegerField(primary_key=True, auto_created=True)
+    username = models.CharField(unique=True, max_length=50)
+    password = models.CharField(max_length=50)
+    phone = models.IntegerField(unique=True)
+    email = models.CharField(max_length=100, blank=True, null=True)
+    safeqnum = models.IntegerField(blank=True, null=True)                   # 安全问题的序号
+    answer = models.CharField(max_length=100, blank=True, null=True)        # 安全问题的答案
+>>>>>>> 47ad4b02b7e15f61b162511cb268491e97d621c2
 
     class Meta:
         db_table = 'user'
