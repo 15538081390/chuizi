@@ -39,7 +39,7 @@
                     <div class="login_type login_type1">
 
                         <div class="login_form ap_form">
-                            <form action="/login/login_with_passwd" method="post">
+                            <form action="{% url 'operate:login' %}" method="post">
                                 <div class="login_form_tit">账号密码登录</div>
                                 <div class="login_form_row">
                                     <div class="login_form_label" style="display: none;">手机号</div>
@@ -202,7 +202,9 @@
                                     <input class="protocol_checkbox" type="checkbox" name="register_protocol" id="register_protocol">
                                     <label for="register_protocol">
                                         <span class="check_box js_protocol_checkbox"><i></i></span>
-                                                                                    <span>同意<a class="protocol_link" target="_blank" href="https://www.midea.cn/act/help_center_new/transaction_terms?id=232&amp;parentId=1">《美的官方商城用户注册协议》</a></span>
+                                                                                    <span>同意<a class="protocol_link" target="_blank" href="http://www.smartisan.com/support/#/agreement">法律声明</a>和<a
+                                                                                    class="protocol_link" target="_blank" href="http://www.smartisan.com/support/#/privacy">隐私条款</a>
+                                                                                    </span>
                                                                             </label>
                                 </div>
                                 <div class="login_from_error_tips js_protocol_tips">

@@ -168,15 +168,83 @@ class Productcategorie(models.Model):
     white = models.IntegerField()
     black = models.IntegerField()
 
-
     class Meta:
         managed = False
         db_table = 'productcategorie'
 
 class Aaa(models.Model):
     name=models.IntegerField()
-
-
     class Meta:
         managed=False
         db_table='aa'
+
+class App(models.Manager):
+    pass
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

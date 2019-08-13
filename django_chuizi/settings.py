@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'App',
-    'operate.apps.OperateConfig',
+    'operate',
 ]
 
 
@@ -54,7 +54,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -89,6 +89,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': "lichao",
+        # "HOST":"192.168.31.175",
         "HOST":"10.0.108.134",
         "USER":"root",
         "PASSWORD":"8790909a",
@@ -127,7 +128,15 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
+<<<<<<< Updated upstream
+
+# 设置session过期时间
+MAXAGE = 1 * 24 * 3600
+SALTVALUE = '9a15ae9f'
+
+=======
+>>>>>>> Stashed changes
 
 
 # Static files (CSS, JavaScript, Images)
@@ -135,3 +144,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR,"static")]
+
+
+SMSCONFIG = {
+    'ACCESS_KEY_ID':'LTAINoBUzgaGpAKp',
+    'ACCESS_KEY_SECRET':'EVVgEjeT2YqR0l5MB5QplbNAHEBpvO',
+    'SignName':'djangoenv',
+    'TemplateCode':'SMS_172205983',
+}
