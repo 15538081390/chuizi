@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 from datetime import datetime
 from random import randint
 
@@ -11,11 +11,9 @@ from App.models import Productcategorie
 from operate.models import Orderform, User, Getaddr
 
 from App import views
-=======
 import hashlib
 
 from django.shortcuts import render, redirect
->>>>>>> 47ad4b02b7e15f61b162511cb268491e97d621c2
 
 # Create your views here.
 from django.urls import reverse
@@ -26,7 +24,6 @@ from operate.models import User
 
 def login(request):
     if request.method == 'POST':
-<<<<<<< HEAD
         username = request.POST.get('username')
         password = request.POST.get('password')
     return render(request, 'operate/login.html')
@@ -58,7 +55,7 @@ def money(request,san):                             #san = 商品id
     pcid = pro[0].pcid
     if addrs:                                       #判断收货地址，为空不传值，
         add = addrs
-    summoney= Summongey.sum(pro)                                     #计算商品总价格
+    summoney= Productcategorie.sum(pro)                                     #计算商品总价格
     if request.method =="POST":
         print("111111111111111111")
         order = Orderform()
@@ -71,30 +68,6 @@ def money(request,san):                             #san = 商品id
         return redirect(reverse('app:index'))
     return render(request,"operate/smartisan.html",locals())
 
-
-
-class Summongey:
-    def sum(self):
-        sum = 0
-        for i in self:
-            sum += i.money
-        activity = 20
-        sum = sum - activity
-        return sum
-=======
-        phone = request.POST.get('mobile')
-        password = request.POST.get('passwd')
-        password_hash = hashlib.sha1(password.encode('utf8')).hexdigest()
-        if User.objects.filter(phone = phone, password = password_hash):
-            usr = User.objects.filter(phone = phone, password = password_hash)
-            username = usr.username
-            response = redirect(reverse('app:index'))
-            response.session['username'] = username
-            request.session.set_expiry(MAXAGE)
-            return response
-    return render(request, 'operate/login.html')
-
-
 def register(request):
     if request.method == 'POST':
         phone = request.POST.get('mobile')
@@ -106,4 +79,4 @@ def register(request):
         response.session['username'] = phone
         request.session.set_expiry(MAXAGE)
         return response
->>>>>>> 47ad4b02b7e15f61b162511cb268491e97d621c2
+    return render(request, 'operate/login.html')

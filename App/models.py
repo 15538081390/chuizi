@@ -168,6 +168,13 @@ class Productcategorie(models.Model):
     white = models.IntegerField()
     black = models.IntegerField()
 
+    def sum(self,*args):
+        sum = 0
+        for i in args:
+            sum += i.money
+        activity = 20
+        sum = sum - activity
+        return sum
 
     class Meta:
         managed = False
