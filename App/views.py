@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 from urllib import request
 
 from django.http import HttpResponse
@@ -97,3 +98,5 @@ def tnt(request):
     return render(request,"App/topbash/tnt.html",context={"tab":tab,
                                                           })
 
+=======
+>>>>>>> Stashed changes

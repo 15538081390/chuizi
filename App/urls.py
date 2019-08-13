@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 
 from django.conf.urls import url
 
@@ -18,3 +19,5 @@ urlpatterns =[
     url(r"^dingduan/$",views.dingduan,name="dingduan"),
 
 ]
+=======
+>>>>>>> Stashed changes

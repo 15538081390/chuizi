@@ -1,9 +1,13 @@
+
 from datetime import datetime
 from random import randint
 
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
+from django.http import HttpResponse
+from django.shortcuts import render
+
 from App.models import IndexTab
 from App.models import Productcategorie
 from operate.models import Orderform, User, Getaddr
@@ -18,6 +22,7 @@ from django.urls import reverse
 
 from django_chuizi.settings import MAXAGE
 from operate.models import User
+
 class Summoney:
     def sum(self):
         sum = 0

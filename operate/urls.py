@@ -9,3 +9,4 @@ urlpatterns =[
     url(r"^money/(\d+)/$",views.money,name="money"),
     url(r"^payment/$",views.payment,name="payment"),
 ]
+
