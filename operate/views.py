@@ -1,4 +1,3 @@
-
 from datetime import datetime
 from random import randint
 
@@ -10,7 +9,7 @@ from django.shortcuts import render
 
 from App.models import IndexTab
 from App.models import Productcategorie
-from operate.models import Orderform, User, Getaddr
+from operate.models import Orderform, User, Getaddr,Shopping
 
 from App import views
 import hashlib
@@ -36,17 +35,22 @@ class Summoney:
 def smartisan(request): # san = 商品id
     tab = IndexTab.objects.all()                    #板块
     # user = request.session.get("username")
-    use = "小牛"
-    uid = User.objects.get(username=use)            #用户id
-    form = Orderform.objects.filter(uid = uid.uid)  #购物内商品
-    addrs = Getaddr.objects.filter(uid = uid.uid)   #收货地址
-    if addrs:                                       #判断收货地址，为空不传值，
-        add = addrs
-    if form:                                        #获取购物内商品信息
-        pro = []
-        for i in form:
-            sp = Productcategorie.objects.get(pcid = i.pcid)
-            pro.append(sp)
+    # use = "小牛"
+    # uid = User.objects.get(username=use)            #用户id
+    # form = Orderform.objects.filter(uid = uid.uid)  #购物内商品
+    # addrs = Getaddr.objects.filter(uid = uid.uid)   #收货地址
+    # if addrs:                                       #判断收货地址，为空不传值，
+    #     add = addrs
+    # if form:                                        #获取购物内商品信息
+    #     pro = []
+    #     for i in form:
+    #         sp = Productcategorie.objects.get(pcid = i.pcid)
+    #         pro.append(sp)
+    shopcar=Shopping.objects.all()
+    buy=request.POST.getlist('shure')
+    print (buy)
+    whichone=Productcategorie.objects.filter(pcid__in=buy)
+    print (whichone)
 
     return render(request, "operate/smartisan.html", locals())
 
@@ -76,12 +80,17 @@ def money(request,san):                             #san = 商品id
     return render(request, "operate/money.html", locals())
 
 
-#用户注册
+#用户注册+登录
 def login(request):
     if request.method == 'POST':
-        username = request.POST.get('username')
+        phone = request.POST.get('mobile')
         password = request.POST.get('password')
-    return render(request, 'operate/login.html')
+        password_hash = hashlib.sha1(password.encode('utf8')).hexdigest()
+        if User.objects.filter(phone = phone, password = password_hash).exists():
+            user = User.objects.filter(phone = phone, password = password_hash)
+            response = redirect(reverse('app:index'))
+            response.session['username'] = user.username
+    return render(request, 'operate/login11.html')
 
 def register(request):
     if request.method == 'POST':
@@ -94,7 +103,7 @@ def register(request):
         response.session['username'] = phone
         request.session.set_expiry(MAXAGE)
         return response
-    return render(request, 'operate/login.html')
+    return render(request, 'operate/register.html')
 
 
 #支付

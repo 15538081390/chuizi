@@ -130,6 +130,7 @@ USE_L10N = True
 
 USE_TZ = False
 
+
 # 设置session过期时间
 MAXAGE = 1 * 24 * 3600
 SALTVALUE = '9a15ae9f'

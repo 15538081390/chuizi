@@ -114,4 +114,3 @@ def show(request,num):
 
 
     return redirect(reverse("app:index"))
-
