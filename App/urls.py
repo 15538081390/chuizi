@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> b6529df94fe4278282f9aea10c2e6a179248d16c
 from django.conf.urls import url
 
 from App import views
@@ -19,4 +22,7 @@ urlpatterns =[
     url(r"^dingduan/$",views.dingduan,name="dingduan"),
 
 ]
+<<<<<<< HEAD
 
+=======
+>>>>>>> b6529df94fe4278282f9aea10c2e6a179248d16c
