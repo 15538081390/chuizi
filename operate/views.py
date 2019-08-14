@@ -9,7 +9,7 @@ from django.shortcuts import render
 
 from App.models import IndexTab
 from App.models import Productcategorie
-from operate.models import Orderform, User, Getaddr
+from operate.models import Orderform, User, Getaddr,Shopping
 
 from App import views
 import hashlib
@@ -35,17 +35,22 @@ class Summoney:
 def smartisan(request): # san = 商品id
     tab = IndexTab.objects.all()                    #板块
     # user = request.session.get("username")
-    use = "小牛"
-    uid = User.objects.get(username=use)            #用户id
-    form = Orderform.objects.filter(uid = uid.uid)  #购物内商品
-    addrs = Getaddr.objects.filter(uid = uid.uid)   #收货地址
-    if addrs:                                       #判断收货地址，为空不传值，
-        add = addrs
-    if form:                                        #获取购物内商品信息
-        pro = []
-        for i in form:
-            sp = Productcategorie.objects.get(pcid = i.pcid)
-            pro.append(sp)
+    # use = "小牛"
+    # uid = User.objects.get(username=use)            #用户id
+    # form = Orderform.objects.filter(uid = uid.uid)  #购物内商品
+    # addrs = Getaddr.objects.filter(uid = uid.uid)   #收货地址
+    # if addrs:                                       #判断收货地址，为空不传值，
+    #     add = addrs
+    # if form:                                        #获取购物内商品信息
+    #     pro = []
+    #     for i in form:
+    #         sp = Productcategorie.objects.get(pcid = i.pcid)
+    #         pro.append(sp)
+    shopcar=Shopping.objects.all()
+    buy=request.POST.getlist('shure')
+    print (buy)
+    whichone=Productcategorie.objects.filter(pcid__in=buy)
+    print (whichone)
 
     return render(request, "operate/smartisan.html", locals())
 

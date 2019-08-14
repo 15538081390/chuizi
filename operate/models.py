@@ -48,11 +48,13 @@ class Shopping(models.Model):
     sid = models.AutoField(primary_key=True)         #购物车id
     uid = models.IntegerField()                      #用户id
     pid = models.IntegerField()                     #商品id
-    number = models.IntegerField()                   #数量
-    time = models.DateField()                        #加入购物车时间
+    picture=models.CharField(max_length=255)
+    name=models.CharField(max_length=255)
+    price=models.IntegerField()
+
 
     class Meta:
-        db_table = "shopping"
+        db_table = "shopcar"
 
 
 

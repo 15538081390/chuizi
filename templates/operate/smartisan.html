@@ -3996,6 +3996,7 @@
                                     <div class="sub_top fl">
                                         <input type="checkbox" value="quanxuan" class="quanxuan"/>全选
                                     </div>
+                                    <form action="{% url "operate:smartisan" %}" method="post">
                                     <div class="sub_top fl">商品名称</div>
                                     <div class="sub_top fl">单价</div>
                                     <div class="sub_top fl">数量</div>
@@ -4003,13 +4004,15 @@
                                     <div class="sub_top fr">操作</div>
                                     <div class="clear"></div>
                                 </div>
+                                {% for s in shopcar %}
                                 <div class="content2 center">
                                     <div class="sub_content fl ">
-                                        <input type="checkbox" value="quanxuan" class="quanxuan"/>
+                                        <input type="checkbox" value="{{ s.pid }}" class="quanxuan" name="shure" />
                                     </div>
-                                    <div class="sub_content fl"><img src="./image/gwc_xiaomi6.jpg"></div>
-                                    <div class="sub_content fl ft20">小米6全网通6GB内存+64GB 亮黑色</div>
-                                    <div class="sub_content fl ">2499元</div>
+                                    <div class="sub_content fl"><img src="{{s.picture}}" style="width: 90%"></div>
+                                    <div class="sub_content fl ft20">{{s.name}}</div>
+
+                                    <div class="sub_content fl ">{{s.money}}</div>
                                     <div class="sub_content fl">
                                         <input class="shuliang" type="number" value="1" step="1" min="1">
                                     </div>
@@ -4017,69 +4020,34 @@
                                     <div class="sub_content fl"><a href="">×</a></div>
                                     <div class="clear"></div>
                                 </div>
-                                <div class="content2 center">
-                                    <div class="sub_content fl ">
-                                        <input type="checkbox" value="quanxuan" class="quanxuan"/>
-                                    </div>
-                                    <div class="sub_content fl"><img src="./image/gwc_xiaomi6.jpg"></div>
-                                    <div class="sub_content fl ft20">小米6全网通6GB内存+64GB 亮黑色</div>
-                                    <div class="sub_content fl ">2499元</div>
-                                    <div class="sub_content fl">
-                                        <input class="shuliang" type="number" value="1" step="1" min="1">
-                                    </div>
-                                    <div class="sub_content fl">2499元</div>
-                                    <div class="sub_content fl"><a href="">×</a></div>
-                                    <div class="clear"></div>
-                                </div>
+                                {% endfor %}
+
                             </div>
                             <div class="jiesuandan mt20 center">
                                 <div class="tishi fl ml20">
                                     <ul>
                                         <li><a href="./liebiao.html">继续购物</a></li>
-                                        <li>|</li>
-                                        <li>共<span>2</span>件商品，已选择<span>1</span>件</li>
+                                      
                                         <div class="clear"></div>
                                     </ul>
                                 </div>
                                 <div class="jiesuan fr">
-                                    <div class="jiesuanjiage fl">合计（不含运费）：<span>2499.00元</span></div>
+
                                     <div class="jsanniu fr"><input class="jsan" type="submit" name="jiesuan"
                                                                    value="去结算"/></div>
                                     <div class="clear"></div>
                                 </div>
                                 <div class="clear"></div>
                             </div>
+                            </form>
+
+
 
                         </div>
                         </div>
                     </div> <!---->
-                    <div _ngcontent-c5="" class="cart-bottom-bg fix-bottom fix-bottom-fixed" id="cart_bottom">
-                        <div _ngcontent-c5="" class="fix-bottom-inner">
-                            <div _ngcontent-c5="" class="cart-bar-operation">
-                                <div _ngcontent-c5="" class="choose-all js-choose-all"
-                                     ng-class="{&#39;choose-all-disabled&#39;: cartOrder.isNothing}">
-                                    <ui-checkbox _ngcontent-c5="" _nghost-c7=""><span _ngcontent-c7=""
-                                                                                      class="m-blue-checkbox-new checkbox-on"> </span>
-                                    </ui-checkbox>
-                                    <span _ngcontent-c5="" class="text-choose-all">全选</span></div>
-                                <div _ngcontent-c5="" class="delete-choose-goods">删除选中的商品</div> <!----> </div>
-                            <div _ngcontent-c5="" class="shipping">
-                                <div _ngcontent-c5="" class="shipping-box">
-                                    <div _ngcontent-c5="" class="shipping-total shipping-num"><h4 _ngcontent-c5=""
-                                                                                                  class="highlight">已选择
-                                        <i _ngcontent-c5="">8</i> 件商品</h4> <h5 _ngcontent-c5="">共计 <i
-                                            _ngcontent-c5="">8</i> 件商品</h5></div>
-                                    <div _ngcontent-c5="" class="shipping-total shipping-price">
-                                        <h4 _ngcontent-c5="" class="highlight"> 应付总额：<span _ngcontent-c5="">￥</span><i
-                                                _ngcontent-c5=""><span>768.00</span></i> <!----><em _ngcontent-c5=""
-                                                                                                    class="smartisan-icon">L
-                                            <div _ngcontent-c5="" class="tip-box">应付总额不含运费</div>
-                                        </em></h4> <!----><h5 _ngcontent-c5="">总额节省：<span _ngcontent-c5="">￥</span><i
-                                            _ngcontent-c5=""><span>254.00</span></i></h5> <!----> </div>
-                                </div>
-                                <span _ngcontent-c5="" class="jianguo-blue-main-btn big-main-btn js-checkout"> <a
-                                        _ngcontent-c5="">现在结算</a> </span></div>
-                        </div>
+
+
                     </div> <!---->
                     <div _ngcontent-c5="" class="dialog-container">
                         <dialog-prompt _ngcontent-c5="" class="warranty-content ng-tns-c8-0" _nghost-c8="">

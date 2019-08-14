@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+
+=======
+>>>>>>> b6529df94fe4278282f9aea10c2e6a179248d16c
 from urllib import request
 
 from django.http import HttpResponse
@@ -97,3 +101,7 @@ def tnt(request):
     return render(request,"App/topbash/tnt.html",context={"tab":tab,
                                                           })
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> b6529df94fe4278282f9aea10c2e6a179248d16c
