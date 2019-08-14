@@ -1,3 +1,4 @@
+
 from django.conf.urls import url
 
 from App import views
@@ -15,5 +16,6 @@ urlpatterns =[
     url(r"^r1/$",views.r1,name="r1"),
     url(r"^tnt/$",views.tnt,name="tnt"),
     url(r"^dingduan/$",views.dingduan,name="dingduan"),
+    url(r"^show/(?P<num>\d+)/$",views.show,name="show"),
 
 ]

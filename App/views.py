@@ -1,9 +1,16 @@
+
 from urllib import request
 
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse
+
 from App.models import *
 import random
+from App.models import Parts
+from App.models import Phone
+from App.models import Breath
+from App.models import Clothes
 
 # Create your views here.
 #首页
@@ -67,8 +74,6 @@ def server3(request):
     return render(request,"App/bash/server3.html",context={"tab":tab,
                                                            "home":home,
                                                           })
-
-
 def application(request):
     tab=IndexTab.objects.all()
     return render(request,"App/topbash/app.html",context={"tab":tab,
@@ -96,3 +101,16 @@ def tnt(request):
     tab=IndexTab.objects.all()
     return render(request,"App/topbash/tnt.html",context={"tab":tab,
                                                           })
+
+#商品购买
+def show(request,num):
+    tab=IndexTab.objects.all()
+    home = Indexhome.objects.all()
+
+    print(Productcategorie)
+    color = Productcategorie.objects.filter(pcid=num)
+
+
+
+
+    return redirect(reverse("app:index"))
