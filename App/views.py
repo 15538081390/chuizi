@@ -1,13 +1,20 @@
 
 from urllib import request
 
+from django.db.models import Count
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
 
 from App.models import *
 import random
+<<<<<<< HEAD
 
+=======
+from App.models import Parts
+from App.models import Breath
+from App.models import Clothes
+>>>>>>> c2146d331cac2263fefc2dca79ac7a5a214459b2
 
 # Create your views here.
 #首页
@@ -103,11 +110,22 @@ def tnt(request):
 def show(request,num):
     tab=IndexTab.objects.all()
     home = Indexhome.objects.all()
+    dise = Merchandise.objects.get(mid=num)                     #从规格表查询产品表
+    bankuai = Productcategorie.objects.get(pcid=num)            #需要修改查询条件，
+    bankuai01 = Productcategorie.objects.filter(hid=bankuai.hid)#查询相关商品
 
-    print(Productcategorie)
-    color = Productcategorie.objects.filter(pcid=num)
+    #规格查询
+    color = Merchandise.objects.values('pcid',"color","Choosepicture").annotate(Count("pcid"))             #颜色
+    size = Merchandise.objects.values("size").annotate(Count("pcid"))                   # 尺码
+    style = Merchandise.objects.values("size").annotate(Count("pcid"))                   # 款式
+    capacity = Merchandise.objects.values("capacity").annotate(Count("pcid"))            #容量
+    specification = Merchandise.objects.values("specification").annotate(Count("pcid"))  #规格
+    print(color, size, style, capacity, specification)
+    #查询商品
+    pc = Productcategorie.objects.get(pcid=num)
+
+    #折扣价格
+    pcmoney = dise.money * 0.7
 
 
-
-
-    return redirect(reverse("app:index"))
+    return render(request,"App/shopping/shop.html",locals())

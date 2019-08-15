@@ -1,5 +1,5 @@
 from datetime import datetime
-from random import randint
+from random import randint, random
 
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
@@ -9,6 +9,8 @@ from django.shortcuts import render
 
 from App.models import IndexTab
 from App.models import Productcategorie
+from operate.code import send_sms
+from operate.form import UserForm
 from operate.models import Orderform, User, Getaddr,Shopping
 
 from App import views
@@ -31,7 +33,8 @@ class Summoney:
         sum = sum - activity
         return sum
 
-#购物车
+
+# 购物车
 def smartisan(request): # san = 商品id
     tab = IndexTab.objects.all()                    #板块
     # user = request.session.get("username")
@@ -51,10 +54,14 @@ def smartisan(request): # san = 商品id
     print (buy)
     whichone=Merchandise.objects.filter(mid__in=buy)
     print (whichone)
+<<<<<<< HEAD
     print (request.POST.get('shuliang'))
+=======
+>>>>>>> c2146d331cac2263fefc2dca79ac7a5a214459b2
     return render(request, "operate/smartisan.html", locals())
 
-#商品购买
+
+# 商品购买
 def money(request,san):                             #san = 商品id
     tab = IndexTab.objects.all()                    # 板块
     use = "小牛"
@@ -80,7 +87,7 @@ def money(request,san):                             #san = 商品id
     return render(request, "operate/money.html", locals())
 
 
-#用户注册+登录
+# 用户注册+登录
 def login(request):
     if request.method == 'POST':
         phone = request.POST.get('mobile')
@@ -92,21 +99,34 @@ def login(request):
             response.session['username'] = user.username
     return render(request, 'operate/login11.html')
 
+
 def register(request):
-    if request.method == 'POST':
-        phone = request.POST.get('mobile')
-        password = request.POST.get('passwd')
-        password_hash = hashlib.sha1(password.encode('utf8')).hexdigest()
-        user = User(username = phone, phone = phone, password=password_hash)
-        user.save()
-        response = redirect(reverse('app:index'))
-        response.session['username'] = phone
-        request.session.set_expiry(MAXAGE)
-        return response
-    return render(request, 'operate/register.html')
+    if request.method == 'GET':
+        form = UserForm()
+        return render(request, 'operate/register.html', {'form': form})
+    else:
+        form = UserForm(request.POST)
+        if form.is_valid():
+            password_hash = hashlib.sha1(form.password.encode('utf8')).hexdigest()
+            user = User(username=form.username, phone=form.phone, password=password_hash)
+            user.save()
+            response = redirect(reverse('app:index'))
+            response.session['username'] = form.sername
+            request.session.set_expiry(MAXAGE)
+            return response
+        else:
+            return render(request, 'operate/register.html', {'form': form})
 
 
-#支付
+def code(request):
+    num=str(random.randint(100000, 999999))
+    request.session['phone'] = request.POST['phone']
+    request.session['code'] = num
+    print(request.POST['phone'], num)
+    send_sms(request.POST['phone'], {'number':num})
+
+
+# 支付
 def payment(request):
     tab = IndexTab.objects.all()
     return render(request, "operate/smartisan.html", locals())

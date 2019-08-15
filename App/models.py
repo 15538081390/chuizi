@@ -49,6 +49,9 @@ class Productcategorie(models.Model):
     money = models.IntegerField()
     picture = models.CharField(max_length=255)
     inf = models.CharField(max_length=255)
+    class Meta:
+        managed = False
+        db_table = "productcategorie"
 
     class Meta:
         managed = False
@@ -62,12 +65,14 @@ class Merchandise(models.Model):
     money = models.FloatField()                                         #价格
     color = models.CharField(max_length=128,null=True)                  #颜色
     specification = models.CharField(max_length=128,null=True)          #规格
+    style = models.CharField(max_length=128,null=True)                  #款式
     size = models.CharField(max_length=128,null=True)                   #尺码
     capacity = models.CharField(max_length=128, null=True)              #容量
     xiaoliang = models.IntegerField(null=True)                          #销量
     kucun = models.IntegerField(default=10)                             #库存
     show = models.IntegerField()                                        #模板判断展示
 
+    Service = models.CharField(max_length=200,null=True)                #服务说明
     inf = models.CharField(max_length=45)                                # 产品说明
     picture = models.CharField(max_length=255, blank=True, null=True)    #主图片
     Choosepicture = models.CharField(max_length=255,null=True)           #颜色选择

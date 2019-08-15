@@ -33,7 +33,7 @@
         }
         n[t].l = +new Date
     }(window, "collectEvent")</script>
-    <script src="{% static "js/collect-v.3.2.14.js.下载" %}"></script>
+    <script src="{% static "js/collect-v.3.2.14.js" %}"></script>
     <link href="{% static "css/app.f08952023f55865ffaaaa17fb6bb2f44.css" %}" rel="stylesheet">
     <style>.wrapper[_ngcontent-c0] {
         min-width: 1220px
@@ -5420,612 +5420,385 @@
     }</style>
 </head>
 <body>
-    <div _ngcontent-c0="" class="wrapper">
-        <sm-header _ngcontent-c0="" _nghost-c1="">
-            <div _ngcontent-c1="" class="header theme-black-default cn">
-                <div _ngcontent-c1="" class="nav-global">
-                    <h1 _ngcontent-c1="" class="nav-logo">
-                        <a _ngcontent-c1="" href="https://www.smartisan.com/"
-                                                             title="锤子商城">Smartisan</a>
-                    </h1>
-                    <div _ngcontent-c1="" class="container">
-                        <ul _ngcontent-c1="" class="nav-list"> <!---->
+<div _ngcontent-c0="" class="wrapper">
+    <sm-header _ngcontent-c0="" _nghost-c1="">
+        <div _ngcontent-c1="" class="header theme-black-default cn">
+            <div _ngcontent-c1="" class="nav-global">
+                <h1 _ngcontent-c1="" class="nav-logo">
+                    <a _ngcontent-c1="" href="https://www.smartisan.com/"
+                       title="锤子商城">Smartisan</a>
+                </h1>
+                <div _ngcontent-c1="" class="container">
+                    <ul _ngcontent-c1="" class="nav-list"> <!---->
+                        <li _ngcontent-c1=""><a _ngcontent-c1="" class="active" title="在线商城"
+                                                href="https://www.smartisan.com/" target=""> 在线商城 </a></li>
+                        {% for item in tab %}
                             <li _ngcontent-c1=""><a _ngcontent-c1="" class="active" title="在线商城"
-                                                    href="https://www.smartisan.com/" target=""> 在线商城 </a></li>
-                            {% for item in tab %}
-                            <li _ngcontent-c1=""><a _ngcontent-c1="" class="active" title="在线商城"
-                                                        href="{{ item.href }}" target=""> {{ item.tname }}</a></li>
-                            {% endfor %}
-                        </ul>
-                    </div> <!---->
-                    <ul _ngcontent-c1="" class="nav-aside">
-                        <li _ngcontent-c1="" class="nav-user"><a _ngcontent-c1="">个人中心</a> <!---->
-                            <div _ngcontent-c1="" class="nav-user-wrapper">
-                                <div _ngcontent-c1="" class="nav-user-list">
-                                    <dl _ngcontent-c1="" class="nav-user-avatar">
-                                        <dd _ngcontent-c1=""> <!----> <!---->
-                                            <img _ngcontent-c1="" class="nav-avatar"
-                                                 src="../../坚果%20Type-C%20To%20Type-C%20数据线%20-%20Smartisan_files/avatar.png">
-                                        </dd>
-                                        <dt _ngcontent-c1="">+86 186****6123</dt>
-                                    </dl>
-                                    <ul _ngcontent-c1="">
-                                        <li _ngcontent-c1="" class="order"><a _ngcontent-c1=""
-                                                                              href="https://www.smartisan.com/user/order/list">我的订单</a>
-                                        </li>
-                                        <li _ngcontent-c1="" class="support"><a _ngcontent-c1=""
-                                                                                href="https://www.smartisan.com/user/aftersale/list">售后服务</a>
-                                        </li>
-                                        <li _ngcontent-c1="" class="coupon"><a _ngcontent-c1=""
-                                                                               href="https://www.smartisan.com/user/coupon">我的优惠
-                                            <!----></a></li>
-                                        <li _ngcontent-c1="" class="information"><a _ngcontent-c1=""
-                                                                                    href="https://www.smartisan.com/user/account">账户资料</a>
-                                        </li>
-                                        <li _ngcontent-c1="" class="address"><a _ngcontent-c1=""
-                                                                                href="https://www.smartisan.com/user/address/list">收货地址</a>
-                                        </li>
-                                        <li _ngcontent-c1="" class="logout"><a _ngcontent-c1="">退出</a></li>
-                                    </ul>
-                                </div>
+                                                    href="{{ item.href }}" target=""> {{ item.tname }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div> <!---->
+                <ul _ngcontent-c1="" class="nav-aside">
+                    <li _ngcontent-c1="" class="nav-user"><a _ngcontent-c1="">个人中心</a> <!---->
+                        <div _ngcontent-c1="" class="nav-user-wrapper">
+                            <div _ngcontent-c1="" class="nav-user-list">
+                                <dl _ngcontent-c1="" class="nav-user-avatar">
+                                    <dd _ngcontent-c1=""> <!----> <!---->
+                                        <img _ngcontent-c1="" class="nav-avatar"
+                                             src="../../坚果%20Type-C%20To%20Type-C%20数据线%20-%20Smartisan_files/avatar.png">
+                                    </dd>
+                                    <dt _ngcontent-c1="">+86 186****6123</dt>
+                                </dl>
+                                <ul _ngcontent-c1="">
+                                    <li _ngcontent-c1="" class="order"><a _ngcontent-c1=""
+                                                                          href="https://www.smartisan.com/user/order/list">我的订单</a>
+                                    </li>
+                                    <li _ngcontent-c1="" class="support"><a _ngcontent-c1=""
+                                                                            href="https://www.smartisan.com/user/aftersale/list">售后服务</a>
+                                    </li>
+                                    <li _ngcontent-c1="" class="coupon"><a _ngcontent-c1=""
+                                                                           href="https://www.smartisan.com/user/coupon">我的优惠
+                                        <!----></a></li>
+                                    <li _ngcontent-c1="" class="information"><a _ngcontent-c1=""
+                                                                                href="https://www.smartisan.com/user/account">账户资料</a>
+                                    </li>
+                                    <li _ngcontent-c1="" class="address"><a _ngcontent-c1=""
+                                                                            href="https://www.smartisan.com/user/address/list">收货地址</a>
+                                    </li>
+                                    <li _ngcontent-c1="" class="logout"><a _ngcontent-c1="">退出</a></li>
+                                </ul>
                             </div>
-                        </li> <!---->
-                        <sm-nav-cart _ngcontent-c1="" _nghost-c4="">
-                            <li _ngcontent-c4="" class="nav-cart theme-black-default"><a _ngcontent-c4=""
-                                                                                         href="https://www.smartisan.com/cart">
-                                <span _ngcontent-c4="" class="cart-tip cart-num"></span> </a>
-{#                                购物车#}
-                                <div _ngcontent-c4="" class="nav-cart-wrapper">
-                                    <div _ngcontent-c4="" class="nav-cart-list">
-                                        <div _ngcontent-c4=""> <!----> <!---->
-                                            <div _ngcontent-c4="" class="full">
-                                                <div _ngcontent-c4="" class="nav-cart-items" id="iscroll_wrapper">
-                                                    <ul _ngcontent-c4=""> <!---->
-                                                        <li _ngcontent-c4="" class="clearfix">
-                                                            <div _ngcontent-c4=""
-                                                                 class="cart-item js-cart-item cart-item-sell"
-                                                                 id="100057503">
-                                                                <div _ngcontent-c4="" class="cart-item-inner">
-                                                                    <div _ngcontent-c4="" class="item-thumb"><img
-                                                                            _ngcontent-c4=""
-                                                                            src="../../坚果%20Type-C%20To%20Type-C%20数据线%20-%20Smartisan_files/e9cd634b62470713f6b9c5a6065f4a10.jpg">
-                                                                        <!----> <!----> </div>
-                                                                    <div _ngcontent-c4="" class="item-desc">
-                                                                        <div _ngcontent-c4="" class="cart-cell"><h4
-                                                                                _ngcontent-c4=""> <!----><a
-                                                                                _ngcontent-c4="" target="_blank"
-                                                                                href="https://www.smartisan.com/item/100057503">Smartisan
-                                                                            T恤 毕加索</a> <!----> </h4> <!----><p
-                                                                                _ngcontent-c4="" class="attrs">
-                                                                            <!----><span _ngcontent-c4="">男款</span><span
-                                                                                _ngcontent-c4="">黑色</span><span
-                                                                                _ngcontent-c4="">L</span></p> <!---->
-                                                                            <h6 _ngcontent-c4=""><span _ngcontent-c4=""
-                                                                                                       class="price-icon">¥</span><span
-                                                                                    _ngcontent-c4="" class="price-num">99.00</span>
-                                                                                <!----><span _ngcontent-c4=""
-                                                                                             class="item-num">x 1</span>
-                                                                            </h6></div>
-                                                                    </div>
-                                                                    <div _ngcontent-c4="" class="del-btn">删除</div>
+                        </div>
+                    </li> <!---->
+                    <sm-nav-cart _ngcontent-c1="" _nghost-c4="">
+                        <li _ngcontent-c4="" class="nav-cart theme-black-default"><a _ngcontent-c4=""
+                                                                                     href="https://www.smartisan.com/cart">
+                            <span _ngcontent-c4="" class="cart-tip cart-num"></span> </a>
+                            {#                                购物车#}
+                            <div _ngcontent-c4="" class="nav-cart-wrapper">
+                                <div _ngcontent-c4="" class="nav-cart-list">
+                                    <div _ngcontent-c4=""> <!----> <!---->
+                                        <div _ngcontent-c4="" class="full">
+                                            <div _ngcontent-c4="" class="nav-cart-items" id="iscroll_wrapper">
+                                                <ul _ngcontent-c4=""> <!---->
+                                                    <li _ngcontent-c4="" class="clearfix">
+                                                        <div _ngcontent-c4=""
+                                                             class="cart-item js-cart-item cart-item-sell"
+                                                             id="100057503">
+                                                            <div _ngcontent-c4="" class="cart-item-inner">
+                                                                <div _ngcontent-c4="" class="item-thumb"><img
+                                                                        _ngcontent-c4=""
+                                                                        src="../../坚果%20Type-C%20To%20Type-C%20数据线%20-%20Smartisan_files/e9cd634b62470713f6b9c5a6065f4a10.jpg">
+                                                                    <!----> <!----> </div>
+                                                                <div _ngcontent-c4="" class="item-desc">
+                                                                    <div _ngcontent-c4="" class="cart-cell"><h4
+                                                                            _ngcontent-c4=""> <!----><a
+                                                                            _ngcontent-c4="" target="_blank"
+                                                                            href="https://www.smartisan.com/item/100057503">Smartisan
+                                                                        T恤 毕加索</a> <!----> </h4> <!----><p
+                                                                            _ngcontent-c4="" class="attrs">
+                                                                        <!----><span _ngcontent-c4="">男款</span><span
+                                                                            _ngcontent-c4="">黑色</span><span
+                                                                            _ngcontent-c4="">L</span></p> <!---->
+                                                                        <h6 _ngcontent-c4=""><span _ngcontent-c4=""
+                                                                                                   class="price-icon">¥</span><span
+                                                                                _ngcontent-c4=""
+                                                                                class="price-num">99.00</span>
+                                                                            <!----><span _ngcontent-c4=""
+                                                                                         class="item-num">x 1</span>
+                                                                        </h6></div>
                                                                 </div>
-                                                            </div> <!----><!----> <!---->  </li>
-                                                        <li _ngcontent-c4="" class="clearfix">
-                                                            <div _ngcontent-c4=""
-                                                                 class="cart-item js-cart-item cart-item-sell"
-                                                                 id="100047001">
-                                                                <div _ngcontent-c4="" class="cart-item-inner">
-                                                                    <div _ngcontent-c4="" class="item-thumb"><img
-                                                                            _ngcontent-c4=""
-                                                                            src="../../坚果%20Type-C%20To%20Type-C%20数据线%20-%20Smartisan_files/a668d1a5f41b04ece82d76ded1e94d3a.jpg">
-                                                                        <!----> <!----> </div>
-                                                                    <div _ngcontent-c4="" class="item-desc">
-                                                                        <div _ngcontent-c4="" class="cart-cell"><h4
-                                                                                _ngcontent-c4=""> <!----><a
-                                                                                _ngcontent-c4="" target="_blank"
-                                                                                href="https://www.smartisan.com/item/100047001">坚果
-                                                                            QuickCharge 4+ 快速充电器</a> <!----> </h4>
-                                                                            <!----><p _ngcontent-c4="" class="attrs">
-                                                                                <!----><span _ngcontent-c4="">白色</span>
-                                                                            </p> <!----> <h6 _ngcontent-c4=""><span
-                                                                                    _ngcontent-c4="" class="price-icon">¥</span><span
-                                                                                    _ngcontent-c4="" class="price-num">58.00</span>
-                                                                                <!----><span _ngcontent-c4=""
-                                                                                             class="item-num">x 1</span>
-                                                                            </h6></div>
-                                                                    </div>
-                                                                    <div _ngcontent-c4="" class="del-btn">删除</div>
-                                                                </div>
-                                                            </div> <!----><!----> <!---->  </li>
-                                                        <li _ngcontent-c4="" class="clearfix">
-                                                            <div _ngcontent-c4=""
-                                                                 class="cart-item js-cart-item cart-item-sell"
-                                                                 id="100053001">
-                                                                <div _ngcontent-c4="" class="cart-item-inner">
-                                                                    <div _ngcontent-c4="" class="item-thumb"><img
-                                                                            _ngcontent-c4=""
-                                                                            src="../../坚果%20Type-C%20To%20Type-C%20数据线%20-%20Smartisan_files/82aab62886740f165a3631ce6cffe895.jpg">
-                                                                        <!----> <!----> </div>
-                                                                    <div _ngcontent-c4="" class="item-desc">
-                                                                        <div _ngcontent-c4="" class="cart-cell"><h4
-                                                                                _ngcontent-c4=""> <!----><a
-                                                                                _ngcontent-c4="" target="_blank"
-                                                                                href="https://www.smartisan.com/item/100053001">坚果彩虹数据线</a>
-                                                                            <!----> </h4> <!----><p _ngcontent-c4=""
-                                                                                                    class="attrs">
-                                                                            <!----><span _ngcontent-c4="">1 条装</span>
+                                                                <div _ngcontent-c4="" class="del-btn">删除</div>
+                                                            </div>
+                                                        </div> <!----><!----> <!---->  </li>
+                                                    <li _ngcontent-c4="" class="clearfix">
+                                                        <div _ngcontent-c4=""
+                                                             class="cart-item js-cart-item cart-item-sell"
+                                                             id="100047001">
+                                                            <div _ngcontent-c4="" class="cart-item-inner">
+                                                                <div _ngcontent-c4="" class="item-thumb"><img
+                                                                        _ngcontent-c4=""
+                                                                        src="../../坚果%20Type-C%20To%20Type-C%20数据线%20-%20Smartisan_files/a668d1a5f41b04ece82d76ded1e94d3a.jpg">
+                                                                    <!----> <!----> </div>
+                                                                <div _ngcontent-c4="" class="item-desc">
+                                                                    <div _ngcontent-c4="" class="cart-cell"><h4
+                                                                            _ngcontent-c4=""> <!----><a
+                                                                            _ngcontent-c4="" target="_blank"
+                                                                            href="https://www.smartisan.com/item/100047001">坚果
+                                                                        QuickCharge 4+ 快速充电器</a> <!----> </h4>
+                                                                        <!----><p _ngcontent-c4="" class="attrs">
+                                                                            <!----><span _ngcontent-c4="">白色</span>
                                                                         </p> <!----> <h6 _ngcontent-c4=""><span
                                                                                 _ngcontent-c4=""
                                                                                 class="price-icon">¥</span><span
                                                                                 _ngcontent-c4=""
-                                                                                class="price-num">16.00</span>
+                                                                                class="price-num">58.00</span>
                                                                             <!----><span _ngcontent-c4=""
                                                                                          class="item-num">x 1</span>
                                                                         </h6></div>
-                                                                    </div>
-                                                                    <div _ngcontent-c4="" class="del-btn">删除</div>
                                                                 </div>
-                                                            </div> <!----><!----> <!---->  </li>
-                                                        <li _ngcontent-c4="" class="clearfix">
-                                                            <div _ngcontent-c4=""
-                                                                 class="cart-item js-cart-item cart-item-sell"
-                                                                 id="100057901">
-                                                                <div _ngcontent-c4="" class="cart-item-inner">
-                                                                    <div _ngcontent-c4="" class="item-thumb"><img
+                                                                <div _ngcontent-c4="" class="del-btn">删除</div>
+                                                            </div>
+                                                        </div> <!----><!----> <!---->  </li>
+                                                    <li _ngcontent-c4="" class="clearfix">
+                                                        <div _ngcontent-c4=""
+                                                             class="cart-item js-cart-item cart-item-sell"
+                                                             id="100053001">
+                                                            <div _ngcontent-c4="" class="cart-item-inner">
+                                                                <div _ngcontent-c4="" class="item-thumb"><img
+                                                                        _ngcontent-c4=""
+                                                                        src="../../坚果%20Type-C%20To%20Type-C%20数据线%20-%20Smartisan_files/82aab62886740f165a3631ce6cffe895.jpg">
+                                                                    <!----> <!----> </div>
+                                                                <div _ngcontent-c4="" class="item-desc">
+                                                                    <div _ngcontent-c4="" class="cart-cell"><h4
+                                                                            _ngcontent-c4=""> <!----><a
+                                                                            _ngcontent-c4="" target="_blank"
+                                                                            href="https://www.smartisan.com/item/100053001">坚果彩虹数据线</a>
+                                                                        <!----> </h4> <!----><p _ngcontent-c4=""
+                                                                                                class="attrs">
+                                                                        <!----><span _ngcontent-c4="">1 条装</span>
+                                                                    </p> <!----> <h6 _ngcontent-c4=""><span
                                                                             _ngcontent-c4=""
-                                                                            src="../../坚果%20Type-C%20To%20Type-C%20数据线%20-%20Smartisan_files/9601ed5f20b4f0b13c8c7004708119a2.png">
-                                                                        <!----> <!----> </div>
-                                                                    <div _ngcontent-c4="" class="item-desc">
-                                                                        <div _ngcontent-c4="" class="cart-cell"><h4
-                                                                                _ngcontent-c4=""> <!----><a
-                                                                                _ngcontent-c4="" target="_blank"
-                                                                                href="https://www.smartisan.com/item/100057901">Smartisan
-                                                                            T恤 薛定谔</a> <!----> </h4> <!----><p
-                                                                                _ngcontent-c4="" class="attrs">
-                                                                            <!----><span _ngcontent-c4="">男款</span><span
-                                                                                _ngcontent-c4="">藏蓝色</span><span
-                                                                                _ngcontent-c4="">S</span></p> <!---->
-                                                                            <h6 _ngcontent-c4=""><span _ngcontent-c4=""
-                                                                                                       class="price-icon">¥</span><span
-                                                                                    _ngcontent-c4="" class="price-num">149.00</span>
-                                                                                <!----><span _ngcontent-c4=""
-                                                                                             class="item-num">x 1</span>
-                                                                            </h6></div>
-                                                                    </div>
-                                                                    <div _ngcontent-c4="" class="del-btn">删除</div>
-                                                                </div>
-                                                            </div> <!----><!----> <!---->  </li>
-                                                        <li _ngcontent-c4="" class="clearfix">
-                                                            <div _ngcontent-c4=""
-                                                                 class="cart-item js-cart-item cart-item-sell"
-                                                                 id="100039716">
-                                                                <div _ngcontent-c4="" class="cart-item-inner">
-                                                                    <div _ngcontent-c4="" class="item-thumb"><img
+                                                                            class="price-icon">¥</span><span
                                                                             _ngcontent-c4=""
-                                                                            src="../../坚果%20Type-C%20To%20Type-C%20数据线%20-%20Smartisan_files/1c13034d1028f3620d487c1db7184a51.jpg">
-                                                                        <!----> <!----> </div>
-                                                                    <div _ngcontent-c4="" class="item-desc">
-                                                                        <div _ngcontent-c4="" class="cart-cell"><h4
-                                                                                _ngcontent-c4=""> <!----><a
-                                                                                _ngcontent-c4="" target="_blank"
-                                                                                href="https://www.smartisan.com/item/100039716">Smartisan
-                                                                            帆布鞋</a> <!----> </h4> <!----><p
-                                                                                _ngcontent-c4="" class="attrs">
-                                                                            <!----><span _ngcontent-c4="">白色</span><span
-                                                                                _ngcontent-c4="">37</span></p> <!---->
-                                                                            <h6 _ngcontent-c4=""><span _ngcontent-c4=""
-                                                                                                       class="price-icon">¥</span><span
-                                                                                    _ngcontent-c4="" class="price-num">199.00</span>
-                                                                                <!----><span _ngcontent-c4=""
-                                                                                             class="item-num">x 1</span>
-                                                                            </h6></div>
-                                                                    </div>
-                                                                    <div _ngcontent-c4="" class="del-btn">删除</div>
+                                                                            class="price-num">16.00</span>
+                                                                        <!----><span _ngcontent-c4=""
+                                                                                     class="item-num">x 1</span>
+                                                                    </h6></div>
                                                                 </div>
-                                                            </div> <!----><!----> <!---->  </li>
-                                                    </ul>
-                                                </div>
-                                                <div _ngcontent-c4="" class="nav-cart-total"><p _ngcontent-c4="">共
-                                                    <strong _ngcontent-c4="">5</strong> 件商品</p> <h5 _ngcontent-c4="">合计：<span
-                                                        _ngcontent-c4="" class="price-icon">¥</span><span
-                                                        _ngcontent-c4="" class="price-num">521.00</span></h5> <h6
-                                                        _ngcontent-c4=""><a _ngcontent-c4="" class="nav-cart-btn"
-                                                                            href="https://www.smartisan.com/cart">去购物车</a>
-                                                </h6></div>
+                                                                <div _ngcontent-c4="" class="del-btn">删除</div>
+                                                            </div>
+                                                        </div> <!----><!----> <!---->  </li>
+                                                    <li _ngcontent-c4="" class="clearfix">
+                                                        <div _ngcontent-c4=""
+                                                             class="cart-item js-cart-item cart-item-sell"
+                                                             id="100057901">
+                                                            <div _ngcontent-c4="" class="cart-item-inner">
+                                                                <div _ngcontent-c4="" class="item-thumb"><img
+                                                                        _ngcontent-c4=""
+                                                                        src="../../坚果%20Type-C%20To%20Type-C%20数据线%20-%20Smartisan_files/9601ed5f20b4f0b13c8c7004708119a2.png">
+                                                                    <!----> <!----> </div>
+                                                                <div _ngcontent-c4="" class="item-desc">
+                                                                    <div _ngcontent-c4="" class="cart-cell"><h4
+                                                                            _ngcontent-c4=""> <!----><a
+                                                                            _ngcontent-c4="" target="_blank"
+                                                                            href="https://www.smartisan.com/item/100057901">Smartisan
+                                                                        T恤 薛定谔</a> <!----> </h4> <!----><p
+                                                                            _ngcontent-c4="" class="attrs">
+                                                                        <!----><span _ngcontent-c4="">男款</span><span
+                                                                            _ngcontent-c4="">藏蓝色</span><span
+                                                                            _ngcontent-c4="">S</span></p> <!---->
+                                                                        <h6 _ngcontent-c4=""><span _ngcontent-c4=""
+                                                                                                   class="price-icon">¥</span><span
+                                                                                _ngcontent-c4="" class="price-num">149.00</span>
+                                                                            <!----><span _ngcontent-c4=""
+                                                                                         class="item-num">x 1</span>
+                                                                        </h6></div>
+                                                                </div>
+                                                                <div _ngcontent-c4="" class="del-btn">删除</div>
+                                                            </div>
+                                                        </div> <!----><!----> <!---->  </li>
+                                                    <li _ngcontent-c4="" class="clearfix">
+                                                        <div _ngcontent-c4=""
+                                                             class="cart-item js-cart-item cart-item-sell"
+                                                             id="100039716">
+                                                            <div _ngcontent-c4="" class="cart-item-inner">
+                                                                <div _ngcontent-c4="" class="item-thumb"><img
+                                                                        _ngcontent-c4=""
+                                                                        src="../../坚果%20Type-C%20To%20Type-C%20数据线%20-%20Smartisan_files/1c13034d1028f3620d487c1db7184a51.jpg">
+                                                                    <!----> <!----> </div>
+                                                                <div _ngcontent-c4="" class="item-desc">
+                                                                    <div _ngcontent-c4="" class="cart-cell"><h4
+                                                                            _ngcontent-c4=""> <!----><a
+                                                                            _ngcontent-c4="" target="_blank"
+                                                                            href="https://www.smartisan.com/item/100039716">Smartisan
+                                                                        帆布鞋</a> <!----> </h4> <!----><p
+                                                                            _ngcontent-c4="" class="attrs">
+                                                                        <!----><span _ngcontent-c4="">白色</span><span
+                                                                            _ngcontent-c4="">37</span></p> <!---->
+                                                                        <h6 _ngcontent-c4=""><span _ngcontent-c4=""
+                                                                                                   class="price-icon">¥</span><span
+                                                                                _ngcontent-c4="" class="price-num">199.00</span>
+                                                                            <!----><span _ngcontent-c4=""
+                                                                                         class="item-num">x 1</span>
+                                                                        </h6></div>
+                                                                </div>
+                                                                <div _ngcontent-c4="" class="del-btn">删除</div>
+                                                            </div>
+                                                        </div> <!----><!----> <!---->  </li>
+                                                </ul>
                                             </div>
+                                            <div _ngcontent-c4="" class="nav-cart-total"><p _ngcontent-c4="">共
+                                                <strong _ngcontent-c4="">5</strong> 件商品</p> <h5 _ngcontent-c4="">
+                                                合计：<span
+                                                    _ngcontent-c4="" class="price-icon">¥</span><span
+                                                    _ngcontent-c4="" class="price-num">521.00</span></h5> <h6
+                                                    _ngcontent-c4=""><a _ngcontent-c4="" class="nav-cart-btn"
+                                                                        href="https://www.smartisan.com/cart">去购物车</a>
+                                            </h6></div>
                                         </div>
-                                    </div>
-                                </div>
-
-                                <div _ngcontent-c4="" class="addcart-mask">
-                                    <div _ngcontent-c4="" class="mask-y">
-                                        <div _ngcontent-c4="" class="mask-x">
-                                            <div _ngcontent-c4="" class="mask-item"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </sm-nav-cart>
-                    </ul>
-                </div>
-            </div>
-        </sm-header>
-        <router-outlet _ngcontent-c0=""></router-outlet>
-        <item-and-product class=""><!----> <!---->
-            <item-template _nghost-c6="">
-                <header-shop-sub _ngcontent-c6="" _nghost-c7="">
-                    <div _ngcontent-c7="" class="header-sub-container">
-                        <div _ngcontent-c7="" class="header-desktop cn header-sub-shop">
-                            <div _ngcontent-c7="" class="nav-sub  active">
-                                <div _ngcontent-c7="" class="nav-sub-bg"></div>
-                                <div _ngcontent-c7="" class="nav-sub-wrapper">
-                                    <div _ngcontent-c7="" class="container">
-                                        <ul _ngcontent-c7="" class="nav-list"> <!---->
-
-                                            <li _ngcontent-c6=""> <!----><a _ngcontent-c6=""
-                                                                            href="{% url 'app:index' %}">首页</a>
-                                                <!----> </li>
-                                            {% for h1 in home %}
-                                                <li _ngcontent-c6=""> <!---->
-                                                    <a _ngcontent-c6="" href="{% url 'app:second' h1.hid %}">{{ h1.gname }}</a>
-                                                    <!----> </li>
-                                            {% endfor %}
-
-                                            <li _ngcontent-c6=""> <!----> <!----><a _ngcontent-c6=""
-                                                                                    href="{% url "app:server" %}">服务政策</a>
-                                            </li>
-                                        </ul> <!---->
-{#                                        搜索框#}
-                                        <search-bar _ngcontent-c7="" class="nav-search" _nghost-c12="">
-                                            <div _ngcontent-c12="" class="search-bar">
-                                                <form _ngcontent-c12=""
-                                                      action="https://www.smartisan.com/item/100047101"
-                                                      class="search-form ng-untouched ng-pristine ng-valid"
-                                                      novalidate=""><input _ngcontent-c12="" autocapitalize="off"
-                                                                           autocomplete="off" autocorrect="off"
-                                                                           class="search-box ng-untouched ng-pristine ng-invalid"
-                                                                           id="js_searchText" maxlength="30"
-                                                                           name="searchText" spellcheck="false"
-                                                                           type="text" placeholder="">
-                                                    <button _ngcontent-c12="" class="search-btn" type="submit"></button>
-                                                    <div _ngcontent-c12="" class="search-recommend-words"> <!----><a
-                                                            _ngcontent-c12=""
-                                                            href="https://www.smartisan.com/category/202?type=shop">T恤</a>
-                                                    </div>
-                                                </form>
-                                                <div _ngcontent-c12="" class="keywords-list" hidden="">
-                                                    <div _ngcontent-c12="" class="arrow-up"><span
-                                                            _ngcontent-c12=""></span></div>
-                                                    <ul _ngcontent-c12="" class="result-list"> <!---->
-                                                        <li _ngcontent-c12=""><span _ngcontent-c12="">T恤</span></li>
-                                                        <li _ngcontent-c12=""><span _ngcontent-c12="">移动电源</span></li>
-                                                        <li _ngcontent-c12=""><span _ngcontent-c12="">卫衣</span></li>
-                                                        <li _ngcontent-c12=""><span _ngcontent-c12="">帆布鞋</span></li>
-                                                        <li _ngcontent-c12=""><span _ngcontent-c12="">保护套</span></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </search-bar>
                                     </div>
                                 </div>
                             </div>
+
+                            <div _ngcontent-c4="" class="addcart-mask">
+                                <div _ngcontent-c4="" class="mask-y">
+                                    <div _ngcontent-c4="" class="mask-x">
+                                        <div _ngcontent-c4="" class="mask-item"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </sm-nav-cart>
+                </ul>
+            </div>
+        </div>
+    </sm-header>
+    <router-outlet _ngcontent-c0=""></router-outlet>
+    <item-and-product class=""><!----> <!---->
+        <item-template _nghost-c6="">
+
+            <div _ngcontent-c6="" class="item-wrapper">
+                {#                    产品图片展示#}
+
+                <section _ngcontent-c6="" class="gray-box clearfix">
+                    <div _ngcontent-c6="" class="gallery-wrapper">
+                        <div _ngcontent-c6="" class="gallery">
+                            <figure _ngcontent-c6="" class="thumb">
+                                <ul _ngcontent-c6="">
+                                    <li _ngcontent-c6="" class="on"><img _ngcontent-c6="" alt=""
+                                                                         src="{{ mer.picture }}">
+                                    </li>
+                                </ul>
+                            </figure>
                         </div>
                     </div>
-                    <dialog-prompt _ngcontent-c7="" class="dialog-confirm-company ng-tns-c11-5" _nghost-c11="">
-                        <modal-container _ngcontent-c11="" class="ng-tns-c11-5 ng-tns-c13-6" _nghost-c13="">
-                            <div _ngcontent-c13="" class="shadow ng-trigger ng-trigger-animationState"
-                                 style="opacity: 0; display: none;">
-                                <div _ngcontent-c13="" class="container ng-trigger ng-trigger-animationState"
-                                     style="opacity: 0; display: none;">
-                                    <div _ngcontent-c11="" class="dialog ng-tns-c11-5" style="width: 306px;"> <!---->
-                                        <div _ngcontent-c11="" class="topbar ng-tns-c11-5">
-                                            <div _ngcontent-c11="" class="title clearfix"><h4 _ngcontent-c11=""
-                                                                                              class="ng-tns-c11-5">
-                                                企业团购</h4></div>
-                                        </div>
-                                        <div _ngcontent-c11="" class="content"> <!----> <!---->
-                                            <article _ngcontent-c7="" class="dialog-confirm-company-msg">
-                                                <div _ngcontent-c7="" class="segement"><h2 _ngcontent-c7=""
-                                                                                           class="title"> 企业团购要求： </h2>
-                                                    <ul _ngcontent-c7="" class="notes">
-                                                        <li _ngcontent-c7=""><i _ngcontent-c7="">1.</i> <span
-                                                                _ngcontent-c7="">必须是企事业团体单位</span></li>
-                                                        <li _ngcontent-c7=""><i _ngcontent-c7="">2.</i> <span
-                                                                _ngcontent-c7="">能提供有效的营业执照等资质证明</span></li>
-                                                    </ul>
-                                                </div>
-                                                <div _ngcontent-c7="" class="segement"><h2 _ngcontent-c7=""
-                                                                                           class="title"> 团购申请步骤： </h2>
-                                                    <ul _ngcontent-c7="" class="notes">
-                                                        <li _ngcontent-c7=""><i _ngcontent-c7="">1.</i> <span
-                                                                _ngcontent-c7="">下载填写<span _ngcontent-c7=""
-                                                                                           class="blue-text"><strong
-                                                                _ngcontent-c7="">《锤子商城企业客户采购申请表》</strong></span></span>
-                                                        </li>
-                                                        <li _ngcontent-c7=""><i _ngcontent-c7="">2.</i> <span
-                                                                _ngcontent-c7="">将填写完整的申请表及企业营业执照扫描件，以邮件方式发送到：<span
-                                                                _ngcontent-c7="" class="blue-text"><strong
-                                                                _ngcontent-c7="">tuangou@smartisan.com</strong></span></span>
-                                                        </li>
-                                                        <li _ngcontent-c7=""><i _ngcontent-c7="">3.</i> <span
-                                                                _ngcontent-c7="">我们在收到您的申请后，1-2 个工作日内与您取得联系，核对沟通采购事宜</span>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div _ngcontent-c7="" class="segement last"> 咨询电话：400-668-5588（工作日
-                                                    9:00-18:00）
-                                                </div>
-                                            </article>
-                                        </div> <!---->
-                                        <div _ngcontent-c11="" class="button-wrapper clearfix ng-tns-c11-5"> <!---->
-                                            <button _ngcontent-c11="" class="button-cancel ng-tns-c11-5"> 取消</button>
-                                            <button _ngcontent-c11="" class="button-confirm"> 下载申请表</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </modal-container>
-                    </dialog-prompt>
-                </header-shop-sub>
-                <div _ngcontent-c6="" class="item-wrapper">
-{#                    产品图片展示#}
-                    <section _ngcontent-c6="" class="gray-box clearfix">
-                        <div _ngcontent-c6="" class="gallery-wrapper">
-                            <div _ngcontent-c6="" class="gallery">
-                                <figure _ngcontent-c6="" class="thumbnail">
-                                    <ul _ngcontent-c6=""> <!---->
-                                        <li _ngcontent-c6="" class="on"><img _ngcontent-c6="" alt=""
-                                                                             src="../../坚果%20Type-C%20To%20Type-C%20数据线%20-%20Smartisan_files/8635cb91f2cdbbc5576e069c52b99412.jpg">
-                                        </li>
-                                        <li _ngcontent-c6=""><img _ngcontent-c6="" alt=""
-                                                                  src="../../坚果%20Type-C%20To%20Type-C%20数据线%20-%20Smartisan_files/a9a02318cb09ab38562092a556d0dedc.jpg">
-                                        </li>
-                                    </ul>
-                                </figure>
-                                <figure _ngcontent-c6="" class="thumb">
-                                    <ul _ngcontent-c6="">
-                                        <li _ngcontent-c6="" class="on"><img _ngcontent-c6="" alt=""
-                                                                             src="../../坚果%20Type-C%20To%20Type-C%20数据线%20-%20Smartisan_files/8635cb91f2cdbbc5576e069c52b99412(1).jpg">
-                                        </li>
-                                    </ul>
-                                </figure>
-                            </div>
-                        </div>
-                        <div _ngcontent-c6="" class="item-information">
-                            <article _ngcontent-c6="" class="item-title"><h1 _ngcontent-c6="">坚果 Type-C To Type-C
-                                数据线</h1>
-                                <h2 _ngcontent-c6="">TPE 环保材质，PTC 过温保护</h2>
-                                <div _ngcontent-c6="" class="item-price"> <!----><span _ngcontent-c6=""
-                                                                                       class="original-price">原价：<i>¥</i> <span>39.00</span></span>
-                                    <!----><span _ngcontent-c6=""><em _ngcontent-c6="">¥</em>
-                                        <i _ngcontent-c6="">36.00</i></span> <!----> </div>
-                            </article> <!---->
-{#                            手机，官方配饰，服饰箱包,畅呼机#}
+                    <div _ngcontent-c6="" class="item-information">
+                        <article _ngcontent-c6="" class="item-title">
+                            <h1 _ngcontent-c6="">{{ pc.pcname }}</h1>
+                            <h2 _ngcontent-c6="">{{ pc.inf }}</h2>
+                            <div _ngcontent-c6="" class="item-price"> <!----><span _ngcontent-c6=""
+                                                                                   class="original-price">原价：<i>¥</i> <span>{{ pc.money }}</span></span>
+                                <!----><span _ngcontent-c6=""><em _ngcontent-c6="">¥</em>
+                                        <i _ngcontent-c6="">{{ pcmoney }}</i></span> <!----> </div>
+                        </article> <!---->
+                        {#                            手机，官方配饰，服饰箱包,畅呼机#}
 
-                            <section _ngcontent-c6="" class="activities-wrapper clearfix">
-                                <div _ngcontent-c6="" class="activities"><span _ngcontent-c6=""
-                                                                               class="activities-title">促销活动</span>
-                                    <div _ngcontent-c6="" class="activities-list"> <!----> <!----><!----> <!---->
-                                        <article _ngcontent-c6="" class="activities-item">
-                                            <figure _ngcontent-c6="" class="tag-wrapper"><span _ngcontent-c6=""
-                                                                                               class="tag tag-yellow">限时秒杀</span>
-                                            </figure>
-                                            <label _ngcontent-c6="">精选配件限时秒杀 <!----> <!----> <!----> <!---->
-                                                <!----> </label></article>  <!----> </div>
-                                </div>
-                            </section>
-                            {% if results.show is 1 %}
-                                <section _ngcontent-c6="" class="item-spec-wrapper clearfix item-spec-package">
+                        <section _ngcontent-c6="" class="activities-wrapper clearfix">
+                            <div _ngcontent-c6="" class="activities"><span _ngcontent-c6=""
+                                                                           class="activities-title">促销活动</span>
+                                <div _ngcontent-c6="" class="activities-list"> <!----> <!----><!----> <!---->
+                                    <article _ngcontent-c6="" class="activities-item">
+                                        <figure _ngcontent-c6="" class="tag-wrapper"><span _ngcontent-c6=""
+                                                                                           class="tag tag-yellow">限时秒杀</span>
+                                        </figure>
+                                        <label _ngcontent-c6="">精选配件限时秒杀 <!----> <!----> <!----> <!---->
+                                            <!----> </label></article>  <!----> </div>
+                            </div>
+                        </section>
+                        {% if mer.style %}
+                            <section _ngcontent-c6="" class="item-spec-wrapper clearfix item-spec-package">
                                 <div _ngcontent-c6="" class="item-spec"><span _ngcontent-c6=""
                                                                               class="spec-title">款式选择</span>
                                     <ul _ngcontent-c6="" class="spec-info"> <!---->
-                                        <li _ngcontent-c6="" class="active"> <!----> <!----> <!---->
-                                            <aside _ngcontent-c6="" class="specs-item item-inline"><h1 _ngcontent-c6=""
-                                                                                                       class="item-name">
-                                                {{  }}</h1></aside>
-                                        </li>
+                                        {% for item in style %}
+                                            <li _ngcontent-c6="" class="active"> <!----> <!----> <!---->
+                                                <aside _ngcontent-c6="" class="specs-item item-inline">
+                                                    <h1 _ngcontent-c6="" class="item-name">{{ itme.style }}</h1></aside>
+                                            </li>
+                                        {% endfor %}
                                     </ul>
                                 </div>
                             </section>
-                            {% elif results.show is 2 %}
-                                 <section _ngcontent-c6="" class="item-spec-wrapper clearfix item-spec-package">
+                        {% endif %}
+
+
+                        {% if mer.specification %}
+                            <section _ngcontent-c6="" class="item-spec-wrapper clearfix item-spec-package">
                                 <div _ngcontent-c6="" class="item-spec"><span _ngcontent-c6=""
                                                                               class="spec-title">规格选择</span>
                                     <ul _ngcontent-c6="" class="spec-info"> <!---->
-                                        <li _ngcontent-c6="" class="active"> <!----> <!----> <!---->
-                                            <aside _ngcontent-c6="" class="specs-item item-inline"><h1 _ngcontent-c6=""
-                                                                                                       class="item-name">
-                                                1 条装</h1></aside>
-                                        </li>
-                                        <li _ngcontent-c6=""> <!----> <!----> <!---->
-                                            <aside _ngcontent-c6="" class="specs-item item-inline"><h1 _ngcontent-c6=""
-                                                                                                       class="item-name">
-                                                3 条装</h1></aside>
-                                        </li>
-                                        <li _ngcontent-c6=""> <!----> <!----> <!---->
-                                            <aside _ngcontent-c6="" class="specs-item item-inline"><h1 _ngcontent-c6=""
-                                                                                                       class="item-name">
-                                                5 条装</h1></aside>
-                                        </li>
-                                        <li _ngcontent-c6=""> <!----> <!----> <!---->
-                                            <aside _ngcontent-c6="" class="specs-item item-inline"><h1 _ngcontent-c6=""
-                                                                                                       class="item-name">
-                                                7 条装</h1></aside>
-                                        </li>
+                                        {% for item in specification %}
+                                            <li _ngcontent-c6="" class="active"> <!----> <!----> <!---->
+                                                <aside _ngcontent-c6="" class="specs-item item-inline"><h1
+                                                        _ngcontent-c6=""
+                                                        class="item-name">
+                                                    {{ item.specification }}</h1></aside>
+                                            </li>
+                                        {% endfor %}
+
+
                                     </ul>
                                 </div>
                             </section>
-                            {% endif %}
-                             <section _ngcontent-c6="" class="item-spec-wrapper clearfix item-spec-color">
-                                <div _ngcontent-c6="" class="item-spec"><span _ngcontent-c6=""
-                                                                              class="spec-title">颜色选择</span>
-                                    <ul _ngcontent-c6="" class="spec-info"> <!---->
-                                        <li _ngcontent-c6="" class="active"> <!---->
-                                            <aside _ngcontent-c6=""><span _ngcontent-c6="" class="color-box"> <i
-                                                    _ngcontent-c6="" class="color-item"> <img _ngcontent-c6="" alt=""
-                                                                                              src="./Smartisan T恤 丑小鸭 - Smartisan_files/4ef6f3a638cdb3d4546b89bb46a16621.jpg"> </i> </span>
-                                                <label _ngcontent-c6="">黑色</label></aside> <!----> <!---->
-                                            <aside _ngcontent-c6="" class="specs-item item-inline"><h1 _ngcontent-c6=""
-                                                                                                       class="item-name">
-                                                黑色</h1></aside>
-                                        </li>
-                                        <li _ngcontent-c6=""> <!---->
-                                            <aside _ngcontent-c6=""><span _ngcontent-c6="" class="color-box"> <i
-                                                    _ngcontent-c6="" class="color-item"> <img _ngcontent-c6="" alt=""
-                                                                                              src="./Smartisan T恤 丑小鸭 - Smartisan_files/e647e77234f9ed0fde9dd4084d35ff57.jpg"> </i> </span>
-                                                <label _ngcontent-c6="">白色</label></aside> <!----> <!---->
-                                            <aside _ngcontent-c6="" class="specs-item item-inline"><h1 _ngcontent-c6=""
-                                                                                                       class="item-name">
-                                                白色</h1></aside>
-                                        </li>
-                                        <li _ngcontent-c6=""> <!---->
-                                            <aside _ngcontent-c6=""><span _ngcontent-c6="" class="color-box"> <i
-                                                    _ngcontent-c6="" class="color-item"> <img _ngcontent-c6="" alt=""
-                                                                                              src="./Smartisan T恤 丑小鸭 - Smartisan_files/85c73076d653ab42954d499c241a0d7e.jpg"> </i> </span>
-                                                <label _ngcontent-c6="">藏蓝色</label></aside> <!----> <!---->
-                                            <aside _ngcontent-c6="" class="specs-item item-inline"><h1 _ngcontent-c6=""
-                                                                                                       class="item-name">
-                                                藏蓝色</h1></aside>
-                                        </li>
-                                        <li _ngcontent-c6=""> <!---->
-                                            <aside _ngcontent-c6=""><span _ngcontent-c6="" class="color-box"> <i
-                                                    _ngcontent-c6="" class="color-item"> <img _ngcontent-c6="" alt=""
-                                                                                              src="./Smartisan T恤 丑小鸭 - Smartisan_files/411bc07ffd5c28963ce7f4d5af6c7ee9.jpg"> </i> </span>
-                                                <label _ngcontent-c6="">花灰色</label></aside> <!----> <!---->
-                                            <aside _ngcontent-c6="" class="specs-item item-inline"><h1 _ngcontent-c6=""
-                                                                                                       class="item-name">
-                                                花灰色</h1></aside>
-                                        </li>
-                                        <li _ngcontent-c6=""> <!---->
-                                            <aside _ngcontent-c6=""><span _ngcontent-c6="" class="color-box"> <i
-                                                    _ngcontent-c6="" class="color-item"> <img _ngcontent-c6="" alt=""
-                                                                                              src="./Smartisan T恤 丑小鸭 - Smartisan_files/d67a68b1307b446956e081d736ac0d39.jpg"> </i> </span>
-                                                <label _ngcontent-c6="">红色</label></aside> <!----> <!---->
-                                            <aside _ngcontent-c6="" class="specs-item item-inline"><h1 _ngcontent-c6=""
-                                                                                                       class="item-name">
-                                                红色</h1></aside>
-                                        </li>
-                                        <li _ngcontent-c6=""> <!---->
-                                            <aside _ngcontent-c6=""><span _ngcontent-c6="" class="color-box"> <i
-                                                    _ngcontent-c6="" class="color-item"> <img _ngcontent-c6="" alt=""
-                                                                                              src="./Smartisan T恤 丑小鸭 - Smartisan_files/725d84312338c19fcc23ab3882d97c5d.png"> </i> </span>
-                                                <label _ngcontent-c6="">绿色</label></aside> <!----> <!---->
-                                            <aside _ngcontent-c6="" class="specs-item item-inline"><h1 _ngcontent-c6=""
-                                                                                                       class="item-name">
-                                                绿色</h1></aside>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </section>
-
-                            {% if results.show is 3 %}
-                                <div _ngcontent-c5="" class="product-spec-wrapper product-spec-memory last-spec-wrapper">
-                                        <div _ngcontent-c5="" class="product-spec">
-                                            <span _ngcontent-c5="" class="spec-name">容量选择</span>
-                                            <ul _ngcontent-c5="" class="spec-info"> <!---->
-                                                <li _ngcontent-c5="" class="disabled"> <!----> <!----> <!---->
-                                                    <div _ngcontent-c5="" class="specs-item item-inline"><h1
-                                                            _ngcontent-c5="" class="item-name"> 6G + 64GB </h1></div>
-                                                    <!----> </li>
-                                                <li _ngcontent-c5="" class="active"> <!----> <!----> <!---->
-                                                    <div _ngcontent-c5="" class="specs-item item-inline"><h1
-                                                            _ngcontent-c5="" class="item-name"> 6G + 128GB </h1></div>
-                                                    <!----> </li>
-                                                <li _ngcontent-c5=""> <!----> <!----> <!---->
-                                                    <div _ngcontent-c5="" class="specs-item item-inline"><h1
-                                                            _ngcontent-c5="" class="item-name"> 8G + 128GB </h1></div>
-                                                    <!----> </li>
-                                                <li _ngcontent-c5="" class="disabled"> <!----> <!----> <!---->
-                                                    <div _ngcontent-c5="" class="specs-item item-inline"><h1
-                                                            _ngcontent-c5="" class="item-name"> 8G + 512GB </h1></div>
-                                                    <!----> </li>
-                                                <li _ngcontent-c5="" class="disabled"> <!----> <!----> <!---->
-                                                    <div _ngcontent-c5="" class="specs-item item-inline"><h1
-                                                            _ngcontent-c5="" class="item-name"> 8G + 1T </h1></div>
-                                                    <!----> </li>
-                                            </ul> <!----> </div>
-                            </div>
-                            {% else %}
-                                <p></p>
-                            {% endif %}
-
+                        {% endif %}
+                        {% if mer.size %}
                             <section _ngcontent-c6="" class="item-spec-wrapper clearfix item-spec-package">
                                 <div _ngcontent-c6="" class="item-spec"><span _ngcontent-c6=""
                                                                               class="spec-title">尺码选择</span>
                                     <ul _ngcontent-c6="" class="spec-info"> <!---->
-                                        <li _ngcontent-c6="" class="active"> <!----> <!----> <!---->
-                                            <aside _ngcontent-c6="" class="specs-item item-inline"><h1 _ngcontent-c6=""
-                                                                                                       class="item-name">
-                                                S</h1></aside>
-                                        </li>
-                                        <li _ngcontent-c6=""> <!----> <!----> <!---->
-                                            <aside _ngcontent-c6="" class="specs-item item-inline"><h1 _ngcontent-c6=""
-                                                                                                       class="item-name">
-                                                M</h1></aside>
-                                        </li>
-                                        <li _ngcontent-c6=""> <!----> <!----> <!---->
-                                            <aside _ngcontent-c6="" class="specs-item item-inline"><h1 _ngcontent-c6=""
-                                                                                                       class="item-name">
-                                                L</h1></aside>
-                                        </li>
-                                        <li _ngcontent-c6=""> <!----> <!----> <!---->
-                                            <aside _ngcontent-c6="" class="specs-item item-inline"><h1 _ngcontent-c6=""
-                                                                                                       class="item-name">
-                                                XL</h1></aside>
-                                        </li>
-                                        <li _ngcontent-c6=""> <!----> <!----> <!---->
-                                            <aside _ngcontent-c6="" class="specs-item item-inline"><h1 _ngcontent-c6=""
-                                                                                                       class="item-name">
-                                                XXL</h1></aside>
-                                        </li>
-                                        <li _ngcontent-c6=""> <!----> <!----> <!---->
-                                            <aside _ngcontent-c6="" class="specs-item item-inline"><h1 _ngcontent-c6=""
-                                                                                                       class="item-name">
-                                                XXXL</h1></aside>
-                                        </li>
+                                        {% for item in size %}
+                                            <li _ngcontent-c6="" class="active"> <!----> <!----> <!---->
+                                                <aside _ngcontent-c6="" class="specs-item item-inline">
+                                                    <h1 _ngcontent-c6="" class="item-name">{{ item.size }}</h1></aside>
+                                            </li>
+                                        {% endfor %}
                                     </ul>
                                 </div>
                             </section>
-                            <section _ngcontent-c6="" class="item-do-count-wrapper clearfix">
-                                <div _ngcontent-c6="" class="item-do-count"><span _ngcontent-c6=""
-                                                                                  class="do-count-title">数量选择</span>
-                                    <aside _ngcontent-c6="" class="do-count">
-                                        <do-count _ngcontent-c6="" _nghost-c8="">
-                                            <div _ngcontent-c8="" class="select"><span _ngcontent-c8=""
-                                                                                       class="down disabled">-</span>
-                                                <span _ngcontent-c8="" class="num">1</span> <span _ngcontent-c8=""
-                                                                                                  class="up">+</span>
-                                            </div>
-                                        </do-count>
-                                    </aside>
+                        {% endif %}
+                        {% if mer.capacity %}
+                            <section _ngcontent-c6="" class="item-spec-wrapper clearfix item-spec-package">
+                                <div _ngcontent-c6="" class="item-spec"><span _ngcontent-c6=""
+                                                                              class="spec-title">容量选择</span>
+                                    <ul _ngcontent-c6="" class="spec-info"> <!---->
+                                        {% for item in capacity %}
+                                            <li _ngcontent-c6="" class="active"> <!----> <!----> <!---->
+                                                <aside _ngcontent-c6="" class="specs-item item-inline">
+                                                    <h1 _ngcontent-c6="" class="item-name">{{ item.capacity }}</h1>
+                                                </aside>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
                                 </div>
                             </section>
+                        {% endif %}
+
+                        <section _ngcontent-c6="" class="item-do-count-wrapper clearfix">
+                            <div _ngcontent-c6="" class="item-do-count"><span _ngcontent-c6=""
+                                                                              class="do-count-title">数量选择</span>
+                                <aside _ngcontent-c6="" class="do-count">
+                                    <do-count _ngcontent-c6="" _nghost-c8="">
+                                        <div _ngcontent-c8="" class="select"><span _ngcontent-c8=""
+                                                                                   class="down disabled">-</span>
+                                            <span _ngcontent-c8="" class="num">1</span> <span _ngcontent-c8=""
+                                                                                              class="up">+</span>
+                                        </div>
+                                    </do-count>
+                                </aside>
+                            </div>
+                        </section>
+                        {% if mer.service %}
                             <section _ngcontent-c6="" class="sku-custom-tips-wrapper clearfix">
                                 <div _ngcontent-c6="" class="sku-custom-tips"><span _ngcontent-c6=""
                                                                                     class="sku-custom-tips-title">服务说明</span>
                                     <aside _ngcontent-c6="" class="sku-custom-tips-text"> <!----><p _ngcontent-c6="">
-                                        拆封后不支持七天无理由退货</p></aside>
+                                        {{ show.service }}</p></aside>
                                 </div>
                             </section>
-                        </div>
-                    </section> <!---->
-                    <section _ngcontent-c6="" class="gray-box clearfix">
-                        <article _ngcontent-c6="" class="headline"><h2 _ngcontent-c6="">产品信息</h2></article>
-                        <div _ngcontent-c6="" class="item-info"> <!----><img _ngcontent-c6=""
-                                                                             src="../../坚果%20Type-C%20To%20Type-C%20数据线%20-%20Smartisan_files/ed8e9ef1518cbb6440399be29656c80b.jpg"><img
-                                _ngcontent-c6=""
-                                src="../../坚果%20Type-C%20To%20Type-C%20数据线%20-%20Smartisan_files/ed8e9ef1518cbb6440399be29656c80b(1).jpg"><img
-                                _ngcontent-c6=""
-                                src="../../坚果%20Type-C%20To%20Type-C%20数据线%20-%20Smartisan_files/ed8e9ef1518cbb6440399be29656c80b(2).jpg"><img
-                                _ngcontent-c6=""
-                                src="../../坚果%20Type-C%20To%20Type-C%20数据线%20-%20Smartisan_files/ed8e9ef1518cbb6440399be29656c80b(3).jpg"><img
-                                _ngcontent-c6=""
-                                src="../../坚果%20Type-C%20To%20Type-C%20数据线%20-%20Smartisan_files/ed8e9ef1518cbb6440399be29656c80b(4).jpg">
-                        </div>
-                    </section> <!---->
-                    <section _ngcontent-c6="" class="gray-box clearfix">
-                        <article _ngcontent-c6="" class="headline"><h2 _ngcontent-c6="">相关推荐</h2></article>
-                        <ul _ngcontent-c6="" class="recommend-items clearfix"> <!---->
+                        {% endif %}
+                    </div>
+                </section> <!---->
+                <section _ngcontent-c6="" class="gray-box clearfix">
+                    <article _ngcontent-c6="" class="headline"><h2 _ngcontent-c6="">产品信息</h2></article>
+                    <div _ngcontent-c6="" class="item-info"> <!---->
+                        <img _ngcontent-c6="" src="{{ mer.infpicture }}">
+                    </div>
+                </section> <!---->
+                <section _ngcontent-c6="" class="gray-box clearfix">
+                    <article _ngcontent-c6="" class="headline"><h2 _ngcontent-c6="">相关推荐</h2></article>
+                    <ul _ngcontent-c6="" class="recommend-items clearfix"> <!---->
+                        {% for item in bankuai01 %}
                             <li _ngcontent-c6="" class="recommend-item-four">
                                 <sku-item-normal _ngcontent-c6="" _nghost-c9="">
                                     <div _ngcontent-c9="" class="product-box-item cart-box">
@@ -6033,19 +5806,20 @@
                                             <div _ngcontent-c9="" class="item-img"><img _ngcontent-c9=""
                                                                                         src="../../坚果%20Type-C%20To%20Type-C%20数据线%20-%20Smartisan_files/71432ad30288fb860a4389881069b874.png"
                                                                                         style="opacity: 1;"></div>
-                                            <h4 _ngcontent-c9="">畅呼吸智能空气净化器 · 超级除甲醛版</h4> <!----> <h6 _ngcontent-c9="">
-                                            超强除甲醛能力，超低噪音，智能操控</h6>  <!----> </div>
+                                            <h4 _ngcontent-c9="">{{ item.inf }}</h4> <!---->
+                                            <h6 _ngcontent-c9="">{{ item.inf }}</h6>  <!----> </div>
                                         <div _ngcontent-c9="" class="params-colors">
                                             <ul _ngcontent-c9="" class="colors-list"> <!---->
                                                 <li _ngcontent-c9="" class="active"> <!---->
                                                     <div _ngcontent-c9="" class="outer"><img _ngcontent-c9=""
-                                                                                             src="../../坚果%20Type-C%20To%20Type-C%20数据线%20-%20Smartisan_files/e647e77234f9ed0fde9dd4084d35ff57.jpg"
+                                                                                             src="{{ item.picture }}"
                                                                                              style="opacity: 1;"></div>
                                                 </li>
                                             </ul>
                                         </div> <!----> <!---->
                                         <div _ngcontent-c9="" class="item-price clearfix"><span
-                                                _ngcontent-c9=""><i>¥</i> <span>2,999.00</span></span></div> <!---->
+                                                _ngcontent-c9=""><i>¥</i> <span>{{ item.money }}</span></span></div>
+                                        <!---->
                                         <!----> <!---->
                                         <div _ngcontent-c9="" class="item-tips"><span _ngcontent-c9=""
                                                                                       class="info">添加商品</span> <span
@@ -6053,332 +5827,276 @@
                                     </div>
                                 </sku-item-normal>
                             </li>
-                            <li _ngcontent-c6="" class="recommend-item-four">
-                                <sku-item-normal _ngcontent-c6="" _nghost-c9="">
-                                    <div _ngcontent-c9="" class="product-box-item cart-box">
-                                        <div _ngcontent-c9="">
-                                            <div _ngcontent-c9="" class="item-img"><img _ngcontent-c9=""
-                                                                                        src="../../坚果%20Type-C%20To%20Type-C%20数据线%20-%20Smartisan_files/6ff92d05a3bfab4fad489ca04d3eea5a.png"
-                                                                                        style="opacity: 1;"></div>
-                                            <h4 _ngcontent-c9="">畅呼吸智能空气净化器 · 标准版</h4> <!----> <h6 _ngcontent-c9="">
-                                            超强净化能力、超低噪音、超长寿命</h6>  <!----> </div>
-                                        <div _ngcontent-c9="" class="params-colors">
-                                            <ul _ngcontent-c9="" class="colors-list"> <!---->
-                                                <li _ngcontent-c9="" class="active"> <!---->
-                                                    <div _ngcontent-c9="" class="outer"><img _ngcontent-c9=""
-                                                                                             src="../../坚果%20Type-C%20To%20Type-C%20数据线%20-%20Smartisan_files/e647e77234f9ed0fde9dd4084d35ff57.jpg"
-                                                                                             style="opacity: 1;"></div>
-                                                </li>
-                                            </ul>
-                                        </div> <!----> <!---->
-                                        <div _ngcontent-c9="" class="item-price clearfix"><span
-                                                _ngcontent-c9=""><i>¥</i> <span>2,799.00</span></span></div> <!---->
-                                        <!----> <!---->
-                                        <div _ngcontent-c9="" class="item-tips"><span _ngcontent-c9=""
-                                                                                      class="info">添加商品</span> <span
-                                                _ngcontent-c9="" class="warning">已达限购数量</span></div> <!----> <!---->
+                        {% endfor %}
+                    </ul>
+                </section>
+                {#                    吸顶条#}
+                <div _ngcontent-c6="" class="product-fix-bar follow">
+                    <div _ngcontent-c6="" class="fix-bar-wrapper"><h1 _ngcontent-c6="" class="bar-text">您已选择了</h1>
+                        <div _ngcontent-c6="" class="bar-device-info"><h1 _ngcontent-c6="" class="clearfix"><span
+                                _ngcontent-c6="" class="title">{{ mer.meiname }}</span></h1>
+                            <h2 _ngcontent-c6="">{{ mer.color }}</h2></div> <!---->
+                        <div _ngcontent-c6="" class="bar-btn"><a _ngcontent-c6=""> 现在购买 </a></div> <!---->
+                        <div _ngcontent-c6="" class="bar-btn add-cart-btn"> 加入购物车</div> <!----><!----> <!---->
+                        <!---->
+                        <div _ngcontent-c6="" class="has-discount-price"> <!----> <!---->
+                            <div _ngcontent-c6="" class="bar-price"><i>¥</i> <span>{{ mer.money }}</span></div> <!---->
+                            <!---->
+                            <div _ngcontent-c6="" class="bar-original-price"><i>¥</i> <span>{{ mer.money }}</span></div>
+                        </div>  <!---->  <!----> </div>
+                </div>
+                <div _ngcontent-c6="" class="toast-tips"><label _ngcontent-c6=""></label></div>
+            </div>
+            <people-coupons _ngcontent-c6="" _nghost-c10=""><!---->
+                <modal-container _ngcontent-c10="" _nghost-c13="" class="ng-tns-c13-7">
+                    <div _ngcontent-c13="" class="shadow ng-trigger ng-trigger-animationState"
+                         style="opacity: 0; display: none;">
+                        <div _ngcontent-c13="" class="container ng-trigger ng-trigger-animationState"
+                             style="opacity: 0; display: none;">  <!----> <!---->  </div>
+                    </div>
+                </modal-container>
+                <dialog-prompt _ngcontent-c10="" class="coupons-dialog coupons-error-dialog ng-tns-c11-8"
+                               _nghost-c11="">
+                    <modal-container _ngcontent-c11="" class="ng-tns-c11-8 ng-tns-c13-10" _nghost-c13="">
+                        <div _ngcontent-c13="" class="shadow ng-trigger ng-trigger-animationState"
+                             style="opacity: 0; display: none;">
+                            <div _ngcontent-c13="" class="container ng-trigger ng-trigger-animationState"
+                                 style="opacity: 0; display: none;">
+                                <div _ngcontent-c11="" class="dialog ng-tns-c11-8" style="width: 305px;"> <!---->
+                                    <div _ngcontent-c11="" class="topbar ng-tns-c11-8">
+                                        <div _ngcontent-c11="" class="title clearfix"><h4 _ngcontent-c11=""
+                                                                                          class="ng-tns-c11-8">
+                                            提示</h4></div>
                                     </div>
-                                </sku-item-normal>
+                                    <div _ngcontent-c11="" class="content"> <!----> <!---->
+                                        <div _ngcontent-c10="" class="coupons-error"><img _ngcontent-c10=""
+                                                                                          src="../../坚果%20Type-C%20To%20Type-C%20数据线%20-%20Smartisan_files/webicon.44436824138690fd2eb2caf8605796ad.png">
+                                            <h6 _ngcontent-c10="">很遗憾</h6> <!----> <!----> </div>
+                                    </div> <!---->
+                                    <div _ngcontent-c11="" class="button-wrapper clearfix ng-tns-c11-8"> <!---->
+                                        <button _ngcontent-c11="" class="button-confirm hide-cancel"> 我知道了</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </modal-container>
+                </dialog-prompt>
+            </people-coupons>
+            <dialog-prompt _ngcontent-c6="" class="dialog-confirm-tips ng-tns-c11-0" _nghost-c11="">
+                <modal-container _ngcontent-c11="" class="ng-tns-c11-0 ng-tns-c13-12" _nghost-c13="">
+                    <div _ngcontent-c13="" class="shadow ng-trigger ng-trigger-animationState"
+                         style="opacity: 0; display: none;">
+                        <div _ngcontent-c13="" class="container ng-trigger ng-trigger-animationState"
+                             style="opacity: 0; display: none;">
+                            <div _ngcontent-c11="" class="dialog ng-tns-c11-0" style="width: 306px;"> <!---->
+                                <div _ngcontent-c11="" class="topbar ng-tns-c11-0">
+                                    <div _ngcontent-c11="" class="title clearfix"><h4 _ngcontent-c11=""
+                                                                                      class="ng-tns-c11-0">提示</h4>
+                                    </div>
+                                </div>
+                                <div _ngcontent-c11="" class="content"> <!----> <!---->   </div> <!---->
+                                <div _ngcontent-c11="" class="button-wrapper clearfix ng-tns-c11-0"> <!---->
+                                    <button _ngcontent-c11="" class="button-cancel ng-tns-c11-0"> 取消</button>
+                                    <button _ngcontent-c11="" class="button-confirm"> 确认</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </modal-container>
+            </dialog-prompt>
+            <dialog-prompt _ngcontent-c6="" class="coupon-prompt ng-tns-c11-1" _nghost-c11="">
+                <modal-container _ngcontent-c11="" class="ng-tns-c11-1 ng-tns-c13-13" _nghost-c13="">
+                    <div _ngcontent-c13="" class="shadow ng-trigger ng-trigger-animationState"
+                         style="opacity: 0; display: none;">
+                        <div _ngcontent-c13="" class="container ng-trigger ng-trigger-animationState"
+                             style="opacity: 0; display: none;">
+                            <div _ngcontent-c11="" class="dialog ng-tns-c11-1" style="width: 306px;"> <!---->
+                                <div _ngcontent-c11="" class="topbar ng-tns-c11-1">
+                                    <div _ngcontent-c11="" class="title clearfix"><h4 _ngcontent-c11=""
+                                                                                      class="ng-tns-c11-1">提示</h4>
+                                    </div>
+                                </div>
+                                <div _ngcontent-c11="" class="content"> <!----> <!---->
+                                    <article _ngcontent-c6="" class="dialog-get-coupon failure">
+                                        <figure _ngcontent-c6="" class="dialog-get-coupon-icon"></figure> <!---->
+                                        <!---->
+                                        <div _ngcontent-c6="" class="dialog-get-coupon-content"><h3 _ngcontent-c6=""
+                                                                                                    class="dialog-get-coupon-title">
+                                            领取失败</h3>
+                                            <p _ngcontent-c6="" class="dialog-get-coupon-name">服务器繁忙，请重试</p></div>
+                                    </article>
+                                </div> <!---->
+                                <div _ngcontent-c11="" class="button-wrapper clearfix ng-tns-c11-1"> <!---->
+                                    <button _ngcontent-c11="" class="button-cancel ng-tns-c11-1"> 取消</button>
+                                    <button _ngcontent-c11="" class="button-confirm"> 确认</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </modal-container>
+            </dialog-prompt>
+            <dialog-prompt _ngcontent-c6="" class="dialog-confirm-notice ng-tns-c11-2" _nghost-c11="">
+                <modal-container _ngcontent-c11="" class="ng-tns-c11-2 ng-tns-c13-14" _nghost-c13="">
+                    <div _ngcontent-c13="" class="shadow ng-trigger ng-trigger-animationState"
+                         style="opacity: 0; display: none;">
+                        <div _ngcontent-c13="" class="container ng-trigger ng-trigger-animationState"
+                             style="opacity: 0; display: none;">
+                            <div _ngcontent-c11="" class="dialog ng-tns-c11-2" style="width: 306px;"> <!---->
+                                <div _ngcontent-c11="" class="topbar ng-tns-c11-2">
+                                    <div _ngcontent-c11="" class="title clearfix"><h4 _ngcontent-c11=""
+                                                                                      class="ng-tns-c11-2">
+                                        设置到货通知</h4></div>
+                                </div>
+                                <div _ngcontent-c11="" class="content"> <!----> <!----> <p _ngcontent-c6="">
+                                    该商品到货将第一时间短信通知您</p> <input _ngcontent-c6="" placeholder="请输入您的手机号码" required=""
+                                                               type="tel"
+                                                               class="ng-untouched ng-pristine ng-invalid">
+                                    <p _ngcontent-c6="" class="star"></p></div> <!---->
+                                <div _ngcontent-c11="" class="button-wrapper clearfix ng-tns-c11-2"> <!---->
+                                    <button _ngcontent-c11="" class="button-cancel ng-tns-c11-2"> 取消</button>
+                                    <button _ngcontent-c11="" class="button-confirm"> 提交</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </modal-container>
+            </dialog-prompt>
+            <dialog-prompt _ngcontent-c6="" class="notice-prompt ng-tns-c11-3" _nghost-c11="">
+                <modal-container _ngcontent-c11="" class="ng-tns-c11-3 ng-tns-c13-15" _nghost-c13="">
+                    <div _ngcontent-c13="" class="shadow ng-trigger ng-trigger-animationState"
+                         style="opacity: 0; display: none;">
+                        <div _ngcontent-c13="" class="container ng-trigger ng-trigger-animationState"
+                             style="opacity: 0; display: none;">
+                            <div _ngcontent-c11="" class="dialog ng-tns-c11-3" style="width: 306px;"> <!---->
+                                <div _ngcontent-c11="" class="topbar ng-tns-c11-3">
+                                    <div _ngcontent-c11="" class="title clearfix"><h4 _ngcontent-c11=""
+                                                                                      class="ng-tns-c11-3">提示</h4>
+                                    </div>
+                                </div>
+                                <div _ngcontent-c11="" class="content"> <!----> <!---->
+                                    <div _ngcontent-c6="" class="promptWrapper"><span _ngcontent-c6=""></span>
+                                        <h3 _ngcontent-c6="">提交成功</h3>
+                                        <p _ngcontent-c6="">该商品到货将第一时间短信通知您</p></div>
+                                </div> <!---->
+                                <div _ngcontent-c11="" class="button-wrapper clearfix ng-tns-c11-3"> <!---->
+                                    <button _ngcontent-c11="" class="button-cancel ng-tns-c11-3"> 取消</button>
+                                    <button _ngcontent-c11="" class="button-confirm"> 好的</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </modal-container>
+            </dialog-prompt>
+            <dialog-prompt _ngcontent-c6="" _nghost-c11="" class="ng-tns-c11-4">
+                <modal-container _ngcontent-c11="" class="ng-tns-c11-4 ng-tns-c13-16" _nghost-c13="">
+                    <div _ngcontent-c13="" class="shadow ng-trigger ng-trigger-animationState"
+                         style="opacity: 0; display: none;">
+                        <div _ngcontent-c13="" class="container ng-trigger ng-trigger-animationState"
+                             style="opacity: 0; display: none;">
+                            <div _ngcontent-c11="" class="dialog ng-tns-c11-4" style="width: 306px;"> <!---->
+                                <div _ngcontent-c11="" class="topbar ng-tns-c11-4">
+                                    <div _ngcontent-c11="" class="title clearfix"><h4 _ngcontent-c11=""
+                                                                                      class="ng-tns-c11-4">提示</h4>
+                                    </div>
+                                </div>
+                                <div _ngcontent-c11="" class="content"> <!----> <!---->
+                                    <div _ngcontent-c6="" class="promptWrapper"><span _ngcontent-c6=""
+                                                                                      class="error"></span>
+                                        <h3 _ngcontent-c6="">提交失败</h3>
+                                        <p _ngcontent-c6="">很抱歉发生未知错误，建议您重新提交</p></div>
+                                </div> <!---->
+                                <div _ngcontent-c11="" class="button-wrapper clearfix ng-tns-c11-4"> <!---->
+                                    <button _ngcontent-c11="" class="button-cancel ng-tns-c11-4"> 取消</button>
+                                    <button _ngcontent-c11="" class="button-confirm"> 重新提交</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </modal-container>
+            </dialog-prompt>
+        </item-template>
+    </item-and-product>
+</div>
+<loading _ngcontent-c0="" _nghost-c2=""><!----> </loading>
+<sm-footer _ngcontent-c0="" _nghost-c3=""> <!---->
+    <div _ngcontent-c3="" class="footer">
+        <div _ngcontent-c3="" class="container">
+            <div _ngcontent-c3="" class="siteinfo">
+                <ul _ngcontent-c3="" class="nav-footer"> <!---->
+                    <li _ngcontent-c3=""><h3 _ngcontent-c3="">订单服务 </h3>
+                        <ul _ngcontent-c3=""> <!---->
+                            <li _ngcontent-c3=""><a _ngcontent-c3=""
+                                                    href="https://www.smartisan.com/support/#/instruction">购买指南</a>
                             </li>
-                            <li _ngcontent-c6="" class="recommend-item-four">
-                                <sku-item-normal _ngcontent-c6="" _nghost-c9="">
-                                    <div _ngcontent-c9="" class="product-box-item cart-box">
-                                        <div _ngcontent-c9="">
-                                            <div _ngcontent-c9="" class="item-img"><img _ngcontent-c9=""
-                                                                                        src="../../坚果%20Type-C%20To%20Type-C%20数据线%20-%20Smartisan_files/dc53bd870ee64d2053ecc51750ece43a.jpg"
-                                                                                        style="opacity: 1;"></div>
-                                            <h4 _ngcontent-c9="">Smartisan 原装快充充电器 18W</h4> <!----> <h6
-                                                _ngcontent-c9="">18W 安全快充</h6>  <!----> </div>
-                                        <div _ngcontent-c9="" class="params-colors">
-                                            <ul _ngcontent-c9="" class="colors-list"> <!---->
-                                                <li _ngcontent-c9="" class="active"> <!---->
-                                                    <div _ngcontent-c9="" class="outer"><img _ngcontent-c9=""
-                                                                                             src="../../坚果%20Type-C%20To%20Type-C%20数据线%20-%20Smartisan_files/e647e77234f9ed0fde9dd4084d35ff57.jpg"
-                                                                                             style="opacity: 1;"></div>
-                                                </li>
-                                            </ul>
-                                        </div> <!----> <!----> <!---->
-                                        <div _ngcontent-c9="" class="item-price clearfix"
-                                             ng-class="{&#39;has-discount&#39;: sku.promotion}"> <!----><!----> <!---->
-                                            <!---->
-                                            <div _ngcontent-c9="" class="discount-price"><span _ngcontent-c9=""><i>¥</i> <span>39.00</span></span>
-                                            </div>
-                                            <div _ngcontent-c9="" class="original-price"><span _ngcontent-c9=""><i>¥</i> <span>49.00</span></span>
-                                            </div>  <!---->  <!----> </div>  <!----> <!---->
-                                        <div _ngcontent-c9="" class="item-tips"><span _ngcontent-c9=""
-                                                                                      class="info">添加商品</span> <span
-                                                _ngcontent-c9="" class="warning">已达限购数量</span></div> <!----> <!---->
-                                        <colorful-tag _ngcontent-c9="" _nghost-c14=""><span _ngcontent-c14=""
-                                                                                            class="colorful-tag yellow"> 限时秒杀 </span>
-                                        </colorful-tag>
-                                    </div>
-                                </sku-item-normal>
+                            <li _ngcontent-c3=""><a _ngcontent-c3=""
+                                                    href="https://www.smartisan.com/support/#/delivery">送货政策</a>
                             </li>
                         </ul>
-                    </section>
-{#                    吸顶条#}
-                    <div _ngcontent-c6="" class="product-fix-bar follow">
-                        <div _ngcontent-c6="" class="fix-bar-wrapper"><h1 _ngcontent-c6="" class="bar-text">您已选择了</h1>
-                            <div _ngcontent-c6="" class="bar-device-info"><h1 _ngcontent-c6="" class="clearfix"><span
-                                    _ngcontent-c6="" class="title">坚果 Type-C To Type-C 数据线 × 1 </span></h1>
-                                <h2 _ngcontent-c6="">白色</h2></div> <!---->
-                            <div _ngcontent-c6="" class="bar-btn"><a _ngcontent-c6=""> 现在购买 </a></div> <!---->
-                            <div _ngcontent-c6="" class="bar-btn add-cart-btn"> 加入购物车</div> <!----><!----> <!---->
-                            <!---->
-                            <div _ngcontent-c6="" class="has-discount-price"> <!----> <!---->
-                                <div _ngcontent-c6="" class="bar-price"><i>¥</i> <span>36.00</span></div> <!----><!---->
-                                <div _ngcontent-c6="" class="bar-original-price"><i>¥</i> <span>39.00</span></div>
-                            </div>  <!---->  <!----> </div>
-                    </div>
-                    <div _ngcontent-c6="" class="toast-tips"><label _ngcontent-c6=""></label></div>
-                </div>
-                <people-coupons _ngcontent-c6="" _nghost-c10=""><!---->
-                    <modal-container _ngcontent-c10="" _nghost-c13="" class="ng-tns-c13-7">
-                        <div _ngcontent-c13="" class="shadow ng-trigger ng-trigger-animationState"
-                             style="opacity: 0; display: none;">
-                            <div _ngcontent-c13="" class="container ng-trigger ng-trigger-animationState"
-                                 style="opacity: 0; display: none;">  <!----> <!---->  </div>
-                        </div>
-                    </modal-container>
-                    <dialog-prompt _ngcontent-c10="" class="coupons-dialog coupons-error-dialog ng-tns-c11-8"
-                                   _nghost-c11="">
-                        <modal-container _ngcontent-c11="" class="ng-tns-c11-8 ng-tns-c13-10" _nghost-c13="">
-                            <div _ngcontent-c13="" class="shadow ng-trigger ng-trigger-animationState"
-                                 style="opacity: 0; display: none;">
-                                <div _ngcontent-c13="" class="container ng-trigger ng-trigger-animationState"
-                                     style="opacity: 0; display: none;">
-                                    <div _ngcontent-c11="" class="dialog ng-tns-c11-8" style="width: 305px;"> <!---->
-                                        <div _ngcontent-c11="" class="topbar ng-tns-c11-8">
-                                            <div _ngcontent-c11="" class="title clearfix"><h4 _ngcontent-c11=""
-                                                                                              class="ng-tns-c11-8">
-                                                提示</h4></div>
-                                        </div>
-                                        <div _ngcontent-c11="" class="content"> <!----> <!---->
-                                            <div _ngcontent-c10="" class="coupons-error"><img _ngcontent-c10=""
-                                                                                              src="../../坚果%20Type-C%20To%20Type-C%20数据线%20-%20Smartisan_files/webicon.44436824138690fd2eb2caf8605796ad.png">
-                                                <h6 _ngcontent-c10="">很遗憾</h6> <!----> <!----> </div>
-                                        </div> <!---->
-                                        <div _ngcontent-c11="" class="button-wrapper clearfix ng-tns-c11-8"> <!---->
-                                            <button _ngcontent-c11="" class="button-confirm hide-cancel"> 我知道了</button>
-                                        </div>
-                                    </div>
+                    </li>
+                    <li _ngcontent-c3=""><h3 _ngcontent-c3="">服务支持 </h3>
+                        <ul _ngcontent-c3=""> <!---->
+                            <li _ngcontent-c3=""><a _ngcontent-c3=""
+                                                    href="https://www.smartisan.com/service/#/">自助服务</a>
+                            </li>
+                            <li _ngcontent-c3=""><a _ngcontent-c3=""
+                                                    href="https://www.smartisan.com/support/#/self-service">使用帮助</a>
+                            </li>
+                            <li _ngcontent-c3=""><a _ngcontent-c3=""
+                                                    href="https://www.smartisan.com/support/#/servicelist">维修门店</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li _ngcontent-c3=""><h3 _ngcontent-c3="">媒体中心 </h3>
+                        <ul _ngcontent-c3=""> <!---->
+                            <li _ngcontent-c3=""><a _ngcontent-c3=""
+                                                    href="https://www.smartisan.com/pr/news-center">新闻动态</a></li>
+                            <li _ngcontent-c3=""><a _ngcontent-c3=""
+                                                    href="https://www.smartisan.com/pr/videos">官方视频</a></li>
+                            <li _ngcontent-c3=""><a _ngcontent-c3=""
+                                                    href="https://www.smartisan.com/pr/pictures">图片资源</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li _ngcontent-c3=""><h3 _ngcontent-c3="">关注我们</h3>
+                        <ul _ngcontent-c3="">
+                            <li _ngcontent-c3=""><a _ngcontent-c3="" href="https://weibo.com/wenyiyouth"
+                                                    target="_blank">新浪微博</a></li>
+                            <li _ngcontent-c3="" class="weixin"><a _ngcontent-c3="">官方微信</a>
+                                <div _ngcontent-c3="" class="mask"></div>
+                                <div _ngcontent-c3="" class="qrcode">
+                                    <div _ngcontent-c3="" class="close-btn"></div>
+                                    <h4 _ngcontent-c3="">官方微信</h4> <h6 _ngcontent-c3="">
+                                    打开微信，点击右上角的“+”，选择“扫一扫”功能，用摄像头对准下方二维码即可。</h6>
+                                    <div _ngcontent-c3="" class="qrcode-bg"></div>
                                 </div>
-                            </div>
-                        </modal-container>
-                    </dialog-prompt>
-                </people-coupons>
-                <dialog-prompt _ngcontent-c6="" class="dialog-confirm-tips ng-tns-c11-0" _nghost-c11="">
-                    <modal-container _ngcontent-c11="" class="ng-tns-c11-0 ng-tns-c13-12" _nghost-c13="">
-                        <div _ngcontent-c13="" class="shadow ng-trigger ng-trigger-animationState"
-                             style="opacity: 0; display: none;">
-                            <div _ngcontent-c13="" class="container ng-trigger ng-trigger-animationState"
-                                 style="opacity: 0; display: none;">
-                                <div _ngcontent-c11="" class="dialog ng-tns-c11-0" style="width: 306px;"> <!---->
-                                    <div _ngcontent-c11="" class="topbar ng-tns-c11-0">
-                                        <div _ngcontent-c11="" class="title clearfix"><h4 _ngcontent-c11=""
-                                                                                          class="ng-tns-c11-0">提示</h4>
-                                        </div>
-                                    </div>
-                                    <div _ngcontent-c11="" class="content"> <!----> <!---->   </div> <!---->
-                                    <div _ngcontent-c11="" class="button-wrapper clearfix ng-tns-c11-0"> <!---->
-                                        <button _ngcontent-c11="" class="button-cancel ng-tns-c11-0"> 取消</button>
-                                        <button _ngcontent-c11="" class="button-confirm"> 确认</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </modal-container>
-                </dialog-prompt>
-                <dialog-prompt _ngcontent-c6="" class="coupon-prompt ng-tns-c11-1" _nghost-c11="">
-                    <modal-container _ngcontent-c11="" class="ng-tns-c11-1 ng-tns-c13-13" _nghost-c13="">
-                        <div _ngcontent-c13="" class="shadow ng-trigger ng-trigger-animationState"
-                             style="opacity: 0; display: none;">
-                            <div _ngcontent-c13="" class="container ng-trigger ng-trigger-animationState"
-                                 style="opacity: 0; display: none;">
-                                <div _ngcontent-c11="" class="dialog ng-tns-c11-1" style="width: 306px;"> <!---->
-                                    <div _ngcontent-c11="" class="topbar ng-tns-c11-1">
-                                        <div _ngcontent-c11="" class="title clearfix"><h4 _ngcontent-c11=""
-                                                                                          class="ng-tns-c11-1">提示</h4>
-                                        </div>
-                                    </div>
-                                    <div _ngcontent-c11="" class="content"> <!----> <!---->
-                                        <article _ngcontent-c6="" class="dialog-get-coupon failure">
-                                            <figure _ngcontent-c6="" class="dialog-get-coupon-icon"></figure> <!---->
-                                            <!---->
-                                            <div _ngcontent-c6="" class="dialog-get-coupon-content"><h3 _ngcontent-c6=""
-                                                                                                        class="dialog-get-coupon-title">
-                                                领取失败</h3>
-                                                <p _ngcontent-c6="" class="dialog-get-coupon-name">服务器繁忙，请重试</p></div>
-                                        </article>
-                                    </div> <!---->
-                                    <div _ngcontent-c11="" class="button-wrapper clearfix ng-tns-c11-1"> <!---->
-                                        <button _ngcontent-c11="" class="button-cancel ng-tns-c11-1"> 取消</button>
-                                        <button _ngcontent-c11="" class="button-confirm"> 确认</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </modal-container>
-                </dialog-prompt>
-                <dialog-prompt _ngcontent-c6="" class="dialog-confirm-notice ng-tns-c11-2" _nghost-c11="">
-                    <modal-container _ngcontent-c11="" class="ng-tns-c11-2 ng-tns-c13-14" _nghost-c13="">
-                        <div _ngcontent-c13="" class="shadow ng-trigger ng-trigger-animationState"
-                             style="opacity: 0; display: none;">
-                            <div _ngcontent-c13="" class="container ng-trigger ng-trigger-animationState"
-                                 style="opacity: 0; display: none;">
-                                <div _ngcontent-c11="" class="dialog ng-tns-c11-2" style="width: 306px;"> <!---->
-                                    <div _ngcontent-c11="" class="topbar ng-tns-c11-2">
-                                        <div _ngcontent-c11="" class="title clearfix"><h4 _ngcontent-c11=""
-                                                                                          class="ng-tns-c11-2">
-                                            设置到货通知</h4></div>
-                                    </div>
-                                    <div _ngcontent-c11="" class="content"> <!----> <!----> <p _ngcontent-c6="">
-                                        该商品到货将第一时间短信通知您</p> <input _ngcontent-c6="" placeholder="请输入您的手机号码" required=""
-                                                                   type="tel"
-                                                                   class="ng-untouched ng-pristine ng-invalid">
-                                        <p _ngcontent-c6="" class="star"></p></div> <!---->
-                                    <div _ngcontent-c11="" class="button-wrapper clearfix ng-tns-c11-2"> <!---->
-                                        <button _ngcontent-c11="" class="button-cancel ng-tns-c11-2"> 取消</button>
-                                        <button _ngcontent-c11="" class="button-confirm"> 提交</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </modal-container>
-                </dialog-prompt>
-                <dialog-prompt _ngcontent-c6="" class="notice-prompt ng-tns-c11-3" _nghost-c11="">
-                    <modal-container _ngcontent-c11="" class="ng-tns-c11-3 ng-tns-c13-15" _nghost-c13="">
-                        <div _ngcontent-c13="" class="shadow ng-trigger ng-trigger-animationState"
-                             style="opacity: 0; display: none;">
-                            <div _ngcontent-c13="" class="container ng-trigger ng-trigger-animationState"
-                                 style="opacity: 0; display: none;">
-                                <div _ngcontent-c11="" class="dialog ng-tns-c11-3" style="width: 306px;"> <!---->
-                                    <div _ngcontent-c11="" class="topbar ng-tns-c11-3">
-                                        <div _ngcontent-c11="" class="title clearfix"><h4 _ngcontent-c11=""
-                                                                                          class="ng-tns-c11-3">提示</h4>
-                                        </div>
-                                    </div>
-                                    <div _ngcontent-c11="" class="content"> <!----> <!---->
-                                        <div _ngcontent-c6="" class="promptWrapper"><span _ngcontent-c6=""></span>
-                                            <h3 _ngcontent-c6="">提交成功</h3>
-                                            <p _ngcontent-c6="">该商品到货将第一时间短信通知您</p></div>
-                                    </div> <!---->
-                                    <div _ngcontent-c11="" class="button-wrapper clearfix ng-tns-c11-3"> <!---->
-                                        <button _ngcontent-c11="" class="button-cancel ng-tns-c11-3"> 取消</button>
-                                        <button _ngcontent-c11="" class="button-confirm"> 好的</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </modal-container>
-                </dialog-prompt>
-                <dialog-prompt _ngcontent-c6="" _nghost-c11="" class="ng-tns-c11-4">
-                    <modal-container _ngcontent-c11="" class="ng-tns-c11-4 ng-tns-c13-16" _nghost-c13="">
-                        <div _ngcontent-c13="" class="shadow ng-trigger ng-trigger-animationState"
-                             style="opacity: 0; display: none;">
-                            <div _ngcontent-c13="" class="container ng-trigger ng-trigger-animationState"
-                                 style="opacity: 0; display: none;">
-                                <div _ngcontent-c11="" class="dialog ng-tns-c11-4" style="width: 306px;"> <!---->
-                                    <div _ngcontent-c11="" class="topbar ng-tns-c11-4">
-                                        <div _ngcontent-c11="" class="title clearfix"><h4 _ngcontent-c11=""
-                                                                                          class="ng-tns-c11-4">提示</h4>
-                                        </div>
-                                    </div>
-                                    <div _ngcontent-c11="" class="content"> <!----> <!---->
-                                        <div _ngcontent-c6="" class="promptWrapper"><span _ngcontent-c6=""
-                                                                                          class="error"></span>
-                                            <h3 _ngcontent-c6="">提交失败</h3>
-                                            <p _ngcontent-c6="">很抱歉发生未知错误，建议您重新提交</p></div>
-                                    </div> <!---->
-                                    <div _ngcontent-c11="" class="button-wrapper clearfix ng-tns-c11-4"> <!---->
-                                        <button _ngcontent-c11="" class="button-cancel ng-tns-c11-4"> 取消</button>
-                                        <button _ngcontent-c11="" class="button-confirm"> 重新提交</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </modal-container>
-                </dialog-prompt>
-            </item-template>
-        </item-and-product>
-    </div>
-    <loading _ngcontent-c0="" _nghost-c2=""><!----> </loading>
-    <sm-footer _ngcontent-c0="" _nghost-c3=""> <!---->
-        <div _ngcontent-c3="" class="footer">
-            <div _ngcontent-c3="" class="container">
-                <div _ngcontent-c3="" class="siteinfo">
-                    <ul _ngcontent-c3="" class="nav-footer"> <!---->
-                        <li _ngcontent-c3=""><h3 _ngcontent-c3="">订单服务 </h3>
-                            <ul _ngcontent-c3=""> <!---->
-                                <li _ngcontent-c3=""><a _ngcontent-c3=""
-                                                        href="https://www.smartisan.com/support/#/instruction">购买指南</a>
-                                </li>
-                                <li _ngcontent-c3=""><a _ngcontent-c3=""
-                                                        href="https://www.smartisan.com/support/#/delivery">送货政策</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li _ngcontent-c3=""><h3 _ngcontent-c3="">服务支持 </h3>
-                            <ul _ngcontent-c3=""> <!---->
-                                <li _ngcontent-c3=""><a _ngcontent-c3="" href="https://www.smartisan.com/service/#/">自助服务</a>
-                                </li>
-                                <li _ngcontent-c3=""><a _ngcontent-c3=""
-                                                        href="https://www.smartisan.com/support/#/self-service">使用帮助</a>
-                                </li>
-                                <li _ngcontent-c3=""><a _ngcontent-c3=""
-                                                        href="https://www.smartisan.com/support/#/servicelist">维修门店</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li _ngcontent-c3=""><h3 _ngcontent-c3="">媒体中心 </h3>
-                            <ul _ngcontent-c3=""> <!---->
-                                <li _ngcontent-c3=""><a _ngcontent-c3=""
-                                                        href="https://www.smartisan.com/pr/news-center">新闻动态</a></li>
-                                <li _ngcontent-c3=""><a _ngcontent-c3=""
-                                                        href="https://www.smartisan.com/pr/videos">官方视频</a></li>
-                                <li _ngcontent-c3=""><a _ngcontent-c3="" href="https://www.smartisan.com/pr/pictures">图片资源</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li _ngcontent-c3=""><h3 _ngcontent-c3="">关注我们</h3>
-                            <ul _ngcontent-c3="">
-                                <li _ngcontent-c3=""><a _ngcontent-c3="" href="https://weibo.com/wenyiyouth"
-                                                        target="_blank">新浪微博</a></li>
-                                <li _ngcontent-c3="" class="weixin"><a _ngcontent-c3="">官方微信</a>
-                                    <div _ngcontent-c3="" class="mask"></div>
-                                    <div _ngcontent-c3="" class="qrcode">
-                                        <div _ngcontent-c3="" class="close-btn"></div>
-                                        <h4 _ngcontent-c3="">官方微信</h4> <h6 _ngcontent-c3="">
-                                        打开微信，点击右上角的“+”，选择“扫一扫”功能，用摄像头对准下方二维码即可。</h6>
-                                        <div _ngcontent-c3="" class="qrcode-bg"></div>
-                                    </div>
-                                </li>
-                                <li _ngcontent-c3=""><a _ngcontent-c3=""
-                                                        href="https://www.smartisan.com/support/#/awards">荣誉奖项</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <ul _ngcontent-c3="" class="service">
-                        <li _ngcontent-c3="" class="tel">400 - 626 - 5666</li>
-                        <li _ngcontent-c3="" class="time">周一到周日 9:00 - 18:00</li>
-                        <li _ngcontent-c3="" class="desc">(仅收市话费)</li>
-                        <li _ngcontent-c3="" class="online"><a _ngcontent-c3=""
-                                                               href="https://www.smartisan.com/support/#/self-service"><span
-                                _ngcontent-c3="" class="smartisan-icon info-question"></span>在线帮助</a></li>
-                    </ul>
-                </div>
-                <div _ngcontent-c3="" class="copyright"><h4 _ngcontent-c3="">Copyright © 2019 smartisan.com 版权所有</h4>
-                    <ul _ngcontent-c3="" class="privacy">
-                        <li _ngcontent-c3=""><a _ngcontent-c3="" href="https://www.smartisan.com/support/#/agreement">法律声明</a>
-                        </li>
-                        <li _ngcontent-c3=""><a _ngcontent-c3=""
-                                                href="https://www.smartisan.com/support/#/privacy">隐私条款</a></li>
-                    </ul>
-                    <h6 _ngcontent-c3=""><a _ngcontent-c3="" href="http://www.miibeian.gov.cn/" target="_blank"> <span
-                            _ngcontent-c3="">京 ICP 备 18020659 号 - 2</span> </a></h6></div>
+                            </li>
+                            <li _ngcontent-c3=""><a _ngcontent-c3=""
+                                                    href="https://www.smartisan.com/support/#/awards">荣誉奖项</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul _ngcontent-c3="" class="service">
+                    <li _ngcontent-c3="" class="tel">400 - 626 - 5666</li>
+                    <li _ngcontent-c3="" class="time">周一到周日 9:00 - 18:00</li>
+                    <li _ngcontent-c3="" class="desc">(仅收市话费)</li>
+                    <li _ngcontent-c3="" class="online"><a _ngcontent-c3=""
+                                                           href="https://www.smartisan.com/support/#/self-service"><span
+                            _ngcontent-c3="" class="smartisan-icon info-question"></span>在线帮助</a></li>
+                </ul>
             </div>
+            <div _ngcontent-c3="" class="copyright"><h4 _ngcontent-c3="">Copyright © 2019 smartisan.com 版权所有</h4>
+                <ul _ngcontent-c3="" class="privacy">
+                    <li _ngcontent-c3=""><a _ngcontent-c3=""
+                                            href="https://www.smartisan.com/support/#/agreement">法律声明</a>
+                    </li>
+                    <li _ngcontent-c3=""><a _ngcontent-c3=""
+                                            href="https://www.smartisan.com/support/#/privacy">隐私条款</a></li>
+                </ul>
+                <h6 _ngcontent-c3=""><a _ngcontent-c3="" href="http://www.miibeian.gov.cn/" target="_blank"> <span
+                        _ngcontent-c3="">京 ICP 备 18020659 号 - 2</span> </a></h6></div>
         </div>
-    </sm-footer>
+    </div>
+</sm-footer>
 <script src="{% static "js/inc-all.js.下载" %}"></script>
 <script>!function (e, a, n, s, t, d, i) {
     e.SlardarMonitorObject = t, e[t] = e[t] || function () {
