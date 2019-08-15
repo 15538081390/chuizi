@@ -3986,134 +3986,131 @@
         </sm-header>
         <router-outlet _ngcontent-c0=""></router-outlet>
         <shopping-cart _nghost-c5=""> <!---->
+
             <div _ngcontent-c5="" class="page-cart">
                 <div _ngcontent-c5="" class="gray-box gray-bottom-fixed" id="cart_box">
                     <div _ngcontent-c5="" class="title"><h2 _ngcontent-c5="">购物清单</h2></div>
                         <div _ngcontent-c5="" class="box-inner"> <!----> <!---->
                             <div class="gwcxqbj">
-                            <div class="gwcxd center">
-                                <div class="top2 center">
-                                    <div class="sub_top fl">
-                                        <input type="checkbox" value="quanxuan" class="quanxuan"/>全选
-                                    </div>
-                                    <form action="{% url "operate:smartisan" %}" method="post">
-                                    <div class="sub_top fl">商品名称</div>
-                                    <div class="sub_top fl">单价</div>
-                                    <div class="sub_top fl">数量</div>
-                                    <div class="sub_top fl">小计</div>
-                                    <div class="sub_top fr">操作</div>
-                                    <div class="clear"></div>
-                                </div>
-                                {% for s in shopcar %}
-                                <div class="content2 center">
-                                    <div class="sub_content fl ">
-                                        <input type="checkbox" value="{{ s.mid }}" class="quanxuan" name="shure" />
-                                    </div>
-                                    <div class="sub_content fl"><img src="{{s.picture}}" style="width: 90%"></div>
-                                    <div class="sub_content fl ft20">{{s.name}}</div>
+                                <form action="{% url "operate:smartisan" %}" method="post">
+                                    <div class="gwcxd center">
+                                        <div class="top2 center">
+                                            <div class="sub_top fl">
+                                                <input type="checkbox" value="quanxuan" class="quanxuan"/>全选
+                                            </div>
+                                            <div class="sub_top fl">商品名称</div>
+                                            <div class="sub_top fl">单价</div>
+                                            <div class="sub_top fl">数量</div>
+                                            <div class="sub_top fl">小计</div>
+                                            <div class="sub_top fr">操作</div>
+                                            <div class="clear"></div>
+                                        </div>
+                                        {% for s in shopcar %}
+                                        <div class="content2 center">
+                                            <div class="sub_content fl ">
+                                                <input type="checkbox" value="{{ s.mid }}" class="quanxuan" name="shure" />
+                                            </div>
+                                            <div class="sub_content fl"><img src="{{s.picture}}" style="width: 90%"></div>
+                                            <div class="sub_content fl ft20">{{s.name}}</div>
 
-                                    <div class="sub_content fl ">{{s.price}}</div>
-                                    <div class="sub_content fl">
-                                        <input class="shuliang" type="number" name="shuliang" value="1" step="1" min="1">
-                                    </div>
-                                    <div class="sub_content fl">{{s.price}}</div>
-                                    <div class="sub_content fl"><a href="">×</a></div>
-                                    <div class="clear"></div>
-                                </div>
-                                {% endfor %}
+                                            <div class="sub_content fl ">{{s.price}}</div>
+                                            <div class="sub_content fl">
+                                                <input class="shuliang" type="number" name="shuliang" value="1" step="1" min="1">
+                                            </div>
+                                            <div class="sub_content fl">{{s.price}}</div>
+                                            <div class="sub_content fl"><a href="">×</a></div>
+                                            <div class="clear"></div>
+                                        </div>
+                                        {% endfor %}
 
-                            </div>
-                            <div class="jiesuandan mt20 center">
-                                <div class="tishi fl ml20">
-                                    <ul>
-                                        <li><a href="./liebiao.html">继续购物</a></li>
-                                      
+                                    </div>
+                                    <div class="jiesuandan mt20 center">
+                                        <div class="tishi fl ml20">
+                                            <ul>
+                                                <li><a href="./liebiao.html">继续购物</a></li>
+
+                                                <div class="clear"></div>
+                                            </ul>
+                                        </div>
+                                        <div class="jiesuan fr">
+
+                                            <div class="jsanniu fr"><input class="jsan" type="submit" name="jiesuan"
+                                                                           value="去结算"/></div>
+                                            <div class="clear"></div>
+                                        </div>
                                         <div class="clear"></div>
-                                    </ul>
-                                </div>
-                                <div class="jiesuan fr">
-
-                                    <div class="jsanniu fr"><input class="jsan" type="submit" name="jiesuan"
-                                                                   value="去结算"/></div>
-                                    <div class="clear"></div>
-                                </div>
-                                <div class="clear"></div>
+                                    </div>
+                                </form>
                             </div>
-                            </form>
-
-
-
-                        </div>
                         </div>
                     </div> <!---->
 
 
-                    </div> <!---->
-                    <div _ngcontent-c5="" class="dialog-container">
-                        <dialog-prompt _ngcontent-c5="" class="warranty-content ng-tns-c8-0" _nghost-c8="">
-                            <modal-container _ngcontent-c8="" class="ng-tns-c8-0 ng-tns-c11-3" _nghost-c11="">
-                                <div _ngcontent-c11="" class="shadow ng-trigger ng-trigger-animationState"
+            </div> <!---->
+                <div _ngcontent-c5="" class="dialog-container">
+                    <dialog-prompt _ngcontent-c5="" class="warranty-content ng-tns-c8-0" _nghost-c8="">
+                        <modal-container _ngcontent-c8="" class="ng-tns-c8-0 ng-tns-c11-3" _nghost-c11="">
+                            <div _ngcontent-c11="" class="shadow ng-trigger ng-trigger-animationState"
+                                 style="opacity: 0; display: none;">
+                                <div _ngcontent-c11="" class="container ng-trigger ng-trigger-animationState"
                                      style="opacity: 0; display: none;">
-                                    <div _ngcontent-c11="" class="container ng-trigger ng-trigger-animationState"
-                                         style="opacity: 0; display: none;">
-                                        <div _ngcontent-c8="" class="dialog ng-tns-c8-0" style="width: 306px;"> <!---->
-                                            <div _ngcontent-c8="" class="topbar ng-tns-c8-0">
-                                                <div _ngcontent-c8="" class="title clearfix"><h4 _ngcontent-c8=""
-                                                                                                 class="ng-tns-c8-0">
-                                                    选购保修服务</h4></div>
-                                            </div>
-                                            <div _ngcontent-c8="" class="content"> <!----> <!---->  <!---->  </div>
-                                            <!----> </div>
-                                    </div>
+                                    <div _ngcontent-c8="" class="dialog ng-tns-c8-0" style="width: 306px;"> <!---->
+                                        <div _ngcontent-c8="" class="topbar ng-tns-c8-0">
+                                            <div _ngcontent-c8="" class="title clearfix"><h4 _ngcontent-c8=""
+                                                                                             class="ng-tns-c8-0">
+                                                选购保修服务</h4></div>
+                                        </div>
+                                        <div _ngcontent-c8="" class="content"> <!----> <!---->  <!---->  </div>
+                                        <!----> </div>
                                 </div>
-                            </modal-container>
-                        </dialog-prompt>
-                        <dialog-prompt _ngcontent-c5="" _nghost-c8="" class="ng-tns-c8-1">
-                            <modal-container _ngcontent-c8="" class="ng-tns-c8-1 ng-tns-c11-4" _nghost-c11="">
-                                <div _ngcontent-c11="" class="shadow ng-trigger ng-trigger-animationState"
+                            </div>
+                        </modal-container>
+                    </dialog-prompt>
+                    <dialog-prompt _ngcontent-c5="" _nghost-c8="" class="ng-tns-c8-1">
+                        <modal-container _ngcontent-c8="" class="ng-tns-c8-1 ng-tns-c11-4" _nghost-c11="">
+                            <div _ngcontent-c11="" class="shadow ng-trigger ng-trigger-animationState"
+                                 style="opacity: 0; display: none;">
+                                <div _ngcontent-c11="" class="container ng-trigger ng-trigger-animationState"
                                      style="opacity: 0; display: none;">
-                                    <div _ngcontent-c11="" class="container ng-trigger ng-trigger-animationState"
-                                         style="opacity: 0; display: none;">
-                                        <div _ngcontent-c8="" class="dialog ng-tns-c8-1" style="width: 306px;"> <!---->
-                                            <div _ngcontent-c8="" class="topbar ng-tns-c8-1">
-                                                <div _ngcontent-c8="" class="title clearfix"><h4 _ngcontent-c8=""
-                                                                                                 class="ng-tns-c8-1">
-                                                    提示</h4></div>
-                                            </div>
-                                            <div _ngcontent-c8="" class="content"> <!----><p _ngcontent-c8=""
-                                                                                             class="one-line-info ng-tns-c8-1">
-                                                您确认删除该商品吗？ </p> <!---->   </div> <!---->
-                                            <div _ngcontent-c8="" class="button-wrapper clearfix ng-tns-c8-1"> <!---->
-                                                <button _ngcontent-c8="" class="button-cancel ng-tns-c8-1"> 取消</button>
-                                                <button _ngcontent-c8="" class="button-confirm"> 确认</button>
-                                            </div>
+                                    <div _ngcontent-c8="" class="dialog ng-tns-c8-1" style="width: 306px;"> <!---->
+                                        <div _ngcontent-c8="" class="topbar ng-tns-c8-1">
+                                            <div _ngcontent-c8="" class="title clearfix"><h4 _ngcontent-c8=""
+                                                                                             class="ng-tns-c8-1">
+                                                提示</h4></div>
+                                        </div>
+                                        <div _ngcontent-c8="" class="content"> <!----><p _ngcontent-c8=""
+                                                                                         class="one-line-info ng-tns-c8-1">
+                                            您确认删除该商品吗？ </p> <!---->   </div> <!---->
+                                        <div _ngcontent-c8="" class="button-wrapper clearfix ng-tns-c8-1"> <!---->
+                                            <button _ngcontent-c8="" class="button-cancel ng-tns-c8-1"> 取消</button>
+                                            <button _ngcontent-c8="" class="button-confirm"> 确认</button>
                                         </div>
                                     </div>
                                 </div>
-                            </modal-container>
-                        </dialog-prompt>
-                        <dialog-prompt _ngcontent-c5="" class="dialog-confirm-tips ng-tns-c8-2" _nghost-c8="">
-                            <modal-container _ngcontent-c8="" class="ng-tns-c8-2 ng-tns-c11-5" _nghost-c11="">
-                                <div _ngcontent-c11="" class="shadow ng-trigger ng-trigger-animationState"
+                            </div>
+                        </modal-container>
+                    </dialog-prompt>
+                    <dialog-prompt _ngcontent-c5="" class="dialog-confirm-tips ng-tns-c8-2" _nghost-c8="">
+                        <modal-container _ngcontent-c8="" class="ng-tns-c8-2 ng-tns-c11-5" _nghost-c11="">
+                            <div _ngcontent-c11="" class="shadow ng-trigger ng-trigger-animationState"
+                                 style="opacity: 0; display: none;">
+                                <div _ngcontent-c11="" class="container ng-trigger ng-trigger-animationState"
                                      style="opacity: 0; display: none;">
-                                    <div _ngcontent-c11="" class="container ng-trigger ng-trigger-animationState"
-                                         style="opacity: 0; display: none;">
-                                        <div _ngcontent-c8="" class="dialog ng-tns-c8-2" style="width: 306px;"> <!---->
-                                            <div _ngcontent-c8="" class="topbar ng-tns-c8-2">
-                                                <div _ngcontent-c8="" class="title clearfix"><h4 _ngcontent-c8=""
-                                                                                                 class="ng-tns-c8-2">
-                                                    提示</h4></div>
-                                            </div>
-                                            <div _ngcontent-c8="" class="content"> <!----> <!---->   </div> <!---->
-                                            <div _ngcontent-c8="" class="button-wrapper clearfix ng-tns-c8-2"> <!---->
-                                                <button _ngcontent-c8="" class="button-confirm hide-cancel"> 确认</button>
-                                            </div>
+                                    <div _ngcontent-c8="" class="dialog ng-tns-c8-2" style="width: 306px;"> <!---->
+                                        <div _ngcontent-c8="" class="topbar ng-tns-c8-2">
+                                            <div _ngcontent-c8="" class="title clearfix"><h4 _ngcontent-c8=""
+                                                                                             class="ng-tns-c8-2">
+                                                提示</h4></div>
+                                        </div>
+                                        <div _ngcontent-c8="" class="content"> <!----> <!---->   </div> <!---->
+                                        <div _ngcontent-c8="" class="button-wrapper clearfix ng-tns-c8-2"> <!---->
+                                            <button _ngcontent-c8="" class="button-confirm hide-cancel"> 确认</button>
                                         </div>
                                     </div>
                                 </div>
-                            </modal-container>
-                        </dialog-prompt>
-                    </div>
+                            </div>
+                        </modal-container>
+                    </dialog-prompt>
                 </div>
                 <markup-dialog _ngcontent-c5="" _nghost-c9=""><!----> </markup-dialog> <!---->
                 <div _ngcontent-c5="" class="page-cart recommend">
@@ -4362,7 +4359,6 @@
                     </div>
                 </div>
                 <div _ngcontent-c5="" class="toast-tips"><label _ngcontent-c5=""></label></div>
-            </div>
         </shopping-cart>
     </div>
     <loading _ngcontent-c0="" _nghost-c2=""><!----> </loading>
