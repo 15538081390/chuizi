@@ -50,6 +50,10 @@ class Productcategorie(models.Model):
     picture = models.CharField(max_length=255)
     inf = models.CharField(max_length=255)
 
+    class Meta:
+        managed = False
+        db_table = 'productcategorie'
+
 #产品规格表
 class Merchandise(models.Model):
     mid = models.AutoField(primary_key=True)                            #id

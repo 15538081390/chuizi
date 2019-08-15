@@ -4007,16 +4007,16 @@
                                 {% for s in shopcar %}
                                 <div class="content2 center">
                                     <div class="sub_content fl ">
-                                        <input type="checkbox" value="{{ s.pid }}" class="quanxuan" name="shure" />
+                                        <input type="checkbox" value="{{ s.mid }}" class="quanxuan" name="shure" />
                                     </div>
                                     <div class="sub_content fl"><img src="{{s.picture}}" style="width: 90%"></div>
                                     <div class="sub_content fl ft20">{{s.name}}</div>
 
-                                    <div class="sub_content fl ">{{s.money}}</div>
+                                    <div class="sub_content fl ">{{s.price}}</div>
                                     <div class="sub_content fl">
-                                        <input class="shuliang" type="number" value="1" step="1" min="1">
+                                        <input class="shuliang" type="number" name="shuliang" value="1" step="1" min="1">
                                     </div>
-                                    <div class="sub_content fl">2499元</div>
+                                    <div class="sub_content fl">{{s.price}}</div>
                                     <div class="sub_content fl"><a href="">×</a></div>
                                     <div class="clear"></div>
                                 </div>

@@ -20,7 +20,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 
 from django_chuizi.settings import MAXAGE
-from operate.models import User
+from operate.models import *
 
 class Summoney:
     def sum(self):
@@ -49,9 +49,9 @@ def smartisan(request): # san = 商品id
     shopcar=Shopping.objects.all()
     buy=request.POST.getlist('shure')
     print (buy)
-    whichone=Productcategorie.objects.filter(pcid__in=buy)
+    whichone=Merchandise.objects.filter(mid__in=buy)
     print (whichone)
-
+    print (request.POST.get('shuliang'))
     return render(request, "operate/smartisan.html", locals())
 
 #商品购买

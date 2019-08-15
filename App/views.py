@@ -7,10 +7,7 @@ from django.urls import reverse
 
 from App.models import *
 import random
-from App.models import Parts
-from App.models import Phone
-from App.models import Breath
-from App.models import Clothes
+
 
 # Create your views here.
 #首页
