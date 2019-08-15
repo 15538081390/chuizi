@@ -53,6 +53,10 @@ class Productcategorie(models.Model):
         managed = False
         db_table = "productcategorie"
 
+    class Meta:
+        managed = False
+        db_table = 'productcategorie'
+
 #产品规格表
 class Merchandise(models.Model):
     mid = models.AutoField(primary_key=True)                            #id
