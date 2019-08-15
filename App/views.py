@@ -8,13 +8,11 @@ from django.urls import reverse
 
 from App.models import *
 import random
-<<<<<<< HEAD
 
-=======
 from App.models import Parts
 from App.models import Breath
 from App.models import Clothes
->>>>>>> c2146d331cac2263fefc2dca79ac7a5a214459b2
+
 
 # Create your views here.
 #首页
