@@ -8,6 +8,15 @@ from django.urls import reverse
 
 from App.models import *
 import random
+<<<<<<< HEAD
+
+from App.models import Parts
+from App.models import Breath
+from App.models import Clothes
+
+
+=======
+>>>>>>> b9d373562b6d4e644cb802016cf900deba688e84
 # Create your views here.
 #首页
 def index(request):
@@ -105,7 +114,6 @@ def show(request,num):
     dise = Merchandise.objects.get(mid=num)                     #从规格表查询产品表
     bankuai = Productcategorie.objects.get(pcid=num)            #需要修改查询条件，
     bankuai01 = Productcategorie.objects.filter(hid=bankuai.hid)#查询相关商品
-
     #规格查询
     color = Merchandise.objects.values('pcid',"color","Choosepicture").annotate(Count("pcid"))             #颜色
     size = Merchandise.objects.values("size").annotate(Count("pcid"))                   # 尺码
@@ -118,6 +126,5 @@ def show(request,num):
 
     #折扣价格
     pcmoney = dise.money * 0.7
-
 
     return render(request,"App/shopping/shop.html",locals())

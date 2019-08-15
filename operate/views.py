@@ -52,10 +52,19 @@ def smartisan(request): # san = 商品id
     shopcar=Shopping.objects.all()
     buy=request.POST.getlist('shure')
     print (buy)
-    whichone=Merchandise.objects.filter(mid__in=buy)
+    whichone=Merchandise.objects.filter(mid__in=buy).all()
     print (whichone)
+<<<<<<< HEAD
+    money=0.0
+    for i in whichone:
+        m1=request.POST.get(str(i.mid))
+        money+=float(m1)
+    print (money)
+    return render(request,"operate/smartisan.html",locals())
+=======
     print (request.POST.get('shuliang'))
     return render(request, "operate/smartisan.html", locals())
+>>>>>>> b9d373562b6d4e644cb802016cf900deba688e84
 
 
 # 商品购买
