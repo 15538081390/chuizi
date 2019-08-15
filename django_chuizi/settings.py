@@ -133,6 +133,7 @@ USE_TZ = False
 
 # 设置session过期时间
 MAXAGE = 1 * 24 * 3600
+MAXAGECODE = 5 * 60
 SALTVALUE = '9a15ae9f'
 
 
@@ -146,8 +147,8 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR,"static")]
 
 
 SMSCONFIG = {
-    'ACCESS_KEY_ID':'LTAINoBUzgaGpAKp',
-    'ACCESS_KEY_SECRET':'EVVgEjeT2YqR0l5MB5QplbNAHEBpvO',
+    'ACCESS_KEY_ID':'LTAIyGMFRE9VwmFu',
+    'ACCESS_KEY_SECRET':'AmLvtafscQ2PuMxeK4KxdCDieB2mMV',
     'SignName':'djangoenv',
     'TemplateCode':'SMS_172205983',
 }
