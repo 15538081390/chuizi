@@ -54,10 +54,7 @@ def smartisan(request): # san = 商品id
     print (buy)
     whichone=Merchandise.objects.filter(mid__in=buy)
     print (whichone)
-<<<<<<< HEAD
     print (request.POST.get('shuliang'))
-=======
->>>>>>> c2146d331cac2263fefc2dca79ac7a5a214459b2
     return render(request, "operate/smartisan.html", locals())
 
 
