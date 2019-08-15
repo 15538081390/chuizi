@@ -8,6 +8,15 @@ from django.urls import reverse
 
 from App.models import *
 import random
+<<<<<<< HEAD
+
+from App.models import Parts
+from App.models import Breath
+from App.models import Clothes
+
+
+=======
+>>>>>>> b9d373562b6d4e644cb802016cf900deba688e84
 # Create your views here.
 #首页
 def index(request):

@@ -10,12 +10,12 @@ def check_password(password):
 
 #自定义表单
 class UserForm(forms.Form):
-    username = forms.CharField(label='用&nbsp;&nbsp;户&nbsp;&nbsp;名:&nbsp;&nbsp;',max_length=20,
+    username = forms.CharField(label='用&nbsp;&nbsp;户&nbsp;&nbsp;名:&nbsp;&nbsp;',max_length=10,
                                label_suffix=''
                                ,min_length=3,
                                error_messages={
                                    'required':'用户名必须输入',
-                                   'max_length':'用户名最大20字符',
+                                   'max_length':'用户名最大10字符',
                                    'min_length':'用户名最少3个字符'
                                  }
                                )

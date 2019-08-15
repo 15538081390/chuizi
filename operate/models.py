@@ -7,7 +7,7 @@ class User(models.Model):
     uid = models.AutoField(primary_key=True)                         #用户ID
     username = models.CharField(unique=True, max_length=50)          #用户名
     password = models.CharField(max_length=128)                      #密码
-    phone = models.IntegerField(unique=True)                         #电话号码
+    phone = models.CharField(unique=True, max_length=50)                         #电话号码
     email = models.CharField(max_length=100, blank=True, null=True)  #邮箱
     portrait = models.CharField(max_length=256,null=True)                      #头像
     safeqnum = models.IntegerField(blank=True, null=True)             # 安全问题的序号

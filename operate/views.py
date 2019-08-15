@@ -1,5 +1,5 @@
 from datetime import datetime
-from random import randint, random
+import random
 
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
@@ -21,7 +21,7 @@ from django.shortcuts import render, redirect
 # Create your views here.
 from django.urls import reverse
 
-from django_chuizi.settings import MAXAGE
+from django_chuizi.settings import MAXAGE, SMSCONFIG, MAXAGECODE
 from operate.models import *
 
 class Summoney:
@@ -52,10 +52,19 @@ def smartisan(request): # san = 商品id
     shopcar=Shopping.objects.all()
     buy=request.POST.getlist('shure')
     print (buy)
-    whichone=Merchandise.objects.filter(mid__in=buy)
+    whichone=Merchandise.objects.filter(mid__in=buy).all()
     print (whichone)
+<<<<<<< HEAD
+    money=0.0
+    for i in whichone:
+        m1=request.POST.get(str(i.mid))
+        money+=float(m1)
+    print (money)
+    return render(request,"operate/smartisan.html",locals())
+=======
     print (request.POST.get('shuliang'))
     return render(request, "operate/smartisan.html", locals())
+>>>>>>> b9d373562b6d4e644cb802016cf900deba688e84
 
 
 # 商品购买
@@ -75,7 +84,7 @@ def money(request,san):                             #san = 商品id
         order = Orderform()
         order.pid = pro[0].pcid
         order.uid = uid.uid
-        order.ordernumber=datetime.now().strftime("%Y%m%d%H%M%S") + str(randint(1,1000))
+        order.ordernumber=datetime.now().strftime("%Y%m%d%H%M%S") + str(random.randint(1, 1000))
         order.emil =request.POST.get("email")
         print(order.emil)
         order.time = datetime.now()
@@ -98,30 +107,46 @@ def login(request):
 
 
 def register(request):
-    if request.method == 'GET':
-        form = UserForm()
-        return render(request, 'operate/register.html', {'form': form})
-    else:
-        form = UserForm(request.POST)
-        if form.is_valid():
-            password_hash = hashlib.sha1(form.password.encode('utf8')).hexdigest()
-            user = User(username=form.username, phone=form.phone, password=password_hash)
+    if request.method == 'POST':
+        print(request.POST)
+        username = request.POST['username']
+        password = request.POST['password']
+        phone = request.POST['tel']
+        code = request.POST['code']
+        codeconfig = request.session['code']
+        if codeconfig == code :
+            password_hash = hashlib.sha1(password.encode('utf8')).hexdigest()
+            user = User(username=username, phone=phone, password=password_hash)
             user.save()
             response = redirect(reverse('app:index'))
-            response.session['username'] = form.sername
+            request.session['username'] = user.username
             request.session.set_expiry(MAXAGE)
             return response
-        else:
-            return render(request, 'operate/register.html', {'form': form})
+    return render(request, 'operate/test.html')
+    # if request.method == 'GET':
+    #     form = UserForm()
+    #     return render(request, 'operate/test.html', {'form': form})
+    # else:
+    #     form = UserForm(request.POST)
+    #     if form.is_valid():
+    #         password_hash = hashlib.sha1(form.password.encode('utf8')).hexdigest()
+    #         user = User(username=form.username, phone=form.phone, password=password_hash)
+    #         user.save()
+    #         response = redirect(reverse('app:index'))
+    #         response.session['username'] = form.sername
+    #         request.session.set_expiry(MAXAGE)
+    #         return response
+    #     else:
+    #         return render(request, 'operate/test.html', {'form': form})
 
 
 def code(request):
     num=str(random.randint(100000, 999999))
     request.session['phone'] = request.POST['phone']
     request.session['code'] = num
-    print(request.POST['phone'], num)
-    send_sms(request.POST['phone'], {'number':num})
-
+    request.session.set_expiry(MAXAGECODE)
+    send_sms(request.POST['phone'], {'code':num}, **SMSCONFIG)
+    return HttpResponse('True')
 
 # 支付
 def payment(request):
