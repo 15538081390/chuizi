@@ -7,7 +7,7 @@ from django_chuizi.settings import SMSCONFIG
 
 
 
-def send_sms(phone,templateParam,**kwargs):
+def send_sms(phone,templateParam, **kwargs):
 
 
     client = AcsClient(kwargs['ACCESS_KEY_ID'], kwargs['ACCESS_KEY_SECRET'], 'default')

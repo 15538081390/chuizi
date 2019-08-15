@@ -6,9 +6,11 @@
 {#        <meta name="author" content="order by dede58.com"/>#}
 		<title>用户注册</title>
 		<link rel="stylesheet" type="text/css" href="{% static 'css/login_register/login.css' %}">
-
+        <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
 	</head>
 	<body>
+         <form  class = 'form1' method="post" action="{% url 'operate:register' %}">
+             {% csrf_token %}
 		<div class="regist">
 			<div class="regist_center">
 				<div class="regist_top">
@@ -17,64 +19,123 @@
 					<div class="clear"></div>
 					<div class="xian center"></div>
 				</div>
-            <div class="regist_main center">
-                <div class="username"><label for = 'exampleInputphone'>手&nbsp;&nbsp;机&nbsp;&nbsp;号:&nbsp;&nbsp;</label><input class="shurukuang" type="text" id = 'exampleInputphone' name="tel" placeholder="请填写正确的手机号 " minlength="11" style = 'width:140px'/><input class="getyanzhengma" type = "submit" value="获取验证码"><span>请填写手机号进行注册！</span></div>
+				<div class="regist_main center">
+                    <div class="username"><label for = 'exampleInputname'>用&nbsp;&nbsp;户&nbsp;&nbsp;名:&nbsp;&nbsp;</label><input class="shurukuang" type="text" id = 'exampleInputname' name="username" placeholder="请输入你的用户名" maxlength="10"/><span>请输入3-10个字符</span></div>
+                    {% for error in form.username.errors %}
+                        <span>{{ error}}</span>
+                    {% endfor %}
+                    <div class="username"><label for = 'exampleInputpsw'>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码:&nbsp;&nbsp;</label><input class="shurukuang" type="password" id = 'exampleInputpsw' name="password" placeholder="请输入你的密码" /><span>请输入2-30个字符</span></div>
+					{% for error in form.password.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                    <div class="username"><label for = 'exampleInputrepsw'>确认密码:&nbsp;&nbsp;</label><input class="shurukuang" id = 'exampleInputrepsw' type="password" name="repassword" placeholder="请确认你的密码"/><span>两次密码要输入一致哦</span></div>
+					{% for error in form.repassword.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                     <div class="username"><label for = 'exampleInputphone'>手&nbsp;&nbsp;机&nbsp;&nbsp;号:&nbsp;&nbsp;</label><input class="shurukuang" type="text" id = 'exampleInputphone' name="tel" placeholder="请填写正确的手机号 " minlength="11"/></div>
 					{% for error in form.tel.errors %}
                         <span>{{ error }}</span>
                     {% endfor %}
-
                     <div class="username">
-                        <div class="left fl"><label for = 'exampleInputcode'>验&nbsp;&nbsp;证&nbsp;&nbsp;码:&nbsp;&nbsp;</label><input class="yanzhengma" type="text" id = 'exampleInputcode' name="code" placeholder="请填写收到的验证码"/></div>
+                        <div class="left fl"><label for = 'exampleInputcode'>验&nbsp;&nbsp;证&nbsp;&nbsp;码:&nbsp;&nbsp;</label><input class="yanzhengma" type="text" id = 'exampleInputcode' name="code" placeholder="请填写收到的验证码"/><input class="getyanzhengma" id = 'chick' type = "button" value="获取验证码"
+                                                                                                                                                                                                                                       onclick="settime(this)"></div>
 						{% for error in form.code.errors %}
                         <span>{{ error }}</span>
                         {% endfor %}
                         <div class="clear"></div>
 					</div>
-            </div>
-            <form  method="post" action="{% url 'operate:register' %}">
-            {% csrf_token %}
-				<div class="regist_main center">
-                    <div class="username"><label for = 'exampleInputname'>用&nbsp;&nbsp;户&nbsp;&nbsp;名:&nbsp;&nbsp;</label><input class="shurukuang" type="text" id = 'exampleInputname' name="username" placeholder="请输入你的用户名" maxlength="10"/><span>请输入符合规范的用户名</span></div>
-                    {% for error in form.username.errors %}
-                        <span>{{ error}}</span>
-                    {% endfor %}
-                    <div class="username"><label for = 'exampleInputpsw'>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码:&nbsp;&nbsp;</label><input class="shurukuang" type="password" id = 'exampleInputpsw' name="password" placeholder="请输入你的密码" minlength="6"/><span>请输入2-30个字符</span></div>
-					{% for error in form.password.errors %}
-                        <span>{{ error }}</span>
-                    {% endfor %}
-                    <div class="username"><label for = 'exampleInputrepsw'>确认密码:&nbsp;&nbsp;</label><input class="shurukuang" id = 'exampleInputrepsw' type="password" name="repassword" placeholder="请确认你的密码" minlength="6"/><span>两次密码要输入一致哦</span></div>
-					{% for error in form.repassword.errors %}
-                        <span>{{ error }}</span>
-                    {% endfor %}
-
-				</div>
-				<div class="regist_submit">
+                        <div class="regist_submit">
 					<input class="submit" type="submit" name="submit" value="立即注册" >
-				</div>
-
+				        </div>
+                </div>
 			</div>
 		</div>
-		</form>
+         </form>
 	</body>
-<script>
-    $(document).ready(function () {
-        $('#chick').click(function () {
-            var phone = $('#exampleInputphone').val()
-            $.ajax({ type:"POST",
-                    data: {phone:phone},
-                    url: "{% url 'operate:code' %}",
-                    cache: false,
-                    dataType: "html",
-                    success:function(result, statues, xml){
-                        console.log(result)
-                    },
-                    error: function(){
-                        alert("false");
-                    }
-            })
 
-        })
-
-    })
+{#<script>#}
+{#    $(document).ready(function () {#}
+{#        $('#form1').button(function () {#}
+{#            var phone = $('#exampleInputphone').val()#}
+{##}
+{#            $.ajax({ type:"POST",#}
+{#                    data: {phone:phone},#}
+{#                    url: "{% url 'operate:code' %}",#}
+{#                    cache: false,#}
+{#                    dataType: "html",#}
+{#                    success:function(result, statues, xml){#}
+{#                        console.log(result)#}
+{#                    },#}
+{#                    error: function(){#}
+{#                        alert("false");#}
+{#                    }#}
+{#            })#}
+{##}
+{#        })#}
+{##}
+{#    })#}
+{#</script>#}
+<script type="text/javascript">
+    var countdown=60;
+    function settime(obj) {
+        if (countdown == 0) {
+            obj.removeAttribute("disabled");    
+            obj.value="获取验证码";
+            countdown = 60;
+            return;
+        } else {
+            obj.setAttribute("disabled", true);
+            obj.value="重新发送(" + countdown + ")";
+            countdown--;
+        }
+setTimeout(function() {
+    settime(obj) }
+    ,1000)
+}
+ 
 </script>
+<script type="text/javascript">
+$(function(){
+	//发送验证码
+	$("#chick").on("click", function(){
+		var number = $("input[name=tel]").val();
+		$.ajax({
+	        url:"{% url 'operate:code' %}" ,
+	        async : true,
+	        type: "post",
+	        dataType: "json",
+	        data: {"phone":number},
+	        success: function (data) {
+	        	if(data == 'fail'){
+	        		alert("发送验证码失败");
+	        		return ;
+	        	}
+	        }
+    	});
+	})
+	//提交
+	$(".submit").on("click", function(){
+		var data = {};
+		data.userId = $.trim($("input[name=username]").val());
+		data.password = $.trim($("input[name=password]").val());
+		data.phone = $.trim($("input[name=tel]").val());
+		data.verifyCode = $.trim($("input[name=code]").val());
+		$.ajax({
+	        url: "{% url 'operate:register' %}",
+	        async : true,
+	        type: "post",
+	        dataType: "json",
+	        data: data,
+	        success: function (data) {
+	        	if(data == 'fail'){
+	        		alert("注册失败");
+	        		return ;
+	        	}
+	        	alert("注册成功");
+	        }
+    	});
+	})
+});
+</script>
+
 </html>
