@@ -3,7 +3,7 @@ from random import randint
 from aliyunsdkcore.client import AcsClient
 from aliyunsdkcore.request import CommonRequest
 
-from TCL.settings import SMSCONFIG
+from django_chuizi.settings import SMSCONFIG
 
 
 
