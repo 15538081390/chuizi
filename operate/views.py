@@ -51,13 +51,11 @@ def smartisan(request): # san = 商品id
     #         pro.append(sp)
     shopcar=Shopping.objects.all()
     buy=request.POST.getlist('shure')
-    whichone=Merchandise.objects.filter(mid__in=buy).all()
-    money=0.0
-    for i in whichone:
-        m1=request.POST.get(str(i.mid))
-        money+=float(m1)
-    print (money)
-    return render(request,"operate/smartisan.html",locals())
+    print (buy)
+    whichone=Merchandise.objects.filter(mid__in=buy)
+    print (whichone)
+    print (request.POST.get('shuliang'))
+    return render(request, "operate/smartisan.html", locals())
 
 
 # 商品购买
@@ -89,19 +87,20 @@ def money(request,san):                             #san = 商品id
 # 用户注册+登录
 def login(request):
     if request.method == 'POST':
-        phone = request.POST.get('mobile')
-        password = request.POST.get('password')
+        phone = request.POST['phone']
+        password = request.POST['password']
         password_hash = hashlib.sha1(password.encode('utf8')).hexdigest()
         if User.objects.filter(phone = phone, password = password_hash).exists():
             user = User.objects.filter(phone = phone, password = password_hash)
             response = redirect(reverse('app:index'))
             response.session['username'] = user.username
+            request.session.set_expiry(MAXAGE)
+            return response
     return render(request, 'operate/login11.html')
 
 
 def register(request):
     if request.method == 'POST':
-        print(request.POST)
         username = request.POST['username']
         password = request.POST['password']
         phone = request.POST['tel']
@@ -115,7 +114,7 @@ def register(request):
             request.session['username'] = user.username
             request.session.set_expiry(MAXAGE)
             return response
-    return render(request, 'operate/test.html')
+    return render(request, 'operate/registerIM.html')
     # if request.method == 'GET':
     #     form = UserForm()
     #     return render(request, 'operate/test.html', {'form': form})
