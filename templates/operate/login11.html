@@ -15,7 +15,8 @@
 				<a href="{% url 'app:index' %}" target="_blank"><img src="{% static 'image/login_register/smartisan_4ada7fecea.png' %}" alt=""></a>
 			</div>
 		</div>
-		<form  name = 'form1' method="post" action="{% url 'operate:login' %}" class="form center">
+{#        action="{% url 'operate:login' %}"#}
+		<form  name = 'form1' method="post" action= '' class="form center">
 		<div class="login">
 			<div class="login_center">
 				<div class="login_top">
@@ -29,9 +30,8 @@
 					<div class="username">密&nbsp;&nbsp;&nbsp;&nbsp;码:&nbsp;<input class="shurukuang" style = 'width : 150px' type="password" name="password" placeholder="请输入你的密码"/><span class = 'error2' style = 'color : red'></span></div>
 					<div class="username">
 						<div class="left fl">验证码:&nbsp;<input class="yanzhengma" style = 'width : 150px' type="text" name="code" placeholder="请输入验证码"/></div>
-						<div class="right fl"><img src="./image/yanzhengma.jpg"></div>
-                        <span class = 'error3' style = 'color : red'></span>
-						<div class="clear"></div>
+                        <div class="right fl"><img src="{% url 'operate:generatecode' %}" alt="" onclick="this.src='{% url 'operate:generatecode' %}?'+Math.random()"></div>
+						<div class="clear"><span class = 'error3' style = 'color : red'></span></div>
 					</div>
 				</div>
 				<div class="login_submit">
@@ -56,7 +56,7 @@ $(function(){
 		data.code = $.trim($("input[name=code]").val());
 		var error1 = document.querySelector('.error1');
 		var error2 = document.querySelector('.error2');
-		var error3 = document.querySelector('.error5');
+		var error3 = document.querySelector('.error3');
 		if (data.userphone == ''){
 		    error1.innerHTML='帐号不能为空!';
             return false;
@@ -67,30 +67,32 @@ $(function(){
         }
 		if (data.password == ''){
 		    error2.innerHTML='密码不能为空！';
-		    return false
+		    return false;
         }
 		if (data.code == ''){
 		    error3.innerHTML = '请输入验证码';
-		    return false
+		    return false;
         }
 		if (data.code.length != 4){
-            error3.innerHTML = '请正确输入验证码'
+            error3.innerHTML = '请正确输入验证码';
+            return false;
         }
-		$.ajax({
-	        url: "{% url 'operate:login' %}",
-	        async : true,
-	        type: "post",
-	        dataType: "json",
-	        data: data,
-	        success: function (data) {
-	        	if(data == 'fail'){
-	        		alert("登录失败");
-	        		return ;
-	        	}
-	        	alert("登录成功");
-
-	        }
-    	});
+          $.ajax({
+                    type:"POST",
+                    data: {phone:data.userphone,code:data.code,password:data.password},
+                    url: "{% url 'operate:login' %}",
+                    cache: false,
+                    dataType: "html",
+                    success: function(result){
+                        if (result == '用户名或密码错误') {
+                            alert(result);
+                            window.location.href='{% url 'operate:login' %}';
+                        }
+                    },
+                    error: function(){
+                        alert("false");
+                    }
+                });
 	})
 });
 </script>

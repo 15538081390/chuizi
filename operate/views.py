@@ -23,6 +23,8 @@ from django.urls import reverse
 
 from django_chuizi.settings import MAXAGE, SMSCONFIG, MAXAGECODE
 from operate.models import *
+from operate.verifycode import VerifyCode
+
 
 class Summoney:
     def sum(self):
@@ -89,14 +91,27 @@ def login(request):
     if request.method == 'POST':
         phone = request.POST['phone']
         password = request.POST['password']
+        code = request.POST['code']
         password_hash = hashlib.sha1(password.encode('utf8')).hexdigest()
-        if User.objects.filter(phone = phone, password = password_hash).exists():
+        if User.objects.filter(phone = phone, password = password_hash).exists() and code == request.session['code']:
             user = User.objects.filter(phone = phone, password = password_hash)
             response = redirect(reverse('app:index'))
-            response.session['username'] = user.username
+            request.session['username'] = user[0].username
             request.session.set_expiry(MAXAGE)
             return response
+        else:
+            return HttpResponse('用户名或密码错误')
     return render(request, 'operate/login11.html')
+
+
+# 图形验证码函数
+def generate_code(request):
+    vc = VerifyCode()
+    data = vc.output()
+    request.session['code'] = vc.code
+    response = HttpResponse(data, content_type= 'image/png')
+    # response.headers['Content-Type'] = 'image/png'
+    return response
 
 
 def register(request):
