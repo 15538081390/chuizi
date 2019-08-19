@@ -4072,18 +4072,56 @@
                         </ul>
                     </div> <!---->
                     <ul _ngcontent-c1="" class="nav-aside">
-                        <li _ngcontent-c1="" class="nav-user"><a _ngcontent-c1="">个人中心</a> <!----> </li> <!---->
-                        <sm-nav-cart _ngcontent-c1="" _nghost-c4="">
-                            <li _ngcontent-c4="" class="nav-cart theme-black-default"><a _ngcontent-c4=""
-                                                                                         href="https://www.smartisan.com/cart">
-                                <span _ngcontent-c4="" class="cart-tip"></span> </a>
-                                <div _ngcontent-c4="" class="nav-cart-wrapper">
-                                    <div _ngcontent-c4="" class="nav-cart-list">
-                                        <div _ngcontent-c4=""> <!---->
-                                            <div _ngcontent-c4="" class="empty"><h3 _ngcontent-c4="">购物车为空</h3>
-                                                <p _ngcontent-c4="">您还没有选购任何商品，现在前往商城选购吧！</p></div> <!----> </div>
-                                    </div>
+                        {% if 'username' not in request.session%}
+                            <li _ngcontent-c1="" class="nav-user"><a _ngcontent-c1="" href = "{% url 'operate:login' %}">登录</a> <!----> </li> <!---->
+                        {% else %}
+                        <li _ngcontent-c1="" class="nav-user"><a _ngcontent-c1="">个人中心</a> <!---->
+                            <div _ngcontent-c1="" class="nav-user-wrapper">
+                                <div _ngcontent-c1="" class="nav-user-list">
+                                    <dl _ngcontent-c1="" class="nav-user-avatar">
+                                        <dd _ngcontent-c1=""> <!----> <!----><img _ngcontent-c1="" class="nav-avatar"
+                                                                                  src="./账户详情 - Smartisan_files/avatar.png">
+                                        </dd>
+                                        <dt _ngcontent-c1="">{{ request.session.username }}</dt>
+                                    </dl>
+                                    <ul _ngcontent-c1="">
+                                        <li _ngcontent-c1="" class="order"><a _ngcontent-c1=""
+                                                                              href="{% url 'operate:orderlist' %}">我的订单</a>
+                                        </li>
+                                        <li _ngcontent-c1="" class="support"><a _ngcontent-c1=""
+                                                                                href="{% url 'operate:aftersale' %}">售后服务</a>
+                                        </li>
+                                        <li _ngcontent-c1="" class="coupon"><a _ngcontent-c1=""
+                                                                               href="{% url 'operate:coupon' %}">我的优惠
+                                            <!----></a></li>
+                                        <li _ngcontent-c1="" class="information"><a _ngcontent-c1=""
+                                                                                    href="{% url 'operate:usersetting' %}">账户资料</a>
+                                        </li>
+                                        <li _ngcontent-c1="" class="address"><a _ngcontent-c1=""
+                                                                                href="{% url 'operate:getaddr' %}">收货地址</a>
+                                        </li>
+                                        <li _ngcontent-c1="" class="logout"><a _ngcontent-c1="" href = '{% url 'operate:logout' %}'>退出</a></li>
+                                    </ul>
                                 </div>
+                            </div>
+                        </li> <!---->
+                        {% endif %}
+                        <sm-nav-cart _ngcontent-c1="" _nghost-c4="">
+                            <li _ngcontent-c4="" class="nav-cart theme-black-default">
+                                {% if 'username' not in request.session %}
+                            <a _ngcontent-c4="" href="{% url 'operate:login' %}">
+                            <span _ngcontent-c4="" class="cart-tip"></span> </a>
+                            {% else %}
+                            <a _ngcontent-c4="" href="{% url 'operate:smartisan' %}">
+                            <span _ngcontent-c4="" class="cart-tip"></span> </a>
+                            <div _ngcontent-c4="" class="nav-cart-wrapper">
+                                <div _ngcontent-c4="" class="nav-cart-list">
+                                    <div _ngcontent-c4=""> <!---->
+                                        <div _ngcontent-c4="" class="empty"><h3 _ngcontent-c4="">购物车为空</h3>
+                                            <p _ngcontent-c4="">您还没有选购任何商品，现在前往商城选购吧！</p></div> <!----> </div>
+                                </div>
+                            </div>
+                            {% endif %}
                                 <div _ngcontent-c4="" class="addcart-mask">
                                     <div _ngcontent-c4="" class="mask-y">
                                         <div _ngcontent-c4="" class="mask-x">

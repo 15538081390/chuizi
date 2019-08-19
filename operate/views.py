@@ -7,7 +7,7 @@ from django.urls import reverse
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from App.models import IndexTab
+from App.models import IndexTab, Indexhome
 from App.models import Productcategorie
 from operate.code import send_sms
 from operate.form import UserForm
@@ -23,6 +23,8 @@ from django.urls import reverse
 
 from django_chuizi.settings import MAXAGE, SMSCONFIG, MAXAGECODE
 from operate.models import *
+from operate.verifycode import VerifyCode
+
 
 class Summoney:
     def sum(self):
@@ -52,14 +54,19 @@ def smartisan(request): # san = 商品id
     shopcar=Shopping.objects.all()
     buy=request.POST.getlist('shure')
     print (buy)
-    whichone=Merchandise.objects.filter(mid__in=buy).all()
+    whichone=Merchandise.objects.filter(mid__in=buy)
     print (whichone)
+<<<<<<< HEAD
     money=0.0
     for i in whichone:
         m1=request.POST.get(str(i.mid))
         money+=float(m1)
     print (money)
     return render(request,"operate/smartisan.html",locals())
+=======
+    print (request.POST.get('shuliang'))
+    return render(request, "operate/smartisan.html", locals())
+>>>>>>> cff851e8dc3c9c26d0e7d4999f1286331d05fb87
 
 
 # 商品购买
@@ -91,19 +98,40 @@ def money(request,san):                             #san = 商品id
 # 用户注册+登录
 def login(request):
     if request.method == 'POST':
-        phone = request.POST.get('mobile')
-        password = request.POST.get('password')
+        phone = request.POST['phone']
+        password = request.POST['password']
+        code = request.POST['code']
         password_hash = hashlib.sha1(password.encode('utf8')).hexdigest()
-        if User.objects.filter(phone = phone, password = password_hash).exists():
+        if User.objects.filter(phone = phone, password = password_hash).exists() and code == request.session['code']:
             user = User.objects.filter(phone = phone, password = password_hash)
             response = redirect(reverse('app:index'))
-            response.session['username'] = user.username
+            request.session['username'] = user[0].username
+            request.session.set_expiry(MAXAGE)
+            return response
+        else:
+            return HttpResponse('用户名或密码错误')
     return render(request, 'operate/login11.html')
+
+
+def logout(request):
+    try:
+        del request.session['username']
+    except:
+        return redirect(reverse('app:index'))
+    return redirect(reverse('app:index'))
+
+# 图形验证码函数
+def generate_code(request):
+    vc = VerifyCode()
+    data = vc.output()
+    request.session['code'] = vc.code
+    response = HttpResponse(data, content_type= 'image/png')
+    # response.headers['Content-Type'] = 'image/png'
+    return response
 
 
 def register(request):
     if request.method == 'POST':
-        print(request.POST)
         username = request.POST['username']
         password = request.POST['password']
         phone = request.POST['tel']
@@ -117,7 +145,7 @@ def register(request):
             request.session['username'] = user.username
             request.session.set_expiry(MAXAGE)
             return response
-    return render(request, 'operate/test.html')
+    return render(request, 'operate/registerIM.html')
     # if request.method == 'GET':
     #     form = UserForm()
     #     return render(request, 'operate/test.html', {'form': form})
@@ -147,3 +175,38 @@ def code(request):
 def payment(request):
     tab = IndexTab.objects.all()
     return render(request, "operate/smartisan.html", locals())
+
+
+def userform(request):
+    products = Productcategorie.objects.all()
+    home = Indexhome.objects.all()
+    tab = IndexTab.objects.all()
+    return render(request, 'operate/userinform.html', locals())
+
+
+def aftersale(request):
+    products = Productcategorie.objects.all()
+    home = Indexhome.objects.all()
+    tab = IndexTab.objects.all()
+    return render(request, 'operate/shouhou.html', locals())
+
+
+def coupon(request):
+    products = Productcategorie.objects.all()
+    home = Indexhome.objects.all()
+    tab = IndexTab.objects.all()
+    return render(request, 'operate/youhui.html', locals())
+
+
+def usersetting(request):
+    products = Productcategorie.objects.all()
+    home = Indexhome.objects.all()
+    tab = IndexTab.objects.all()
+    return render(request, 'operate/usersetting.html', locals())
+
+
+def getaddr(request):
+    products = Productcategorie.objects.all()
+    home = Indexhome.objects.all()
+    tab = IndexTab.objects.all()
+    return render(request, 'operate/getaddr.html', locals())
