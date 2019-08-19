@@ -7,7 +7,7 @@ from django.urls import reverse
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from App.models import IndexTab
+from App.models import IndexTab, Indexhome
 from App.models import Productcategorie
 from operate.code import send_sms
 from operate.form import UserForm
@@ -104,6 +104,13 @@ def login(request):
     return render(request, 'operate/login11.html')
 
 
+def logout(request):
+    try:
+        del request.session['username']
+    except:
+        return redirect(reverse('app:index'))
+    return redirect(reverse('app:index'))
+
 # 图形验证码函数
 def generate_code(request):
     vc = VerifyCode()
@@ -159,3 +166,38 @@ def code(request):
 def payment(request):
     tab = IndexTab.objects.all()
     return render(request, "operate/smartisan.html", locals())
+
+
+def userform(request):
+    products = Productcategorie.objects.all()
+    home = Indexhome.objects.all()
+    tab = IndexTab.objects.all()
+    return render(request, 'operate/userinform.html', locals())
+
+
+def aftersale(request):
+    products = Productcategorie.objects.all()
+    home = Indexhome.objects.all()
+    tab = IndexTab.objects.all()
+    return render(request, 'operate/shouhou.html', locals())
+
+
+def coupon(request):
+    products = Productcategorie.objects.all()
+    home = Indexhome.objects.all()
+    tab = IndexTab.objects.all()
+    return render(request, 'operate/youhui.html', locals())
+
+
+def usersetting(request):
+    products = Productcategorie.objects.all()
+    home = Indexhome.objects.all()
+    tab = IndexTab.objects.all()
+    return render(request, 'operate/usersetting.html', locals())
+
+
+def getaddr(request):
+    products = Productcategorie.objects.all()
+    home = Indexhome.objects.all()
+    tab = IndexTab.objects.all()
+    return render(request, 'operate/getaddr.html', locals())
