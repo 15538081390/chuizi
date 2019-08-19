@@ -4294,8 +4294,40 @@
                             <ul _ngcontent-c7="" class="items clearfix"> <!----> <!---->
 
 
-                            {% for p1 in products %}
-                                            {% ifequal p1.hid to_id %}
+{#                            {% for p1 in products %}#}
+{#                                            {% ifequal p1.hid to_id %}#}
+{#                                <li _ngcontent-c7="" class="item-four"> <!---->#}
+{#                                    <sku-item-show _ngcontent-c7="" _nghost-c11="">#}
+{#                                        <div _ngcontent-c11="" class="product-item"> <!----> <img _ngcontent-c11=""#}
+{#                                                                                                  src="{{ p1.picture }}"#}
+{#                                                                                                  style="opacity: 1;">#}
+{#                                            <div _ngcontent-c11="" class="product-info"> <!----><p _ngcontent-c11=""#}
+{#                                                                                                   class="product-colors">#}
+{##}
+{#                                                 {% ifequal p1.white 1 %}#}
+{#                                                <!----><span _ngcontent-c11="" class="active"> <img _ngcontent-c11=""#}
+{#                                                                                                    src="{% static "image/origin(1).png" %}"#}
+{#                                                                                                    style="opacity: 1;"> </span>#}
+{#                                                {% endifequal %}#}
+{#                                                {% ifequal p1.black 1 %}#}
+{#                                                     <!----><span _ngcontent-c11="" class="active"> <img _ngcontent-c11=""#}
+{#                                                                                                    src="{% static "image/origin.png" %}"#}
+{#                                                                                                    style="opacity: 1;"> </span>#}
+{#                                                    {% endifequal %}#}
+{##}
+{#                                                                          </p> <!----> <h1#}
+{#                                                    _ngcontent-c11="">{{p1.pcname}}</h1> <span _ngcontent-c11=""#}
+{#                                                                                              class="sub-title">{{p1.inf}}</span>#}
+{#                                                <!----><span _ngcontent-c11="" class="price">{{p1.money}}</span> <!---->#}
+{#                                            </div>#}
+{#                                            <a _ngcontent-c11="" href="https://www.smartisan.com/item/100047901"#}
+{#                                               target="_blank"></a> <!----> </div>#}
+{#                                    </sku-item-show> <!----> </li>#}
+{#                                            {% endifequal %}#}
+{#                                    {% endfor %}#}
+
+  {% for p1 in products %}
+                                            {% ifequal p1.show to_id %}
                                 <li _ngcontent-c7="" class="item-four"> <!---->
                                     <sku-item-show _ngcontent-c7="" _nghost-c11="">
                                         <div _ngcontent-c11="" class="product-item"> <!----> <img _ngcontent-c11=""
@@ -4304,29 +4336,17 @@
                                             <div _ngcontent-c11="" class="product-info"> <!----><p _ngcontent-c11=""
                                                                                                    class="product-colors">
 
-                                                 {% ifequal p1.white 1 %}
-                                                <!----><span _ngcontent-c11="" class="active"> <img _ngcontent-c11=""
-                                                                                                    src="{% static "image/origin(1).png" %}"
-                                                                                                    style="opacity: 1;"> </span>
-                                                {% endifequal %}
-                                                {% ifequal p1.black 1 %}
-                                                     <!----><span _ngcontent-c11="" class="active"> <img _ngcontent-c11=""
-                                                                                                    src="{% static "image/origin.png" %}"
-                                                                                                    style="opacity: 1;"> </span>
-                                                    {% endifequal %}
 
                                                                           </p> <!----> <h1
-                                                    _ngcontent-c11="">{{p1.pcname}}</h1> <span _ngcontent-c11=""
+                                                    _ngcontent-c11="">{{p1.mername}}</h1> <span _ngcontent-c11=""
                                                                                               class="sub-title">{{p1.inf}}</span>
                                                 <!----><span _ngcontent-c11="" class="price">{{p1.money}}</span> <!---->
                                             </div>
-                                            <a _ngcontent-c11="" href="https://www.smartisan.com/item/100047901"
+                                            <a _ngcontent-c11="" href="{% url "app:show" num=p1.mid %}"
                                                target="_blank"></a> <!----> </div>
                                     </sku-item-show> <!----> </li>
                                             {% endifequal %}
                                     {% endfor %}
-
-
                             </ul>
                         </section>
                         <div _ngcontent-c7="" class="toast-tips"><label _ngcontent-c7=""></label></div>

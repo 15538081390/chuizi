@@ -3996,61 +3996,88 @@
                                 <div class="sub_top fl">
                                     <input type="checkbox" value="quanxuan" class="quanxuan"/>全选
                                 </div>
+
                                 <form action="{% url "operate:smartisan" %}" method="post">
-                                    <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp商品名称&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                                        单价&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                                        数量 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                                        小计 &nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp操作</p>
-
-
+                                    <p>
+                                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp商品名称&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                        单价&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                        数量
+                                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                        小计 &nbsp&nbsp
+                                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp操作</p>
 
 
                                     <div class="clear"></div>
                             </div>
 
 
-       <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
-                         <script>
+                            <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+                            <script>
                                 window.onload = function () {
-                                      {% for s1 in shopcar %}
-                                    $('#plus{{ s1.mid }}').click(function () {
-                                        var num  = $("#text1{{ s1.mid }}").val();
-                                        var money = {{s1.price}};
-                                        console.log(num)
-                                        $('#text1{{ s1.mid }}').val(Number(num) + 1)
-                                        $('#money{{ s1.mid }}').val((Number(num) + 1) * Number(money))
-                                    });
-                                    $('#subtract{{ s1.mid }}').click(function () {
-                                        var num = $("#text1{{ s1.mid }}").val();
-                                        var money = {{s1.price}};
-                                        console.log(num)
-                                        if(num==0){
-                                            $('#text1{{ s1.mid }}').val(0);
-                                        $('#money{{ s1.mid }}').val(0)
+                                    var isCheckAll = false;
+                                    $('.quanxuan').click(function () {
+                                        if (isCheckAll) {
+                                            $("input[type='checkbox']").each(function () {
+                                                this.checked = false;
+                                            });
+                                            isCheckAll = false;
+                                        } else {
+                                            $("input[type='checkbox']").each(function () {
+                                                this.checked = true;
+                                            });
+                                            isCheckAll = true;
                                         }
-                                        else {
-                                                 $('#text1{{ s1.mid }}').val(Number(num) - 1)
-                                        $('#money{{ s1.mid }}').val((Number(num) - 1) * Number(money))
-                                        }
+
                                     });
+
+
+                                    {% for s1 in shopcar %}
+                                        $('#plus{{ s1.mid }}').click(function () {
+                                            var num = $("#text1{{ s1.mid }}").val();
+                                            var money = {{s1.price}};
+                                            console.log(num)
+                                            $('#text1{{ s1.mid }}').val(Number(num) + 1)
+                                            $('#money{{ s1.mid }}').val((Number(num) + 1) * Number(money))
+                                        });
+                                        $('#subtract{{ s1.mid }}').click(function () {
+                                            var num = $("#text1{{ s1.mid }}").val();
+                                            var money = {{s1.price}};
+                                            console.log(num)
+                                            if (num == 0) {
+                                                $('#text1{{ s1.mid }}').val(0);
+                                                $('#money{{ s1.mid }}').val(0)
+                                            } else {
+                                                $('#text1{{ s1.mid }}').val(Number(num) - 1)
+                                                $('#money{{ s1.mid }}').val((Number(num) - 1) * Number(money))
+                                            }
+                                        });
                                     {% endfor %}
                                 }
-</script>
-                                {% for s in shopcar %}
+                            </script>
+                            {% for s in shopcar %}
                                 <div class="content2 center">
                                     <div class="sub_content fl ">
-                                        <input type="checkbox" value="{{ s.mid }}" class="quanxuan" name="shure"/>
+                                        <input type="checkbox" value="{{ s.mid }}" class="" name="shure"
+                                               />
                                     </div>
                                     <div class="sub_content fl"><img src="{{ s.picture }}" style="width: 90%"></div>
                                     <div class="sub_content fl ft20">{{ s.name }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ s.price }}</div>
 
 
-                                    <div class="sub_content fl "><input type="button" id="plus{{ s.mid }}" value="+" style="border-radius: 50%;width: 17px;border:solid 0.5px;background-color: white"><input type="text" id="text1{{ s.mid }}" value="1" style="border-style:none;width: 10px;"/><input style="border-radius: 50%;width: 17px;border:solid 0.5px;background-color: white" type="button" id="subtract{{ s.mid }}" value="-">
+                                    <div class="sub_content fl "><input type="button" id="plus{{ s.mid }}" value="+"
+                                                                        style="border-radius: 50%;width: 17px;border:solid 0.5px;background-color: white"><input
+                                            type="text" id="text1{{ s.mid }}" value="1"
+                                            style="border-style:none;width: 10px;"/><input
+                                            style="border-radius: 50%;width: 17px;border:solid 0.5px;background-color: white"
+                                            type="button" id="subtract{{ s.mid }}" value="-">
 
                                     </div>
 
 
-                                    <div class="sub_content fl"><input type="text" id="money{{ s.mid }}" value="{{s.price}}" style="border-style:none" name="{{ s.mid }}"/></div>
+                                    <div class="sub_content fl"><input type="text" id="money{{ s.mid }}"
+                                                                       value="{{ s.price }}" style="border-style:none"
+                                                                       name="{{ s.mid }}"/></div>
                                     <div class="sub_content fl"><a href="">×</a></div>
                                     <div class="clear"></div>
                                 </div>
