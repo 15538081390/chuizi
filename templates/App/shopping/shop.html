@@ -7155,7 +7155,7 @@ e2720
                 <div _ngcontent-c1="" class="container">
                     <ul _ngcontent-c1="" class="nav-list"> <!---->
                         <li _ngcontent-c1=""><a _ngcontent-c1="" class="active" title="在线商城"
-                                                href="https://www.smartisan.com/" target=""> 在线商城 </a></li>
+                                                href="{% url 'app:index' %}" target=""> 在线商城 </a></li>
                         {% for item in tab %}
                             <li _ngcontent-c1=""><a _ngcontent-c1="" class="active" title="在线商城"
                                                     href="{{ item.href }}" target=""> {{ item.tname }}</a></li>
@@ -7163,36 +7163,6 @@ e2720
                     </ul>
                 </div> <!---->
                 <ul _ngcontent-c1="" class="nav-aside">
-
-                    <li _ngcontent-c1="" class="nav-user"><a _ngcontent-c1="">个人中心</a> <!---->
-                        <div _ngcontent-c1="" class="nav-user-wrapper">
-                            <div _ngcontent-c1="" class="nav-user-list">
-                                <dl _ngcontent-c1="" class="nav-user-avatar">
-                                    <dd _ngcontent-c1=""> <!----> <!----><img _ngcontent-c1="" class="nav-avatar"
-                                                                              src="../../【锤子商城】坚果手机%20-%20坚果R1手机%20-%20坚果3手机_files/avatar.png">
-                                    </dd>
-                                    <dt _ngcontent-c1="">+86 186****6123</dt>
-                                </dl>
-                                <ul _ngcontent-c1="">
-                                    <li _ngcontent-c1="" class="order"><a _ngcontent-c1=""
-                                                                          href="https://www.smartisan.com/user/order/list">我的订单</a>
-                                    </li>
-                                    <li _ngcontent-c1="" class="support"><a _ngcontent-c1=""
-                                                                            href="https://www.smartisan.com/user/aftersale/list">售后服务</a>
-                                    </li>
-                                    <li _ngcontent-c1="" class="coupon"><a _ngcontent-c1=""
-                                                                           href="https://www.smartisan.com/user/coupon">我的优惠
-                                        <!----></a></li>
-                                    <li _ngcontent-c1="" class="information"><a _ngcontent-c1=""
-                                                                                href="https://www.smartisan.com/user/account">账户资料</a>
-                                    </li>
-                                    <li _ngcontent-c1="" class="address"><a _ngcontent-c1=""
-                                                                            href="https://www.smartisan.com/user/address/list">收货地址</a>
-                                    </li>
-                                    <li _ngcontent-c1="" class="logout"><a _ngcontent-c1="">退出</a></li>
-                                </ul>
-
-
                     {% if 'username' not in request.session%}
                             <li _ngcontent-c1="" class="nav-user"><a _ngcontent-c1="" href = "{% url 'operate:login' %}">登录</a> <!----> </li> <!---->
                         {% else %}
@@ -7229,173 +7199,21 @@ e2720
                         </li> <!---->
                         {% endif %}
                     <sm-nav-cart _ngcontent-c1="" _nghost-c4="">
-                        <li _ngcontent-c4="" class="nav-cart"><a _ngcontent-c4=""
-                                                                 href="https://www.smartisan.com/cart"> <span
-                                _ngcontent-c4="" class="cart-tip cart-num"></span> </a>
+                        <li _ngcontent-c4="" class="nav-cart">
+                            {% if 'username' not in request.session %}
+                            <a _ngcontent-c4="" href="{% url 'operate:login' %}">
+                            <span _ngcontent-c4="" class="cart-tip"></span> </a>
+                            {% else %}
+                            <a _ngcontent-c4="" href="{% url 'operate:smartisan' %}">
+                            <span _ngcontent-c4="" class="cart-tip"></span> </a>
                             <div _ngcontent-c4="" class="nav-cart-wrapper">
                                 <div _ngcontent-c4="" class="nav-cart-list">
-                                    <div _ngcontent-c4=""> <!----> <!---->
-                                        <div _ngcontent-c4="" class="full">
-                                            <div _ngcontent-c4="" class="nav-cart-items" id="iscroll_wrapper">
-                                                <ul _ngcontent-c4=""> <!---->
-                                                    <li _ngcontent-c4="" class="clearfix">
-                                                        <div _ngcontent-c4=""
-                                                             class="cart-item js-cart-item cart-item-sell"
-                                                             id="100057901">
-                                                            <div _ngcontent-c4="" class="cart-item-inner">
-                                                                <div _ngcontent-c4="" class="item-thumb"><img
-                                                                        _ngcontent-c4=""
-                                                                        src="../../【锤子商城】坚果手机%20-%20坚果R1手机%20-%20坚果3手机_files/9601ed5f20b4f0b13c8c7004708119a2.png">
-                                                                    <!----> <!----> </div>
-                                                                <div _ngcontent-c4="" class="item-desc">
-                                                                    <div _ngcontent-c4="" class="cart-cell"><h4
-                                                                            _ngcontent-c4=""> <!----><a
-                                                                            _ngcontent-c4="" target="_blank"
-                                                                            href="https://www.smartisan.com/item/100057901">Smartisan
-                                                                        T恤 薛定谔</a> <!----> </h4> <!----><p
-                                                                            _ngcontent-c4="" class="attrs">
-                                                                        <!----><span _ngcontent-c4="">男款</span><span
-                                                                            _ngcontent-c4="">藏蓝色</span><span
-                                                                            _ngcontent-c4="">S</span></p> <!---->
-                                                                        <h6 _ngcontent-c4=""><span _ngcontent-c4=""
-                                                                                                   class="price-icon">¥</span><span
-                                                                                _ngcontent-c4="" class="price-num">149.00</span>
-                                                                            <!----><span _ngcontent-c4=""
-                                                                                         class="item-num">x 1</span>
-                                                                        </h6></div>
-                                                                </div>
-                                                                <div _ngcontent-c4="" class="del-btn">删除</div>
-                                                            </div>
-                                                        </div> <!----><!----> <!---->  </li>
-                                                    <li _ngcontent-c4="" class="clearfix">
-                                                        <div _ngcontent-c4=""
-                                                             class="cart-item js-cart-item cart-item-sell"
-                                                             id="100057503">
-                                                            <div _ngcontent-c4="" class="cart-item-inner">
-                                                                <div _ngcontent-c4="" class="item-thumb"><img
-                                                                        _ngcontent-c4=""
-                                                                        src="../../【锤子商城】坚果手机%20-%20坚果R1手机%20-%20坚果3手机_files/e9cd634b62470713f6b9c5a6065f4a10.jpg">
-                                                                    <!----> <!----> </div>
-                                                                <div _ngcontent-c4="" class="item-desc">
-                                                                    <div _ngcontent-c4="" class="cart-cell"><h4
-                                                                            _ngcontent-c4=""> <!----><a
-                                                                            _ngcontent-c4="" target="_blank"
-                                                                            href="https://www.smartisan.com/item/100057503">Smartisan
-                                                                        T恤 毕加索</a> <!----> </h4> <!----><p
-                                                                            _ngcontent-c4="" class="attrs">
-                                                                        <!----><span _ngcontent-c4="">男款</span><span
-                                                                            _ngcontent-c4="">黑色</span><span
-                                                                            _ngcontent-c4="">L</span></p> <!---->
-                                                                        <h6 _ngcontent-c4=""><span _ngcontent-c4=""
-                                                                                                   class="price-icon">¥</span><span
-                                                                                _ngcontent-c4="" class="price-num">149.00</span>
-                                                                            <!----><span _ngcontent-c4=""
-                                                                                         class="item-num">x 1</span>
-                                                                        </h6></div>
-                                                                </div>
-                                                                <div _ngcontent-c4="" class="del-btn">删除</div>
-                                                            </div>
-                                                        </div> <!----><!----> <!---->  </li>
-                                                    <li _ngcontent-c4="" class="clearfix">
-                                                        <div _ngcontent-c4=""
-                                                             class="cart-item js-cart-item cart-item-sell"
-                                                             id="100047001">
-                                                            <div _ngcontent-c4="" class="cart-item-inner">
-                                                                <div _ngcontent-c4="" class="item-thumb"><img
-                                                                        _ngcontent-c4=""
-                                                                        src="../../【锤子商城】坚果手机%20-%20坚果R1手机%20-%20坚果3手机_files/a668d1a5f41b04ece82d76ded1e94d3a.jpg">
-                                                                    <!----> <!----> </div>
-                                                                <div _ngcontent-c4="" class="item-desc">
-                                                                    <div _ngcontent-c4="" class="cart-cell"><h4
-                                                                            _ngcontent-c4=""> <!----><a
-                                                                            _ngcontent-c4="" target="_blank"
-                                                                            href="https://www.smartisan.com/item/100047001">坚果
-                                                                        QuickCharge 4+ 快速充电器</a> <!----> </h4>
-                                                                        <!----><p _ngcontent-c4="" class="attrs">
-                                                                            <!----><span _ngcontent-c4="">白色</span>
-                                                                        </p> <!----> <h6 _ngcontent-c4=""><span
-                                                                                _ngcontent-c4=""
-                                                                                class="price-icon">¥</span><span
-                                                                                _ngcontent-c4=""
-                                                                                class="price-num">59.00</span>
-                                                                            <!----><span _ngcontent-c4=""
-                                                                                         class="item-num">x 1</span>
-                                                                        </h6></div>
-                                                                </div>
-                                                                <div _ngcontent-c4="" class="del-btn">删除</div>
-                                                            </div>
-                                                        </div> <!----><!----> <!---->  </li>
-                                                    <li _ngcontent-c4="" class="clearfix">
-                                                        <div _ngcontent-c4=""
-                                                             class="cart-item js-cart-item cart-item-sell"
-                                                             id="100053001">
-                                                            <div _ngcontent-c4="" class="cart-item-inner">
-                                                                <div _ngcontent-c4="" class="item-thumb"><img
-                                                                        _ngcontent-c4=""
-                                                                        src="../../【锤子商城】坚果手机%20-%20坚果R1手机%20-%20坚果3手机_files/82aab62886740f165a3631ce6cffe895.jpg">
-                                                                    <!----> <!----> </div>
-                                                                <div _ngcontent-c4="" class="item-desc">
-                                                                    <div _ngcontent-c4="" class="cart-cell"><h4
-                                                                            _ngcontent-c4=""> <!----><a
-                                                                            _ngcontent-c4="" target="_blank"
-                                                                            href="https://www.smartisan.com/item/100053001">坚果彩虹数据线</a>
-                                                                        <!----> </h4> <!----><p _ngcontent-c4=""
-                                                                                                class="attrs">
-                                                                        <!----><span _ngcontent-c4="">1 条装</span>
-                                                                    </p> <!----> <h6 _ngcontent-c4=""><span
-                                                                            _ngcontent-c4=""
-                                                                            class="price-icon">¥</span><span
-                                                                            _ngcontent-c4=""
-                                                                            class="price-num">19.00</span>
-                                                                        <!----><span _ngcontent-c4=""
-                                                                                     class="item-num">x 1</span>
-                                                                    </h6></div>
-                                                                </div>
-                                                                <div _ngcontent-c4="" class="del-btn">删除</div>
-                                                            </div>
-                                                        </div> <!----><!----> <!---->  </li>
-                                                    <li _ngcontent-c4="" class="clearfix">
-                                                        <div _ngcontent-c4=""
-                                                             class="cart-item js-cart-item cart-item-sell"
-                                                             id="100039716">
-                                                            <div _ngcontent-c4="" class="cart-item-inner">
-                                                                <div _ngcontent-c4="" class="item-thumb"><img
-                                                                        _ngcontent-c4=""
-                                                                        src="../../【锤子商城】坚果手机%20-%20坚果R1手机%20-%20坚果3手机_files/1c13034d1028f3620d487c1db7184a51.jpg">
-                                                                    <!----> <!----> </div>
-                                                                <div _ngcontent-c4="" class="item-desc">
-                                                                    <div _ngcontent-c4="" class="cart-cell"><h4
-                                                                            _ngcontent-c4=""> <!----><a
-                                                                            _ngcontent-c4="" target="_blank"
-                                                                            href="https://www.smartisan.com/item/100039716">Smartisan
-                                                                        帆布鞋</a> <!----> </h4> <!----><p
-                                                                            _ngcontent-c4="" class="attrs">
-                                                                        <!----><span _ngcontent-c4="">白色</span><span
-                                                                            _ngcontent-c4="">37</span></p> <!---->
-                                                                        <h6 _ngcontent-c4=""><span _ngcontent-c4=""
-                                                                                                   class="price-icon">¥</span><span
-                                                                                _ngcontent-c4="" class="price-num">199.00</span>
-                                                                            <!----><span _ngcontent-c4=""
-                                                                                         class="item-num">x 1</span>
-                                                                        </h6></div>
-                                                                </div>
-                                                                <div _ngcontent-c4="" class="del-btn">删除</div>
-                                                            </div>
-                                                        </div> <!----><!----> <!---->  </li>
-                                                </ul>
-                                            </div>
-                                            <div _ngcontent-c4="" class="nav-cart-total"><p _ngcontent-c4="">共
-                                                <strong _ngcontent-c4="">5</strong> 件商品</p> <h5 _ngcontent-c4="">
-                                                合计：<span
-                                                    _ngcontent-c4="" class="price-icon">¥</span><span
-                                                    _ngcontent-c4="" class="price-num">575.00</span></h5> <h6
-                                                    _ngcontent-c4=""><a _ngcontent-c4="" class="nav-cart-btn"
-                                                                        href="https://www.smartisan.com/cart">去购物车</a>
-                                            </h6></div>
-                                        </div>
-                                    </div>
+                                    <div _ngcontent-c4=""> <!---->
+                                        <div _ngcontent-c4="" class="empty"><h3 _ngcontent-c4="">购物车为空</h3>
+                                            <p _ngcontent-c4="">您还没有选购任何商品，现在前往商城选购吧！</p></div> <!----> </div>
                                 </div>
                             </div>
+                            {% endif %}
                             <div _ngcontent-c4="" class="addcart-mask">
                                 <div _ngcontent-c4="" class="mask-y">
                                     <div _ngcontent-c4="" class="mask-x">
