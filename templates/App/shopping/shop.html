@@ -7263,6 +7263,7 @@ e2720
                                     </ul>
                                 </div>
                 {% endifequal  %}
+
                             </div>
                             <div _ngcontent-c7="" class="nav-aside"> <!----> <!---->
                                 <ul _ngcontent-c7="" class="nav-service"> <!---->
@@ -7594,7 +7595,7 @@ e2720
                 url: "{% url 'app:change' %}",
                 cache: false,
                 success: function (result, statues, xml) {
-                    $('#whole').html(result)
+                    $('.product-content').html(result)
                 },
                 error: function () {
                     alert("false");
