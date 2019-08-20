@@ -47,9 +47,8 @@ def second(request,cid):
     tab = IndexTab.objects.all()
     copy=Indexcopy.objects.all()
     indepro=Indexproduct.objects.all()
+    pros=Merchandise.objects.values('pcid').annotate(Min('mid'))
 
-    pros=Merchandise.objects.values('pcid').annotate(Min("mid"))
-    print (pros)
     list1=[]
     for p in pros:
         list1.append(p['mid__min'])
@@ -112,28 +111,23 @@ def show(request,num):
     tab=IndexTab.objects.all()
     home = Indexhome.objects.all()
     dise = Merchandise.objects.get(mid=num)                     #从规格表查询产品表
-<<<<<<< HEAD
+
     bankuai = Productcategorie.objects.get(pcid=dise.show)            #需要修改查询条件，
     bankuai01 = Productcategorie.objects.filter(hid=dise.show)#查询相关商品
 
-=======
-    bankuai = Productcategorie.objects.get(pcid=num)            #需要修改查询条件，
-    bankuai01 = Productcategorie.objects.filter(hid=bankuai.hid)#查询相关商品
->>>>>>> cff851e8dc3c9c26d0e7d4999f1286331d05fb87
+
     #规格查询
     color = Merchandise.objects.values('pcid',"color","Choosepicture").filter(pcid=dise.pcid).annotate(Count("pcid"))             #颜色
     size = Merchandise.objects.values("size").filter(pcid=dise.pcid).annotate(Count("pcid"))                   # 尺码
-    style = Merchandise.objects.values("size").filter(pcid=dise.pcid).annotate(Count("pcid"))                   # 款式
+    kuanshi = Merchandise.objects.values("kuanshi").filter(pcid=dise.pcid).annotate(Count("pcid"))                   # 款式
+
     capacity = Merchandise.objects.values("capacity").filter(pcid=dise.pcid).annotate(Count("pcid"))            #容量
     specification = Merchandise.objects.values("specification").filter(pcid=dise.pcid).annotate(Count("pcid"))  #规格
-    print(color, size, style, capacity, specification)
     #查询商品
     # pc = Productcategorie.objects.get(pcid=dise.mid)
     num1=num  #商品id
     #折扣价格
-    pcmoney = dise.money * 0.7
-
-<<<<<<< HEAD
+    pcmoney = round(dise.money * 0.7,2)#保留两位小数
 
     return render(request,"App/shopping/shop.html",locals())
 
@@ -148,6 +142,3 @@ def joinshopcar(request):
         return HttpResponse('成功加入')
     else:
         return HttpResponse('请先登录')
-=======
-    return render(request,"App/shopping/shop.html",locals())
->>>>>>> cff851e8dc3c9c26d0e7d4999f1286331d05fb87
