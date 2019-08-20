@@ -9,7 +9,7 @@ class User(models.Model):
     password = models.CharField(max_length=128)                      #密码
     phone = models.CharField(unique=True, max_length=50)                         #电话号码
     email = models.CharField(max_length=100, blank=True, null=True)  #邮箱
-    portrait = models.CharField(max_length=256,null=True)                      #头像
+    portrait = models.CharField(max_length=255,null=True)                      #头像
     safeqnum = models.IntegerField(blank=True, null=True)             # 安全问题的序号
     answer = models.CharField(max_length=100, blank=True, null=True)  # 安全问题的答案
     class Meta:

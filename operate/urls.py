@@ -17,6 +17,6 @@ urlpatterns =[
     url(r"^user/usersetting$", views.usersetting, name = 'usersetting'),
     url(r"user/getaddr$", views.getaddr, name='getaddr'),
     url(r"user/logout", views.logout, name = 'logout'),
-
+    url(r"user/changeimg", views.changeimg, name = 'changeimg'),
 ]
 

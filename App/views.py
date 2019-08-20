@@ -16,6 +16,7 @@ def index(request):
     products = Merchandise.objects.all()
     home=Indexhome.objects.all()
     tab=IndexTab.objects.all()
+    user = User.objects.get(username=request.session['username'])
     a=[]
     c=[]
     for h in home:
@@ -35,7 +36,7 @@ def index(request):
     return render(request,"App/bash/bash.html",context={"home":home,
                                                         "tab":tab,
                                                         "products":c,
-                                                        })
+                                                        'user':user},)
 
 
     # return HttpResponse("111111")
@@ -47,6 +48,7 @@ def second(request,cid):
     tab = IndexTab.objects.all()
     copy=Indexcopy.objects.all()
     indepro=Indexproduct.objects.all()
+    user = User.objects.get(username=request.session['username'])
     pros=Merchandise.objects.values('pcid').annotate(Min('mid'))
 
     list1=[]
@@ -59,7 +61,8 @@ def second(request,cid):
                                                         "products":produ,
                                                           "to_id":int(cid),
                                                           "copy":copy,
-                                                          "indepro":indepro,})
+                                                          "indepro":indepro,
+                                                          'user':user,})
 
 #服务条款
 def server(request):
@@ -110,6 +113,7 @@ def tnt(request):
 def show(request,num):
     tab=IndexTab.objects.all()
     home = Indexhome.objects.all()
+    user = User.objects.get(username=request.session['username'])
     dise = Merchandise.objects.get(mid=num)                     #从规格表查询产品表
     bankuai = Productcategorie.objects.get(pcid=dise.show)            #需要修改查询条件，
     bankuai01 = Productcategorie.objects.filter(hid=dise.show)#查询相关商品
