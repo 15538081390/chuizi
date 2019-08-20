@@ -156,10 +156,10 @@ def change(request):
 
 def joinshopcar(request):
     if request.session.get('username'):
-        pid=int(request.POST['pid'])
+        mid=int(request.POST['pid'])
         product=Merchandise.objects.filter(mid=mid)
         user=User.objects.filter(username=request.session.get('username'))
-        car1=Shopping(uid=user.uid,mid=pid,picture=product.pricture,name=product.mername,price=product.money)
+        car1=Shopping(uid=user.uid,mid=mid,picture=product.pricture,name=product.mername,price=product.money)
         car1.save()
         return HttpResponse('成功加入')
     else:

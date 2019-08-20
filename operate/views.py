@@ -7,7 +7,7 @@ from django.urls import reverse
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from App.models import IndexTab, Indexhome
+from App.models import *
 from App.models import Productcategorie
 from operate.code import send_sms
 from operate.form import UserForm
@@ -39,16 +39,8 @@ class Summoney:
 # 购物车
 def smartisan(request): # san = 商品id
     tab = IndexTab.objects.all()                    #板块
-    shopcar=Shopping.objects.all()
-    # buy=request.POST.getlist('shure')
-    # print (buy)
-    # whichone=Merchandise.objects.filter(mid__in=buy)
-    # print (whichone)
-    # money=0.0
-    # for i in whichone:
-    #     m1=request.POST.get(str(i.mid))
-    #     money+=float(m1)
-    # print (money)
+    user=User.objects.filter(username=request.session.get('username'))
+    shopcar = Shopping.objects.filter(uid=user[0].uid)
     return render(request,"operate/smartisan.html",locals())
 
 
