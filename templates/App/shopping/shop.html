@@ -7146,12 +7146,19 @@ e2720
 <div _ngcontent-c0="" class="wrapper">
     <sm-header _ngcontent-c0="" _nghost-c1="">
         <div _ngcontent-c1="" class="header theme-black-default cn">
+<<<<<<< HEAD
 
             <div _ngcontent-c1="" class="nav-global">
                 <h1 _ngcontent-c1="" class="nav-logo"><a _ngcontent-c1="" href="https://www.smartisan.com/"
                                                          title="锤子商城">Smartisan</a>
                 </h1>
 
+=======
+            <div _ngcontent-c1="" class="nav-global"><h1 _ngcontent-c1="" class="nav-logo"><a _ngcontent-c1=""
+                                                                                              href="{% url 'app:index' %}"
+                                                                                              title="锤子商城">Smartisan</a>
+            </h1>
+>>>>>>> a6bf5c97f513ec0e0177b776033f72b134ca3c74
                 <div _ngcontent-c1="" class="container">
                     <ul _ngcontent-c1="" class="nav-list"> <!---->
                         <li _ngcontent-c1=""><a _ngcontent-c1="" class="active" title="在线商城"
@@ -7163,6 +7170,7 @@ e2720
                     </ul>
                 </div> <!---->
                 <ul _ngcontent-c1="" class="nav-aside">
+<<<<<<< HEAD
                     <li _ngcontent-c1="" class="nav-user"><a _ngcontent-c1="">个人中心</a> <!---->
                         <div _ngcontent-c1="" class="nav-user-wrapper">
                             <div _ngcontent-c1="" class="nav-user-list">
@@ -7192,9 +7200,42 @@ e2720
                                 </ul>
 
 
+=======
+                    {% if 'username' not in request.session%}
+                            <li _ngcontent-c1="" class="nav-user"><a _ngcontent-c1="" href = "{% url 'operate:login' %}">登录</a> <!----> </li> <!---->
+                        {% else %}
+                        <li _ngcontent-c1="" class="nav-user"><a _ngcontent-c1="">个人中心</a> <!---->
+                            <div _ngcontent-c1="" class="nav-user-wrapper">
+                                <div _ngcontent-c1="" class="nav-user-list">
+                                    <dl _ngcontent-c1="" class="nav-user-avatar">
+                                        <dd _ngcontent-c1=""> <!----> <!----><img _ngcontent-c1="" class="nav-avatar"
+                                                                                  src="./账户详情 - Smartisan_files/avatar.png">
+                                        </dd>
+                                        <dt _ngcontent-c1="">{{ request.session.username }}</dt>
+                                    </dl>
+                                    <ul _ngcontent-c1="">
+                                        <li _ngcontent-c1="" class="order"><a _ngcontent-c1=""
+                                                                              href="{% url 'operate:orderlist' %}">我的订单</a>
+                                        </li>
+                                        <li _ngcontent-c1="" class="support"><a _ngcontent-c1=""
+                                                                                href="{% url 'operate:aftersale' %}">售后服务</a>
+                                        </li>
+                                        <li _ngcontent-c1="" class="coupon"><a _ngcontent-c1=""
+                                                                               href="{% url 'operate:coupon' %}">我的优惠
+                                            <!----></a></li>
+                                        <li _ngcontent-c1="" class="information"><a _ngcontent-c1=""
+                                                                                    href="{% url 'operate:usersetting' %}">账户资料</a>
+                                        </li>
+                                        <li _ngcontent-c1="" class="address"><a _ngcontent-c1=""
+                                                                                href="{% url 'operate:getaddr' %}">收货地址</a>
+                                        </li>
+                                        <li _ngcontent-c1="" class="logout"><a _ngcontent-c1="" href = '{% url 'operate:logout' %}'>退出</a></li>
+                                    </ul>
+                                </div>
+>>>>>>> a6bf5c97f513ec0e0177b776033f72b134ca3c74
                             </div>
-                        </div>
-                    </li> <!---->
+                        </li> <!---->
+                        {% endif %}
                     <sm-nav-cart _ngcontent-c1="" _nghost-c4="">
                         <li _ngcontent-c4="" class="nav-cart"><a _ngcontent-c4=""
                                                                  href="https://www.smartisan.com/cart"> <span
@@ -7434,10 +7475,15 @@ e2720
                                                 <del>{{ dise.money }}</del>
                                             </span>
                                         </span>&nbsp;&nbsp;&nbsp;&nbsp;
+<<<<<<< HEAD
 
                                     <span style="font-size: 20px; color: chartreuse; ">活动价：<i>¥</i>
                                             <big>{{ pcmoney }}</big>
 
+=======
+                                    <span style="font-size: 20px; color: chartreuse; ">活动价：<i>¥</i>
+                                            <big>{{ pcmoney }}</big>
+>>>>>>> a6bf5c97f513ec0e0177b776033f72b134ca3c74
                                         </span>
                                 </div>
                                 <!----> <!---->
@@ -7495,6 +7541,23 @@ e2720
                                                                                      class="spec-name">颜色选择</span>
                                         <ul _ngcontent-c5="" class="spec-info"> <!---->
                                             {% for item in color %}
+<<<<<<< HEAD
+=======
+{% ifequal dise.color item.color %}
+
+                                                    {#                                                    <div _ngcontent-c5=""><span _ngcontent-c5="" class="color-box">#}
+                                                    {#                                                        <i _ngcontent-c5="" class="color-item">#}
+                                                    {#                                                            <a href="{% url "app:show" dise.pcid %}"><img _ngcontent-c5="" alt="" src="{{ item.Choosepicture }}"></a> </i> </span>#}
+                                                    {#                                                        <label _ngcontent-c5="">{{ item.color }}</label>#}
+                                                    {##}
+                                                    {##}
+                                                    {#                                                    </div> <!----> <!---->#}
+                                                    <li _ngcontent-c5="" class="active"> <!---->
+
+                                                    <label _ngcontent-c5=""><input name="Color" type="radio"
+                                                                                   value="{{ item.color }}"/>{{ item.color }}
+                                                    </label>
+>>>>>>> a6bf5c97f513ec0e0177b776033f72b134ca3c74
 
                                                 {% ifequal dise.color item.color %}
 
@@ -7528,6 +7591,7 @@ e2720
                                         <ul _ngcontent-c5="" class="spec-info"> <!---->
                                             {% for item in color %}
 
+<<<<<<< HEAD
                                                         <li _ngcontent-c5="" class="active"> <!---->
 
                                                     <label _ngcontent-c5=""><input name="Color" type="radio"
@@ -7547,6 +7611,8 @@ e2720
 
 
 
+=======
+>>>>>>> a6bf5c97f513ec0e0177b776033f72b134ca3c74
                                 {% if dise.specification %}
                                     <section _ngcontent-c6="" class="item-spec-wrapper clearfix item-spec-package">
                                         <div _ngcontent-c6="" class="item-spec"><span _ngcontent-c6=""
@@ -7604,7 +7670,10 @@ e2720
                                                                                          class="spec-name">容量选择</span>
                                             <ul _ngcontent-c5="" class="spec-info"> <!---->
                                                 {% for item in capacity %}
+<<<<<<< HEAD
 
+=======
+>>>>>>> a6bf5c97f513ec0e0177b776033f72b134ca3c74
                                                     {% ifequal dise.capacity item.capacity %}
                                                     <li _ngcontent-c5="" class="active"> <!----> <!----> <!---->
                                                         <div _ngcontent-c5="" class="specs-item item-inline">
@@ -7614,7 +7683,10 @@ e2720
                                                         </div>
                                                         <!----> </li>
                                                     {% else %}
+<<<<<<< HEAD
 
+=======
+>>>>>>> a6bf5c97f513ec0e0177b776033f72b134ca3c74
                                                     <li _ngcontent-c5="" class="active"> <!----> <!----> <!---->
                                                         <div _ngcontent-c5="" class="specs-item item-inline">
                                                             <label _ngcontent-c5=""><input name="Rong" type="radio"
@@ -7622,6 +7694,7 @@ e2720
                                                             </label><br>
                                                         </div>
                                                         <!----> </li>
+<<<<<<< HEAD
 
                                                     {% endifequal %}
 
@@ -7697,14 +7770,20 @@ e2720
                                                             </label><br>
                                                         </div>
                                                         <!----> </li>
+=======
+                                                    {% endifequal %}
+>>>>>>> a6bf5c97f513ec0e0177b776033f72b134ca3c74
                                                 {% endfor %}
                                             </ul> <!---->
                                         </div>
                                     </div> <!---->
                                 {% endif %}
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> a6bf5c97f513ec0e0177b776033f72b134ca3c74
                                     <section _ngcontent-c6="" class="item-do-count-wrapper clearfix">
                                         <div _ngcontent-c6="" class="item-do-count">
                                             <table>
@@ -7720,8 +7799,11 @@ e2720
                                             </table>
                                         </div>
                                     </section>
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> a6bf5c97f513ec0e0177b776033f72b134ca3c74
                                 {% if dise.service %}
                                     <section _ngcontent-c6="" class="sku-custom-tips-wrapper clearfix">
                                         <div _ngcontent-c6="" class="sku-custom-tips">
@@ -7739,7 +7821,10 @@ e2720
                             </figure>
                         </div>
                     </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> a6bf5c97f513ec0e0177b776033f72b134ca3c74
                 </div>
                 <!----> <!----> <!---->
 {#                <div _ngcontent-c5="" class="product-specs-wrapper">#}
@@ -8444,9 +8529,715 @@ e2720
 {#                            </div>#}
 {#                        </r1-specs-pc>  <!----> <!----> <!----> <!----> <!----> </div>#}
 {#                </div> <!----> <!---->#}
+<<<<<<< HEAD
 
                 </div> <!----> <!----> <!---->
 
+=======
+                </div> <!----> <!----> <!---->
+                <div _ngcontent-c5="" class="product-specs-wrapper">
+                    <div _ngcontent-c5="" class="product-specs"><h1 _ngcontent-c5="" class="header-bar"><span
+                            _ngcontent-c5="" class="title">技术规格</span></h1> <!----> <!---->
+                        <r1-specs-pc _ngcontent-c5="" _nghost-c10="">
+                            <div _ngcontent-c10="" class="spec-container">
+                                <r1-specs-common _ngcontent-c10="" _nghost-c19="">
+                                    <div _ngcontent-c19="" class="specs-parameters webp os-windows">
+                                        <div _ngcontent-c19="" class="container">
+                                            <ul _ngcontent-c19="">
+                                                <li _ngcontent-c19="" class="storage"><h4 _ngcontent-c19="">
+                                                    容量和内存</h4>
+                                                    <div _ngcontent-c19="" class="detail">
+                                                        <div _ngcontent-c19="" class="text-group">
+                                                            <div _ngcontent-c19="" class="text"><p _ngcontent-c19=""
+                                                                                                   class="title">
+                                                                &nbsp;</p>
+                                                                <p _ngcontent-c19="">LPDDR4X 双通道</p>
+                                                                <p _ngcontent-c19="">UFS 2.1</p></div>
+                                                            <div _ngcontent-c19="" class="text"><p _ngcontent-c19=""
+                                                                                                   class="title">6 +
+                                                                64 版</p>
+                                                                <p _ngcontent-c19="">6GB 内存</p>
+                                                                <p _ngcontent-c19="">64GB 机身存储</p></div>
+                                                            <div _ngcontent-c19="" class="text"><p _ngcontent-c19=""
+                                                                                                   class="title">6 +
+                                                                128 版</p>
+                                                                <p _ngcontent-c19="">6GB 内存</p>
+                                                                <p _ngcontent-c19="">128GB 机身存储</p></div>
+                                                            <div _ngcontent-c19="" class="text"><p _ngcontent-c19=""
+                                                                                                   class="title">8 +
+                                                                128 版</p>
+                                                                <p _ngcontent-c19="">8GB 内存</p>
+                                                                <p _ngcontent-c19="">128GB 机身存储</p></div>
+                                                            <div _ngcontent-c19="" class="text"><p _ngcontent-c19=""
+                                                                                                   class="title">8 +
+                                                                512 版</p>
+                                                                <p _ngcontent-c19="">8GB 内存</p>
+                                                                <p _ngcontent-c19="">512GB 机身存储</p></div>
+                                                            <div _ngcontent-c19="" class="text"><p _ngcontent-c19=""
+                                                                                                   class="title">8 +
+                                                                1T 版</p>
+                                                                <p _ngcontent-c19="">8GB 内存</p>
+                                                                <p _ngcontent-c19="">1TB 机身存储</p></div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li _ngcontent-c19="" class="color"><h4 _ngcontent-c19="">外观</h4>
+                                                    <div _ngcontent-c19="" class="detail"> <!---->
+                                                        <table _ngcontent-c19="">
+                                                            <tbody _ngcontent-c19=""> <!---->
+                                                            <tr _ngcontent-c19="">
+                                                                <th _ngcontent-c19=""></th>
+                                                                <th _ngcontent-c19="">6 + 64 版</th>
+                                                                <th _ngcontent-c19="">6 + 128 版</th>
+                                                                <th _ngcontent-c19="">8 + 128 版</th>
+                                                                <th _ngcontent-c19="">8 + 512 版</th>
+                                                                <th _ngcontent-c19="">8 + 1T 版</th>
+                                                            </tr> <!---->
+                                                            <tr _ngcontent-c19="">
+                                                                <td _ngcontent-c19="" class="title">碳黑色 <br
+                                                                        _ngcontent-c19="">（细红线版）
+                                                                </td>
+                                                                <td _ngcontent-c19=""><span
+                                                                        _ngcontent-c19=""></span></td>
+                                                                <td _ngcontent-c19=""><span
+                                                                        _ngcontent-c19=""></span></td>
+                                                                <td _ngcontent-c19=""><span
+                                                                        _ngcontent-c19=""></span></td>
+                                                                <td _ngcontent-c19=""><span
+                                                                        _ngcontent-c19=""></span></td>
+                                                                <td _ngcontent-c19=""><span
+                                                                        _ngcontent-c19=""></span></td>
+                                                            </tr>
+                                                            <tr _ngcontent-c19="">
+                                                                <td _ngcontent-c19="" class="title">纯白色</td>
+                                                                <td _ngcontent-c19=""></td>
+                                                                <td _ngcontent-c19=""><span
+                                                                        _ngcontent-c19=""></span></td>
+                                                                <td _ngcontent-c19=""><span
+                                                                        _ngcontent-c19=""></span></td>
+                                                                <td _ngcontent-c19=""><span
+                                                                        _ngcontent-c19=""></span></td>
+                                                                <td _ngcontent-c19=""></td>
+                                                            </tr>
+                                                            <tr _ngcontent-c19="">
+                                                                <td _ngcontent-c19="" class="title">孔雀蓝</td>
+                                                                <td _ngcontent-c19=""></td>
+                                                                <td _ngcontent-c19=""><span
+                                                                        _ngcontent-c19=""></span></td>
+                                                                <td _ngcontent-c19=""><span
+                                                                        _ngcontent-c19=""></span></td>
+                                                                <td _ngcontent-c19=""></td>
+                                                                <td _ngcontent-c19=""></td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table> <!----> </div>
+                                                </li>
+                                                <li _ngcontent-c19="" class="size"><h4 _ngcontent-c19="">
+                                                    机身尺寸和重量</h4>
+                                                    <div _ngcontent-c19="" class="detail">
+                                                        <div _ngcontent-c19="" class="text-group">
+                                                            <div _ngcontent-c19="" class="text"><p
+                                                                    _ngcontent-c19="">高度 = 153.3mm</p>
+                                                                <p _ngcontent-c19="">宽度 = 74.5mm</p>
+                                                                <p _ngcontent-c19="">厚度 = 7.9mm</p>
+                                                                <p _ngcontent-c19="">重量 = 170g</p></div>
+                                                        </div>
+                                                        <div _ngcontent-c19="" class="size-measure"></div>
+                                                        <p _ngcontent-c19="" class="remark"></p></div>
+                                                </li>
+                                                <li _ngcontent-c19="" class="cpu"><h4 _ngcontent-c19="">处理器平台</h4>
+                                                    <div _ngcontent-c19="" class="detail">
+                                                        <div _ngcontent-c19="" class="text-group">
+                                                            <div _ngcontent-c19="" class="text"><p
+                                                                    _ngcontent-c19="">Qualcomm® 骁龙™ 845 处理器</p>
+                                                                <p _ngcontent-c19="">10nm 先进制程</p>
+                                                                <p _ngcontent-c19="">单核主频可达 2.8GHz</p>
+                                                                <p _ngcontent-c19="">Adreno™ 630 图形处理器，主频可达
+                                                                    700MHz</p>
+                                                                <p _ngcontent-c19="">配备人工智能引擎（AI Engine）</p></div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li _ngcontent-c19="" class="network"><h4 _ngcontent-c19="">
+                                                    蜂窝网络</h4>
+                                                    <div _ngcontent-c19="" class="detail"><p _ngcontent-c19="">
+                                                        双卡双待全网通</p>
+                                                        <p _ngcontent-c19="">全网通支持中国移动、中国联通和中国电信</p>
+                                                        <p _ngcontent-c19="">支持 VoLTE 高质量宽带通话</p>
+                                                        <p _ngcontent-c19="">支持三载波聚合</p>
+                                                        <p _ngcontent-c19="">支持 LTE B41 4x4 MIMO</p> <!---->
+                                                        <table _ngcontent-c19="">
+                                                            <tbody _ngcontent-c19=""> <!---->
+                                                            <tr _ngcontent-c19="">
+                                                                <th _ngcontent-c19="" class="eq-0"></th>
+                                                                <th _ngcontent-c19="" class="eq-1">网络制式</th>
+                                                                <th _ngcontent-c19="">支持频段</th>
+                                                            </tr> <!---->
+                                                            <tr _ngcontent-c19="">
+                                                                <td _ngcontent-c19="" class="title" rowspan="2">4G
+                                                                </td>
+                                                                <td _ngcontent-c19="">FDD-LTE</td>
+                                                                <td _ngcontent-c19="">B1 / B2 / B3 / B4 / B5 / B7 /
+                                                                    B8 / B12 / B17 / B18 / B19 / B20 / B25 / B26 /
+                                                                    B28
+                                                                </td>
+                                                            </tr>
+                                                            <tr _ngcontent-c19="">
+                                                                <td _ngcontent-c19="">TD-LTE</td>
+                                                                <td _ngcontent-c19="">B34 / B38 / B39 / B40 / B41
+                                                                    <span _ngcontent-c19=""
+                                                                          style="font-size:13px;color:#7e7e7e"> （注：B41 支持 2535MHz-2655MHz 频段） </span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr _ngcontent-c19="">
+                                                                <td _ngcontent-c19="" class="title" rowspan="3">3G
+                                                                </td>
+                                                                <td _ngcontent-c19="">WCDMA</td>
+                                                                <td _ngcontent-c19="">B1 / B2 / B3 / B4 / B5 / B6 /
+                                                                    B8 / B9 / B19
+                                                                </td>
+                                                            </tr>
+                                                            <tr _ngcontent-c19="">
+                                                                <td _ngcontent-c19="">TD-SCDMA</td>
+                                                                <td _ngcontent-c19="">B34 / B39</td>
+                                                            </tr>
+                                                            <tr _ngcontent-c19="">
+                                                                <td _ngcontent-c19="">CDMA</td>
+                                                                <td _ngcontent-c19="">BC0 / BC1 / BC6</td>
+                                                            </tr>
+                                                            <tr _ngcontent-c19="">
+                                                                <td _ngcontent-c19="" class="title" rowspan="2">2G
+                                                                </td>
+                                                                <td _ngcontent-c19="">GSM</td>
+                                                                <td _ngcontent-c19="">B2 / B3 / B5 / B8</td>
+                                                            </tr>
+                                                            <tr _ngcontent-c19="">
+                                                                <td _ngcontent-c19="">CDMA 1X</td>
+                                                                <td _ngcontent-c19="">BC0 / BC1 / BC6</td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table> <!----> </div>
+                                                </li>
+                                                <li _ngcontent-c19="" class="sim"><h4 _ngcontent-c19="">
+                                                    双卡支持与全网通</h4>
+                                                    <div _ngcontent-c19="" class="detail">
+                                                        <div _ngcontent-c19="" class="text-group">
+                                                            <div _ngcontent-c19="" class="text2"
+                                                                 style="width:300px"><p _ngcontent-c19=""
+                                                                                        class="title"></p>
+                                                                <p _ngcontent-c19="">双 Nano-SIM 卡槽，任意卡槽均可设置为主卡</p>
+                                                                <p _ngcontent-c19="">双卡不限运营商，均可 4G 在网</p>
+                                                                <p _ngcontent-c19="">支持移动、联通、电信 4G+/4G/3G/2G</p>
+                                                                <p _ngcontent-c19="">支持双卡双待 VoLTE，支持中国移动、中国电信 VoLTE
+                                                                    高清语音业务</p>
+                                                                <p _ngcontent-c19="">支持中国电信双卡 VoLTE 待机</p>
+                                                                <p _ngcontent-c19=""
+                                                                   style="width:310px;font-size:12px;color:#bdbdbd;line-height:20px">
+                                                                    注：需主副卡同时开通 VoLTE 业务，如副卡未开通 VoLTE
+                                                                    会出现无服务情况，主卡不受影响</p></div>
+                                                        </div>
+                                                        <div _ngcontent-c19="" id="sim"></div>
+                                                        <p _ngcontent-c19="" class="remark-title">SIM 卡安装说明：</p>
+                                                        <p _ngcontent-c19="" class="remark">坚果 R1 移动电话使用 Nano-SIM
+                                                            卡</p>
+                                                        <p _ngcontent-c19="" class="remark">插入卡针可弹出卡槽</p>
+                                                        <p _ngcontent-c19="" class="remark">可放入两张 Nano-SIM 卡</p>
+                                                        <p _ngcontent-c19="" class="remark">使用剪卡器得到的 Nano-SIM
+                                                            卡可能导致通信信号不良，由此造成的问题不在锤子商城的保修范围之内</p></div>
+                                                </li>
+                                                <li _ngcontent-c19="" class="wireless"><h4 _ngcontent-c19="">
+                                                    无线与网络</h4>
+                                                    <div _ngcontent-c19="" class="detail">
+                                                        <div _ngcontent-c19="" class="text-group">
+                                                            <div _ngcontent-c19="" class="text2"><p
+                                                                    _ngcontent-c19="">802.11 a/b/g/n/ac 无线网络，支持 2.4
+                                                                + 5GHz 频段</p>
+                                                                <p _ngcontent-c19="">支持 WLAN 2x2 MIMO</p>
+                                                                <p _ngcontent-c19="">支持 WiFi Direct 与 WiFi
+                                                                    Display</p>
+                                                                <p _ngcontent-c19="">蓝牙 5.0</p>
+                                                                <p _ngcontent-c19="">GPS / 辅助 GPS、GLONASS、北斗定位系统</p>
+                                                                <p _ngcontent-c19="">支持无线网络定位和蜂窝网络定位</p>
+                                                                <p _ngcontent-c19="">NFC+eSE，支持读卡、写卡、卡模拟和 P2P 模式</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li _ngcontent-c19="" class="battery"><h4 _ngcontent-c19="">
+                                                    电池与快充</h4>
+                                                    <div _ngcontent-c19="" class="detail"><p _ngcontent-c19="">典型值
+                                                        3600mAh</p>
+                                                        <p _ngcontent-c19="">支持 QuickCharge 4+ 18W 快速充电</p>
+                                                        <p _ngcontent-c19="">支持 PD3.0 充电协议</p>
+                                                        <p _ngcontent-c19="">支持快速无线充电，峰值输出功率可达 10W</p></div>
+                                                </li>
+                                                <li _ngcontent-c19="" class="screen"><h4 _ngcontent-c19="">屏幕</h4>
+                                                    <div _ngcontent-c19="" class="detail"><p _ngcontent-c19="">6.17
+                                                        英寸 In-Cell 全高清显示屏</p>
+                                                        <p _ngcontent-c19="">2242 x 1080 分辨率，403 ppi</p>
+                                                        <p _ngcontent-c19="">康宁®第三代大猩猩®玻璃</p>
+                                                        <p _ngcontent-c19="">1500:1 对比度（典型值）</p>
+                                                        <p _ngcontent-c19="">96% NTSC 色域（典型值）</p>
+                                                        <p _ngcontent-c19="">全覆盖 Display P3 广色域</p>
+                                                        <p _ngcontent-c19="">支持阳光屏，强光下观看更清晰</p>
+                                                        <p _ngcontent-c19="">支持护眼模式，减少屏幕蓝光</p>
+                                                        <p _ngcontent-c19="">支持调节屏幕色温</p>
+                                                        <p _ngcontent-c19="">支持压力感应触控</p></div>
+                                                </li>
+                                                <li _ngcontent-c19="" class="smartouch"><h4 _ngcontent-c19="">
+                                                    解锁与指纹</h4>
+                                                    <div _ngcontent-c19="" class="detail">
+                                                        <div _ngcontent-c19="" class="text-group">
+                                                            <div _ngcontent-c19="" class="text2"><p
+                                                                    _ngcontent-c19="" class="title">指纹解锁</p>
+                                                                <p _ngcontent-c19="">后置电容式指纹识别器</p>
+                                                                <p _ngcontent-c19="">响应速度达 0.17s</p>
+                                                                <p _ngcontent-c19="">最多可录入 10 枚指纹</p>
+                                                                <p _ngcontent-c19="">支持微信和支付宝指纹支付</p></div>
+                                                            <div _ngcontent-c19="" class="text2"><p
+                                                                    _ngcontent-c19="" class="title">人脸解锁</p>
+                                                                <p _ngcontent-c19="">前摄像头人脸识别</p>
+                                                                <p _ngcontent-c19="">可检测 1024 个特征维度</p>
+                                                                <p _ngcontent-c19="">Face++ 旷视人脸识别算法</p></div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li _ngcontent-c19="" class="rearcamera"><h4 _ngcontent-c19="">
+                                                    后置相机</h4>
+                                                    <div _ngcontent-c19="" class="detail">
+                                                        <div _ngcontent-c19="" class="text-group"><p
+                                                                _ngcontent-c19="">1200 万像素 + 2000 万像素双摄像头</p>
+                                                            <p _ngcontent-c19="">双高显指闪光灯</p>
+                                                            <p _ngcontent-c19="">ArcSoft 实时背景虚化算法</p>
+                                                            <p _ngcontent-c19="">Almalence 超级解析算法</p>
+                                                            <p _ngcontent-c19="">TDK Invensense 视频防抖算法</p>
+                                                            <p _ngcontent-c19="">HDR 高动态范围调节技术</p></div>
+                                                        <div _ngcontent-c19="" class="text-group">
+                                                            <div _ngcontent-c19="" class="text2"><p
+                                                                    _ngcontent-c19="" class="title">主摄像头</p>
+                                                                <p _ngcontent-c19="">索尼 IMX363 传感器</p>
+                                                                <p _ngcontent-c19="">1200 万像素</p>
+                                                                <p _ngcontent-c19="">1.4 μm 大像素尺寸</p>
+                                                                <p _ngcontent-c19="">ƒ/1.8 大光圈</p>
+                                                                <p _ngcontent-c19="">6 片式镜头</p>
+                                                                <p _ngcontent-c19="">支持 4 轴光学防抖</p>
+                                                                <p _ngcontent-c19="">支持 Dual PD 极速对焦</p></div>
+                                                            <div _ngcontent-c19="" class="text2"><p
+                                                                    _ngcontent-c19="" class="title">副摄像头</p>
+                                                                <p _ngcontent-c19="">索尼 IMX350 传感器</p>
+                                                                <p _ngcontent-c19="">2000 万像素</p>
+                                                                <p _ngcontent-c19="">1 μm 像素尺寸</p>
+                                                                <p _ngcontent-c19="">ƒ/1.75 大光圈</p>
+                                                                <p _ngcontent-c19="">6 片式镜头</p></div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li _ngcontent-c19="" class="frontcamera"><h4 _ngcontent-c19="">
+                                                    前置相机</h4>
+                                                    <div _ngcontent-c19="" class="detail"><p _ngcontent-c19="">2400
+                                                        万像素四合一前置摄像头</p>
+                                                        <p _ngcontent-c19="">ƒ/2.0 光圈</p>
+                                                        <p _ngcontent-c19="">ArcSoft 背景虚化算法</p>
+                                                        <p _ngcontent-c19="">ArcSoft&nbsp;实时美颜算法</p></div>
+                                                </li>
+                                                <li _ngcontent-c19="" class="videocapture"><h4 _ngcontent-c19="">
+                                                    视频拍摄</h4>
+                                                    <div _ngcontent-c19="" class="detail"><p _ngcontent-c19="">
+                                                        前置相机：1080p FHD 视频摄像，每秒 30 帧</p>
+                                                        <p _ngcontent-c19="">主相机：4K（分辨率3840 × 2160）视频摄像，每秒 30 帧</p>
+                                                        <p _ngcontent-c19="">1080p FHD 慢动作视频摄像，每秒 120 帧</p></div>
+                                                </li>
+                                                <li _ngcontent-c19="" class="audio"><h4 _ngcontent-c19="">音频播放</h4>
+                                                    <div _ngcontent-c19="" class="detail"><p _ngcontent-c19="">AI
+                                                        智能降噪芯片</p>
+                                                        <p _ngcontent-c19="">立体环绕声外放系统</p> <!---->
+                                                        <table _ngcontent-c19="">
+                                                            <tbody _ngcontent-c19=""> <!---->
+                                                            <tr _ngcontent-c19="">
+                                                                <th _ngcontent-c19="" class="eq-0">类型</th>
+                                                                <th _ngcontent-c19="" class="eq-1">支持音频文件格式</th>
+                                                                <th _ngcontent-c19="">支持音频解码格式</th>
+                                                            </tr> <!---->
+                                                            <tr _ngcontent-c19=""> <!---->
+                                                                <td _ngcontent-c19="" class="title">音频格式</td><!---->
+                                                                <td _ngcontent-c19="">MP3, AAC, AMR, DTS</td>
+                                                                <td _ngcontent-c19="">AAC/AAC+/eAAC+, MP3, NB-AMR,
+                                                                    WB-AMR, DTS
+                                                                </td>
+                                                            </tr>
+                                                            <tr _ngcontent-c19=""> <!---->
+                                                                <td _ngcontent-c19="" class="title">无损格式</td><!---->
+                                                                <td _ngcontent-c19="">AIFF, ALAC(Apple Lossless),
+                                                                    FLAC, APE, WAV, DFF, DSF
+                                                                </td>
+                                                                <td _ngcontent-c19="">————</td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table> <!----> </div>
+                                                </li>
+                                                <li _ngcontent-c19="" class="video"><h4 _ngcontent-c19="">视频播放</h4>
+                                                    <div _ngcontent-c19="" class="detail"> <!---->
+                                                        <table _ngcontent-c19="">
+                                                            <tbody _ngcontent-c19=""> <!---->
+                                                            <tr _ngcontent-c19="">
+                                                                <th _ngcontent-c19="" class="eq-0">编码方式</th>
+                                                                <th _ngcontent-c19="" class="eq-1">支持音频编码格式</th>
+                                                                <th _ngcontent-c19="" class="eq-2">支持视频文件格式</th>
+                                                                <th _ngcontent-c19="" class="eq-3">详情</th>
+                                                            </tr> <!---->
+                                                            <tr _ngcontent-c19="">
+                                                                <td _ngcontent-c19="" class="title">HEVC (H.265)
+                                                                </td>
+                                                                <td _ngcontent-c19="" rowspan="5">AAC-LC</td>
+                                                                <td _ngcontent-c19="">.mp4, .mkv, .webm, .ts, .3gp
+                                                                </td>
+                                                                <td _ngcontent-c19="">支持 1080P，240 fps <br
+                                                                        _ngcontent-c19=""> 最高支持 4K（4096X2160）分辨率 60
+                                                                    fps <br _ngcontent-c19="">Main Profile 8 bit
+                                                                    最高可达 level 6 <br _ngcontent-c19="">Main Profile
+                                                                    10 bit 最高可达 level 6
+                                                                </td>
+                                                            </tr>
+                                                            <tr _ngcontent-c19="">
+                                                                <td _ngcontent-c19="" class="title">H.264</td>
+                                                                <td _ngcontent-c19=""> .mp4, .mkv, .webm, .ts, .3gp,
+                                                                    .mov
+                                                                </td>
+                                                                <td _ngcontent-c19="">支持1080P, 240fps<br
+                                                                        _ngcontent-c19=""> 最高支持4K (4096X2160) 分辨率
+                                                                    <br _ngcontent-c19=""> 60fps 最高可达 Level 5.2编码
+                                                                </td>
+                                                            </tr>
+                                                            <tr _ngcontent-c19="">
+                                                                <td _ngcontent-c19="" class="title">H.263</td>
+                                                                <td _ngcontent-c19="">.mp4, .avi, .3gp, .mov</td>
+                                                                <td _ngcontent-c19=""> 最高可达 Profile 0, Level 70</td>
+                                                            </tr>
+                                                            <tr _ngcontent-c19="">
+                                                                <td _ngcontent-c19="" class="title">MPEG-2</td>
+                                                                <td _ngcontent-c19="">.avi, .mkv, .webm, .ts</td>
+                                                                <td _ngcontent-c19="">最高可达 1080P, 30fps, Main
+                                                                    Profile 编码
+                                                                </td>
+                                                            </tr>
+                                                            <tr _ngcontent-c19="">
+                                                                <td _ngcontent-c19="" class="title">MPEG-4</td>
+                                                                <td _ngcontent-c19="">.mp4, .mkv, .webm, .avi, .3gp,
+                                                                    .mov
+                                                                </td>
+                                                                <td _ngcontent-c19="">最高可达 Simple Profile Level 6 编码
+                                                                    <br _ngcontent-c19=""> 最高可达 Advanced Profile
+                                                                    Level 5 编码
+                                                                </td>
+                                                            </tr>
+                                                            <tr _ngcontent-c19="">
+                                                                <td _ngcontent-c19="" class="title">VP8</td>
+                                                                <td _ngcontent-c19="" rowspan="3">AAC-LC, Vorbis
+                                                                </td>
+                                                                <td _ngcontent-c19=""> .webm</td>
+                                                                <td _ngcontent-c19="">支持 1080P 120fps <br
+                                                                        _ngcontent-c19="">最高支持4K (4096X2160) 分辨率
+                                                                    30fps <br _ngcontent-c19="">Profile 0 (Main),
+                                                                    Version 0-3
+                                                                </td>
+                                                            </tr>
+                                                            <tr _ngcontent-c19="">
+                                                                <td _ngcontent-c19="" class="title">VP9</td>
+                                                                <td _ngcontent-c19=""> .webm</td>
+                                                                <td _ngcontent-c19=""> 支持 1080P 240fps <br
+                                                                        _ngcontent-c19=""> 最高支持4K (4096X2160) 分辨率
+                                                                    60fps <br _ngcontent-c19="">Profile 0 8-bit <br
+                                                                            _ngcontent-c19="">最高支持 level 5.1 Profile
+                                                                    2 10-bit <br _ngcontent-c19="">最高支持 level 5.1
+                                                                </td>
+                                                            </tr>
+                                                            <tr _ngcontent-c19="">
+                                                                <td _ngcontent-c19="" class="title">Xvid</td>
+                                                                <td _ngcontent-c19="">.avi, .mkv</td>
+                                                                <td _ngcontent-c19="">Advanced simple profile 最高可达
+                                                                    level 5
+                                                                </td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table> <!----> </div>
+                                                </li>
+                                                <li _ngcontent-c19="" class="sensors"><h4 _ngcontent-c19="">
+                                                    传感器与算法</h4>
+                                                    <div _ngcontent-c19="" class="detail"><p _ngcontent-c19="">
+                                                        陀螺仪</p>
+                                                        <p _ngcontent-c19="">重力传感器</p>
+                                                        <p _ngcontent-c19="">地磁传感器</p>
+                                                        <p _ngcontent-c19="">环境光传感器</p>
+                                                        <p _ngcontent-c19="">霍尔传感器</p>
+                                                        <p _ngcontent-c19="">超声波接近感应算法</p>
+                                                        <p _ngcontent-c19="">AI 音频降噪算法</p></div>
+                                                </li>
+                                                <li _ngcontent-c19="" class="touch"><h4 _ngcontent-c19="">触控与反馈</h4>
+                                                    <div _ngcontent-c19="" class="detail"><p _ngcontent-c19="">
+                                                        支持压感触控技术</p>
+                                                        <p _ngcontent-c19="">线性震动马达</p>
+                                                        <p _ngcontent-c19="">支持 72 种场景 ，21 种震动效果</p></div>
+                                                </li>
+                                                <li _ngcontent-c19="" class="system"><h4 _ngcontent-c19="">操作系统</h4>
+                                                    <div _ngcontent-c19="" class="detail"><p _ngcontent-c19="">基于
+                                                        Android™ 深度定制的 Smartisan OS</p>
+                                                        <p _ngcontent-c19="">支持语言：中文简体、中文繁体、英语、日语、韩语</p>
+                                                        <p _ngcontent-c19="">注：部分系统功能需要 Smartisan ID 与互联网连接</p>
+                                                    </div>
+                                                </li>
+                                                <li _ngcontent-c19="" class="button"><h4 _ngcontent-c19="">
+                                                    按键和接口</h4>
+                                                    <div _ngcontent-c19="" class="detail">
+                                                        <div _ngcontent-c19="" id="button"></div>
+                                                    </div>
+                                                </li>
+                                                <li _ngcontent-c19="" class="builtIn"><h4 _ngcontent-c19="">
+                                                    内置应用</h4>
+                                                    <div _ngcontent-c19="" class="detail">
+                                                        <ul _ngcontent-c19=""> <!---->
+                                                            <li _ngcontent-c19="" class="phone"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">电话</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="music"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">音乐</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="messages"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">短信</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="calendar"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">日历</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="clock"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">时钟</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="market"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">应用商店</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="browser"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">浏览器</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="gallery"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">相册</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="settings"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">设置</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="camera"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">相机</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="search"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">搜索</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="file-manager"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">文件管理器</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="security-center"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">手机管理器</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="cloud"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">欢喜云服务</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="onestep"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">一步</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="handshaker"><i
+                                                                    _ngcontent-c19=""></i> <span _ngcontent-c19="">HandShaker</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="ideapills"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">闪念胶囊</span>
+                                                            </li>
+                                                        </ul>
+                                                        <p _ngcontent-c19="" class="remark">
+                                                            电话：拨打电话，高效检索、管理联系人；音乐：播放手机中存储的音乐，以及在线云音乐；短信：接收、发送短信功能；日历：显示日期，管理日程；时钟：显示本地和世界各地时间，设置闹钟，使用秒表、计时器；应用商店：下载和更新应用程序；浏览器：浏览互联网，可将常用网页收藏至书签；相册：查看手机中存储的图片、视频，也可进行简单的编辑；设置：通过贴心的设置选项，让手机更加贴近你的使用习惯；相机：可拍照、录像；搜索：快速检索手机中的信息；文件管理器：浏览、搜索和整理手机中的文件；手机管理器：提供垃圾清理、内存清理、省电优化、权限管理、流量管理、骚扰拦截、存储空间管理；欢喜云服务：同步手机内相册、联系人、便签等重要信息；一步：通过侧边栏快速切换应用，通过拖拽操作打通应用间的边界，让跨应用操作更加得心应手；HandShaker：通过电脑方便自如地管理手机中的内容；闪念胶囊：将一闪而过的想法便捷快速地记录下来，让你不再错过任何想法。</p>
+                                                        <p _ngcontent-c19="" class="remark">
+                                                            "内置应用"是系统内建的为用户提供智能手机基本功能的应用程序，包括但不限于以上列举的锤子商城自主开发及与软件提供商共同研发的内建程序（如讯飞输入法定制版、语音助手等）。为确保手机的正常使用，以上所有内置应用均无法卸载。</p>
+                                                    </div>
+                                                </li>
+                                                <li _ngcontent-c19="" class="builtIn builtInRemovable"><h4
+                                                        _ngcontent-c19="">内置应用<span>（可卸载）</span></h4>
+                                                    <div _ngcontent-c19="" class="detail">
+                                                        <ul _ngcontent-c19=""> <!---->
+                                                            <li _ngcontent-c19="" class="notes"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">便签</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="recorder"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">录音机</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="mail"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">邮件</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="game-center"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">游戏中心</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="calculator"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">计算器</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="weather"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">天气</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="reading"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">锤子阅读</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="bbs"><i
+                                                                    _ngcontent-c19=""></i> <span _ngcontent-c19="">锤子商城论坛</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="handbook"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">使用手册</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="changhuxi"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">畅呼吸</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="remote"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">远程协助</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="screen-recording"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">屏幕录像</span>
+                                                            </li>
+                                                        </ul>
+                                                        <p _ngcontent-c19="" class="remark">
+                                                            此部分为官方开发的内置应用，可在“设置-应用管理-应用程序管理”中进行卸载。
+                                                            手机充值（充值话费服务）、大爆炸（文字分解功能）、云相册（照片同步功能）、Music（音频均衡器）、有道词典（系统组件）、桌面主题（经典蓝、毛玻璃、浅金、酒红、灰岩）、色彩主题（青色、绿色、黄色、橙色、紫色、遠州鼠、落栗、蘇芳、石竹、枯草、柳煤竹茶、錆青磁、鳩羽紫）可选择卸载。</p>
+                                                    </div>
+                                                </li>
+                                                <li _ngcontent-c19="" class="preload"><h4 _ngcontent-c19="">
+                                                    预装第三方应用</h4>
+                                                    <div _ngcontent-c19="" class="detail">
+                                                        <ul _ngcontent-c19=""> <!---->
+                                                            <li _ngcontent-c19="" class="toutiao"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">今日头条</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="jiemian"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">界面</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="dianping"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">大众点评</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="meituan"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">美团</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="ctrip"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">携程旅行</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="amap"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">高德地图</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="ximalaya-fm"><i
+                                                                    _ngcontent-c19=""></i> <span _ngcontent-c19="">喜马拉雅 FM</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="iqiyi"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">爱奇艺</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="jd"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">京东</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="weibo"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">微博</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="quanneng"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">扫描全能王</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="wangyinews"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">网易新闻</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="shuqi"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">书旗小说</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="xigua"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">西瓜视频</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="vip"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">唯品会</span>
+                                                            </li>
+                                                            <li _ngcontent-c19="" class="guide-rank"><i
+                                                                    _ngcontent-c19=""></i> <span
+                                                                    _ngcontent-c19="">盖得排行</span>
+                                                            </li>
+                                                        </ul>
+                                                        <p _ngcontent-c19="" class="remark">
+                                                            预装第三方应用是第三方公司开发的应用，可在“设置-应用管理-应用程序管理”中进行卸载。</p>
+                                                        <p _ngcontent-c19="" class="remark">
+                                                            今日头条：智能推荐新闻、热点资讯（北京字节跳动科技有限公司）；界面：新闻及商业社交平台（界面（上海）网络科技有限公司）；大众点评：查询餐馆信息、评分和各类生活服务的（汉诚信息技术（上海）有限公司）；美团：美食、外卖、酒店、团购于一体的综合信息（北京三快科技有限公司）；携程旅行：票务、酒店信息搜索及预订（携程计算机技术（上海）有限公司）；高德地图：路线规划、语音导航（高德信息技术有限公司）；喜马拉雅
+                                                            FM：可收听各类音频节目（喜大（上海）网络科技有限公司）；爱奇艺：多元化视频平台（北京爱奇艺科技有限公司）；京东：商品搜索/浏览、评论查阅、商品购买平台（北京京东叁佰陆拾度电子商务有限公司）；微博：通过关注机制分享简短实时信息的社交网络平台（微梦创科网络科技（中国）有限公司）；扫描全能王：方便快捷的管理文档（上海合合信息科技发展有限公司）；网易新闻：提供特色新闻阅读（网易传媒科技（北京）有限公司）；书旗小说：以书旗网海量小说为基础的在线阅读器（广州阿里巴巴文学信息技术有限公司）；西瓜视频：个性化短视频推荐平台（运城市阳光文化传媒有限公司）；唯品会：以销售服装、化妆品为主的网络购物网站（唯品会（中国）有限公司）；盖得排行：提供客观、中立的商品品牌排行（北京盖得排行信息科技有限公司）。</p>
+                                                        <p _ngcontent-c19="" class="remark">你在首次使用坚果 R1 手机（ OS
+                                                            v6.0.0
+                                                            ）时，如果发现手机中的应用与以上列表中的内置应用和预置第三方应用的数量、名称或图标有任何不同，则说明该手机的软件系统被除锤子商城（包括其关联公司）之外的其它方改动过。此种改动可能给你的手机带来病毒、系统不稳定、被植入广告或被偷偷盗取费用等不良影响。你可以联系你购买手机的经销商解决此类问题，也欢迎给
+                                                            report@smartisan.com
+                                                            发邮件向我们检举经销商，如果是我们正式授权经销商，我们会严肃处理。但手机可能会由于不可控的因素落入非正规销售商甚至是职业黄牛手中，对于这种情况，我们无法控制，所以锤子商城对于非官方或非授权经销商售出手机软件系统的人为改动，将不承担赔偿损失、免费维修等任何形式的责任。</p>
+                                                    </div>
+                                                </li>
+                                                <li _ngcontent-c19="" class="package"><h4 _ngcontent-c19="">
+                                                    包装内容</h4>
+                                                    <div _ngcontent-c19="" class="detail"><p _ngcontent-c19="">坚果 R1
+                                                        手机</p>
+                                                        <p _ngcontent-c19="">坚果 Type-C To Type-C 带灯数据线</p>
+                                                        <p _ngcontent-c19="">坚果 QuickCharge 4+ 快速充电器</p>
+                                                        <p _ngcontent-c19="">USB Type-C 与 3.5mm 耳机转接线</p>
+                                                        <p _ngcontent-c19="">取卡针</p>
+                                                        <p _ngcontent-c19="">坚果手机 R1 产品使用说明书</p>
+                                                        <p _ngcontent-c19="">坚果手机 R1 三包凭证</p>
+                                                        <p _ngcontent-c19="">电子信息产品有害物质说明书</p>
+                                                        <p _ngcontent-c19="">数据线仅支持 USB 2.0</p></div>
+                                                </li>
+                                                <li _ngcontent-c19="" class="note">
+                                                    <div _ngcontent-c19="" class="memo"><p _ngcontent-c19="">注：1.
+                                                        本页面所列配置及参数均以实际上市产品为准，如有变更，恕不另行通知；</p>
+                                                        <p _ngcontent-c19="">2. Android™ is a trademark of Google
+                                                            Inc.</p>
+                                                        <p _ngcontent-c19="">3.
+                                                            使用本设备时，请与植入的医疗设备（植入耳蜗，心脏起搏器等）至少保持15厘米距离</p>
+                                                        <p _ngcontent-c19="">4.
+                                                            本产品电磁辐射比吸收率（SAR）最大值小于2.0W/kg，符合国家标准GB21288-2007的要求</p>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </r1-specs-common>
+                            </div>
+                        </r1-specs-pc>  <!----> <!----> <!----> <!----> <!----> </div>
+                </div> <!----> <!---->
+>>>>>>> a6bf5c97f513ec0e0177b776033f72b134ca3c74
                 <div _ngcontent-c5="" class="product-recommend-wrapper">
                     <div _ngcontent-c5="" class="product-recommend"><h1 _ngcontent-c5="" class="header-bar"><span
                             _ngcontent-c5="" class="title">相关推荐</span></h1>
@@ -8535,7 +9326,21 @@ e2720
                 {#                        </div>  <!---->  <!----> </div>#}
                 {#                </div>#}
 
+<<<<<<< HEAD
 
+=======
+                        <div _ngcontent-c5="" class="bar-btn">
+                            <a _ngcontent-c5="" href="{% url "operate:money" dise.mid %}"> 现在购买 </a>
+                        </div>
+                        <div _ngcontent-c5="" class="bar-btn add-cart-btn"> <a href="{% url "operate:smartisan" %}">加入购物车</a> </div>
+                        <!----> <!----><!----> <!---->
+                        <div _ngcontent-c5="" class="no-discount-price"> <!----> <!---->
+                            <div _ngcontent-c5="" class="bar-price"><i>¥</i>
+                                <span><label id="total"></label></span>
+                            </div>
+                        </div>  <!---->  <!----> </div>
+                </div>
+>>>>>>> a6bf5c97f513ec0e0177b776033f72b134ca3c74
                 <div _ngcontent-c5="" class="toast-tips"><label _ngcontent-c5=""></label></div>
             </div>
             <people-coupons _ngcontent-c5="" _nghost-c16=""><!---->

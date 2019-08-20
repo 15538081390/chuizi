@@ -111,11 +111,17 @@ def show(request,num):
     tab=IndexTab.objects.all()
     home = Indexhome.objects.all()
     dise = Merchandise.objects.get(mid=num)                     #从规格表查询产品表
+<<<<<<< HEAD
 
     bankuai = Productcategorie.objects.get(pcid=dise.show)            #需要修改查询条件，
     bankuai01 = Productcategorie.objects.filter(hid=dise.show)#查询相关商品
 
 
+=======
+    bankuai = Productcategorie.objects.get(pcid=dise.show)            #需要修改查询条件，
+    bankuai01 = Productcategorie.objects.filter(hid=dise.show)#查询相关商品
+
+>>>>>>> a6bf5c97f513ec0e0177b776033f72b134ca3c74
     #规格查询
     color = Merchandise.objects.values('pcid',"color","Choosepicture").filter(pcid=dise.pcid).annotate(Count("pcid"))             #颜色
     size = Merchandise.objects.values("size").filter(pcid=dise.pcid).annotate(Count("pcid"))                   # 尺码
@@ -127,8 +133,12 @@ def show(request,num):
     # pc = Productcategorie.objects.get(pcid=dise.mid)
     num1=num  #商品id
     #折扣价格
+<<<<<<< HEAD
     pcmoney = round(dise.money * 0.7,2)#保留两位小数
 
+=======
+    pcmoney = dise.money * 0.7
+>>>>>>> a6bf5c97f513ec0e0177b776033f72b134ca3c74
     return render(request,"App/shopping/shop.html",locals())
 
 
@@ -141,4 +151,8 @@ def joinshopcar(request):
         car1.save()
         return HttpResponse('成功加入')
     else:
+<<<<<<< HEAD
         return HttpResponse('请先登录')
+=======
+        return HttpResponse('请先登录')
+>>>>>>> a6bf5c97f513ec0e0177b776033f72b134ca3c74

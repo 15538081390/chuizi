@@ -62,7 +62,10 @@ def smartisan(request): # san = 商品id
         money+=float(m1)
     print (money)
     return render(request,"operate/smartisan.html",locals())
+<<<<<<< HEAD
 
+=======
+>>>>>>> a6bf5c97f513ec0e0177b776033f72b134ca3c74
 
 
 # 商品购买
