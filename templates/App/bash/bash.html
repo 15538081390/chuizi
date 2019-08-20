@@ -5513,17 +5513,17 @@
                             <section _ngcontent-c5="" class="items-wrapper clearfix">
                                 <ul _ngcontent-c5="" class="items clearfix">
                                     {% for p2 in products %}
-                                        {% ifequal p2.hid h2.hid %}
+                                        {% ifequal p2.show h2.hid %}
 
                                             <li _ngcontent-c5="" class="item-four"> <!----> <!---->
                                                 <sku-item-normal _ngcontent-c5="" _nghost-c9="">
                                                     <div _ngcontent-c9="" class="product-box-item">
                                                         <div _ngcontent-c9="">
-                                                            <div _ngcontent-c9="" class="item-img"><img _ngcontent-c9=""
+                                                            <div _ngcontent-c9="" class="item-img"><a href="{% url "app:show" num=p2.mid %}"><img _ngcontent-c9=""
                                                                                                         src="{{ p2.picture }}"
-                                                                                                        style="opacity: 1; transition: opacity 0.3s ease-in-out 0s;">
+                                                                                                        style="opacity: 1; transition: opacity 0.3s ease-in-out 0s;"></a>
                                                             </div>
-                                                            <h4 _ngcontent-c9="">{{ p2.pcname }}</h4> <!----> <h6
+                                                            <h4 _ngcontent-c9="">{{ p2.mername }}</h4> <!----> <h6
                                                                 _ngcontent-c9="">
                                                             {{ p2.inf }}</h6>  <!----> </div>
 

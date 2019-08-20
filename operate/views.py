@@ -39,19 +39,24 @@ class Summoney:
 # 购物车
 def smartisan(request): # san = 商品id
     tab = IndexTab.objects.all()                    #板块
-    # user = request.session.get("username")
-    # use = "小牛"
-    # uid = User.objects.get(username=use)            #用户id
-    # form = Orderform.objects.filter(uid = uid.uid)  #购物内商品
-    # addrs = Getaddr.objects.filter(uid = uid.uid)   #收货地址
-    # if addrs:                                       #判断收货地址，为空不传值，
-    #     add = addrs
-    # if form:                                        #获取购物内商品信息
-    #     pro = []
-    #     for i in form:
-    #         sp = Productcategorie.objects.get(pcid = i.pcid)
-    #         pro.append(sp)
     shopcar=Shopping.objects.all()
+    # buy=request.POST.getlist('shure')
+    # print (buy)
+    # whichone=Merchandise.objects.filter(mid__in=buy)
+    # print (whichone)
+    # money=0.0
+    # for i in whichone:
+    #     m1=request.POST.get(str(i.mid))
+    #     money+=float(m1)
+    # print (money)
+    return render(request,"operate/smartisan.html",locals())
+
+
+# 商品购买
+def money(request):                             #san = 商品id
+
+    tab = IndexTab.objects.all()  # 板块
+    shopcar = Shopping.objects.all()
     buy=request.POST.getlist('shure')
     print (buy)
     whichone=Merchandise.objects.filter(mid__in=buy)
@@ -61,37 +66,7 @@ def smartisan(request): # san = 商品id
         m1=request.POST.get(str(i.mid))
         money+=float(m1)
     print (money)
-    return render(request,"operate/smartisan.html",locals())
-<<<<<<< HEAD
-
-=======
->>>>>>> a6bf5c97f513ec0e0177b776033f72b134ca3c74
-
-
-# 商品购买
-def money(request,san):                             #san = 商品id
-    tab = IndexTab.objects.all()                    # 板块
-    use = "小牛"
-    uid = User.objects.get(username=use)            # 用户id
-    pro = Productcategorie.objects.filter(pcid=san) # 商品信息
-    addrs = Getaddr.objects.filter(uid = uid.uid)   #收货地址
-    pid = pro[0].pcid
-    if addrs:                                       #判断收货地址，为空不传值，
-        add = addrs
-
-    summoney= Summoney.sum(pro)                      #计算商品总价格
-
-    if request.method =="POST":
-        order = Orderform()
-        order.pid = pro[0].pcid
-        order.uid = uid.uid
-        order.ordernumber=datetime.now().strftime("%Y%m%d%H%M%S") + str(random.randint(1, 1000))
-        order.emil =request.POST.get("email")
-        print(order.emil)
-        order.time = datetime.now()
-        order.save()
-        return redirect(reverse('app:index'))
-    return render(request, "operate/money.html", locals())
+    return render(request, "operate/smartisan.html", locals())
 
 
 # 用户注册+登录

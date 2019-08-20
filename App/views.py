@@ -13,14 +13,14 @@ import random
 # Create your views here.
 #首页
 def index(request):
-    products = Productcategorie.objects.all()
+    products = Merchandise.objects.all()
     home=Indexhome.objects.all()
     tab=IndexTab.objects.all()
     a=[]
     c=[]
     for h in home:
         for p in products:
-            if p.hid==h.hid:
+            if p.show==h.hid:
                 a.append(p)
         if len(a)>8:
             a=random.sample(a,8)
@@ -111,48 +111,58 @@ def show(request,num):
     tab=IndexTab.objects.all()
     home = Indexhome.objects.all()
     dise = Merchandise.objects.get(mid=num)                     #从规格表查询产品表
-<<<<<<< HEAD
-
     bankuai = Productcategorie.objects.get(pcid=dise.show)            #需要修改查询条件，
     bankuai01 = Productcategorie.objects.filter(hid=dise.show)#查询相关商品
-
-
-=======
-    bankuai = Productcategorie.objects.get(pcid=dise.show)            #需要修改查询条件，
-    bankuai01 = Productcategorie.objects.filter(hid=dise.show)#查询相关商品
-
->>>>>>> a6bf5c97f513ec0e0177b776033f72b134ca3c74
     #规格查询
     color = Merchandise.objects.values('pcid',"color","Choosepicture").filter(pcid=dise.pcid).annotate(Count("pcid"))             #颜色
     size = Merchandise.objects.values("size").filter(pcid=dise.pcid).annotate(Count("pcid"))                   # 尺码
     kuanshi = Merchandise.objects.values("kuanshi").filter(pcid=dise.pcid).annotate(Count("pcid"))                   # 款式
-
     capacity = Merchandise.objects.values("capacity").filter(pcid=dise.pcid).annotate(Count("pcid"))            #容量
+    print (capacity)
     specification = Merchandise.objects.values("specification").filter(pcid=dise.pcid).annotate(Count("pcid"))  #规格
     #查询商品
     # pc = Productcategorie.objects.get(pcid=dise.mid)
     num1=num  #商品id
     #折扣价格
-<<<<<<< HEAD
     pcmoney = round(dise.money * 0.7,2)#保留两位小数
-
-=======
-    pcmoney = dise.money * 0.7
->>>>>>> a6bf5c97f513ec0e0177b776033f72b134ca3c74
     return render(request,"App/shopping/shop.html",locals())
+
+def change(request):
+
+    v1=request.POST['v1']
+    v2=request.POST['v2']
+    v3=request.POST['v3']
+    v4=request.POST['v4']
+    v5=request.POST['v5']
+    product=request.POST['product']
+    print (v1,v2,v3,v4,v5,product)
+    tab = IndexTab.objects.all()
+    home = Indexhome.objects.all()
+    dise=Merchandise.objects.filter(size=v1,capacity=v2,color=v3,specification=v4,kuanshi=v5,pcid=product).all()
+    print (dise[0])
+    dise=dise[0]
+    print (dise)
+    bankuai = Productcategorie.objects.get(pcid=dise.show)  # 需要修改查询条件，
+    bankuai01 = Productcategorie.objects.filter(hid=dise.show)  # 查询相关商品
+    color = Merchandise.objects.values("color").filter(pcid=dise.pcid).annotate(Count("pcid"))  # 颜色
+    size = Merchandise.objects.values("size").filter(pcid=dise.pcid).annotate(Count("pcid"))  # 尺码
+    kuanshi = Merchandise.objects.values("kuanshi").filter(pcid=dise.pcid).annotate(Count("pcid"))  # 款式
+    capacity = Merchandise.objects.values("capacity").filter(pcid=dise.pcid).annotate(Count("pcid"))  # 容量
+    specification = Merchandise.objects.values("specification").filter(pcid=dise.pcid).annotate(Count("pcid"))  # 规格
+    pcmoney = round(dise.money * 0.7, 2)  # 保留两位小数
+    return render(request,'App/shopping/change.html',locals())
+    # return HttpResponse('xxxx')
 
 
 def joinshopcar(request):
     if request.session.get('username'):
         pid=int(request.POST['pid'])
-        product=Merchandise.objects.filter(pcid=pid)
+        product=Merchandise.objects.filter(mid=mid)
         user=User.objects.filter(username=request.session.get('username'))
         car1=Shopping(uid=user.uid,mid=pid,picture=product.pricture,name=product.mername,price=product.money)
         car1.save()
         return HttpResponse('成功加入')
     else:
-<<<<<<< HEAD
+
         return HttpResponse('请先登录')
-=======
-        return HttpResponse('请先登录')
->>>>>>> a6bf5c97f513ec0e0177b776033f72b134ca3c74
+

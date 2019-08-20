@@ -1,0 +1,788 @@
+<sm-header _ngcontent-c0="" _nghost-c1="">
+    <div _ngcontent-c1="" class="header theme-black-default cn">
+
+        <div _ngcontent-c1="" class="nav-global"><h1 _ngcontent-c1="" class="nav-logo"><a _ngcontent-c1=""
+                                                                                          href="{% url 'app:index' %}"
+                                                                                          title="锤子商城">Smartisan</a>
+        </h1>
+
+            <div _ngcontent-c1="" class="container">
+                <ul _ngcontent-c1="" class="nav-list"> <!---->
+                    <li _ngcontent-c1=""><a _ngcontent-c1="" class="active" title="在线商城"
+                                            href="https://www.smartisan.com/" target=""> 在线商城 </a></li>
+                    {% for item in tab %}
+                        <li _ngcontent-c1=""><a _ngcontent-c1="" class="active" title="在线商城"
+                                                href="{{ item.href }}" target=""> {{ item.tname }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div> <!---->
+            <ul _ngcontent-c1="" class="nav-aside">
+
+                <li _ngcontent-c1="" class="nav-user"><a _ngcontent-c1="">个人中心</a> <!---->
+                    <div _ngcontent-c1="" class="nav-user-wrapper">
+                        <div _ngcontent-c1="" class="nav-user-list">
+                            <dl _ngcontent-c1="" class="nav-user-avatar">
+                                <dd _ngcontent-c1=""> <!----> <!----><img _ngcontent-c1="" class="nav-avatar"
+                                                                          src="../../【锤子商城】坚果手机%20-%20坚果R1手机%20-%20坚果3手机_files/avatar.png">
+                                </dd>
+                                <dt _ngcontent-c1="">+86 186****6123</dt>
+                            </dl>
+                            <ul _ngcontent-c1="">
+                                <li _ngcontent-c1="" class="order"><a _ngcontent-c1=""
+                                                                      href="https://www.smartisan.com/user/order/list">我的订单</a>
+                                </li>
+                                <li _ngcontent-c1="" class="support"><a _ngcontent-c1=""
+                                                                        href="https://www.smartisan.com/user/aftersale/list">售后服务</a>
+                                </li>
+                                <li _ngcontent-c1="" class="coupon"><a _ngcontent-c1=""
+                                                                       href="https://www.smartisan.com/user/coupon">我的优惠
+                                    <!----></a></li>
+                                <li _ngcontent-c1="" class="information"><a _ngcontent-c1=""
+                                                                            href="https://www.smartisan.com/user/account">账户资料</a>
+                                </li>
+                                <li _ngcontent-c1="" class="address"><a _ngcontent-c1=""
+                                                                        href="https://www.smartisan.com/user/address/list">收货地址</a>
+                                </li>
+                                <li _ngcontent-c1="" class="logout"><a _ngcontent-c1="">退出</a></li>
+                            </ul>
+
+
+                            {% if 'username' not in request.session %}
+                                <li _ngcontent-c1="" class="nav-user"><a _ngcontent-c1=""
+                                                                         href="{% url 'operate:login' %}">登录</a> <!---->
+                                </li> <!---->
+                            {% else %}
+                                <li _ngcontent-c1="" class="nav-user"><a _ngcontent-c1="">个人中心</a> <!---->
+                                    <div _ngcontent-c1="" class="nav-user-wrapper">
+                                        <div _ngcontent-c1="" class="nav-user-list">
+                                            <dl _ngcontent-c1="" class="nav-user-avatar">
+                                                <dd _ngcontent-c1=""> <!----> <!----><img _ngcontent-c1=""
+                                                                                          class="nav-avatar"
+                                                                                          src="./账户详情 - Smartisan_files/avatar.png">
+                                                </dd>
+                                                <dt _ngcontent-c1="">{{ request.session.username }}</dt>
+                                            </dl>
+                                            <ul _ngcontent-c1="">
+                                                <li _ngcontent-c1="" class="order"><a _ngcontent-c1=""
+                                                                                      href="{% url 'operate:orderlist' %}">我的订单</a>
+                                                </li>
+                                                <li _ngcontent-c1="" class="support"><a _ngcontent-c1=""
+                                                                                        href="{% url 'operate:aftersale' %}">售后服务</a>
+                                                </li>
+                                                <li _ngcontent-c1="" class="coupon"><a _ngcontent-c1=""
+                                                                                       href="{% url 'operate:coupon' %}">我的优惠
+                                                    <!----></a></li>
+                                                <li _ngcontent-c1="" class="information"><a _ngcontent-c1=""
+                                                                                            href="{% url 'operate:usersetting' %}">账户资料</a>
+                                                </li>
+                                                <li _ngcontent-c1="" class="address"><a _ngcontent-c1=""
+                                                                                        href="{% url 'operate:getaddr' %}">收货地址</a>
+                                                </li>
+                                                <li _ngcontent-c1="" class="logout"><a _ngcontent-c1=""
+                                                                                       href='{% url 'operate:logout' %}'>退出</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        >
+                                    </div>
+                                </li> <!---->
+                            {% endif %}
+                <sm-nav-cart _ngcontent-c1="" _nghost-c4="">
+                    <li _ngcontent-c4="" class="nav-cart"><a _ngcontent-c4=""
+                                                             href="https://www.smartisan.com/cart"> <span
+                            _ngcontent-c4="" class="cart-tip cart-num"></span> </a>
+                        <div _ngcontent-c4="" class="nav-cart-wrapper">
+                            <div _ngcontent-c4="" class="nav-cart-list">
+                                <div _ngcontent-c4=""> <!----> <!---->
+                                    <div _ngcontent-c4="" class="full">
+                                        <div _ngcontent-c4="" class="nav-cart-items" id="iscroll_wrapper">
+                                            <ul _ngcontent-c4=""> <!---->
+                                                <li _ngcontent-c4="" class="clearfix">
+                                                    <div _ngcontent-c4=""
+                                                         class="cart-item js-cart-item cart-item-sell"
+                                                         id="100057901">
+                                                        <div _ngcontent-c4="" class="cart-item-inner">
+                                                            <div _ngcontent-c4="" class="item-thumb"><img
+                                                                    _ngcontent-c4=""
+                                                                    src="../../【锤子商城】坚果手机%20-%20坚果R1手机%20-%20坚果3手机_files/9601ed5f20b4f0b13c8c7004708119a2.png">
+                                                                <!----> <!----> </div>
+                                                            <div _ngcontent-c4="" class="item-desc">
+                                                                <div _ngcontent-c4="" class="cart-cell"><h4
+                                                                        _ngcontent-c4=""> <!----><a
+                                                                        _ngcontent-c4="" target="_blank"
+                                                                        href="https://www.smartisan.com/item/100057901">Smartisan
+                                                                    T恤 薛定谔</a> <!----> </h4> <!----><p
+                                                                        _ngcontent-c4="" class="attrs">
+                                                                    <!----><span _ngcontent-c4="">男款</span><span
+                                                                        _ngcontent-c4="">藏蓝色</span><span
+                                                                        _ngcontent-c4="">S</span></p> <!---->
+                                                                    <h6 _ngcontent-c4=""><span _ngcontent-c4=""
+                                                                                               class="price-icon">¥</span><span
+                                                                            _ngcontent-c4=""
+                                                                            class="price-num">149.00</span>
+                                                                        <!----><span _ngcontent-c4=""
+                                                                                     class="item-num">x 1</span>
+                                                                    </h6></div>
+                                                            </div>
+                                                            <div _ngcontent-c4="" class="del-btn">删除</div>
+                                                        </div>
+                                                    </div> <!----><!----> <!---->  </li>
+                                                <li _ngcontent-c4="" class="clearfix">
+                                                    <div _ngcontent-c4=""
+                                                         class="cart-item js-cart-item cart-item-sell"
+                                                         id="100057503">
+                                                        <div _ngcontent-c4="" class="cart-item-inner">
+                                                            <div _ngcontent-c4="" class="item-thumb"><img
+                                                                    _ngcontent-c4=""
+                                                                    src="../../【锤子商城】坚果手机%20-%20坚果R1手机%20-%20坚果3手机_files/e9cd634b62470713f6b9c5a6065f4a10.jpg">
+                                                                <!----> <!----> </div>
+                                                            <div _ngcontent-c4="" class="item-desc">
+                                                                <div _ngcontent-c4="" class="cart-cell"><h4
+                                                                        _ngcontent-c4=""> <!----><a
+                                                                        _ngcontent-c4="" target="_blank"
+                                                                        href="https://www.smartisan.com/item/100057503">Smartisan
+                                                                    T恤 毕加索</a> <!----> </h4> <!----><p
+                                                                        _ngcontent-c4="" class="attrs">
+                                                                    <!----><span _ngcontent-c4="">男款</span><span
+                                                                        _ngcontent-c4="">黑色</span><span
+                                                                        _ngcontent-c4="">L</span></p> <!---->
+                                                                    <h6 _ngcontent-c4=""><span _ngcontent-c4=""
+                                                                                               class="price-icon">¥</span><span
+                                                                            _ngcontent-c4=""
+                                                                            class="price-num">149.00</span>
+                                                                        <!----><span _ngcontent-c4=""
+                                                                                     class="item-num">x 1</span>
+                                                                    </h6></div>
+                                                            </div>
+                                                            <div _ngcontent-c4="" class="del-btn">删除</div>
+                                                        </div>
+                                                    </div> <!----><!----> <!---->  </li>
+                                                <li _ngcontent-c4="" class="clearfix">
+                                                    <div _ngcontent-c4=""
+                                                         class="cart-item js-cart-item cart-item-sell"
+                                                         id="100047001">
+                                                        <div _ngcontent-c4="" class="cart-item-inner">
+                                                            <div _ngcontent-c4="" class="item-thumb"><img
+                                                                    _ngcontent-c4=""
+                                                                    src="../../【锤子商城】坚果手机%20-%20坚果R1手机%20-%20坚果3手机_files/a668d1a5f41b04ece82d76ded1e94d3a.jpg">
+                                                                <!----> <!----> </div>
+                                                            <div _ngcontent-c4="" class="item-desc">
+                                                                <div _ngcontent-c4="" class="cart-cell"><h4
+                                                                        _ngcontent-c4=""> <!----><a
+                                                                        _ngcontent-c4="" target="_blank"
+                                                                        href="https://www.smartisan.com/item/100047001">坚果
+                                                                    QuickCharge 4+ 快速充电器</a> <!----> </h4>
+                                                                    <!----><p _ngcontent-c4="" class="attrs">
+                                                                        <!----><span _ngcontent-c4="">白色</span>
+                                                                    </p> <!----> <h6 _ngcontent-c4=""><span
+                                                                            _ngcontent-c4=""
+                                                                            class="price-icon">¥</span><span
+                                                                            _ngcontent-c4=""
+                                                                            class="price-num">59.00</span>
+                                                                        <!----><span _ngcontent-c4=""
+                                                                                     class="item-num">x 1</span>
+                                                                    </h6></div>
+                                                            </div>
+                                                            <div _ngcontent-c4="" class="del-btn">删除</div>
+                                                        </div>
+                                                    </div> <!----><!----> <!---->  </li>
+                                                <li _ngcontent-c4="" class="clearfix">
+                                                    <div _ngcontent-c4=""
+                                                         class="cart-item js-cart-item cart-item-sell"
+                                                         id="100053001">
+                                                        <div _ngcontent-c4="" class="cart-item-inner">
+                                                            <div _ngcontent-c4="" class="item-thumb"><img
+                                                                    _ngcontent-c4=""
+                                                                    src="../../【锤子商城】坚果手机%20-%20坚果R1手机%20-%20坚果3手机_files/82aab62886740f165a3631ce6cffe895.jpg">
+                                                                <!----> <!----> </div>
+                                                            <div _ngcontent-c4="" class="item-desc">
+                                                                <div _ngcontent-c4="" class="cart-cell"><h4
+                                                                        _ngcontent-c4=""> <!----><a
+                                                                        _ngcontent-c4="" target="_blank"
+                                                                        href="https://www.smartisan.com/item/100053001">坚果彩虹数据线</a>
+                                                                    <!----> </h4> <!----><p _ngcontent-c4=""
+                                                                                            class="attrs">
+                                                                    <!----><span _ngcontent-c4="">1 条装</span>
+                                                                </p> <!----> <h6 _ngcontent-c4=""><span
+                                                                        _ngcontent-c4=""
+                                                                        class="price-icon">¥</span><span
+                                                                        _ngcontent-c4=""
+                                                                        class="price-num">19.00</span>
+                                                                    <!----><span _ngcontent-c4=""
+                                                                                 class="item-num">x 1</span>
+                                                                </h6></div>
+                                                            </div>
+                                                            <div _ngcontent-c4="" class="del-btn">删除</div>
+                                                        </div>
+                                                    </div> <!----><!----> <!---->  </li>
+                                                <li _ngcontent-c4="" class="clearfix">
+                                                    <div _ngcontent-c4=""
+                                                         class="cart-item js-cart-item cart-item-sell"
+                                                         id="100039716">
+                                                        <div _ngcontent-c4="" class="cart-item-inner">
+                                                            <div _ngcontent-c4="" class="item-thumb"><img
+                                                                    _ngcontent-c4=""
+                                                                    src="../../【锤子商城】坚果手机%20-%20坚果R1手机%20-%20坚果3手机_files/1c13034d1028f3620d487c1db7184a51.jpg">
+                                                                <!----> <!----> </div>
+                                                            <div _ngcontent-c4="" class="item-desc">
+                                                                <div _ngcontent-c4="" class="cart-cell"><h4
+                                                                        _ngcontent-c4=""> <!----><a
+                                                                        _ngcontent-c4="" target="_blank"
+                                                                        href="https://www.smartisan.com/item/100039716">Smartisan
+                                                                    帆布鞋</a> <!----> </h4> <!----><p
+                                                                        _ngcontent-c4="" class="attrs">
+                                                                    <!----><span _ngcontent-c4="">白色</span><span
+                                                                        _ngcontent-c4="">37</span></p> <!---->
+                                                                    <h6 _ngcontent-c4=""><span _ngcontent-c4=""
+                                                                                               class="price-icon">¥</span><span
+                                                                            _ngcontent-c4=""
+                                                                            class="price-num">199.00</span>
+                                                                        <!----><span _ngcontent-c4=""
+                                                                                     class="item-num">x 1</span>
+                                                                    </h6></div>
+                                                            </div>
+                                                            <div _ngcontent-c4="" class="del-btn">删除</div>
+                                                        </div>
+                                                    </div> <!----><!----> <!---->  </li>
+                                            </ul>
+                                        </div>
+                                        <div _ngcontent-c4="" class="nav-cart-total"><p _ngcontent-c4="">共
+                                            <strong _ngcontent-c4="">5</strong> 件商品</p> <h5 _ngcontent-c4="">
+                                            合计：<span
+                                                _ngcontent-c4="" class="price-icon">¥</span><span
+                                                _ngcontent-c4="" class="price-num">575.00</span></h5> <h6
+                                                _ngcontent-c4=""><a _ngcontent-c4="" class="nav-cart-btn"
+                                                                    href="https://www.smartisan.com/cart">去购物车</a>
+                                        </h6></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div _ngcontent-c4="" class="addcart-mask">
+                            <div _ngcontent-c4="" class="mask-y">
+                                <div _ngcontent-c4="" class="mask-x">
+                                    <div _ngcontent-c4="" class="mask-item"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </sm-nav-cart>
+            </ul>
+        </div>
+    </div>
+</sm-header>
+<router-outlet _ngcontent-c0=""></router-outlet>
+<item-and-product class=""><!---->
+    <product-template _nghost-c5=""><!---->
+        <header-sub _ngcontent-c5="" localtheme="gray" _nghost-c7="">
+            <div _ngcontent-c7="" class="header-desktop theme-t2-gray cn">
+                <div _ngcontent-c7="" class="nav-product theme-t2-gray active odin-module">
+                    <div _ngcontent-c7="" class="cover-gray cover"></div>
+                    <div _ngcontent-c7="" class="cover-dark cover"></div>
+                    <div _ngcontent-c7="" class="cover-odin-red cover"></div>
+                    <div _ngcontent-c7="" class="cover-odin-brown cover"></div>
+                    <div _ngcontent-c7="" class="container">
+                        {% ifequal dise.show 1 %}
+                            <div _ngcontent-c7="" class="nav-main"><h2 _ngcontent-c7="" class="nav-logo"></h2>
+                            <!----> <!----> <!----> <!----> <!----> <!----><h2 _ngcontent-c7=""
+                                                                               class="odin-nav-logo">{{ dise.mername }}</h2>
+                            <!----> <!----> <!----> <!----> <!----> <!----> <!---->
+
+                            <div _ngcontent-c7="" class="nav-list-container">
+                                <ul _ngcontent-c7="" class="nav-list"> <!---->
+                                    <li _ngcontent-c7=""><a _ngcontent-c7="" routerlinkactive="active"
+                                                            href="https://www.smartisan.com/r1/overview">概览</a>
+                                    </li>
+                                    <li _ngcontent-c7=""><a _ngcontent-c7="" routerlinkactive="active"
+                                                            href="https://www.smartisan.com/r1/design">设计</a>
+                                    </li>
+                                    <li _ngcontent-c7=""><a _ngcontent-c7="" routerlinkactive="active"
+                                                            href="https://www.smartisan.com/r1/feature">功能</a>
+                                    </li>
+                                    <li _ngcontent-c7=""><a _ngcontent-c7="" routerlinkactive="active"
+                                                            href="https://www.smartisan.com/r1/os">操作系统</a></li>
+                                    <li _ngcontent-c7=""><a _ngcontent-c7="" routerlinkactive="active"
+                                                            href="https://www.smartisan.com/r1/specs">技术规格</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        {% endifequal %}
+                        </div>
+                        <div _ngcontent-c7="" class="nav-aside"> <!----> <!---->
+                            <ul _ngcontent-c7="" class="nav-service"> <!---->
+                                <li _ngcontent-c7=""><a _ngcontent-c7=""
+                                                        href="https://www.smartisan.com/ucode">优先购买码</a>
+                                </li> <!----> </ul> <!----> <!----> </div>
+                    </div>
+                </div>
+            </div>
+        </header-sub> <!---->
+        <div _ngcontent-c5="" class="product-content">
+            <div _ngcontent-c5="" class="product-main-wrapper">
+                <div _ngcontent-c5="" class="product-main clearfix">
+                    <div _ngcontent-c5="" class="product-choose-info clearfix">
+                        <div _ngcontent-c5="" class="product-info">
+                            <div _ngcontent-c5="" class="product-title">
+                                <h1 _ngcontent-c5="" button-press="">{{ dise.mername }}</h1>
+                                <h2 _ngcontent-c5="" class="product-subtitle">{{ dise.inf }}</h2><br>
+                                <span style="font-size: 15px;">原价：<i>¥</i>
+                                            <span>
+                                                <del>{{ dise.money }}</del>
+                                            </span>
+                                        </span>&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                                <span style="font-size: 20px; color: chartreuse; ">活动价：<i>¥</i>
+                                            <big>{{ pcmoney }}</big>
+
+                                        </span>
+                            </div>
+                            <!----> <!---->
+
+
+                            {% ifnotequal dise.kuanshi ' ' %}
+                                <section _ngcontent-c6="" class="item-spec-wrapper clearfix item-spec-package">
+                                    <div _ngcontent-c6="" class="item-spec">
+                                        <span _ngcontent-c6="" class="spec-title">款式选择</span>
+                                        <ul _ngcontent-c6="" class="spec-info"> <!---->
+                                            {% for item in kuanshi %}
+                                                {% ifequal dise.kuanshi item.kuanshi %}
+                                                    <li _ngcontent-c6="" class="active"> <!---->
+                                                        <label _ngcontent-c6=""><input name="Style" type="radio"
+                                                                                       value="{{ item.kuanshi }}"
+                                                                                       checked="checked"/>{{ item.kuanshi }}
+                                                        </label>
+
+                                                        <!----> </li>
+                                                {% else %}
+                                                    <li _ngcontent-c6="" class="active"> <!---->
+                                                    <label _ngcontent-c6=""><input name="Style" type="radio"
+                                                                                   value="{{ item.kuanshi }}"/>{{ item.kuanshi }}
+                                                    </label>
+
+                                                {% endifequal %}
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </section>
+                            {% else %}
+
+                                <section _ngcontent-c6="" class="item-spec-wrapper clearfix item-spec-package"
+                                         style="display: none">
+                                    <div _ngcontent-c6="" class="item-spec">
+                                        <span _ngcontent-c6="" class="spec-title">款式选择</span>
+                                        <ul _ngcontent-c6="" class="spec-info"> <!---->
+                                            {% for item in kuanshi %}
+                                                <li _ngcontent-c6="" class="active"> <!---->
+                                                <label _ngcontent-c6=""><input name="Style" type="radio"
+                                                                               value="{{ item.kuanshi }}"/>{{ item.kuanshi }}
+                                                </label>
+
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </section>
+
+                            {% endifnotequal %}
+
+
+
+
+                            {% ifnotequal dise.color ' ' %}
+                                <div _ngcontent-c5=""
+                                     class="product-spec-wrapper product-spec-color first-spec-wrapper">
+                                    <div _ngcontent-c5="" class="product-spec"><span _ngcontent-c5=""
+                                                                                     class="spec-name">颜色选择</span>
+                                        <ul _ngcontent-c5="" class="spec-info"> <!---->
+                                            {% for item in color %}
+
+                                                {% ifequal dise.color item.color %}
+
+                                                    <li _ngcontent-c5="" class="active"> <!---->
+                                                        <label _ngcontent-c5=""><input name="Color" type="radio"
+                                                                                       value="{{ item.color }}"
+                                                                                       checked="checked"/>{{ item.color }}
+                                                        </label>
+                                                        <div _ngcontent-c5="" class="specs-item item-inline"><h1
+                                                                _ngcontent-c5=""
+                                                                class="item-name"> {{ item.color }} </h1>
+                                                        </div>
+                                                        <!----> </li>
+                                                {% else %}
+                                                    <li _ngcontent-c5="" class="active"> <!---->
+
+                                                        <label _ngcontent-c5=""><input name="Color" type="radio"
+                                                                                       value="{{ item.color }}"/>{{ item.color }}
+                                                        </label>
+                                                        <div _ngcontent-c5="" class="specs-item item-inline"><h1
+                                                                _ngcontent-c5=""
+                                                                class="item-name"> {{ item.color }} </h1>
+                                                        </div>
+                                                        <!----> </li>
+                                                {% endifequal %}
+                                            {% endfor %}
+                                        </ul> <!----> </div>
+                                </div>
+                            {% else %}
+                                <div _ngcontent-c5=""
+                                     class="product-spec-wrapper product-spec-color first-spec-wrapper"
+                                     style="display: none">
+                                    <div _ngcontent-c5="" class="product-spec"><span _ngcontent-c5=""
+                                                                                     class="spec-name">颜色选择</span>
+                                        <ul _ngcontent-c5="" class="spec-info"> <!---->
+                                            {% for item in color %}
+
+                                                <li _ngcontent-c5="" class="active"> <!---->
+
+                                                    <label _ngcontent-c5=""><input name="Color" type="radio"
+                                                                                   value="{{ item.color }}"/>{{ item.color }}
+                                                    </label>
+                                                    <div _ngcontent-c5="" class="specs-item item-inline"><h1
+                                                            _ngcontent-c5="" class="item-name"> {{ item.color }} </h1>
+                                                    </div>
+                                                    <!----> </li>
+
+                                            {% endfor %}
+                                        </ul> <!----> </div>
+                                </div>
+                            {% endifnotequal %}
+
+                            {% ifnotequal dise.specification ' ' %}
+                                <section _ngcontent-c6="" class="item-spec-wrapper clearfix item-spec-package">
+                                    <div _ngcontent-c6="" class="item-spec"><span _ngcontent-c6=""
+                                                                                  class="spec-title">规格选择</span>
+                                        <ul _ngcontent-c6="" class="spec-info"> <!---->
+                                            {% for item in specification %}
+                                                {% ifequal dise.specification item.specification %}
+                                                    <li _ngcontent-c6="" class="active"> <!---->
+
+                                                        <label _ngcontent-c6=""><input name="Specification" type="radio"
+                                                                                       value="{{ item.specification }}"
+                                                                                       checked="checked"/>{{ item.specification }}
+                                                        </label>
+                                                        <!----> </li>
+
+                                                {% else %}
+                                                    <li _ngcontent-c6="" class="active"> <!---->
+
+                                                        <label _ngcontent-c6=""><input name="Specification" type="radio"
+                                                                                       value="{{ item.specification }}"/>{{ item.specification }}
+                                                        </label>
+
+                                                        <!----> </li>
+                                                {% endifequal %}
+                                            {% endfor %}
+
+                                        </ul>
+                                    </div>
+                                </section>
+                            {% else %}
+                                <section _ngcontent-c6="" class="item-spec-wrapper clearfix item-spec-package"
+                                         style="display: none">
+                                    <div _ngcontent-c6="" class="item-spec"><span _ngcontent-c6=""
+                                                                                  class="spec-title">规格选择</span>
+                                        <ul _ngcontent-c6="" class="spec-info"> <!---->
+                                            {% for item in specification %}
+                                                <li _ngcontent-c6="" class="active"> <!---->
+
+                                                    <label _ngcontent-c6=""><input name="Specification" type="radio"
+                                                                                   value="{{ item.specification }}"/>{{ item.specification }}
+                                                    </label>
+
+                                                    <!----> </li>
+                                            {% endfor %}
+
+                                        </ul>
+                                    </div>
+                                </section>
+                            {% endifnotequal %}
+
+
+
+                            {% ifnotequal dise.capacity ' ' %}
+                                <div _ngcontent-c5=""
+                                     class="product-spec-wrapper product-spec-memory last-spec-wrapper">
+                                    <div _ngcontent-c5="" class="product-spec"><span _ngcontent-c5=""
+                                                                                     class="spec-name">容量选择</span>
+                                        <ul _ngcontent-c5="" class="spec-info"> <!---->
+                                            {% for item in capacity %}
+
+                                                {% ifequal dise.capacity item.capacity %}
+                                                    <li _ngcontent-c5="" class="active"> <!----> <!----> <!---->
+                                                        <div _ngcontent-c5="" class="specs-item item-inline">
+                                                            <label _ngcontent-c5=""><input name="Rong" type="radio"
+                                                                                           value="{{ item.capacity }}"
+                                                                                           checked="checked"/>{{ item.capacity }}
+                                                            </label><br>
+                                                        </div>
+                                                        <!----> </li>
+                                                {% else %}
+
+                                                    <li _ngcontent-c5="" class="active"> <!----> <!----> <!---->
+                                                        <div _ngcontent-c5="" class="specs-item item-inline">
+                                                            <label _ngcontent-c5=""><input name="Rong" type="radio"
+                                                                                           value="{{ item.capacity }}"/>{{ item.capacity }}
+                                                            </label><br>
+                                                        </div>
+                                                        <!----> </li>
+
+                                                {% endifequal %}
+
+                                            {% endfor %}
+                                        </ul> <!---->
+                                    </div>
+                                </div> <!---->
+                            {% else %}
+                                <div _ngcontent-c5=""
+                                     class="product-spec-wrapper product-spec-memory last-spec-wrapper"
+                                     style="display: none">
+                                    <div _ngcontent-c5="" class="product-spec"><span _ngcontent-c5=""
+                                                                                     class="spec-name">容量选择</span>
+                                        <ul _ngcontent-c5="" class="spec-info"> <!---->
+                                            {% for item in capacity %}
+
+                                                <li _ngcontent-c5="" class="active"> <!----> <!----> <!---->
+                                                    <div _ngcontent-c5="" class="specs-item item-inline">
+                                                        <label _ngcontent-c5=""><input name="Rong" type="radio"
+                                                                                       value="{{ item.capacity }}"/>{{ item.capacity }}
+                                                        </label><br>
+                                                    </div>
+                                                    <!----> </li>
+                                            {% endfor %}
+                                        </ul> <!---->
+                                    </div>
+                                </div> <!---->
+                            {% endifnotequal %}
+
+                            {% ifnotequal dise.size ' ' %}
+                                <div _ngcontent-c5=""
+                                     class="product-spec-wrapper product-spec-memory last-spec-wrapper">
+                                    <div _ngcontent-c5="" class="product-spec"><span _ngcontent-c5=""
+                                                                                     class="spec-name">尺码选择</span>
+                                        <ul _ngcontent-c5="" class="spec-info"> <!---->
+                                            {% for item in size %}
+
+                                                {% ifequal dise.size item.size %}
+                                                    <li _ngcontent-c5="" class="active"> <!----> <!----> <!---->
+                                                        <div _ngcontent-c5="" class="specs-item item-inline">
+                                                            <label _ngcontent-c5=""><input name="Size" type="radio"
+                                                                                           value="{{ item.size }}"
+                                                                                           checked="checked"/>{{ item.size }}
+                                                            </label><br>
+                                                        </div>
+                                                        <!----> </li>
+                                                {% else %}
+
+                                                    <li _ngcontent-c5="" class="active"> <!----> <!----> <!---->
+                                                        <div _ngcontent-c5="" class="specs-item item-inline">
+                                                            <label _ngcontent-c5=""><input name="Size" type="radio"
+                                                                                           value="{{ item.size }}"/>{{ item.size }}
+                                                            </label><br>
+                                                        </div>
+                                                        <!----> </li>
+
+                                                {% endifequal %}
+
+                                            {% endfor %}
+                                        </ul> <!---->
+                                    </div>
+                                </div> <!---->
+                            {% else %}
+                                <div _ngcontent-c5=""
+                                     class="product-spec-wrapper product-spec-memory last-spec-wrapper"
+                                     style="display: none">
+                                    <div _ngcontent-c5="" class="product-spec"><span _ngcontent-c5=""
+                                                                                     class="spec-name">尺码选择</span>
+                                        <ul _ngcontent-c5="" class="spec-info"> <!---->
+                                            {% for item in size %}
+
+                                                <li _ngcontent-c5="" class="active"> <!----> <!----> <!---->
+                                                    <div _ngcontent-c5="" class="specs-item item-inline">
+                                                        <label _ngcontent-c5=""><input name="Size" type="radio"
+                                                                                       value="{{ item.size }}"/>{{ item.size }}
+                                                        </label><br>
+                                                    </div>
+                                                    <!----> </li>
+                                            {% endfor %}
+                                        </ul> <!---->
+                                    </div>
+                                </div> <!---->
+                            {% endifnotequal %}
+                            <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+                            <script>
+                                $(document).ready(function () {
+                                    $('input[type=radio]').change(function () {
+                                        var v1 = $("input[name='Size']:checked").val();
+                                        var v2 = $("input[name='Rong']:checked").val();
+                                        var v3 = $("input[name='Color']:checked").val();
+                                        var v4 = $("input[name='Specification']:checked").val();
+                                        var v5 = $("input[name='Style']:checked").val();
+                                        if (v1) {
+                                            v1 = v1
+                                        } else {
+                                            v1 = ' '
+                                        }
+                                        if (v2) {
+                                            v2 = v2
+                                        } else {
+                                            v2 = ' '
+                                        }
+                                        if (v3) {
+                                            v3 = v3
+                                        } else {
+                                            v3 = ' '
+                                        }
+                                        if (v4) {
+                                            v4 = v4
+                                        } else {
+                                            v4 = ' '
+                                        }
+                                        if (v5) {
+                                            v5 = v5
+                                        } else {
+                                            v5 = ' '
+                                        }
+                                        var product = {{dise.pcid}}
+                                            console.log(v1, v2, v3, v4, v5, product)
+                                        $.ajax({
+                                            type: "POST",
+                                            data: {v1: v1, v2: v2, v3: v3, v4: v4, v5: v5, product: product},
+                                            traditional: true,
+                                            url: "{% url 'app:change' %}",
+                                            cache: false,
+                                            success: function (result, statues, xml) {
+                                                $('#whole').html(result)
+                                            },
+                                            error: function () {
+                                                alert("false");
+                                            }
+                                        });
+                                    });
+                                });
+                            </script>
+
+                            <section _ngcontent-c6="" class="item-do-count-wrapper clearfix">
+                                <div _ngcontent-c6="" class="item-do-count">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                数量选择&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                            </td>
+                                            <td id="tab" colspan="2">
+                                                <span style="display: none;">单价:</span><span class="price"
+                                                                                             style="display: none;">{{ pcmoney }}</span>
+                                                <input class="min" name="" id='subtract{{ dise.mid }}' type="button"
+                                                       value="-"
+                                                       style="width: 17px;border: solid 0.5px;border-radius: 50%;background-color: white"/>
+                                                <input class="text_box" name="" id="text1{{ dise.mid }}" type="text" value="1" placeholder="0"
+                                                       style="border: none;width:15px" ;/>
+                                                <input class="add" name="" id="plus{{ dise.mid }}" type="button"
+                                                       value="+"
+                                                       style="width: 17px;border: solid 0.5px;border-radius: 50%;background-color: white"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </section>
+
+                            {% if dise.service %}
+                                <section _ngcontent-c6="" class="sku-custom-tips-wrapper clearfix">
+                                    <div _ngcontent-c6="" class="sku-custom-tips">
+                                            <span _ngcontent-c6=""
+                                                  class="sku-custom-tips-title">服务说明</span>
+                                        <aside _ngcontent-c6="" class="sku-custom-tips-text"> <!---->
+                                            <p _ngcontent-c6="">
+                                                {{ show.service }}</p></aside>
+                                    </div>
+                                </section>
+                            {% endif %}
+                        </div>
+                        <figure _ngcontent-c5="" class="product-view">
+                            <img _ngcontent-c5="" src="{{ dise.picture }}">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+
+            <div _ngcontent-c5="" class="product-fix-bar follow">
+                <div _ngcontent-c5="" class="fix-bar-wrapper"><h1 _ngcontent-c5="" class="bar-text">您已选择了</h1>
+                    <div _ngcontent-c5="" class="bar-device-info"><h1 _ngcontent-c5="" class="clearfix"><span
+                            _ngcontent-c5="" class="title">{{ dise.mername }}</span> <!----><span _ngcontent-c5=""
+                                                                                                  class="price"><i>¥</i> <input type="text" id="money{{ dise.mid }}"
+                                                                       value="{{ dise.money }}" style="border-style:none"
+                                                                       name="{{ dise.mid }}"/></span>
+                        <!----> </h1>
+                        <h2 _ngcontent-c5=""> <!----><span _ngcontent-c5="">{{ dise.color }}<!----><span
+                                _ngcontent-c5="">&nbsp;|&nbsp;</span></span><span
+                                _ngcontent-c5="">{{ dise.capacity }}
+                            <!----></span></h2></div> <!----> <!---->
+                    <div _ngcontent-c5="" class="bar-accessories"><h1 _ngcontent-c5=""><span _ngcontent-c5=""
+                                                                                             class="title">附加商品</span>
+                        <!----> </h1> <!----><h2 _ngcontent-c5="" class="no-accessory"> 一同下单，将免费送货 </h2>
+                        <!----> <!----> <!----> </div> <!---->
+                    <div _ngcontent-c5="" class="bar-postage-fee"><h1 _ngcontent-c5=""><span _ngcontent-c5=""
+                                                                                             class="title">运费</span>
+                    </h1> <span _ngcontent-c5="" class="price"><i>¥</i> <span>0.00</span></span></div>
+                    <div _ngcontent-c5="" class="bar-postage-fee"><h1 _ngcontent-c5=""><span _ngcontent-c5=""
+                                                                                             class="title">活动优惠</span>
+                    </h1> <span _ngcontent-c5="" class="price"><span><img src="/static/image/85573cfd7c04c97.jpg"
+                                                                          style="width: 20px;">7折</span></span>
+                    </div>
+                    <div _ngcontent-c5="" class="bar-btn disabled notice"><a _ngcontent-c5=""> 现在购买 </a></div>
+                    <button _ngcontent-c5="" class="bar-btn add-cart-btn" id="shopcar"> 加入购物车</button>
+                    <!----> <!----><!----> <!---->
+                    <div _ngcontent-c5="" class="no-discount-price"> <!----> <!---->
+                        <div _ngcontent-c5="" class="bar-price"><i>¥</i>{{ pcmoney }}</div>
+                    </div>  <!---->  <!----> </div>
+            </div>
+            <script>
+                $(document).ready(function () {
+                    $('#plus{{ dise.mid }}').click(function () {
+                        var num = $("#text1{{ dise.mid }}").val();
+                        var money = {{dise.money}};
+                        console.log(num)
+                        $('#text1{{ dise.mid }}').val(Number(num) + 1)
+                        $('#money{{ dise.mid }}').val((Number(num) + 1) * Number(money))
+                        $('.bar-price').html(((Number(num) + 1) * Number(money)*Number(0.7)).toFixed(1))
+                    });
+                    $('#subtract{{ dise.mid }}').click(function () {
+                        var num = $("#text1{{ dise.mid }}").val();
+                        var money = {{dise.money}};
+                        console.log(num)
+                        if (num == 0) {
+                            $('#text1{{ dise.mid }}').val(0);
+                            $('#money{{ dise.mid }}').val(0);
+                            $('.bar-price').html(0)
+                        } else {
+                            $('#text1{{ dise.mid }}').val(Number(num) - 1)
+                            $('#money{{ dise.mid }}').val((Number(num) - 1) * Number(money))
+                            $('.bar-price').html(((Number(num) - 1) * Number(money)*Number(0.7)).toFixed(1))
+                        }
+                    });
+                });
+
+
+            </script>
+            <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+            <script>
+                $(document).ready(function () {
+                    $('#shopcar').click(function () {
+                        $.ajax({
+                            type: "POST",
+                            data: {mid: {{ num1 }}},
+                            traditional: true,
+                            url: "{% url 'app:joinshopcar' %}",
+                            cache: false,
+                            success: function (result, statues, xml) {
+                                alert(result)
+                            },
+                            error: function () {
+                                alert("false");
+                            }
+                        });
+                    });
+                });
+            </script>
+
+        </div> <!----> <!----> <!---->
+
