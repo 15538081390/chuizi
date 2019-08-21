@@ -31,7 +31,7 @@ def index(request):
             for a1 in a:
                 c.append(a1)
             a=[]
-    print(c)
+
     return render(request,"App/bash/bash.html",context={"home":home,
                                                         "tab":tab,
                                                         "products":c,
@@ -118,7 +118,7 @@ def show(request,num):
     size = Merchandise.objects.values("size").filter(pcid=dise.pcid).annotate(Count("pcid"))                   # 尺码
     kuanshi = Merchandise.objects.values("kuanshi").filter(pcid=dise.pcid).annotate(Count("pcid"))                   # 款式
     capacity = Merchandise.objects.values("capacity").filter(pcid=dise.pcid).annotate(Count("pcid"))            #容量
-    print (capacity)
+
     specification = Merchandise.objects.values("specification").filter(pcid=dise.pcid).annotate(Count("pcid"))  #规格
     #查询商品
     # pc = Productcategorie.objects.get(pcid=dise.mid)
@@ -135,13 +135,13 @@ def change(request):
     v4=request.POST['v4']
     v5=request.POST['v5']
     product=request.POST['product']
-    print (v1,v2,v3,v4,v5,product)
+
     tab = IndexTab.objects.all()
     home = Indexhome.objects.all()
     dise=Merchandise.objects.filter(size=v1,capacity=v2,color=v3,specification=v4,kuanshi=v5,pcid=product).all()
-    print (dise[0])
+
     dise=dise[0]
-    print (dise)
+
     bankuai = Productcategorie.objects.get(pcid=dise.show)  # 需要修改查询条件，
     bankuai01 = Productcategorie.objects.filter(hid=dise.show)  # 查询相关商品
     color = Merchandise.objects.values("color").filter(pcid=dise.pcid).annotate(Count("pcid"))  # 颜色
@@ -156,13 +156,47 @@ def change(request):
 
 def joinshopcar(request):
     if request.session.get('username'):
-        mid=int(request.POST['pid'])
+        mid=int(request.POST['mid'])
         product=Merchandise.objects.filter(mid=mid)
         user=User.objects.filter(username=request.session.get('username'))
-        car1=Shopping(uid=user.uid,mid=mid,picture=product.pricture,name=product.mername,price=product.money)
+        car1=Shopping(uid=user[0].uid,mid=mid,picture=product[0].picture,name=product[0].mername,price=product[0].money)
         car1.save()
         return HttpResponse('成功加入')
     else:
 
         return HttpResponse('请先登录')
+
+def deletecar(request):
+    id=request.POST['value']
+
+    Shopping.objects.filter(sid=id).delete()
+    user=User.objects.filter(username=request.session.get('username'))
+    shopcar = Shopping.objects.filter(uid=user[0].uid)
+    return render(request,'operate/delete.html',locals())
+
+def pay1(request,mid):
+    if request.session.get('username'):
+        product=Merchandise.objects.get(mid=mid)
+
+        addrs=Getaddr.objects.filter(username=request.session['username'])
+        tab = IndexTab.objects.all()
+
+        return render(request,'App/shopping/pay1.html',locals())
+    else:
+        return render(request,'operate/login11.html')
+
+def save(request):
+    if len(request.POST['phone'])==11:
+        addr=Getaddr(username=request.session['username'],name=request.POST['name'],phone=request.POST['phone'],fulladdr=request.POST['addr'],street=request.POST['code'])
+        addr.save()
+
+        return HttpResponse('保存成功')
+    else:
+        return HttpResponse('请输入正确格式')
+
+def deleteaddr(request):
+    id=request.POST['id']
+    print (id)
+    Getaddr.objects.get(gid=id).delete()
+    return HttpResponse('删除成功')
 

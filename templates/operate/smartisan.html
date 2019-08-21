@@ -3951,9 +3951,11 @@
                     </ul>
                 </div> <!---->
                 <ul _ngcontent-c1="" class="nav-aside">
-                    {% if 'username' not in request.session%}
-                            <li _ngcontent-c1="" class="nav-user"><a _ngcontent-c1="" href = "{% url 'operate:login' %}">登录</a> <!----> </li> <!---->
-                        {% else %}
+                    {% if 'username' not in request.session %}
+                        <li _ngcontent-c1="" class="nav-user"><a _ngcontent-c1=""
+                                                                 href="{% url 'operate:login' %}">登录</a> <!----> </li>
+                        <!---->
+                    {% else %}
                         <li _ngcontent-c1="" class="nav-user"><a _ngcontent-c1="">个人中心</a> <!---->
                             <div _ngcontent-c1="" class="nav-user-wrapper">
                                 <div _ngcontent-c1="" class="nav-user-list">
@@ -3979,12 +3981,14 @@
                                         <li _ngcontent-c1="" class="address"><a _ngcontent-c1=""
                                                                                 href="{% url 'operate:getaddr' %}">收货地址</a>
                                         </li>
-                                        <li _ngcontent-c1="" class="logout"><a _ngcontent-c1="" href = '{% url 'operate:logout' %}'>退出</a></li>
+                                        <li _ngcontent-c1="" class="logout"><a _ngcontent-c1=""
+                                                                               href='{% url 'operate:logout' %}'>退出</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
                         </li> <!---->
-                        {% endif %}
+                    {% endif %}
             </div>
 
         </div>
@@ -4057,6 +4061,23 @@
                                                 $('#money{{ s1.mid }}').val((Number(num) - 1) * Number(money))
                                             }
                                         });
+                                        $('#delete{{ s1.sid }}').click(function () {
+                                            var value = $('#delete{{ s1.sid }}').val();
+                                            $.ajax({
+                                                type: "POST",
+                                                data: {value: value},
+                                                traditional: true,
+                                                url: "{% url 'app:deletecar' %}",
+                                                cache: false,
+                                                success: function (result, statues, xml) {
+                                                    $('.content2 center').html(result)
+                                                },
+                                                error: function () {
+                                                    alert("false");
+                                                }
+                                            });
+
+                                        })
                                     {% endfor %}
                                 }
                             </script>
@@ -4064,16 +4085,18 @@
                                 <div class="content2 center">
                                     <div class="sub_content fl ">
                                         <input type="checkbox" value="{{ s.mid }}" class="" name="shure"
-                                               />
+                                        />
                                     </div>
                                     <div class="sub_content fl"><img src="{{ s.picture }}" style="width: 90%"></div>
                                     <div class="sub_content fl ft20">{{ s.name }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ s.price }}</div>
 
 
                                     <div class="sub_content fl "><input type="button" id="plus{{ s.mid }}" value="+"
-                                                                        style="border-radius: 50%;width: 17px;border:solid 0.5px;background-color: white"><input
+                                                                        style="border-radius: 50%;width: 17px;border:solid 0.5px;background-color: white">
+                                        <input
                                             type="text" id="text1{{ s.mid }}" value="1"
-                                            style="border-style:none;width: 10px;"/><input
+                                            style="border-style:none;width: 10px;" name="text1{{ s.mid }}"/>
+                                        <input
                                             style="border-radius: 50%;width: 17px;border:solid 0.5px;background-color: white"
                                             type="button" id="subtract{{ s.mid }}" value="-">
 
@@ -4083,7 +4106,10 @@
                                     <div class="sub_content fl"><input type="text" id="money{{ s.mid }}"
                                                                        value="{{ s.price }}" style="border-style:none"
                                                                        name="{{ s.mid }}"/></div>
-                                    <div class="sub_content fl"><a href="">×</a></div>
+                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                    <button id="delete{{ s.sid }}" value="{{ s.sid }}"
+                                            style="border:none;position: relative;top:50px;background-color: white"><a
+                                            href="">×</a></button>
                                     <div class="clear"></div>
                                 </div>
                             {% endfor %}

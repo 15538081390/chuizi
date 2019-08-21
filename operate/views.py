@@ -50,15 +50,20 @@ def money(request):                             #san = 商品id
     tab = IndexTab.objects.all()  # 板块
     shopcar = Shopping.objects.all()
     buy=request.POST.getlist('shure')
+
     print (buy)
     whichone=Merchandise.objects.filter(mid__in=buy)
     print (whichone)
-    money=0.0
     for i in whichone:
-        m1=request.POST.get(str(i.mid))
-        money+=float(m1)
-    print (money)
-    return render(request, "operate/smartisan.html", locals())
+        s1=request.POST.get(str('text1'+str(i.mid)))
+        print (s1)
+
+    # money=0.0
+    # for i in whichone:
+    #     m1=request.POST.get(str(i.mid))
+    #     money+=float(m1)
+    # print (money)
+    return render(request, "App/shopping/pay2.html", locals())
 
 
 # 用户注册+登录
