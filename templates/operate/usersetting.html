@@ -7665,7 +7665,7 @@
                         <div _ngcontent-c19="" class="page-for-account common-box">
                             <section _ngcontent-c19="" class="headline"><h2 _ngcontent-c19="">账户资料</h2></section>
                             {% for urz in user1 %}
-                                {% if urz.username == request.session.username%}
+                                {% if urz.username == request.session.username %}
                             <section _ngcontent-c19="" class="content">
                                 <div _ngcontent-c19="" class="status-box account-avatar-box fn-clear">
                                     <div _ngcontent-c19="" class="account-avatar-image"><img _ngcontent-c19="" alt=""
@@ -7684,12 +7684,12 @@
                                     <div _ngcontent-c19="" class="safe-center-title"><h3 _ngcontent-c19="">账户昵称</h3>
                                     </div>
                                     <p _ngcontent-c19="">{{ urz.username }}</p>
-                                    <div _ngcontent-c19="" class="safe-todo"><a _ngcontent-c19="">修改</a></div>
+                                    <div _ngcontent-c19="" class="safe-todo"><a _ngcontent-c19="" href="{% url 'operate:changename' %}">修改</a></div>
                                 </div>
                                 <div _ngcontent-c19="" class="status-box status-box fn-clear safe-status-ok">
                                     <div _ngcontent-c19="" class="safe-center-title"><h3 _ngcontent-c19="">手机验证</h3>
                                     </div> <!----> <!----><p _ngcontent-c19="">您验证的手机：{{ urz.phone }}</p>
-                                    <div _ngcontent-c19="" class="safe-todo"><a _ngcontent-c19="">修改</a></div>
+                                    <div _ngcontent-c19="" class="safe-todo"><a _ngcontent-c19="" href="">修改</a></div>
                                 </div>
                                 <div _ngcontent-c19="" class="status-box safe-status-ok fn-clear">
                                     <div _ngcontent-c19="" class="safe-center-title"><h3 _ngcontent-c19="">登录密码</h3>

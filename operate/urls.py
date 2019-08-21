@@ -18,5 +18,6 @@ urlpatterns =[
     url(r"user/getaddr$", views.getaddr, name='getaddr'),
     url(r"user/logout", views.logout, name = 'logout'),
     url(r"user/changeimg", views.changeimg, name = 'changeimg'),
+    url(r"user/changename", views.changename, name = 'changename'),
 ]
 

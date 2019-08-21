@@ -122,7 +122,9 @@ $(function(){
 		var error1 = document.querySelector('.error1');
 		var error2 = document.querySelector('.error2');
 		var error3 = document.querySelector('.error3');
-		var error5 = document.querySelector('.error5');
+		$('.error1').css('color','red');
+		$('.error2').css('color','red');
+		$('.error3').css('color','red');
 		if (data.userId == ''){
 		    error1.innerHTML='用户名不能为空!';
             return false;

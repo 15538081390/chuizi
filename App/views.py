@@ -16,7 +16,7 @@ def index(request):
     products = Merchandise.objects.all()
     home=Indexhome.objects.all()
     tab=IndexTab.objects.all()
-    user = User.objects.get(username=request.session['username'])
+    user = User.objects.all()
     a=[]
     c=[]
     for h in home:
@@ -48,7 +48,7 @@ def second(request,cid):
     tab = IndexTab.objects.all()
     copy=Indexcopy.objects.all()
     indepro=Indexproduct.objects.all()
-    user = User.objects.get(username=request.session['username'])
+    user = User.objects.all()
     pros=Merchandise.objects.values('pcid').annotate(Min('mid'))
 
     list1=[]
@@ -113,7 +113,7 @@ def tnt(request):
 def show(request,num):
     tab=IndexTab.objects.all()
     home = Indexhome.objects.all()
-    user = User.objects.get(username=request.session['username'])
+    user = User.objects.all()
     dise = Merchandise.objects.get(mid=num)                     #从规格表查询产品表
     bankuai = Productcategorie.objects.get(pcid=dise.show)            #需要修改查询条件，
     bankuai01 = Productcategorie.objects.filter(hid=dise.show)#查询相关商品

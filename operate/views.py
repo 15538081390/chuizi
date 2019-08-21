@@ -207,3 +207,22 @@ def getaddr(request):
     tab = IndexTab.objects.all()
     user = User.objects.get(username=request.session['username'])
     return render(request, 'operate/getaddr.html', locals())
+
+
+# 修改昵称
+def changename(request):
+    if request.method == 'POST':
+        name = request.POST['nickname']
+        user = User.objects.all()
+        if name in user[0].username:
+            # return HttpResponse('用户名已存在')
+            return render(request, 'operate/changename.html', {'script': "alert", 'wrong': '用户名已存在'})
+        else:
+            user6 = User.objects.get(username=request.session.get('username'))
+            user6.username = name
+            user6.save()
+            request.session['username'] = name
+            request.session.set_expiry(MAXAGE)
+            return redirect(reverse('operate:usersetting'))
+    return render(request, 'operate/changename.html')
+
