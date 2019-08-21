@@ -136,7 +136,8 @@ MAXAGE = 1 * 24 * 3600
 MAXAGECODE = 5 * 60
 SALTVALUE = '9a15ae9f'
 
-
+# 设置图片上传路径
+MDEIA_ROOT = os.path.join(BASE_DIR,'static/usrpic/')
 
 
 # Static files (CSS, JavaScript, Images)

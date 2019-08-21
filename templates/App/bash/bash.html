@@ -4915,9 +4915,13 @@
                             <div _ngcontent-c1="" class="nav-user-wrapper">
                                 <div _ngcontent-c1="" class="nav-user-list">
                                     <dl _ngcontent-c1="" class="nav-user-avatar">
+                                        {% for user3 in user %}
+                                            {% if user3.username == request.session.username %}
                                         <dd _ngcontent-c1=""> <!----> <!----><img _ngcontent-c1="" class="nav-avatar"
-                                                                                  src="./账户详情 - Smartisan_files/avatar.png">
+                                                                                  src="{{ user3.portrait }}">
                                         </dd>
+                                            {% endif %}
+                                        {% endfor %}
                                         <dt _ngcontent-c1="">{{ request.session.username }}</dt>
                                     </dl>
                                     <ul _ngcontent-c1="">

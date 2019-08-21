@@ -1,6 +1,8 @@
+import os
 from datetime import datetime
 import random
 
+from django.conf import settings
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
@@ -9,6 +11,7 @@ from django.shortcuts import render
 
 from App.models import *
 from App.models import Productcategorie
+
 from operate.code import send_sms
 from operate.form import UserForm
 from operate.models import Orderform, User, Getaddr,Shopping
@@ -38,7 +41,8 @@ class Summoney:
 
 # 购物车
 def smartisan(request): # san = 商品id
-    tab = IndexTab.objects.all()                    #板块
+    tab = IndexTab.objects.all()    #板块
+    user1 = User.objects.get(username = request.session.get('username'))
     user=User.objects.filter(username=request.session.get('username'))
     shopcar = Shopping.objects.filter(uid=user[0].uid)
     return render(request,"operate/smartisan.html",locals())
@@ -152,6 +156,7 @@ def userform(request):
     products = Productcategorie.objects.all()
     home = Indexhome.objects.all()
     tab = IndexTab.objects.all()
+    user = User.objects.get(username=request.session['username'])
     return render(request, 'operate/userinform.html', locals())
 
 
@@ -159,6 +164,7 @@ def aftersale(request):
     products = Productcategorie.objects.all()
     home = Indexhome.objects.all()
     tab = IndexTab.objects.all()
+    user = User.objects.get(username=request.session['username'])
     return render(request, 'operate/shouhou.html', locals())
 
 
@@ -166,6 +172,7 @@ def coupon(request):
     products = Productcategorie.objects.all()
     home = Indexhome.objects.all()
     tab = IndexTab.objects.all()
+    user = User.objects.get(username=request.session['username'])
     return render(request, 'operate/youhui.html', locals())
 
 
@@ -173,11 +180,76 @@ def usersetting(request):
     products = Productcategorie.objects.all()
     home = Indexhome.objects.all()
     tab = IndexTab.objects.all()
+    user1 = User.objects.all()
+    user = User.objects.get(username = request.session['username'])
     return render(request, 'operate/usersetting.html', locals())
+
+
+# 修改头像
+def changeimg(request):
+    img = request.FILES.get('img')
+    # print(file.name)
+    # print(file.size)
+    savePath = os.path.join(settings.MDEIA_ROOT, img.name)  # print(savePath)
+    with open(savePath, 'wb') as f:
+    # f.write(file.read())
+        if img.multiple_chunks():
+            for myf in img.chunks():
+                f.write(myf)
+            print('大大于2.5')
+        else:
+            print('小小于2.5')
+            f.write(img.read())
+    user = User.objects.get(username=request.session.get('username'))
+    user.portrait = '/static/usrpic/'+img.name
+    user.save()
+    return redirect(reverse('operate:usersetting'))
 
 
 def getaddr(request):
     products = Productcategorie.objects.all()
     home = Indexhome.objects.all()
     tab = IndexTab.objects.all()
+    user = User.objects.get(username=request.session['username'])
     return render(request, 'operate/getaddr.html', locals())
+
+
+# 修改昵称
+def changename(request):
+    if request.method == 'POST':
+        name = request.POST['nickname']
+        user = User.objects.all()
+        if name in user[0].username:
+            # return HttpResponse('用户名已存在')
+            return render(request, 'operate/changename.html', {'script': "alert", 'wrong': '用户名已存在'})
+        else:
+            user6 = User.objects.get(username=request.session.get('username'))
+            user6.username = name
+            user6.save()
+            request.session['username'] = name
+            request.session.set_expiry(MAXAGE)
+            return redirect(reverse('operate:usersetting'))
+    return render(request, 'operate/changename.html')
+
+
+def changepsd(request):
+    if request.method == 'POST':
+        password = request.POST['oldpassword']
+        newpassword = request.POST['password']
+        password_hash = hashlib.sha1(password.encode('utf8')).hexdigest()
+        newpassword_hash = hashlib.sha1(newpassword.encode('utf8')).hexdigest()
+        user = User.objects.all()
+        if password_hash != user[0].password:
+            print('aa')
+            return render(request, 'operate/changepsd.html', {'script': "alert", 'wrong': '密码错误,修改失败'})
+        else:
+            user = User.objects.get(username=request.session.get('username'))
+            user.password = newpassword_hash
+            user.save()
+            return redirect(reverse('operate:usersetting'))
+    return render(request, 'operate/changepsd.html')
+
+
+def changeemail(request):
+
+    return render(request, 'operate/changeemail.html')

@@ -7409,7 +7409,7 @@
                                 <div _ngcontent-c1="" class="nav-user-list">
                                     <dl _ngcontent-c1="" class="nav-user-avatar">
                                         <dd _ngcontent-c1=""> <!----> <!----><img _ngcontent-c1="" class="nav-avatar"
-                                                                                  src="./账户详情 - Smartisan_files/avatar.png">
+                                                                                  src="{{ user.portrait }}">
                                         </dd>
                                         <dt _ngcontent-c1="">{{ request.session.username }}</dt>
                                     </dl>
@@ -7637,7 +7637,7 @@
                     <div _ngcontent-c7="" class="left-menu-bar" style="top: 0px;">
                         <div _ngcontent-c7="" class="left-menu-wrapper"> <!----><!----> <img _ngcontent-c7=""
                                                                                              alt="avatar"
-                                                                                             src="./账户详情 - Smartisan_files/avatar.png">
+                                                                                             src="{{ user.portrait }}">
                             <!----> <h5 _ngcontent-c7="">{{ request.session.username }}</h5>
                             <ul _ngcontent-c7="" class="left-menu-nav">
                                 <li _ngcontent-c7="" class=""><a _ngcontent-c7=""
@@ -7664,38 +7664,44 @@
                     <ng-component _nghost-c19="" class=""><!----> <!---->
                         <div _ngcontent-c19="" class="page-for-account common-box">
                             <section _ngcontent-c19="" class="headline"><h2 _ngcontent-c19="">账户资料</h2></section>
+                            {% for urz in user1 %}
+                                {% if urz.username == request.session.username %}
                             <section _ngcontent-c19="" class="content">
                                 <div _ngcontent-c19="" class="status-box account-avatar-box fn-clear">
                                     <div _ngcontent-c19="" class="account-avatar-image"><img _ngcontent-c19="" alt=""
-                                                                                             src="./账户详情 - Smartisan_files/avatar.png">
+                                                                                             src="{{ urz.portrait }}">
                                     </div>
                                     <div _ngcontent-c19="" class="safe-center-title"><h3 _ngcontent-c19="">修改头像</h3>
                                     </div>
-                                    <div _ngcontent-c19="" class="btn btn-primary small-btn"><a
-                                            _ngcontent-c19="">上传图片</a></div>
+                                    <form action = '{% url 'operate:changeimg' %}' method="post" enctype="multipart/form-data">
+                                        <p><input type="file" name="img" ></p>
+                                        <div _ngcontent-c19="" class="safe-todo" >
+                                        <input type = 'submit' style = 'border : none; color: royalblue' value = '上传图片'>
+                                        </div>
+                                    </form>
                                 </div>
                                 <div _ngcontent-c19="" class="status-box safe-status-ok fn-clear">
                                     <div _ngcontent-c19="" class="safe-center-title"><h3 _ngcontent-c19="">账户昵称</h3>
                                     </div>
-                                    <p _ngcontent-c19="">Yzzpro</p>
-                                    <div _ngcontent-c19="" class="safe-todo"><a _ngcontent-c19="">修改</a></div>
+                                    <p _ngcontent-c19="">{{ urz.username }}</p>
+                                    <div _ngcontent-c19="" class="safe-todo"><a _ngcontent-c19="" href="{% url 'operate:changename' %}">修改</a></div>
                                 </div>
                                 <div _ngcontent-c19="" class="status-box status-box fn-clear safe-status-ok">
                                     <div _ngcontent-c19="" class="safe-center-title"><h3 _ngcontent-c19="">手机验证</h3>
-                                    </div> <!----> <!----><p _ngcontent-c19="">您验证的手机：+86 182****6082</p>
-                                    <div _ngcontent-c19="" class="safe-todo"><a _ngcontent-c19="">修改</a></div>
+                                    </div> <!----> <!----><p _ngcontent-c19="">您验证的手机：{{ urz.phone }}</p>
+                                    <div _ngcontent-c19="" class="safe-todo"><a _ngcontent-c19="" href="">修改</a></div>
                                 </div>
                                 <div _ngcontent-c19="" class="status-box safe-status-ok fn-clear">
                                     <div _ngcontent-c19="" class="safe-center-title"><h3 _ngcontent-c19="">登录密码</h3>
                                     </div>
                                     <p _ngcontent-c19="">互联网账号存在被盗风险，建议您定期更改密码以保护账户安全。</p>
-                                    <div _ngcontent-c19="" class="safe-todo"><a _ngcontent-c19="">修改</a></div>
+                                    <div _ngcontent-c19="" class="safe-todo"><a _ngcontent-c19="" href="{% url 'operate:changepsd' %}">修改</a></div>
                                 </div>
                                 <div _ngcontent-c19="" class="status-box fn-clear safe-status-ok">
                                     <div _ngcontent-c19="" class="safe-center-title"><h3 _ngcontent-c19="">邮箱验证</h3>
                                     </div> <!----> <!----> <!----> <!----> <!----><p _ngcontent-c19="">
-                                    您验证的邮箱：53*****19@qq.com</p> <!---->
-                                    <div _ngcontent-c19="" class="safe-todo"><a _ngcontent-c19="">修改</a></div>
+                                    您验证的邮箱：{{ urz.email }}</p> <!---->
+                                    <div _ngcontent-c19="" class="safe-todo"><a _ngcontent-c19="" href="{% url 'operate:changeemail' %}">修改</a></div>
                                 </div>
                                 <div _ngcontent-c19="" class="status-box status-box-last fn-clear safe-status-warning">
                                     <div _ngcontent-c19="" class="safe-center-title"><h3 _ngcontent-c19="">安全问题</h3>
@@ -7704,6 +7710,8 @@
                                     <div _ngcontent-c19="" class="safe-todo"><a _ngcontent-c19="">现在设置</a></div>
                                 </div>
                             </section>
+                                {% endif %}
+                            {% endfor %}
                         </div> <!----></ng-component>
                 </div>
                 <dialog-prompt _ngcontent-c5="" _nghost-c8="" class="ng-tns-c8-0">
