@@ -177,6 +177,7 @@ def usersetting(request):
     tab = IndexTab.objects.all()
     user1 = User.objects.all()
     user = User.objects.get(username = request.session['username'])
+    quest = Questionsafe.objects.filter( uid = user.uid).all()
     return render(request, 'operate/usersetting.html', locals())
 
 
@@ -235,7 +236,6 @@ def changepsd(request):
         newpassword_hash = hashlib.sha1(newpassword.encode('utf8')).hexdigest()
         user = User.objects.all()
         if password_hash != user[0].password:
-            print('aa')
             return render(request, 'operate/changepsd.html', {'script': "alert", 'wrong': '密码错误,修改失败'})
         else:
             user = User.objects.get(username=request.session.get('username'))
@@ -246,5 +246,17 @@ def changepsd(request):
 
 
 def changeemail(request):
-
+    if request.method == 'POST':
+        email = request.POST['mail']
+        user = User.objects.all()
+        if email == user[0].email:
+            return render(request, 'operate/changeemail.html', {'script': "alert", 'wrong': '您输入的邮箱已被注册'})
+        else:
+            user = User.objects.get(username=request.session.get('username'))
+            user.email = email
+            user.save()
+            return redirect(reverse('operate:usersetting'))
     return render(request, 'operate/changeemail.html')
+
+def settingqst(request):
+    return render(request, 'operate/changeqst.html')
