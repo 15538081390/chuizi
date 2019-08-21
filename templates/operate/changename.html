@@ -40,6 +40,7 @@
 <body class="v2 modify-name" ng-class="pageClass" style="">
 <div class="wrapper ng-scope" ng-controller="MainCtrl"
      ng-class="{ &#39;cloud&#39;: isEmbedCloud, &#39;bbs&#39;: isEmbedBbs, &#39;bbs-tmp&#39;: isEmbedBbsTmp, &#39;settings&#39;: isSettings, &#39;guest&#39;: isGuestLogin, &#39;avatar&#39;: isModifyAvatar, &#39;notes&#39;: isEmbedNotes, &#39;contacts&#39;: isEmbedContacts, &#39;radar&#39;: isEmbedRadar, &#39;four-1&#39;: is1111}">
+    {% block nav %}
     <div class="dialog dialog-shadow" style="display: block; margin-top: -174.5px;">
         <div class="title" ng-class="loginLogoClass">
             <div ng-show="is1111" class="return-btn ng-hide" ng-click="backToLast()"></div>
@@ -58,7 +59,7 @@
 
                         </div>
                         <div class="tips no-icon" i-show="form.nickname.$focused" i-label="#nickname"
-                             style="opacity: 1; display: none" id="div1"><span class="delta"></span> <span
+                             style="opacity: 1; display: none;" id="div1"><span class="delta"></span> <span
                                 class="deltapatch"></span> <span class="warningicon"></span>
                             <div class="verifycon"><p>请输入正确字符（3-10）</p></div>
                         </div>
@@ -81,6 +82,7 @@
             </form>
         </div>
     </div>
+    {% endblock nav %}
     <div class="loading" style="display: none;"></div>
     <div class="copyright">
         <div class="clearfix"><h2>Copyright&nbsp;©&nbsp;2019&nbsp;smartisan.com&nbsp;版权所有</h2>
@@ -122,6 +124,7 @@
     f.parentNode.insertBefore(j, f);
  })(window, document, 'script', 'dataLayer', 'GTM-TBDW8K');</script>
 </body>
+{% block js %}
 <script type="text/javascript">
 	//提交
 	$("#submit").on("click", function(){
@@ -146,11 +149,11 @@
 	        success: function (result) {
 	        		alert(result);
 	        		window.location.href='{% url 'operate:changename' %}';
-                }
-
+                },
 	        })
 	})
 
 </script>
 <script type="text/javascript">{{script}}('{{wrong}}')</script>
+{% endblock js %}
 </html>

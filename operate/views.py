@@ -226,3 +226,25 @@ def changename(request):
             return redirect(reverse('operate:usersetting'))
     return render(request, 'operate/changename.html')
 
+
+def changepsd(request):
+    if request.method == 'POST':
+        password = request.POST['oldpassword']
+        newpassword = request.POST['password']
+        password_hash = hashlib.sha1(password.encode('utf8')).hexdigest()
+        newpassword_hash = hashlib.sha1(newpassword.encode('utf8')).hexdigest()
+        user = User.objects.all()
+        if password_hash != user[0].password:
+            print('aa')
+            return render(request, 'operate/changepsd.html', {'script': "alert", 'wrong': '密码错误,修改失败'})
+        else:
+            user = User.objects.get(username=request.session.get('username'))
+            user.password = newpassword_hash
+            user.save()
+            return redirect(reverse('operate:usersetting'))
+    return render(request, 'operate/changepsd.html')
+
+
+def changeemail(request):
+
+    return render(request, 'operate/changeemail.html')

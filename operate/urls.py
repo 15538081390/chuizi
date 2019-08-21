@@ -19,5 +19,7 @@ urlpatterns =[
     url(r"user/logout", views.logout, name = 'logout'),
     url(r"user/changeimg", views.changeimg, name = 'changeimg'),
     url(r"user/changename", views.changename, name = 'changename'),
+    url(r"user/changepsd", views.changepsd, name = 'changepsd'),
+    url(r"user/changeemail", views.changeemail, name = 'changeemail'),
 ]
 
