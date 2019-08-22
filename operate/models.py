@@ -17,14 +17,13 @@ class User(models.Model):
 #收货地址
 class Getaddr(models.Model):
     gid = models.AutoField(primary_key=True)
-    uid = models.ImageField(null=True)
-    username = models.IntegerField(null=True)                            # 用户id
+    username = models.CharField(null=True,max_length=255)                            # 用户id
     fulladdr = models.CharField(max_length=255, blank=True, null=True) #详细地址
     street = models.CharField(max_length=256,null=True)                 #街道地址
-    phone = models.IntegerField(blank=True, null=True)            #手机号码
-    etc = models.CharField(max_length=50, blank=True, null=True)  #默认地址
+    phone = models.CharField(max_length=255,blank=True, null=True)            #手机号码
+    etc = models.IntegerField( blank=True, null=True)  #默认地址
     telephone = models.CharField(max_length=50, blank=True, null=True)
-
+    name=models.CharField(max_length=50,null=True)
     class Meta:
         db_table = 'getaddr'
 

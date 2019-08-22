@@ -19,5 +19,6 @@ from django.contrib import admin
 urlpatterns = [
 
     url(r"^app/", include("App.urls", namespace="app")),
-    url(r"^operate/", include("operate.urls", namespace="operate"))
+    url(r"^operate/", include("operate.urls", namespace="operate")),
+    url(r"^manage/",include('smartisan_manage.url',namespace='manage')),
 ]

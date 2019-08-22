@@ -19,5 +19,8 @@ urlpatterns =[
     url(r"^show/(?P<num>\d+)/$",views.show,name="show"),
     url(r"^show/$",views.joinshopcar,name="joinshopcar"),
     url(r"^change/$",views.change,name="change"),
-
+    url(r"^deletecar/$",views.deletecar,name="deletecar"),
+    url(r"^pay1/(?P<mid>\d+)/$",views.pay1,name="pay1"),
+    url(r"^save/$",views.save,name="save"),
+    url(r"^deleteaddr/$", views.deleteaddr, name="deleteaddr"),
 ]
