@@ -7697,19 +7697,36 @@
                                     <p _ngcontent-c19="">互联网账号存在被盗风险，建议您定期更改密码以保护账户安全。</p>
                                     <div _ngcontent-c19="" class="safe-todo"><a _ngcontent-c19="" href="{% url 'operate:changepsd' %}">修改</a></div>
                                 </div>
+                                    {% if urz.email == Null %}
+                                <div _ngcontent-c19="" class="status-box fn-clear safe-status-warning">
+                                    <div _ngcontent-c19="" class="safe-center-title"><h3 _ngcontent-c19="">邮箱验证</h3>
+                                    </div> <!----><p _ngcontent-c15="">绑定邮箱后，可用邮箱登录。</p> <!---->
+                                    <div _ngcontent-c19="" class="safe-todo"><a _ngcontent-c19 ="" href="{% url 'operate:changeemail' %}">现在绑定</a></div> <!---->
+                                    <!----> <!----> <!----> </div>
+                                    {% else %}
                                 <div _ngcontent-c19="" class="status-box fn-clear safe-status-ok">
                                     <div _ngcontent-c19="" class="safe-center-title"><h3 _ngcontent-c19="">邮箱验证</h3>
                                     </div> <!----> <!----> <!----> <!----> <!----><p _ngcontent-c19="">
                                     您验证的邮箱：{{ urz.email }}</p> <!---->
                                     <div _ngcontent-c19="" class="safe-todo"><a _ngcontent-c19="" href="{% url 'operate:changeemail' %}">修改</a></div>
                                 </div>
+                                    {% endif %}
+                                        {% if quest != '' %}
                                 <div _ngcontent-c19="" class="status-box status-box-last fn-clear safe-status-warning">
                                     <div _ngcontent-c19="" class="safe-center-title"><h3 _ngcontent-c19="">安全问题</h3>
                                     </div>
                                     <p _ngcontent-c19="">未设置安全问题。</p>
-                                    <div _ngcontent-c19="" class="safe-todo"><a _ngcontent-c19="">现在设置</a></div>
+                                    <div _ngcontent-c19="" class="safe-todo"><a _ngcontent-c19="" href = '{% url 'operate:settingqst' %}'>现在设置</a></div>
                                 </div>
-                            </section>
+                                        {% else %}
+                                    <div _ngcontent-c19="" class="status-box status-box-last fn-clear safe-status-ok">
+                                        <div _ngcontent-c19="" class="safe-center-title"><h3 _ngcontent-c19="">安全问题</h3>
+                                        </div>
+                                        <p _ngcontent-c19="">已设置安全问题。</p>
+                                        <div _ngcontent-c19="" class="safe-todo"><a _ngcontent-c19="" href="{% url 'operate:settingqst' %}">修改</a></div>
+                                    </div>
+                                        {% endif %}
+                                    </section>
                                 {% endif %}
                             {% endfor %}
                         </div> <!----></ng-component>

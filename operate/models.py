@@ -10,7 +10,11 @@ class User(models.Model):
     phone = models.CharField(unique=True, max_length=50)                         #电话号码
     email = models.CharField(max_length=100, blank=True, null=True)  #邮箱
     portrait = models.CharField(max_length=255,null=True)                      #头像
+<<<<<<< HEAD
     admin=models.IntegerField()
+=======
+
+>>>>>>> 132952560b5c6d697e8ce251bef64ace77bcda84
     class Meta:
         db_table = 'user'
 
@@ -59,6 +63,7 @@ class Orderform(models.Model):
 
     class Meta:
         db_table = "orderform"
+
 #购物车
 class Shopping(models.Model):
     sid = models.AutoField(primary_key=True)         #购物车id
@@ -74,6 +79,24 @@ class Shopping(models.Model):
     class Meta:
         db_table = "shopcar"
 
+
+# 安全问题表
+class Question(models.Model):
+    id = models.IntegerField(primary_key=True)
+    question = models.CharField(max_length=50, blank=True, null=True)
+
+    class Meta:
+        db_table = 'question'
+
+
+# 用户个人安全问题设置
+class Questionsafe(models.Model):
+    uid = models.IntegerField(blank=True, null=True)
+    questionnum = models.IntegerField(blank=True, null=True)
+    answer = models.CharField(max_length=255, blank=True, null=True)
+
+    class Meta:
+        db_table = 'questionsafe'
 
 
 

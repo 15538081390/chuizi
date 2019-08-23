@@ -21,5 +21,7 @@ urlpatterns =[
     url(r"user/changename", views.changename, name = 'changename'),
     url(r"user/changepsd", views.changepsd, name = 'changepsd'),
     url(r"user/changeemail", views.changeemail, name = 'changeemail'),
+    url(r"user/settingqst", views.settingqst, name='settingqst'),
+
 ]
 
