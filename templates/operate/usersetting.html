@@ -7689,7 +7689,7 @@
                                 <div _ngcontent-c19="" class="status-box status-box fn-clear safe-status-ok">
                                     <div _ngcontent-c19="" class="safe-center-title"><h3 _ngcontent-c19="">手机验证</h3>
                                     </div> <!----> <!----><p _ngcontent-c19="">您验证的手机：{{ urz.phone }}</p>
-                                    <div _ngcontent-c19="" class="safe-todo"><a _ngcontent-c19="" href="">修改</a></div>
+                                    <div _ngcontent-c19="" class="safe-todo"><a _ngcontent-c19="" href="{% url 'operate:safecheck' %}">修改</a></div>
                                 </div>
                                 <div _ngcontent-c19="" class="status-box safe-status-ok fn-clear">
                                     <div _ngcontent-c19="" class="safe-center-title"><h3 _ngcontent-c19="">登录密码</h3>
@@ -7711,7 +7711,7 @@
                                     <div _ngcontent-c19="" class="safe-todo"><a _ngcontent-c19="" href="{% url 'operate:changeemail' %}">修改</a></div>
                                 </div>
                                     {% endif %}
-                                        {% if quest != '' %}
+                                        {% if not quest %}
                                 <div _ngcontent-c19="" class="status-box status-box-last fn-clear safe-status-warning">
                                     <div _ngcontent-c19="" class="safe-center-title"><h3 _ngcontent-c19="">安全问题</h3>
                                     </div>

@@ -1,17 +1,12 @@
 # coding=utf-8
-import datetime
 from urllib import request
 
-from alipay import AliPay
 from django.db.models import Count,Min,Max
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
 
 from App.models import *
-from django_chuizi.settings import *
 from operate.models import *
 import random
 
@@ -37,12 +32,11 @@ def index(request):
             for a1 in a:
                 c.append(a1)
             a=[]
-    shopcars=Shopping.objects.all()
+
     return render(request,"App/bash/bash.html",context={"home":home,
                                                         "tab":tab,
                                                         "products":c,
-                                                        'user':user,
-                                                        'shopcars':shopcars})
+                                                        'user':user},)
 
 
     # return HttpResponse("111111")
@@ -178,6 +172,7 @@ def joinshopcar(request):
 
 def deletecar(request):
     id=request.POST['value']
+
     Shopping.objects.filter(sid=id).delete()
     user=User.objects.filter(username=request.session.get('username'))
     shopcar = Shopping.objects.filter(uid=user[0].uid)
@@ -185,8 +180,8 @@ def deletecar(request):
 
 def pay1(request,mid):
     if request.session.get('username'):
-        user=User.objects.get(username=request.session.get('username'))
         product=Merchandise.objects.get(mid=mid)
+
         addrs=Getaddr.objects.filter(username=request.session['username'])
         tab = IndexTab.objects.all()
 
@@ -205,142 +200,7 @@ def save(request):
 
 def deleteaddr(request):
     id=request.POST['id']
+    print (id)
     Getaddr.objects.get(gid=id).delete()
     return HttpResponse('删除成功')
-
-@api_view(["GET","POST"])
-def payover(request):
-    if request.method=='POST':
-
-        remarks = request.POST['remarks']
-        price = request.POST['price']
-
-        alipay = AliPay(
-            appid=ALI_APP_ID,
-            app_notify_url=None,  # 默认回调url
-            app_private_key_string=APP_PRIVATE_KEY,
-            # 支付宝的公钥，验证支付宝回传消息使用，不是你自己的公钥,
-            alipay_public_key_string=ALIPAY_PBULIC_KEY,
-            sign_type="RSA2",  # RSA 或者 RSA2
-            debug=False  # 默认False
-        )
-
-        order_string = alipay.api_alipay_trade_page_pay(
-            out_trade_no="2019061900100",
-            total_amount=price,
-            subject="Movie",
-            return_url="http://localhost:8000",
-            # notify_url="http://localhost:8000/mine/index"  # 可选, 不填则使用默认notify url
-        )
-        print(order_string)
-
-        # 支付宝网关
-        net = "https://openapi.alipaydev.com/gateway.do?"
-        url = net + order_string
-        data = {
-            "msg": "ok",
-            "status": 200,
-            "data": {
-                "pay_url": net + order_string
-            }
-        }
-
-        bianhao=str(datetime.datetime.now().strftime('%Y%m%d%H%M%S'))+str(random.randint(100,999))
-        shop=Merchandise.objects.get(mid=request.POST['id'])
-        addr = Getaddr.objects.get(username=request.session['username'], etc=1)
-        bill = Bill(user=request.session['username'], phone=addr.phone, addr=addr.fulladdr, street=addr.street,summoney2=shop.money,
-                    time=datetime.datetime.now(), bianhao=bianhao, state='以下单,未付款', remarks=remarks,picture=shop.picture,sum=1,summoney=shop.money,name=shop.mername,price=shop.money)
-        bill.save()
-
-        return render(request,'App/shopping/paymoney.html',locals())
-
-
-
-def payover2(request):
-    if request.method=='POST':
-        products=request.POST.getlist('products')
-        addr = Getaddr.objects.get(username=request.session['username'], etc=1)
-        remarks = request.POST['remarks']
-        price = request.POST['price']
-        alipay = AliPay(
-            appid=ALI_APP_ID,
-            app_notify_url=None,  # 默认回调url
-            app_private_key_string=APP_PRIVATE_KEY,
-            # 支付宝的公钥，验证支付宝回传消息使用，不是你自己的公钥,
-            alipay_public_key_string=ALIPAY_PBULIC_KEY,
-            sign_type="RSA2",  # RSA 或者 RSA2
-            debug=False  # 默认False
-        )
-
-        order_string = alipay.api_alipay_trade_page_pay(
-            out_trade_no="2019061900100",
-            total_amount=price,
-            subject="Movie",
-            return_url="http://localhost:8000",
-            # notify_url="http://localhost:8000/mine/index"  # 可选, 不填则使用默认notify url
-        )
-        print(order_string)
-
-        # 支付宝网关
-        net = "https://openapi.alipaydev.com/gateway.do?"
-        url = net + order_string
-        data = {
-            "msg": "ok",
-            "status": 200,
-            "data": {
-                "pay_url": net + order_string
-            }
-        }
-
-        bianhao=str(datetime.datetime.now().strftime('%Y%m%d%H%M%S'))+str(random.randint(100,999))
-        for p in products:
-            shop=Shopping.objects.get(sid=p)
-            bill = Bill(user=request.session['username'], phone=addr.phone, addr=addr.fulladdr, street=addr.street,summoney2=price,
-                        time=datetime.datetime.now(), bianhao=bianhao , state='以下单,未付款', remarks=remarks,picture=shop.picture,sum=shop.sum,summoney=shop.summoney,name=shop.name,price=shop.price)
-            bill.save()
-            shop.delete()
-
-
-
-        print(remarks,price)
-        return render(request,'App/shopping/paymoney.html',locals())
-
-
-@api_view(["GET","POST"])
-def ali_buy(request,price):
-    # order_no = "2019082102983"
-
-    alipay = AliPay(
-        appid=ALI_APP_ID,
-        app_notify_url=None,  # 默认回调url
-        app_private_key_string=APP_PRIVATE_KEY,
-        # 支付宝的公钥，验证支付宝回传消息使用，不是你自己的公钥,
-        alipay_public_key_string=ALIPAY_PBULIC_KEY,
-        sign_type="RSA2",  # RSA 或者 RSA2
-        debug=False  # 默认False
-    )
-
-    order_string = alipay.api_alipay_trade_page_pay(
-        out_trade_no="2019061900100",
-        total_amount=price,
-        subject="Movie",
-        return_url="http://localhost:8000",
-        # notify_url="http://localhost:8000/mine/index"  # 可选, 不填则使用默认notify url
-    )
-    print(order_string)
-
-    # 支付宝网关
-    net = "https://openapi.alipaydev.com/gateway.do?"
-    url = net + order_string
-    data = {
-        "msg": "ok",
-        "status": 200,
-        "data": {
-            "pay_url": net + order_string
-        }
-    }
-
-    return HttpResponse(url)
-
-
 

@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'App',
     'operate',
     'smartisan_manage',
-    'rest_framework'
 ]
 
 
@@ -140,6 +139,17 @@ SALTVALUE = '9a15ae9f'
 # 设置图片上传路径
 MDEIA_ROOT = os.path.join(BASE_DIR,'static/usrpic/')
 
+# smtp服务的邮箱服务器器
+EMAIL_HOST = 'smtp.126.com'
+# smtp服务固定的端口口是25
+EMAIL_PORT = 25
+#发送邮件的邮箱
+EMAIL_HOST_USER = 'cn1yzz@126.com'
+#在邮箱中设置的客户端授权密码
+EMAIL_HOST_PASSWORD = 'zhangzy0328'
+#收件人人看到的发件人 <此处要和发送邮件的邮箱相同>
+EMAIL_FROM = 'hello<cn1yzz@126.com>'
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
@@ -154,8 +164,3 @@ SMSCONFIG = {
     'SignName':'djangoenv',
     'TemplateCode':'SMS_172205983',
 }
-
-# 支付宝支付
-APP_PRIVATE_KEY = open(os.path.join(BASE_DIR,'alipay/app_private_key.pem')).read()
-ALIPAY_PBULIC_KEY = open(os.path.join(BASE_DIR,'alipay/alipay_public_key.pem')).read()
-ALI_APP_ID = '2016101200669379'

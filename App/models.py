@@ -82,28 +82,6 @@ class Merchandise(models.Model):
     class Meta:
         managed = False
         db_table = 'merchandise'
-#订单表
-class Bill(models.Model):
-    idbill = models.AutoField(primary_key=True)
-    user = models.CharField(max_length=255, blank=True, null=True)
-    phone = models.CharField(max_length=255, blank=True, null=True)
-    addr = models.CharField(max_length=255, blank=True, null=True)
-    street = models.CharField(max_length=255, blank=True, null=True)
-    time = models.DateTimeField(blank=True, null=True)
-    state = models.CharField(max_length=255, blank=True, null=True)
-    remarks = models.CharField(max_length=255, blank=True, null=True)
-    picture = models.CharField(max_length=255, blank=True, null=True)
-    sum = models.IntegerField()
-    summoney=models.FloatField()
-    name=models.CharField(max_length=255, blank=True, null=True)
-    price=models.FloatField()
-    bianhao=models.CharField(max_length=255, blank=True, null=True)
-    summoney2=models.FloatField()
-    class Meta:
-        managed = False
-        db_table = 'bill'
-
-
 
 
 #产品细分
