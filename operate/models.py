@@ -10,8 +10,7 @@ class User(models.Model):
     phone = models.CharField(unique=True, max_length=50)                         #电话号码
     email = models.CharField(max_length=100, blank=True, null=True)  #邮箱
     portrait = models.CharField(max_length=255,null=True)                      #头像
-    safeqnum = models.IntegerField(blank=True, null=True)             # 安全问题的序号
-    answer = models.CharField(max_length=100, blank=True, null=True)  # 安全问题的答案
+    admin=models.IntegerField()
     class Meta:
         db_table = 'user'
 
@@ -27,6 +26,25 @@ class Getaddr(models.Model):
     name=models.CharField(max_length=50,null=True)
     class Meta:
         db_table = 'getaddr'
+
+class Questionsafe(models.Model):
+    uid = models.IntegerField(blank=True, null=True)
+    questionnum = models.IntegerField(blank=True, null=True)
+    answer = models.CharField(max_length=255, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'questionsafe'
+
+class Question(models.Model):
+    id = models.IntegerField(primary_key=True)
+    question = models.CharField(max_length=50, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'question'
+
+
 
 #购物清单表
 class Orderform(models.Model):
@@ -49,6 +67,8 @@ class Shopping(models.Model):
     picture=models.CharField(max_length=255,null=True)
     name=models.CharField(max_length=255,null=True)
     price=models.IntegerField()
+    sum=models.IntegerField()
+    summoney = models.FloatField()
 
 
     class Meta:

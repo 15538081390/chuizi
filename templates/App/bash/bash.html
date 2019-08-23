@@ -4946,12 +4946,14 @@
                             </div>
                         </li> <!---->
                         {% endif %}
+
                     <sm-nav-cart _ngcontent-c1="" _nghost-c4="">
+
                         <li _ngcontent-c4="" class="nav-cart theme-black-default">
-                            {% if 'username' not in request.session %}
+
                             <a _ngcontent-c4="" href="{% url 'operate:login' %}">
                             <span _ngcontent-c4="" class="cart-tip"></span> </a>
-                            {% else %}
+
                             <a _ngcontent-c4="" href="{% url 'operate:smartisan' %}">
                             <span _ngcontent-c4="" class="cart-tip"></span> </a>
                             <div _ngcontent-c4="" class="nav-cart-wrapper">
@@ -4961,7 +4963,7 @@
                                             <p _ngcontent-c4="">您还没有选购任何商品，现在前往商城选购吧！</p></div> <!----> </div>
                                 </div>
                             </div>
-                            {% endif %}
+
                             <div _ngcontent-c4="" class="addcart-mask">
                                 <div _ngcontent-c4="" class="mask-y">
                                     <div _ngcontent-c4="" class="mask-x">
@@ -4970,7 +4972,12 @@
                                 </div>
                             </div>
                         </li>
+
                     </sm-nav-cart>
+
+
+
+
                 </ul>
             </div>
         </div>
