@@ -10,11 +10,8 @@ class User(models.Model):
     phone = models.CharField(unique=True, max_length=50)                         #电话号码
     email = models.CharField(max_length=100, blank=True, null=True)  #邮箱
     portrait = models.CharField(max_length=255,null=True)                      #头像
-<<<<<<< HEAD
     admin=models.IntegerField()
-=======
 
->>>>>>> 132952560b5c6d697e8ce251bef64ace77bcda84
     class Meta:
         db_table = 'user'
 
@@ -31,22 +28,6 @@ class Getaddr(models.Model):
     class Meta:
         db_table = 'getaddr'
 
-class Questionsafe(models.Model):
-    uid = models.IntegerField(blank=True, null=True)
-    questionnum = models.IntegerField(blank=True, null=True)
-    answer = models.CharField(max_length=255, blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'questionsafe'
-
-class Question(models.Model):
-    id = models.IntegerField(primary_key=True)
-    question = models.CharField(max_length=50, blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'question'
 
 
 
@@ -92,8 +73,12 @@ class Question(models.Model):
 # 用户个人安全问题设置
 class Questionsafe(models.Model):
     uid = models.IntegerField(blank=True, null=True)
-    questionnum = models.IntegerField(blank=True, null=True)
-    answer = models.CharField(max_length=255, blank=True, null=True)
+    question1 = models.IntegerField(blank=True, null=True)
+    answer1 = models.CharField(max_length=255, blank=True, null=True)
+    question2 = models.IntegerField(blank=True, null=True)
+    answer2 = models.CharField(max_length=255, blank=True, null=True)
+    question3 = models.IntegerField(blank=True, null=True)
+    answer3 = models.CharField(max_length=255, blank=True, null=True)
 
     class Meta:
         db_table = 'questionsafe'

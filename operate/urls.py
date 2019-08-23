@@ -9,8 +9,11 @@ urlpatterns =[
     url(r"^login/register/$", views.register, name = 'register'),
     url(r"^smartisan/$",views.smartisan,name="smartisan"),
     url(r"^code/$", views.code, name="code"),
+
     url(r"^money/$",views.money,name="money"),
+
     url(r"^payment/$",views.payment,name="payment"),
+
     url(r"^user/orderlist$", views.userform, name = 'orderlist'),
     url(r"^user/aftersale$", views.aftersale, name = 'aftersale'),
     url(r"^user/coupon$", views.coupon, name = 'coupon'),
