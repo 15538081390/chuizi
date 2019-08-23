@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'App',
     'operate',
     'smartisan_manage',
+    'rest_framework'
 ]
 
 
@@ -153,3 +154,8 @@ SMSCONFIG = {
     'SignName':'djangoenv',
     'TemplateCode':'SMS_172205983',
 }
+
+# 支付宝支付
+APP_PRIVATE_KEY = open(os.path.join(BASE_DIR,'alipay/app_private_key.pem')).read()
+ALIPAY_PBULIC_KEY = open(os.path.join(BASE_DIR,'alipay/alipay_public_key.pem')).read()
+ALI_APP_ID = '2016101200669379'

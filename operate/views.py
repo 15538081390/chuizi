@@ -54,19 +54,33 @@ def money(request):                             #san = 商品id
     tab = IndexTab.objects.all()  # 板块
     shopcar = Shopping.objects.all()
     buy=request.POST.getlist('shure')
-
     print (buy)
     whichone=Merchandise.objects.filter(mid__in=buy)
     print (whichone)
     for i in whichone:
         s1=request.POST.get(str('text1'+str(i.mid)))
-        print (s1)
-
-    # money=0.0
-    # for i in whichone:
-    #     m1=request.POST.get(str(i.mid))
-    #     money+=float(m1)
-    # print (money)
+        user=User.objects.get(username=request.session['username'])
+        product=Shopping.objects.get(mid=i.mid,uid=user.uid)
+        product.sum=s1
+        product.save()
+    for j in whichone:
+        m1=request.POST.get(str(j.mid))
+        user = User.objects.get(username=request.session['username'])
+        product = Shopping.objects.get(mid=j.mid,uid=user.uid)
+        print (product)
+        product.summoney = m1
+        product.save()
+    user = User.objects.get(username=request.session['username'])
+    products=Shopping.objects.filter(uid=user.uid,mid__in=buy)
+    gouid=[]
+    for pp in products:
+        gouid.append(pp.sid)
+    sum=0
+    sumprice=0
+    for p in products:
+        sum+=p.sum
+        sumprice+=p.summoney
+    addrs=Getaddr.objects.filter(username=request.session['username'])
     return render(request, "App/shopping/pay2.html", locals())
 
 

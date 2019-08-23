@@ -8210,7 +8210,7 @@
                                                         cache: false,
                                                         success: function (result, statues, xml) {
                                                             alert(result)
-                                                             window.location.href='{% url 'app:pay1' mid=product.mid %}';
+                                                             window.location.href='{% url 'operate:money'  %}';
                                                         },
                                                         error: function () {
                                                             alert("false");
@@ -8419,7 +8419,20 @@
                     </div>
                 </div> <!---->
 
+    <div _ngcontent-c15="" class="gray-box invoice-box">
+                    <div _ngcontent-c15="" class="title"><span _ngcontent-c15="">备注信息</span></div>
 
+                        <div _ngcontent-c15="" class="module-form-row form-email"><p _ngcontent-c15=""
+                                                                                     class="form-title">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp备注：</p>
+                            <div _ngcontent-c15="" class="module-form-item-wrapper  fn-clear"> <!----><i
+                                    _ngcontent-c15="">填写邮箱、及时接收发票信息</i> <input _ngcontent-c15=""
+                                                                               class="ng-untouched ng-pristine ng-valid"
+                                                                               id="remarks" type="text">
+                                <div _ngcontent-c15="" class="verify-error"></div>
+                            </div>
+                        </div>
+
+                </div>
                 <div _ngcontent-c15="" class="gray-box" id="cart_box">
                     <div _ngcontent-c15="" class="title"><span _ngcontent-c15="">购物清单</span></div>
                     <div _ngcontent-c15="" class="box-inner"> <!---->
@@ -8428,7 +8441,7 @@
                                     _ngcontent-c15="" class="name">商品信息</span> <span _ngcontent-c15="" class="subtotal">应付金额</span>
                                 <span _ngcontent-c15="" class="num">数量</span> <span _ngcontent-c15=""
                                                                                     class="price">单价</span></div>
-                            {% for product in whichone %}
+                            {% for product in products %}
                             <div _ngcontent-c15="" class="cart-table">
                                 <div _ngcontent-c15="" class="item-list"> <!---->
                                     <div _ngcontent-c15="" class="cart-group"> <!---->
@@ -8440,26 +8453,26 @@
                                                             <div _ngcontent-c18="" class="items-thumb"><img
                                                                     _ngcontent-c18="" height="80" width="80"
                                                                     src="{{ product.picture }}"
-                                                                    alt="{{ product.mername }}"> <!----> <!---->
+                                                                    alt="{{ product.name }}"> <!----> <!---->
                                                                 <!----> <a _ngcontent-c18=""
-                                                                           title="{{ product.mername }}"></a>
+                                                                           title="{{ product.name }}"></a>
                                                             </div>
                                                             <div _ngcontent-c18="" class="name hide-row">
                                                                 <div _ngcontent-c18=""
                                                                      class="name-table {&#39;package&#39;: !!item.isPackage}"
                                                                      ngclass="{&#39;package&#39;: !!item.isPackage}"><a
                                                                         _ngcontent-c18=""
-                                                                        title="{{ product.mername }}">{{ product.mername }}</a>
+                                                                        title="{{ product.name }}">{{ product.name }}</a>
                                                                     <!----> <!----></div>
                                                             </div>
                                                             <div _ngcontent-c18=""> <!----> <!---->
                                                                 <div _ngcontent-c18="" class="subtotal reduction-price">
                                                                     <p _ngcontent-c18="" class="discount"><i>¥</i>
-                                                                        <span>{{ product.money }}</span></p>
+                                                                        <span>{{ product.summoney }}</span></p>
                                                                 </div>
-                                                                <div _ngcontent-c18="" class="item-cols-num"> 1</div>
+                                                                <div _ngcontent-c18="" class="item-cols-num"> {{product.sum}}</div>
                                                                 <div _ngcontent-c18="" class="price"><i>¥</i>
-                                                                    <span>{{ product.money }}</span>
+                                                                    <span>{{ product.price }}</span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -8480,11 +8493,11 @@
                         <div _ngcontent-c15="" class="detail-box item-box">
                             <div _ngcontent-c15="" class="count item-box">
                                 <div _ngcontent-c15="" class="head">商品件数</div>
-                                <div _ngcontent-c15="" class="number">1</div>
+                                <div _ngcontent-c15="" class="number">{{sum}}</div>
                             </div>
                             <div _ngcontent-c15="" class="total-price item-box">
                                 <div _ngcontent-c15="" class="head">商品总价</div>
-                                <div _ngcontent-c15="" class="money">¥ {{ product.money }}</div>
+                                <div _ngcontent-c15="" class="money">¥ {{ sumprice }}</div>
                             </div>
                             <div _ngcontent-c15="" class="discount item-box">
                                 <div _ngcontent-c15="" class="head">活动优惠</div> <!---->
@@ -8500,11 +8513,36 @@
                         </div>
                         <div _ngcontent-c15="" class="checkout-box">
                             <div _ngcontent-c15="" class="prices">应付总额： <span _ngcontent-c15="" class="symbol">￥</span>
-                                <span _ngcontent-c15="">{{ product.money }}</span></div>
-                            <div _ngcontent-c15="" class="payment-blue-btn"><a _ngcontent-c15="">提交订单</a></div>
+                                <span _ngcontent-c15="">{{ sumprice }}</span></div>
+                            <button _ngcontent-c15="" id="rebutton" class="payment-blue-btn"><a _ngcontent-c15="">提交订单</a></button>
                         </div>
                     </div>
                 </div>
+            <script>
+                                                   $('#rebutton').click(function () {
+                                                    var remarks = $('#remarks').val()
+                                                       var price={{ sumprice }}
+                                                       var list={{ gouid }}
+                                                    $.ajax({
+                                                        type: "POST",
+                                                        data: {remarks: remarks,price:price,products:list},
+                                                        traditional: true,
+                                                        url: "{% url 'app:payover2' %}",
+                                                        cache: false,
+                                                        success: function (result, statues, xml) {
+                                                            $('.page-cart').html(result)
+                                                            $('.fix-bar-wrapper').html(' ')
+                                                        },
+                                                        error: function () {
+                                                            alert("false");
+                                                        }
+
+                                                    })
+                                                })
+
+
+                                </script>
+
                 <dialog-prompt _ngcontent-c15="" class="describ-prompt ng-tns-c11-17" _nghost-c11="">
                     <modal-container _ngcontent-c11="" class="ng-tns-c11-17 ng-tns-c13-19" _nghost-c13="">
                         <div _ngcontent-c13="" class="shadow ng-trigger ng-trigger-animationState"
