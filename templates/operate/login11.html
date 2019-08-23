@@ -20,8 +20,10 @@
 		<div class="login">
 			<div class="login_center">
 				<div class="login_top">
-					<div class="left fl">用户登录</div>
-					<div class="right fr">还未拥有锤子ID<a href="{% url 'operate:register' %}" target="_self">立即注册</a></div>
+                    <form method = "post">
+                    <div class="left fl">用户登录 <a style="font-size: 2px; color: red;" href="{% url 'operate:forgetpsdphone' %}">忘记密码</a></div>
+					</form>
+                    <div class="right fr">还未拥有锤子ID<a href="{% url 'operate:register' %}" target="_self">立即注册</a></div>
 					<div class="clear"></div>
 					<div class="xian center"></div>
 				</div>
@@ -58,7 +60,7 @@ $(function(){
 		var error2 = document.querySelector('.error2');
 		var error3 = document.querySelector('.error3');
 		if (data.userphone == ''){
-		    error1.innerHTML='帐号不能为空!';
+		    error1.innerHTML='手机号不能为空!';
             return false;
         }
 		if (!(/^1[3|4|5|7|8]\d{9}$/.test(data.userphone))) {
@@ -77,6 +79,7 @@ $(function(){
             error3.innerHTML = '请正确输入验证码';
             return false;
         }
+
           $.ajax({
                     type:"POST",
                     data: {phone:data.userphone,code:data.code,password:data.password},
@@ -88,6 +91,7 @@ $(function(){
                             alert(result);
                             window.location.href='{% url 'operate:login' %}';
                         }
+
                     },
                     error: function(){
                         alert("false");

@@ -8142,7 +8142,7 @@
         <router-outlet _ngcontent-c0=""></router-outlet>
         <shopping-cart _nghost-c15="" class=""><!---->
             <div _ngcontent-c15="" class="page-cart">
-                <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+ <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
 
                 <div _ngcontent-c15="" class="gray-box address-box">
                     <div _ngcontent-c15="" class="title"><span _ngcontent-c15="">收货信息</span></div>
@@ -8164,10 +8164,10 @@
                                                     <span _ngcontent-c16="" class="delete-btn" id="dele{{ addr.gid }}"
                                                           value="{{ addr.gid }}">删除</span></div>
                                             </li> <!---->
-                                            <script>
+                                               <script>
                                                 $('#dele{{ addr.gid }}').click(function () {
-                                                    var id = $('#dele{{ addr.gid }}').val()
-                                                    console.log(id)
+                                                        var id=$('#dele{{ addr.gid }}').val()
+                                                        console.log(id)
                                                     $.ajax({
                                                         type: "POST",
                                                         data: {id: id},
@@ -8176,7 +8176,6 @@
                                                         cache: false,
                                                         success: function (result, statues, xml) {
                                                             alert(result)
-                                                            window.location.href = '{% url 'app:pay1' mid=product.mid %}';
                                                         },
                                                         error: function () {
                                                             alert("false");
@@ -8199,9 +8198,9 @@
                                                     <span _ngcontent-c16="" class="delete-btn" id="dele{{ addr.gid }}"
                                                           value="{{ addr.gid }}">删除</span></div>
                                             </li> <!---->
-                                            <script>
+                                                   <script>
                                                 $('#dele{{ addr.gid }}').click(function () {
-                                                    var id = {{addr.gid}}
+                                                        var id={{addr.gid}}
                                                         console.log(id)
                                                     $.ajax({
                                                         type: "POST",
@@ -8211,7 +8210,7 @@
                                                         cache: false,
                                                         success: function (result, statues, xml) {
                                                             alert(result)
-                                                            window.location.href = '{% url 'app:pay1' mid=product.mid %}';
+                                                             window.location.href='{% url 'app:pay1' mid=product.mid %}';
                                                         },
                                                         error: function () {
                                                             alert("false");
@@ -8420,20 +8419,6 @@
                     </div>
                 </div> <!---->
 
-                <div _ngcontent-c15="" class="gray-box invoice-box">
-                    <div _ngcontent-c15="" class="title"><span _ngcontent-c15="">备注信息</span></div>
-
-                        <div _ngcontent-c15="" class="module-form-row form-email"><p _ngcontent-c15=""
-                                                                                     class="form-title">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp备注：</p>
-                            <div _ngcontent-c15="" class="module-form-item-wrapper  fn-clear"> <!----><i
-                                    _ngcontent-c15="">填写邮箱、及时接收发票信息</i> <input _ngcontent-c15=""
-                                                                               class="ng-untouched ng-pristine ng-valid"
-                                                                               id="remarks" type="text">
-                                <div _ngcontent-c15="" class="verify-error"></div>
-                            </div>
-                        </div>
-
-                </div>
 
                 <div _ngcontent-c15="" class="gray-box" id="cart_box">
                     <div _ngcontent-c15="" class="title"><span _ngcontent-c15="">购物清单</span></div>
@@ -8514,36 +8499,7 @@
                         <div _ngcontent-c15="" class="checkout-box">
                             <div _ngcontent-c15="" class="prices">应付总额： <span _ngcontent-c15="" class="symbol">￥</span>
                                 <span _ngcontent-c15="">{{ product.money }}</span></div>
-
-                            <button _ngcontent-c15="" id="rebutton" value="" class="payment-blue-btn"><a
-                                     _ngcontent-c15="">提交订单</a></button>
-                                <script>
-                                                   $('#rebutton').click(function () {
-                                                    var remarks = $('#remarks').val()
-                                                       var price={{ product.money }}
-                                                           var id ={{ product.mid }}
-                                                    console.log(remarks,price)
-                                                       console.log('aaa')
-                                                    $.ajax({
-                                                        type: "POST",
-                                                        data: {remarks: remarks,price:price,id:id},
-                                                        traditional: true,
-                                                        url: "{% url 'app:payover'  %}",
-                                                        cache: false,
-                                                        success: function (result, statues, xml) {
-                                                            $('.page-cart').html(result)
-
-                                                        },
-                                                        error: function () {
-                                                            alert("false");
-                                                        }
-
-                                                    })
-                                                })
-
-
-                                </script>
-
+                            <div _ngcontent-c15="" class="payment-blue-btn"><a _ngcontent-c15="">提交订单</a></div>
                         </div>
                     </div>
                 </div>

@@ -25,6 +25,15 @@ urlpatterns =[
     url(r"user/changepsd", views.changepsd, name = 'changepsd'),
     url(r"user/changeemail", views.changeemail, name = 'changeemail'),
     url(r"user/settingqst", views.settingqst, name='settingqst'),
+    url(r"user/safecheck", views.safecheck, name='safecheck'),
+    url(r"user/phonecheck", views.phonecheck, name='phonecheck'),
+    url(r"user/emailcheck", views.emailcheck, name='emailcheck'),
+    url(r"user/qstcheck", views.qstcheck, name='qstcheck'),
+    url(r"user/phoneinput", views.phoneinput, name='phoneinput'),
+    url(r"user/rephonecheck", views.rephonecheck, name='rephonecheck'),
+    url(r"user/emailcode", views.emailcode, name='emailcode'),
+    url(r"user/forgetpsdphone", views.forgetpsdphone, name='forgetpsdphone'),
+    url(r"user/forgetpsd", views.forgetpsd, name='forgetpsd'),
 
 ]
 

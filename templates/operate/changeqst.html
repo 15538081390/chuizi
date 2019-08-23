@@ -32,6 +32,7 @@
     <link href="https://static.smartisanos.cn/common/img/favicon_120.png" sizes="120x120" rel="apple-touch-icon">
     <link href="https://static.smartisanos.cn/common/img/favicon_152.png" sizes="152x152" rel="apple-touch-icon">
     <link rel="stylesheet" href="{% static 'css/userform/main_1666763a09.css' %}">
+    <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
     <script async="" src="./设置安全问题 - Smartisan_files/gtm.js"></script>
     <script src="./设置安全问题 - Smartisan_files/jweixin-1.3.2.js"></script>
     <script src="./设置安全问题 - Smartisan_files/update-browser.js"></script>
@@ -44,7 +45,7 @@
             <div ng-show="is1111" class="return-btn ng-hide" ng-click="backToLast()"></div>
             <h4 ng-bind="dialogTitle" class="ng-binding">设置安全问题</h4><a class="close"></a></div><!-- ngView:  -->
         <div class="content ng-scope" ng-view="" ng-animate-children="" style="height: auto; opacity: 1;">
-            <form name="form" class="mod-question ng-scope ng-invalid ng-invalid-required ng-invalid-question1 ng-dirty"
+            <form name="form" method="post" class="mod-question ng-scope ng-invalid ng-invalid-required ng-invalid-question1 ng-dirty"
                   novalidate="" autocomplete="off">
                 <dl>
                     <dt>问题一</dt>
@@ -58,34 +59,32 @@
                                                                                          class="ng-animate ng-valid-required ng-dirty ng-valid ng-valid-question1"
                                                                                          style="">
                             <option value="">请选择</option>
-                            <option value="1">你的出生城市是？</option>
-                            <option value="2">你父亲的姓名是？</option>
-                            <option value="3">你父亲的生日是？</option>
-                            <option value="4">你母亲的姓名是？</option>
-                            <option value="5">你母亲的生日是？</option>
-                            <option value="6">你配偶的姓名是？</option>
-                            <option value="7">你配偶的生日是？</option>
-                            <option value="8">你孩子的姓名是？</option>
-                            <option value="9">你小学的学校名称是？</option>
-                            <option value="10">你初中的学校名称是？</option>
-                            <option value="11">你高中的学校名称是？</option>
-                            <option value="12">你的大学学号是？</option>
-                            <option value="13">你的工号是？</option>
+                            {% for nu in quest %}
+                                <option value="{{ nu.id }}">{{ nu.question }}</option>
+                            {% endfor %}
                         </select></div>
                         <div class="input" i-animation="errAnimation.answer1"><span class="placeholder">答案</span> <input
                                 type="text" id="answer1" name="answer1" ng-model="question.answer1" required=""
                                 i-input="" i-focus="" ng-maxlength="20"
-                                class="ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength"> <span
-                                class="warning"
-                                i-warning="form.answer1.$submitted &amp;&amp; form.answer1.$error.required">请输入答案</span>
-                            <span class="warning"
-                                  i-warning="form.answer1.$blurred &amp;&amp; form.answer1.$error.maxlength">输入的内容超长</span>
+                                class="ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength">
+                                 <span class="warning" id = "error1" style="display: none; opacity: 1;"></span>
                         </div>
-                        <div class="tips no-icon" i-show="form.answer1.$focused || answer1_mousedown" i-label="answer1"
-                             style="opacity: 0; display: none;"><span class="delta"></span> <span
+                        <div class="tips no-icon" id = "tip1"  i-show="form.answer1.$focused || answer1_mousedown" i-label="answer1"
+                             style="opacity: 1; display: none;"><span class="delta"></span> <span
                                 class="deltapatch"></span> <span class="warningicon"></span>
                             <div class="verifycon"><p>答案长度1~20位，可以是数字、字母等任意字符</p></div>
                         </div>
+                        <script>
+                            $('#answer1').click(function (){
+                                $('#tip1').css('display','block')
+                            });
+                            var c=document.getElementById('answer1');
+                            var d=document.getElementById('tip1');
+                        c.onmouseout=function(){
+                            d.style.display='none';
+                        }
+
+                        </script>
                     </dd>
                     <dt>问题二</dt>
                     <dd>
@@ -98,33 +97,32 @@
                                                                                          class="ng-pristine ng-animate ng-invalid-required-remove ng-valid-required-add ng-invalid-required-remove-active ng-valid-required ng-valid-required-add-active ng-invalid ng-invalid-question1"
                                                                                          style="">
                             <option value="">请选择</option>
-                            <option value="2">你父亲的姓名是？</option>
-                            <option value="3">你父亲的生日是？</option>
-                            <option value="4">你母亲的姓名是？</option>
-                            <option value="5">你母亲的生日是？</option>
-                            <option value="6">你配偶的姓名是？</option>
-                            <option value="7">你配偶的生日是？</option>
-                            <option value="8">你孩子的姓名是？</option>
-                            <option value="9">你小学的学校名称是？</option>
-                            <option value="10">你初中的学校名称是？</option>
-                            <option value="11">你高中的学校名称是？</option>
-                            <option value="12">你的大学学号是？</option>
-                            <option value="13">你的工号是？</option>
+                            {% for nua in quest %}
+                                <option value="{{ nua.id }}">{{ nua.question }}</option>
+                            {% endfor %}
                         </select></div>
                         <div class="input" i-animation="errAnimation.answer2"><span class="placeholder">答案</span> <input
                                 type="text" id="answer2" name="answer2" ng-model="question.answer2" required=""
                                 i-input="" i-focus="" ng-maxlength="20"
-                                class="ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength"> <span
-                                class="warning"
-                                i-warning="form.answer2.$submitted &amp;&amp; form.answer2.$error.required">请输入答案</span>
-                            <span class="warning"
-                                  i-warning="form.answer2.$blurred &amp;&amp; form.answer2.$error.maxlength">输入的内容超长</span>
+                                class="ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength">
+                                 <span class="warning" id = "error2" style="display: none; opacity: 1;"></span>
                         </div>
-                        <div class="tips no-icon" i-show="form.answer2.$focused || answer2_mousedown" i-label="answer2"
-                             style="opacity: 0; display: none;"><span class="delta"></span> <span
+                        <div class="tips no-icon"  i-show="form.answer2.$focused || answer2_mousedown" i-label="answer2"
+                             style="opacity: 1; display: none;" id="tip2"><span class="delta"></span> <span
                                 class="deltapatch"></span> <span class="warningicon"></span>
                             <div class="verifycon"><p>答案长度1~20位，可以是数字、字母等任意字符</p></div>
                         </div>
+                        <script>
+                            $('#answer2').click(function (){
+                                $('#tip2').css('display','block')
+                            });
+                            var a=document.getElementById('answer2');
+                            var b=document.getElementById('tip2');
+                                a.onmouseout=function(){
+                                    b.style.display='none';
+                                }
+
+                        </script>
                     </dd>
                     <dt>问题三</dt>
                     <dd>
@@ -137,33 +135,32 @@
                                                                                          class="ng-pristine ng-animate ng-invalid-required-remove ng-valid-required-add ng-invalid-required-remove-active ng-valid-required ng-valid-required-add-active ng-invalid ng-invalid-question1"
                                                                                          style="">
                             <option value="">请选择</option>
-                            <option value="2">你父亲的姓名是？</option>
-                            <option value="3">你父亲的生日是？</option>
-                            <option value="4">你母亲的姓名是？</option>
-                            <option value="5">你母亲的生日是？</option>
-                            <option value="6">你配偶的姓名是？</option>
-                            <option value="7">你配偶的生日是？</option>
-                            <option value="8">你孩子的姓名是？</option>
-                            <option value="9">你小学的学校名称是？</option>
-                            <option value="10">你初中的学校名称是？</option>
-                            <option value="11">你高中的学校名称是？</option>
-                            <option value="12">你的大学学号是？</option>
-                            <option value="13">你的工号是？</option>
+                            {% for nub in quest %}
+                                <option value="{{ nub.id }}">{{ nub.question }}</option>
+                            {% endfor %}
                         </select></div>
                         <div class="input" i-animation="errAnimation.answer3"><span class="placeholder">答案</span> <input
                                 type="text" id="answer3" name="answer3" ng-model="question.answer3" required=""
                                 i-input="" i-focus="" ng-maxlength="20"
-                                class="ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength"> <span
-                                class="warning"
-                                i-warning="form.answer3.$submitted &amp;&amp; form.answer3.$error.required">请输入答案</span>
-                            <span class="warning"
-                                  i-warning="form.answer3.$blurred &amp;&amp; form.answer3.$error.maxlength">输入的内容超长</span>
+                                class="ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength">
+                                 <span class="warning" id = "error3" style="display: none; opacity: 1;"></span>
                         </div>
                         <div class="tips no-icon" i-show="form.answer3.$focused || answer3_mousedown" i-label="answer3"
-                             style="opacity: 0; display: none;"><span class="delta"></span> <span
+                             style="opacity: 1; display: none;" id="tip3"><span class="delta"></span> <span
                                 class="deltapatch"></span> <span class="warningicon"></span>
                             <div class="verifycon"><p>答案长度1~20位，可以是数字、字母等任意字符</p></div>
                         </div>
+                        <script>
+                            $('#answer3').click(function (){
+                                $('#tip3').css('display','block')
+                            });
+                            var e=document.getElementById('answer3');
+                            var f=document.getElementById('tip3');
+                                e.onmouseout=function(){
+                                f.style.display='none';
+                            }
+
+                        </script>
                     </dd>
                 </dl>
                 <div class="btn-wrapper">
@@ -218,4 +215,57 @@
     f.parentNode.insertBefore(j, f);
 })(window, document, 'script', 'dataLayer', 'GTM-TBDW8K');</script>
 </body>
+<script type="text/javascript">
+	//提交
+	$("#submit").on("click", function(){
+		var data = {};
+		data.question1 = $.trim($("select[name=question1]").val());
+        data.question2 = $.trim($("select[name=question2]").val());
+        data.question3 = $.trim($("select[name=question3]").val());
+		data.useranswer1 = $.trim($("input[name=answer1]").val());
+		data.useranswer2 = $.trim($("input[name=answer2]").val());
+		data.useranswer3 = $.trim($("input[name=answer3]").val());
+		var error1 = document.getElementById('error1');
+        var error2 = document.getElementById('error2');
+        var error3 = document.getElementById('error3');
+        if (data.question1 != '') {
+            if (data.useranswer1 == '') {
+                $('#error1').css('display', 'inline');
+                error1.innerHTML = '请输入答案!';
+                return false;
+            }
+        }
+        if (data.question2 != '') {
+            if (data.useranswer2 == '') {
+                error2.innerHTML = '请输入答案!';
+                $('#error2').css('display', 'inline');
+                return false;
+            }
+        }
+        if (data.question3 != '') {
+            if (data.useranswer3 == '') {
+                error3.innerHTML = '请输入答案!';
+                $('#error3').css('display', 'inline');
+                return false;
+            }
+        }
+        if (data.question1 == data.question2 || data.question1 == data.question3 || data.question2 == data.question3 || (data.question1 == data.question2 && data.question1 == data.question3))
+        {
+            alert('安全问题选择重复');
+            return false;
+        }
+
+
+        $.ajax({
+	        type:"POST",
+            data: {name:data.userId},
+            url: "{% url 'operate:settingqst' %}",
+            cache: false,
+            dataType: "html",
+
+	        })
+	})
+
+</script>
+<script type="text/javascript">{{script}}('{{wrong}}')</script>
 </html>

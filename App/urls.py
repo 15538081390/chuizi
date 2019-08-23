@@ -23,8 +23,4 @@ urlpatterns =[
     url(r"^pay1/(?P<mid>\d+)/$",views.pay1,name="pay1"),
     url(r"^save/$",views.save,name="save"),
     url(r"^deleteaddr/$", views.deleteaddr, name="deleteaddr"),
-    url(r"^payover/$", views.payover, name="payover"),
-    url(r"^payover2/$", views.payover2, name="payover2"),
-    url(r"^alipay/(\d+)/$",views.ali_buy,name='ali_buy')
-
 ]
